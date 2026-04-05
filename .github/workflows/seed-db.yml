@@ -1,0 +1,25 @@
+name: Seed Database
+
+on:
+  workflow_dispatch:
+
+jobs:
+  seed:
+    name: Seed Neon Database
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run seed script
+        run: node seed.mjs
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
