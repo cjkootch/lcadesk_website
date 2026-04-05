@@ -1,0 +1,80 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import HeroSection from "@/components/HeroSection";
+import CTABanner from "@/components/CTABanner";
+
+const resources = [
+  {
+    href: "/lca-filing-calendar",
+    icon: "\uD83D\uDCC5",
+    title: "LCA Filing Calendar",
+    description: "Key dates and deadlines for all 5 LCA submission types.",
+  },
+  {
+    href: "/lca-act-overview",
+    icon: "\uD83D\uDCCB",
+    title: "LCA Act Overview",
+    description:
+      "Summary of Guyana's Local Content Act 2021 and key provisions.",
+  },
+  {
+    href: "/lca-compliance-guide",
+    icon: "\uD83D\uDCD8",
+    title: "Compliance Guide",
+    description: "Step-by-step guide to preparing your LCA filings.",
+  },
+  {
+    href: "/blog",
+    icon: "\uD83D\uDCF0",
+    title: "Blog",
+    description: "Expert analysis and compliance insights.",
+  },
+];
+
+export default function ResourcesPage() {
+  return (
+    <>
+      <HeroSection
+        eyebrow="Resources"
+        headline="LCA Compliance Resources"
+        sub="Guides, calendars, and reference materials for local content compliance."
+        geometricVariant="grid"
+      />
+
+      <section className="max-w-4xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {resources.map((resource, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+            >
+              <Link
+                href={resource.href}
+                className="block bg-card rounded-xl border p-6 hover:border-accent/30 transition"
+              >
+                <span className="text-2xl">{resource.icon}</span>
+                <h3 className="font-semibold text-lg mt-3 mb-2">
+                  {resource.title}
+                </h3>
+                <p className="text-text-secondary text-sm">
+                  {resource.description}
+                </p>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <CTABanner
+        headline="Ready to simplify LCA compliance?"
+        body="Start your free 14-day trial — full Pro access, no credit card required."
+        primaryCTA={{ label: "Start Free Trial", href: "/signup" }}
+        secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
+      />
+    </>
+  );
+}

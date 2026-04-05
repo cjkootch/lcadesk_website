@@ -1,0 +1,218 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Mail, MapPin, Clock } from "lucide-react";
+import HeroSection from "@/components/HeroSection";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.45, ease: "easeOut" as const },
+  }),
+};
+
+const inputClasses =
+  "w-full rounded-lg border border-border px-4 py-3 bg-card text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent text-text-primary";
+
+const contactInfo = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "hello@lcadesk.com",
+    href: "mailto:hello@lcadesk.com",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Houston, Texas",
+  },
+  {
+    icon: Clock,
+    label: "Response Time",
+    value: "We respond within 24 hours",
+  },
+];
+
+export default function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    inquiryType: "",
+    message: "",
+  });
+
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSubmitted(true);
+  }
+
+  return (
+    <main className="min-h-screen bg-surface">
+      <HeroSection
+        eyebrow="Contact"
+        headline="Get in Touch"
+        sub="Questions about LCA Desk? We'd love to hear from you."
+        geometricVariant="grid"
+      />
+
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left: Contact Form */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            custom={0}
+          >
+            {submitted ? (
+              <div className="bg-card rounded-2xl border border-border p-8 text-center">
+                <p className="text-lg font-semibold text-text-primary mb-2">
+                  Thanks! We&apos;ll be in touch within 24 hours.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={form.name}
+                    onChange={handleChange}
+                    className={inputClasses}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={form.email}
+                    onChange={handleChange}
+                    className={inputClasses}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={form.company}
+                    onChange={handleChange}
+                    className={inputClasses}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">
+                    Inquiry Type
+                  </label>
+                  <select
+                    name="inquiryType"
+                    required
+                    value={form.inquiryType}
+                    onChange={handleChange}
+                    className={inputClasses}
+                  >
+                    <option value="">Select an inquiry type</option>
+                    <option value="product">Product inquiry</option>
+                    <option value="demo">Demo request</option>
+                    <option value="partnership">Partnership / white-label</option>
+                    <option value="waitlist">Nigeria/market waitlist</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    required
+                    rows={5}
+                    value={form.message}
+                    onChange={handleChange}
+                    className={inputClasses}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 rounded-lg text-white font-medium text-sm transition-opacity hover:opacity-90"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #00A87A 0%, #047857 100%)",
+                  }}
+                >
+                  Send Message
+                </button>
+
+                <p className="text-xs text-text-muted">
+                  Interested in the Full Service managed filing plan? Select
+                  &quot;Product inquiry&quot; and tell us your filing volume.
+                </p>
+              </form>
+            )}
+          </motion.div>
+
+          {/* Right: Contact Info Cards */}
+          <div className="space-y-5">
+            {contactInfo.map((item, i) => (
+              <motion.div
+                key={item.label}
+                className="rounded-2xl border border-border p-6 bg-card flex items-start gap-4"
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+                custom={i + 1}
+              >
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                  <item.icon className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-text-muted mb-1">
+                    {item.label}
+                  </p>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="text-text-primary font-medium hover:text-accent transition-colors"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="text-text-primary font-medium">{item.value}</p>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

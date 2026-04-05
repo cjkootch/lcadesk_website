@@ -1,0 +1,29 @@
+# LCA Desk
+
+LCA Desk is the world's first AI-native Local Content Act (LCA) compliance platform for oil and gas sector companies.
+
+## What We Do
+LCA Desk provides software to manage mandatory Local Content Act filings across multiple jurisdictions. Our AI drafts compliance narratives, detects filing gaps, and generates Secretariat-ready reports automatically.
+
+## Primary Market
+Guyana — Local Content Act 2021, Local Content Secretariat, Version 4.1 guidelines. 5 mandatory submission types: H1 Half-Yearly Report (due Jul 30), H2 Half-Yearly Report (due Jan 30), Annual Local Content Plan, Local Content Master Plan, Annual Performance Report.
+
+## Expanding Markets
+Nigeria (NCDMB), Trinidad & Tobago (MEEI PLCC), Ghana (Petroleum Commission), Mozambique (INP), Namibia (Ministry of Mines and Energy).
+
+## Products
+- LCA Desk Software: Self-serve compliance platform. Lite $99/mo + $25/report, Pro $599/mo, Enterprise $1,999/mo.
+- Full Service: Managed filing service from $2,500/month.
+- 14-day free trial, full Pro access, no credit card required.
+
+## AI Features
+- AI Narrative Drafting: Drafts Comparative Analysis Reports from your data
+- Compliance Gap Detection: Pre-submission risk scan
+- Automatic Data Extraction: Upload payroll/procurement docs for AI field extraction
+- Ask the LCA Expert: In-app AI assistant trained on LCA Act and v4.1 guidelines
+
+## Company
+Houston, Texas. Powered by Stabroek Advisory LLC. AI features powered by Claude (Anthropic).
+
+## Contact
+hello@lcadesk.com | lcadesk.com
