@@ -1,0 +1,200 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, Building2, ShieldCheck, Search, FileCheck, Truck, Wrench, HardHat, Utensils, GraduationCap, Stethoscope, Anchor, Globe, Leaf, Monitor, Shield, Trash2, Package } from "lucide-react";
+import { getDb } from "@/lib/db";
+import { sql } from "drizzle-orm";
+import CTABanner from "@/components/CTABanner";
+import GeometricBg from "@/components/GeometricBg";
+
+export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  title: "Supplier Directory | LCS-Certified Guyanese Suppliers",
+  description:
+    "Browse Guyanese suppliers registered on the Local Content Register. Find LCS-certified companies across 14 service categories for oil & gas procurement.",
+};
+
+const categories = [
+  { icon: Building2, name: "Construction & Fabrication", count: 0 },
+  { icon: Truck, name: "Transportation & Logistics", count: 0 },
+  { icon: Wrench, name: "Maintenance & Repair", count: 0 },
+  { icon: HardHat, name: "Engineering & Technical", count: 0 },
+  { icon: Utensils, name: "Catering & Hospitality", count: 0 },
+  { icon: GraduationCap, name: "Training & Development", count: 0 },
+  { icon: Stethoscope, name: "Medical & HSE", count: 0 },
+  { icon: Anchor, name: "Marine & Offshore", count: 0 },
+  { icon: Leaf, name: "Environmental Services", count: 0 },
+  { icon: Monitor, name: "Information Technology", count: 0 },
+  { icon: Globe, name: "Professional Services", count: 0 },
+  { icon: Shield, name: "Security Services", count: 0 },
+  { icon: Trash2, name: "Waste Management", count: 0 },
+  { icon: Package, name: "Equipment Supply & Rental", count: 0 },
+];
+
+async function getSupplierCount(): Promise<number> {
+  try {
+    const db = getDb();
+    const result = await db.execute(
+      sql`SELECT count(DISTINCT contractor_name) as cnt FROM lcs_opportunities WHERE type = 'supplier'`
+    );
+    return Number((result.rows[0] as { cnt: string }).cnt) || 0;
+  } catch {
+    return 0;
+  }
+}
+
+export default async function SuppliersPage() {
+  const supplierCount = await getSupplierCount();
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative pt-32 pb-16 overflow-hidden bg-surface">
+        <GeometricBg variant="grid" />
+        <div className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-accent/[0.05] rounded-full blur-[100px] pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-6 z-10">
+          <div className="inline-flex items-center gap-2 mb-5 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
+            <ShieldCheck size={14} className="text-accent" />
+            <span className="text-accent text-xs font-semibold tracking-wide uppercase">LCS Register Verified</span>
+          </div>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
+            Guyanese{" "}
+            <span className="gradient-text-static">Supplier Directory</span>
+          </h1>
+          <p className="text-lg text-text-secondary max-w-2xl mb-8 leading-relaxed">
+            Browse suppliers registered on the Local Content Register. Contractors are legally required to give first consideration to these Guyanese companies under the LCA 2021.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/suppliers/register"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
+            >
+              Register Your Company <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/opportunities"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
+            >
+              Browse Opportunities
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="relative py-12 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>
+        <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <p className="text-3xl font-bold text-white">{supplierCount || "50+"}</p>
+            <p className="text-emerald-200 text-sm mt-1">Active Contractors</p>
+          </div>
+          <div>
+            <p className="text-3xl font-bold text-white">14</p>
+            <p className="text-emerald-200 text-sm mt-1">Service Categories</p>
+          </div>
+          <div>
+            <p className="text-3xl font-bold text-white">100%</p>
+            <p className="text-emerald-200 text-sm mt-1">LCS Verified</p>
+          </div>
+          <div>
+            <p className="text-3xl font-bold text-white">Weekly</p>
+            <p className="text-emerald-200 text-sm mt-1">Updates</p>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 max-w-7xl mx-auto px-6">
+        <div className="text-center mb-12">
+          <p className="text-accent text-xs font-semibold tracking-widest uppercase mb-2">For Suppliers</p>
+          <h2 className="font-display text-3xl md:text-4xl text-text-primary mb-4">
+            Get Found by Oil Sector Contractors
+          </h2>
+          <p className="text-text-secondary max-w-xl mx-auto">
+            Contractors must demonstrate they searched for Guyanese suppliers before hiring foreign companies. Being listed here puts you in front of them.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            { step: "01", title: "Register Your Company", desc: "Create a free profile with your company details, LCS certificate number, and service categories." },
+            { step: "02", title: "Get LCS Verified", desc: "We verify your Local Content Certificate status directly against the LCS Register. Verified suppliers get priority visibility." },
+            { step: "03", title: "Receive Opportunities", desc: "Get notified when contractors post procurement opportunities matching your service categories." },
+          ].map((item) => (
+            <div key={item.step} className="relative bg-white rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow">
+              <span className="text-5xl font-bold text-accent/10 absolute top-4 right-6">{item.step}</span>
+              <h3 className="font-display text-lg text-text-primary mb-3 mt-2">{item.title}</h3>
+              <p className="text-text-secondary text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="py-20 bg-surface">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-accent text-xs font-semibold tracking-widest uppercase mb-2">Service Categories</p>
+            <h2 className="font-display text-3xl md:text-4xl text-text-primary mb-4">
+              14 LCA Service Categories
+            </h2>
+            <p className="text-text-secondary max-w-xl mx-auto">
+              The Local Content Act defines these categories where Guyanese suppliers must receive first consideration for oil sector contracts.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {categories.map((cat) => (
+              <div key={cat.name} className="flex items-start gap-3 bg-white rounded-xl border border-border p-4 hover:border-accent/30 transition-colors">
+                <cat.icon size={20} className="text-accent mt-0.5 shrink-0" />
+                <span className="text-sm font-medium text-text-primary">{cat.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Legal context */}
+      <section className="py-20 max-w-4xl mx-auto px-6">
+        <div className="text-center mb-10">
+          <p className="text-accent text-xs font-semibold tracking-widest uppercase mb-2">Legal Framework</p>
+          <h2 className="font-display text-3xl text-text-primary mb-4">What the Law Says</h2>
+        </div>
+        <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 space-y-4">
+          <div className="flex items-start gap-3">
+            <FileCheck size={20} className="text-emerald-600 mt-1 shrink-0" />
+            <div>
+              <p className="font-semibold text-text-primary mb-1">Section 22 — First Consideration</p>
+              <p className="text-text-secondary text-sm leading-relaxed">
+                &quot;A contractor, subcontractor, licensee, and any other allied entity shall give first consideration to a Guyanese supplier of goods and services.&quot;
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <Search size={20} className="text-emerald-600 mt-1 shrink-0" />
+            <div>
+              <p className="font-semibold text-text-primary mb-1">Section 23 — Procurement Procedures</p>
+              <p className="text-text-secondary text-sm leading-relaxed">
+                Contractors must advertise procurement opportunities locally and evaluate Guyanese bids on fair and equitable terms before sourcing internationally.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <ShieldCheck size={20} className="text-emerald-600 mt-1 shrink-0" />
+            <div>
+              <p className="font-semibold text-text-primary mb-1">Section 40 — LCS Register</p>
+              <p className="text-text-secondary text-sm leading-relaxed">
+                The Local Content Secretariat maintains a Register of Guyanese suppliers and service providers. Registration is required for first consideration status.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CTABanner
+        headline="Ready to grow your oil sector business?"
+        body="Register on LCA Desk to get matched with procurement opportunities from contractors required to source locally."
+        primaryCTA={{ label: "Register Your Company", href: "/suppliers/register" }}
+        secondaryCTA={{ label: "Browse Opportunities", href: "/opportunities" }}
+      />
+    </>
+  );
+}

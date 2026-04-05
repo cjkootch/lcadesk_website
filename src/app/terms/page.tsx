@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | LCA Desk",
+  description:
+    "Review the terms of service for LCA Desk, the local content compliance platform for Guyana's oil and gas sector.",
+};
 
 export default function TermsPage() {
   return (
