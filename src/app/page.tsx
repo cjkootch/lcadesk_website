@@ -38,7 +38,7 @@ const features = [
 ];
 
 const markets = [
-  { flag: "\u{1F1EC}\u{1F1FE}", name: "Guyana", status: "LIVE", desc: "LCA v4.1 \u00b7 5 submission types \u00b7 GY$50M penalties", cta: "Start Free Trial", href: "/signup" },
+  { flag: "\u{1F1EC}\u{1F1FE}", name: "Guyana", status: "LIVE", desc: "LCA v4.1 \u00b7 5 submission types \u00b7 GY$50M penalties", cta: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" },
   { flag: "\u{1F1F3}\u{1F1EC}", name: "Nigeria", status: "COMING SOON", desc: "NCDMB \u00b7 Nigerian Content Plans \u00b7 5% project value penalties", cta: "Join Waitlist", href: "/markets/nigeria" },
   { flag: "\u{1F1F9}\u{1F1F9}", name: "Trinidad & Tobago", status: "COMING SOON", desc: "MEEI PLCC \u00b7 Local Content Policy \u00b7 EST timezone", cta: "Join Waitlist", href: "/markets/trinidad" },
   { flag: "\u{1F1EC}\u{1F1ED}", name: "Ghana", status: "COMING SOON", desc: "Petroleum Commission \u00b7 LI 2204 regulations", cta: "Join Waitlist", href: "/markets/ghana" },
@@ -66,7 +66,7 @@ export default function HomePage() {
         eyebrow="LOCAL CONTENT ACT COMPLIANCE \u00b7 AI-POWERED \u00b7 GLOBAL"
         headline="The Only Software Built for LCA Compliance."
         sub="LCA Desk manages all five mandatory Local Content Act submissions with AI narrative drafting, compliance gap detection, and one-click Secretariat-ready exports. Built for Guyana. Expanding globally."
-        primaryCTA={{ label: "Start Free 14-Day Trial", href: "/signup" }}
+        primaryCTA={{ label: "Start Free 14-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
         geometricVariant="topology"
         fullHeight
@@ -394,7 +394,7 @@ export default function HomePage() {
       <CTABanner
         headline="Your next LCA filing deadline is closer than you think."
         body="H1 reports are due July 30. H2 reports are due January 30. Start your free 14-day trial — full Pro access, no credit card required."
-        primaryCTA={{ label: "Start Free Trial", href: "/signup" }}
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

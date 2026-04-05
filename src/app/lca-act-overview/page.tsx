@@ -109,7 +109,7 @@ export default function LCAActOverviewPage() {
       <CTABanner
         headline="Stay compliant with the Local Content Act."
         body="LCA Desk manages all five mandatory submissions. Start your free trial today."
-        primaryCTA={{ label: "Start Free Trial", href: "/signup" }}
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>
