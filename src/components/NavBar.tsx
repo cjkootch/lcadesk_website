@@ -50,6 +50,12 @@ export default function NavBar() {
 
         <div className="hidden md:flex items-center gap-3">
           <Link
+            href="https://app.lcadesk.com/auth/login"
+            className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
+          >
+            Log In
+          </Link>
+          <Link
             href="/demo"
             className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
           >
@@ -93,6 +99,13 @@ export default function NavBar() {
                   {l.label}
                 </Link>
               ))}
+              <Link
+                href="https://app.lcadesk.com/auth/login"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
+              >
+                Log In
+              </Link>
               <Link
                 href="/demo"
                 onClick={() => setMobileOpen(false)}
