@@ -277,7 +277,7 @@ export default function HomePage() {
             <Image src="/zapier-logo.svg" alt="Zapier" width={120} height={34} className="h-8 w-auto opacity-70 hover:opacity-100 transition" />
             <Image src="/quickbooks-logo.png" alt="QuickBooks" width={140} height={34} className="h-8 w-auto opacity-70 hover:opacity-100 transition" />
             <Image src="/xero-logo.png" alt="Xero" width={80} height={34} className="h-8 w-auto opacity-70 hover:opacity-100 transition" />
-            <Image src="/claude-logo.png" alt="Claude AI" width={34} height={34} className="h-8 w-auto opacity-70 hover:opacity-100 transition" />
+            <Image src="/claude-logo.png" alt="Claude AI" width={120} height={26} className="h-7 w-auto opacity-70 hover:opacity-100 transition" />
           </motion.div>
         </div>
       </section>

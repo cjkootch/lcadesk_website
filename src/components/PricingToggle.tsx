@@ -229,7 +229,7 @@ export default function PricingToggle() {
 
       {/* Anthropic credibility strip */}
       <div className="bg-gray-800 rounded-2xl p-6 mt-12 max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-        <Image src="/claude-logo.png" alt="Claude by Anthropic" width={44} height={44} className="h-11 w-11 rounded-lg flex-shrink-0" />
+        <Image src="/claude-logo.png" alt="Claude by Anthropic" width={140} height={30} className="h-8 w-auto flex-shrink-0" />
         <div>
           <p className="text-white font-semibold text-sm">Powered by Claude &mdash; Anthropic&apos;s AI</p>
           <p className="text-gray-400 text-sm mt-1">
