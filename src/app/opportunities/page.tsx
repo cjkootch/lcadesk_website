@@ -67,9 +67,14 @@ export default async function OpportunitiesPage() {
         <GeometricBg variant="grid" />
         <div className="absolute top-20 right-[10%] w-[400px] h-[400px] bg-accent/[0.05] rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-6 z-10">
-          <div className="inline-flex items-center gap-2 mb-5 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-accent text-xs font-semibold tracking-wide uppercase">Live &middot; Updated Weekly</span>
+          <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
+            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-accent text-xs font-semibold tracking-wide uppercase">Live &middot; Updated Weekly</span>
+            </div>
+            <Link href="/suppliers/dashboard" className="inline-flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent transition">
+              <Building2 size={14} /> My Profile
+            </Link>
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
             LCA Procurement{" "}
@@ -80,16 +85,22 @@ export default async function OpportunitiesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
-              href="https://app.lcadesk.com/auth/signup"
+              href="/suppliers/register"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
             >
               Register as a Supplier <ArrowRight size={16} />
             </Link>
             <Link
+              href="/suppliers/login"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
+            >
+              Log In
+            </Link>
+            <Link
               href="https://app.lcadesk.com/auth/signup"
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
             >
-              Post an Opportunity
+              Post an Opportunity (Contractors)
             </Link>
           </div>
         </div>

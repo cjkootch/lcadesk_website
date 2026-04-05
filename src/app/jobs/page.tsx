@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Scale, FileCheck, UserCheck, Briefcase, GraduationCap, Wrench, Users, Clock, TrendingUp, ShieldCheck, Building2 } from "lucide-react";
+import { ArrowRight, Scale, FileCheck, UserCheck, Briefcase, GraduationCap, Wrench, Users, Clock, TrendingUp, ShieldCheck, Building2, User } from "lucide-react";
 import { getDb } from "@/lib/db";
 import { sql } from "drizzle-orm";
 import type { PublicOpportunity } from "@/lib/types";
@@ -61,9 +61,14 @@ export default async function JobsPage() {
         <GeometricBg variant="waves" />
         <div className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-accent/[0.05] rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-6 z-10">
-          <div className="inline-flex items-center gap-2 mb-5 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
-            <span className="text-xs">{"\uD83C\uDDEC\uD83C\uDDFE"}</span>
-            <span className="text-accent text-xs font-semibold tracking-wide uppercase">Guyanese Nationals Prioritized by Law</span>
+          <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
+            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
+              <span className="text-xs">{"\uD83C\uDDEC\uD83C\uDDFE"}</span>
+              <span className="text-accent text-xs font-semibold tracking-wide uppercase">Guyanese Nationals Prioritized by Law</span>
+            </div>
+            <Link href="/jobs/dashboard" className="inline-flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent transition">
+              <User size={14} /> My Applications
+            </Link>
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
             Oil Sector Jobs{" "}
@@ -74,16 +79,22 @@ export default async function JobsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
-              href="https://app.lcadesk.com/auth/signup"
+              href="/jobs/register"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
             >
               Register as a Job Seeker <ArrowRight size={16} />
             </Link>
             <Link
+              href="/jobs/login"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
+            >
+              Log In
+            </Link>
+            <Link
               href="https://app.lcadesk.com/auth/signup"
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
             >
-              Post a Position
+              Post a Position (Contractors)
             </Link>
           </div>
         </div>

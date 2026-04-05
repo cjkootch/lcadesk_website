@@ -27,6 +27,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/lca-filing-calendar`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/lca-act-overview`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/lca-compliance-guide`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/jobs/register`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/jobs/login`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/suppliers/register`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/suppliers/login`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/terms`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
