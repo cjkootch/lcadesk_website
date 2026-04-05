@@ -13,6 +13,15 @@ const columns = [
     ],
   },
   {
+    title: "Platform",
+    links: [
+      { label: "Opportunities Board", href: "/opportunities" },
+      { label: "Jobs Board \uD83C\uDDEC\uD83C\uDDFE", href: "/jobs" },
+      { label: "Supplier Directory", href: "/suppliers" },
+      { label: "Verify LCS Certificate", href: "/verify" },
+    ],
+  },
+  {
     title: "Markets",
     links: [
       { label: "\u{1F1EC}\u{1F1FE} Guyana", href: "/markets/guyana" },
@@ -62,7 +71,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="lg:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="lg:col-span-4 grid grid-cols-2 md:grid-cols-5 gap-8">
             {columns.map((col) => (
               <div key={col.title}>
                 <h4 className="text-white font-semibold text-sm mb-4">{col.title}</h4>
