@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -30,13 +31,8 @@ export default function NavBar() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-xs font-[family-name:var(--font-tech)]">LC</span>
-          </div>
-          <span className="text-xl font-semibold font-[family-name:var(--font-tech)] text-text-primary">
-            LCA Desk
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image src="/lca-desk-logo.png" alt="LCA Desk" width={140} height={40} className="h-9 w-auto" priority />
         </Link>
 
         {/* Desktop */}

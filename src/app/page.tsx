@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Droplets, Building2, Ship, HardHat, Factory, Truck, Leaf, Zap,
   FileText, Calendar, BarChart3, Shield, Users, Download,
@@ -262,6 +263,22 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 8b. Integrations strip */}
+      <section className="py-12 bg-white border-t border-border">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="text-center text-text-muted text-sm mb-8 uppercase tracking-widest">
+            Connects with the tools you already use
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+            className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+            <Image src="/zapier-logo.svg" alt="Zapier" width={120} height={34} className="h-8 w-auto opacity-70 hover:opacity-100 transition" />
+            <Image src="/quickbooks-logo.png" alt="QuickBooks" width={140} height={34} className="h-8 w-auto opacity-70 hover:opacity-100 transition" />
+            <Image src="/xero-logo.png" alt="Xero" width={80} height={34} className="h-8 w-auto opacity-70 hover:opacity-100 transition" />
+            <Image src="/claude-logo.png" alt="Claude AI" width={34} height={34} className="h-8 w-auto opacity-70 hover:opacity-100 transition" />
+          </motion.div>
         </div>
       </section>
 

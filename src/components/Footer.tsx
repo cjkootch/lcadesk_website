@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const columns = [
   {
@@ -50,13 +51,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-12 mb-12">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs" style={{ fontFamily: "var(--font-tech)" }}>LC</span>
-              </div>
-              <span className="text-xl font-semibold text-white" style={{ fontFamily: "var(--font-tech)" }}>
-                LCA Desk
-              </span>
+            <div className="mb-4">
+              <Image src="/lca-desk-logo-white.png" alt="LCA Desk" width={160} height={44} className="h-10 w-auto" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               The world&apos;s only AI-native Local Content Act compliance platform. Built for Guyana. Expanding globally.
