@@ -61,7 +61,7 @@ export default function TermsPage() {
             <ul className="list-disc pl-5 space-y-1.5">
               <li>New accounts receive a 14-day free trial with full Pro-tier access.</li>
               <li>No credit card is required to start a trial.</li>
-              <li>At the end of the trial, your account will be downgraded to the free tier unless you subscribe to a paid plan.</li>
+              <li>At the end of the trial, platform access is suspended unless you subscribe to a paid plan. Your data is retained for 90 days.</li>
               <li>Data entered during the trial is retained and accessible if you subscribe.</li>
             </ul>
           </section>
@@ -75,8 +75,8 @@ export default function TermsPage() {
               <li>You may cancel your subscription at any time. Cancellation takes effect at the end of the current billing cycle. No refunds are provided for partial billing periods.</li>
               <li>Upon cancellation, you may request an export of your data within 90 days. After 90 days, your data will be permanently deleted.</li>
             </ul>
-            <h3 className="font-semibold text-text-primary mb-2">Free Tier</h3>
-            <p>Job seekers and suppliers may use certain features of the Service at no cost, as described on our pricing page. Free-tier accounts are subject to these same Terms.</p>
+            <h3 className="font-semibold text-text-primary mb-2">Free Accounts (Job Seekers &amp; Suppliers)</h3>
+            <p>Guyanese job seekers and suppliers may register and use the jobs board and supplier directory at no cost. Free accounts do not include access to the compliance reporting platform. Free accounts are subject to these same Terms.</p>
           </section>
 
           <section>

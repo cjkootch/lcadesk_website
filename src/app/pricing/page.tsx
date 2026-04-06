@@ -16,8 +16,12 @@ const pricingFAQs = [
     a: "Yes. Full Pro access including AI Narrative Drafting and Compliance Gap Detection — no credit card required.",
   },
   {
+    q: "What happens after the 14-day trial?",
+    a: "If you don't upgrade to a paid plan (Lite or Pro), platform access is paused — you won't be able to create, edit, or export reports. Your data is saved for 90 days. Upgrade anytime to pick up where you left off.",
+  },
+  {
     q: "What happens when I cancel?",
-    a: "You can cancel anytime. Your data is saved and exportable on request. You'll be downgraded to read-only view.",
+    a: "You can cancel anytime. Your data is saved for 90 days and exportable on request. After cancellation, platform access is paused until you resubscribe.",
   },
 ];
 
