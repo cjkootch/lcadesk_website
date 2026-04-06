@@ -161,10 +161,10 @@ export default function FeaturesPage() {
               </p>
               <UIFrame title="ai-narrative-draft.sh">
                 <pre className="text-xs leading-relaxed text-emerald-300">
-                  {`> Drafting H1 2025 Comparative Analysis...
+                  {`> Drafting H1 2026 Comparative Analysis...
 Section: Employment & Training
 The contractor employed 847 Guyanese nationals
-during H1 2025, representing 92% of total
+during H1 2026, representing 92% of total
 workforce...`}
                 </pre>
               </UIFrame>
@@ -241,8 +241,8 @@ workforce...`}
               </p>
               <UIFrame title="lca-expert-chat">
                 <pre className="text-xs leading-relaxed text-emerald-300">
-                  {`Q: What's the deadline for H1 2025?
-A: July 30, 2025. Per Section 21(1), reports
+                  {`Q: What's the deadline for H1 2026?
+A: July 30, 2026. Per Section 21(1), reports
 due within 30 days of each half-year period
 ending.`}
                 </pre>

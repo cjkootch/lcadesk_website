@@ -68,7 +68,7 @@ The training and capacity development section now requires specific documentatio
 
 ## What This Means for Your Next Filing
 
-If you're filing the H2 2025 report (due January 30, 2026), you need to use the v4.1 template. The Secretariat has indicated that submissions using the older v4.0 template will be returned for correction — which effectively means a late filing if you miss the deadline.
+If you're filing the H2 2026 report (due January 30, 2027), you need to use the v4.1 template. The Secretariat has indicated that submissions using the older v4.0 template will be returned for correction — which effectively means a late filing if you miss the deadline.
 
 ### Key Action Items
 

@@ -124,7 +124,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex-1 p-4 space-y-3">
                     <div className="flex items-center justify-between">
-                      <div><p className="text-sm font-semibold text-text-primary">Compliance Dashboard</p><p className="text-[10px] text-text-muted">H1 2025 Filing Period</p></div>
+                      <div><p className="text-sm font-semibold text-text-primary">Compliance Dashboard</p><p className="text-[10px] text-text-muted">H1 2026 Filing Period</p></div>
                       <span className="text-[10px] font-medium bg-accent/10 text-accent px-2 py-0.5 rounded-full">4 entities</span>
                     </div>
                     <div className="bg-surface rounded-xl p-3 border border-border">
@@ -310,9 +310,9 @@ export default function HomePage() {
               <p className="text-emerald-100/70 text-sm mb-4">Feed LCA Desk your employment, expenditure, and capacity data. The AI drafts the full Comparative Analysis narrative in the formal tone the Secretariat expects.</p>
               <UIFrame title="AI Narrative Drafting">
                 <div className="bg-gray-900 rounded p-3 text-xs font-mono">
-                  <p className="text-emerald-400">&gt; Drafting H1 2025 Comparative Analysis...</p>
+                  <p className="text-emerald-400">&gt; Drafting H1 2026 Comparative Analysis...</p>
                   <p className="text-gray-400 mt-1">Section: Employment &amp; Training</p>
-                  <p className="text-gray-300 mt-1">The contractor employed 847 Guyanese nationals during H1 2025, representing 92% of total workforce...</p>
+                  <p className="text-gray-300 mt-1">The contractor employed 847 Guyanese nationals during H1 2026, representing 92% of total workforce...</p>
                 </div>
               </UIFrame>
             </motion.div>
@@ -354,8 +354,8 @@ export default function HomePage() {
               <p className="text-emerald-100/70 text-sm mb-4">In-app AI assistant trained on the LCA Act 2021 and Version 4.1 guidelines. Ask any compliance question.</p>
               <UIFrame title="LCA Expert">
                 <div className="bg-gray-900 rounded p-3 text-xs font-mono">
-                  <p className="text-blue-400">Q: What&apos;s the deadline for H1 2025 half-yearly reports?</p>
-                  <p className="text-gray-300 mt-1">A: July 30, 2025. Per Section 21(1), half-yearly reports must be submitted within 30 days of each half-year period ending.</p>
+                  <p className="text-blue-400">Q: What&apos;s the deadline for H1 2026 half-yearly reports?</p>
+                  <p className="text-gray-300 mt-1">A: July 30, 2026. Per Section 21(1), half-yearly reports must be submitted within 30 days of each half-year period ending.</p>
                 </div>
               </UIFrame>
             </motion.div>
