@@ -9,7 +9,7 @@ import CTABanner from "@/components/CTABanner";
 const pricingFAQs = [
   {
     q: "What's the difference between Lite and Pro?",
-    a: "Lite ($99/month) includes platform access plus $25 per report generated. Pro ($599/month) includes unlimited report generation plus AI Narrative Drafting and Compliance Gap Detection. After 4 reports per month, Pro is cheaper than Lite.",
+    a: "Lite ($99/month) includes platform access plus $25 per report generated. Pro ($299/month) includes unlimited report generation plus AI Narrative Drafting and Compliance Gap Detection. After 8 reports per month, Pro is cheaper than Lite.",
   },
   {
     q: "Does the 14-day trial include AI features?",

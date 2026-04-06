@@ -12,7 +12,7 @@ Guyana — Local Content Act 2021, Local Content Secretariat, Version 4.1 guidel
 Nigeria (NCDMB), Trinidad & Tobago (MEEI PLCC), Ghana (Petroleum Commission), Mozambique (INP), Namibia (Ministry of Mines and Energy).
 
 ## Products
-- LCA Desk Software: Self-serve compliance platform. Lite $99/mo + $25/report, Pro $599/mo, Enterprise $1,999/mo.
+- LCA Desk Software: Self-serve compliance platform. Lite $99/mo + $25/report, Pro $299/mo, Enterprise $1,999/mo.
 - Full Service: Managed filing service from $2,500/month.
 - 14-day free trial, full Pro access, no credit card required.
 
