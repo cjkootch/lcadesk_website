@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Briefcase, ShieldCheck, Clock, TrendingUp, Building2, Truck, Wrench, HardHat, Utensils, GraduationCap, Stethoscope, Anchor } from "lucide-react";
-import { getDb } from "@/lib/db";
-import { sql } from "drizzle-orm";
 import type { PublicOpportunity } from "@/lib/types";
 import OpportunityFilters from "@/components/OpportunityFilters";
 import CTABanner from "@/components/CTABanner";
@@ -18,17 +16,40 @@ export const metadata: Metadata = {
     "Active procurement opportunities from oil sector contractors in Guyana. All postings require first consideration to LCS-certified Guyanese suppliers under the Local Content Act 2021.",
 };
 
+interface ApiNotice {
+  title: string;
+  contractorName: string;
+  noticeType: string | null;
+  lcaCategory: string | null;
+  deadline: string | null;
+  description: string | null;
+  sourceUrl: string | null;
+}
+
 async function getOpportunities(): Promise<PublicOpportunity[]> {
   try {
-    const db = getDb();
-    const result = await db.execute(
-      sql`SELECT * FROM lcs_opportunities
-          WHERE type = 'supplier'
-          AND (deadline IS NULL OR deadline >= CURRENT_DATE - INTERVAL '7 days')
-          ORDER BY posted_date DESC NULLS LAST
-          LIMIT 100`
-    );
-    return result.rows as unknown as PublicOpportunity[];
+    const res = await fetch("https://app.lcadesk.com/api/public/opportunities", {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    const notices: ApiNotice[] = data.notices ?? [];
+    return notices.map((n, i) => ({
+      id: String(i),
+      title: n.title,
+      contractor_name: n.contractorName,
+      type: "supplier" as const,
+      notice_type: n.noticeType,
+      lca_category: n.lcaCategory,
+      deadline: n.deadline,
+      description: n.description,
+      source_url: n.sourceUrl,
+      posted_date: null,
+      employment_category: null,
+      status: null,
+      location: null,
+      contract_type: null,
+    }));
   } catch {
     return [];
   }
