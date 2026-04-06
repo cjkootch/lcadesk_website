@@ -419,10 +419,12 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
                   </div>
 
                   {/* Contractor */}
-                  <div className="flex items-center gap-2 mb-2">
-                    <Building2 size={13} className="text-text-muted shrink-0" />
-                    <span className="text-xs font-medium text-text-secondary truncate">{opp.contractor_name}</span>
-                  </div>
+                  {opp.contractor_name && opp.contractor_name !== "Unknown" && opp.contractor_name !== "Contractor Not Specified" && (
+                    <div className="flex items-center gap-2 mb-2">
+                      <Building2 size={13} className="text-text-muted shrink-0" />
+                      <span className="text-xs font-medium text-text-secondary truncate">{opp.contractor_name}</span>
+                    </div>
+                  )}
 
                   {/* Title */}
                   <h3 className="font-semibold text-text-primary text-[15px] leading-snug mb-2 group-hover:text-accent transition-colors">
