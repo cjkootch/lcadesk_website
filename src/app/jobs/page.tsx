@@ -76,6 +76,7 @@ async function getJobs(): Promise<PublicOpportunity[]> {
       posted_date: j.postedDate,
       deadline: j.deadline,
       source_url: j.sourceUrl,
+      ai_teaser: null,
       status: null,
       location: j.location,
       contract_type: j.contractType,

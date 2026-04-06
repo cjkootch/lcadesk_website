@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ExternalLink, Calendar, Building2, Tag, ShieldCheck, FileText, AlertTriangle, Clock, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Calendar, Building2, Tag, ShieldCheck, FileText, AlertTriangle, Clock, Users, Sparkles, Lock } from "lucide-react";
 import { fetchOpportunities } from "@/lib/opportunities";
 import CTABanner from "@/components/CTABanner";
 import GeometricBg from "@/components/GeometricBg";
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: `${opp.title}${contractor}${category}. Active procurement opportunity in Guyana's oil sector requiring first consideration to LCS-certified Guyanese suppliers under the Local Content Act 2021.${deadline}`,
     openGraph: {
       title: `${noticeType}${opp.title}`,
-      description: opp.description?.slice(0, 200) || `Procurement opportunity in Guyana's oil sector.`,
+      description: opp.ai_teaser?.slice(0, 200) || opp.description?.slice(0, 200) || `Procurement opportunity in Guyana's oil sector.`,
       type: "article",
     },
   };
@@ -207,6 +207,35 @@ export default async function OpportunityDetailPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left: description */}
             <div className="lg:col-span-2 space-y-8">
+              {/* AI Teaser */}
+              {opp.ai_teaser && (
+                <div className="bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-xl p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Sparkles size={16} className="text-purple-500" />
+                    <h2 className="font-semibold text-purple-900 text-sm">AI-Extracted Scope of Work</h2>
+                  </div>
+                  <p className="text-sm text-purple-800 leading-relaxed mb-4">
+                    {opp.ai_teaser.slice(0, 120)}
+                    {opp.ai_teaser.length > 120 && "..."}
+                  </p>
+                  {opp.ai_teaser.length > 120 && (
+                    <div className="relative">
+                      <p className="text-sm text-purple-800 leading-relaxed select-none" style={{ filter: "blur(5px)", WebkitUserSelect: "none" }}>
+                        {opp.ai_teaser.slice(120, 300)}
+                      </p>
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/80 to-purple-50 flex items-end justify-center pb-2">
+                        <Link
+                          href="https://app.lcadesk.com/auth/signup"
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-purple-600 px-5 py-2.5 rounded-lg hover:bg-purple-700 shadow-lg shadow-purple-500/25 transition"
+                        >
+                          <Lock size={13} /> Sign up for full AI analysis
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Description */}
               <div>
                 <h2 className="font-display text-xl text-text-primary mb-4">Notice Details</h2>
