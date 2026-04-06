@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Scale, FileCheck, UserCheck, Briefcase, GraduationCap, Wrench, Users, Clock, TrendingUp, ShieldCheck, Building2, User } from "lucide-react";
-import { getDb } from "@/lib/db";
-import { sql } from "drizzle-orm";
 import type { PublicOpportunity } from "@/lib/types";
 import JobFilters from "@/components/JobFilters";
 import CTABanner from "@/components/CTABanner";
@@ -18,17 +16,59 @@ export const metadata: Metadata = {
     "Oil and gas jobs posted by contractors legally required to prioritize Guyanese nationals under the Local Content Act 2021. Updated weekly from the LCS Register.",
 };
 
+interface ApiJob {
+  title: string;
+  contractorName: string;
+  noticeType: string | null;
+  employmentCategory: string | null;
+  deadline: string | null;
+  description: string | null;
+  sourceUrl: string | null;
+  postedDate: string | null;
+  location: string | null;
+  contractType: string | null;
+}
+
+function decodeEntities(str: string | null): string {
+  if (!str) return "";
+  return str
+    .replace(/&#8211;/g, "\u2013")
+    .replace(/&#8212;/g, "\u2014")
+    .replace(/&#038;/g, "&")
+    .replace(/&#amp;/g, "&")
+    .replace(/&amp;/g, "&")
+    .replace(/&#8217;/g, "\u2019")
+    .replace(/&#8220;/g, "\u201C")
+    .replace(/&#8221;/g, "\u201D")
+    .replace(/&#8216;/g, "\u2018")
+    .replace(/&#039;/g, "'")
+    .replace(/&nbsp;/g, " ");
+}
+
 async function getJobs(): Promise<PublicOpportunity[]> {
   try {
-    const db = getDb();
-    const result = await db.execute(
-      sql`SELECT * FROM lcs_opportunities
-          WHERE type = 'employment'
-          AND (deadline IS NULL OR deadline >= CURRENT_DATE - INTERVAL '7 days')
-          ORDER BY posted_date DESC NULLS LAST
-          LIMIT 100`
-    );
-    return result.rows as unknown as PublicOpportunity[];
+    const res = await fetch("https://app.lcadesk.com/api/public/jobs", {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    const jobs: ApiJob[] = data.jobs ?? [];
+    return jobs.map((j, i) => ({
+      id: String(i),
+      contractor_name: j.contractorName || "Unknown",
+      type: "employment" as const,
+      notice_type: j.noticeType,
+      title: decodeEntities(j.title),
+      description: decodeEntities(j.description),
+      lca_category: null,
+      employment_category: j.employmentCategory,
+      posted_date: j.postedDate,
+      deadline: j.deadline,
+      source_url: j.sourceUrl,
+      status: null,
+      location: j.location,
+      contract_type: j.contractType,
+    }));
   } catch {
     return [];
   }
@@ -67,7 +107,7 @@ export default async function JobsPage() {
               <span className="text-accent text-xs font-semibold tracking-wide uppercase">Guyanese Nationals Prioritized by Law</span>
             </div>
             <Link href="/jobs/dashboard" className="inline-flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent transition">
-              <User size={14} /> My Applications
+              <User size={14} /> Job Seeker Dashboard
             </Link>
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
@@ -94,7 +134,7 @@ export default async function JobsPage() {
               href="https://app.lcadesk.com/auth/signup"
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
             >
-              Post a Position (Contractors)
+              Employers: Post a Position
             </Link>
           </div>
         </div>

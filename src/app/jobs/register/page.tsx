@@ -37,14 +37,16 @@ export default function JobSeekerRegister() {
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL || "https://app.lcadesk.com"}/api/public/job-seekers/register`,
+        `${process.env.NEXT_PUBLIC_API_URL || "https://app.lcadesk.com"}/api/auth/register`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            full_name: form.fullName,
+            role: "job_seeker",
+            name: form.fullName,
             email: form.email,
             password: form.password,
+            companyName: "Job Seeker",
             phone: form.phone || undefined,
             is_guyanese: form.isGuyanese,
             employment_category: form.employmentCategory || undefined,
@@ -57,12 +59,9 @@ export default function JobSeekerRegister() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Registration failed");
 
-      // If there's a job to apply to, redirect with apply param
-      if (applyJobId) {
-        router.push(`/jobs?registered=true&apply=${applyJobId}`);
-      } else {
-        router.push("/jobs?registered=true");
-      }
+      // Redirect to app login after registration
+      const loginUrl = `${process.env.NEXT_PUBLIC_API_URL || "https://app.lcadesk.com"}/auth/login?role=job_seeker&registered=true${applyJobId ? `&apply=${applyJobId}` : ""}`;
+      window.location.href = loginUrl;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {

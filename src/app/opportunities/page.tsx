@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Briefcase, ShieldCheck, Clock, TrendingUp, Building2, Truck, Wrench, HardHat, Utensils, GraduationCap, Stethoscope, Anchor } from "lucide-react";
-import type { PublicOpportunity } from "@/lib/types";
+import { fetchOpportunities } from "@/lib/opportunities";
 import OpportunityFilters from "@/components/OpportunityFilters";
 import CTABanner from "@/components/CTABanner";
 import GeometricBg from "@/components/GeometricBg";
 import StatCard from "@/components/StatCard";
 import FAQAccordion from "@/components/FAQAccordion";
-import { getSession } from "@/lib/public-auth";
 
 export const revalidate = 3600;
 
@@ -17,67 +16,8 @@ export const metadata: Metadata = {
     "Active procurement opportunities from oil sector contractors in Guyana. All postings require first consideration to LCS-certified Guyanese suppliers under the Local Content Act 2021.",
 };
 
-interface ApiNotice {
-  title: string;
-  contractorName: string;
-  noticeType: string | null;
-  lcaCategory: string | null;
-  deadline: string | null;
-  description: string | null;
-  sourceUrl: string | null;
-}
-
-function decodeEntities(str: string | null): string {
-  if (!str) return "";
-  return str
-    .replace(/&#8211;/g, "\u2013")
-    .replace(/&#8212;/g, "\u2014")
-    .replace(/&#038;/g, "&")
-    .replace(/&#amp;/g, "&")
-    .replace(/&amp;/g, "&")
-    .replace(/&#8217;/g, "\u2019")
-    .replace(/&#8220;/g, "\u201C")
-    .replace(/&#8221;/g, "\u201D")
-    .replace(/&#8216;/g, "\u2018")
-    .replace(/&#039;/g, "'")
-    .replace(/&nbsp;/g, " ");
-}
-
-function cleanTitle(raw: string): string {
-  let t = decodeEntities(raw);
-  // Strip trailing " – Local Content Register" or similar suffixes
-  t = t.replace(/\s*[–\-]\s*Local Content Register\s*$/i, "");
-  // Strip leading notice type prefix if duplicated (e.g. "EOI & Pre-Qualification –")
-  return t.trim();
-}
-
-async function getOpportunities(): Promise<PublicOpportunity[]> {
-  try {
-    const res = await fetch("https://app.lcadesk.com/api/public/opportunities", {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) return [];
-    const data = await res.json();
-    const notices: ApiNotice[] = data.notices ?? [];
-    return notices.map((n, i) => ({
-      id: String(i),
-      title: cleanTitle(n.title),
-      contractor_name: decodeEntities(n.contractorName) || "Contractor Not Specified",
-      type: "supplier" as const,
-      notice_type: n.noticeType,
-      lca_category: decodeEntities(n.lcaCategory) || null,
-      deadline: n.deadline,
-      description: decodeEntities(n.description),
-      source_url: n.sourceUrl,
-      posted_date: null,
-      employment_category: null,
-      status: null,
-      location: null,
-      contract_type: null,
-    }));
-  } catch {
-    return [];
-  }
+async function getOpportunities() {
+  return fetchOpportunities();
 }
 
 const lcaCategories = [
@@ -101,11 +41,7 @@ const faqItems = [
 ];
 
 export default async function OpportunitiesPage() {
-  const [opportunities, session] = await Promise.all([
-    getOpportunities(),
-    getSession("supplier"),
-  ]);
-  const isLoggedIn = !!session;
+  const opportunities = await getOpportunities();
   const activeCount = opportunities.length;
   const uniqueContractors = new Set(opportunities.map((o) => o.contractor_name)).size;
   const uniqueCategories = new Set(opportunities.map((o) => o.lca_category).filter(Boolean)).size;
@@ -145,12 +81,6 @@ export default async function OpportunitiesPage() {
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
             >
               Log In
-            </Link>
-            <Link
-              href="https://app.lcadesk.com/auth/signup"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
-            >
-              Post an Opportunity (Contractors)
             </Link>
           </div>
         </div>
@@ -216,7 +146,7 @@ export default async function OpportunitiesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-display text-2xl md:text-3xl text-text-primary mb-2">Browse Opportunities</h2>
           <p className="text-text-secondary mb-8">Filter by category, notice type, or search by company name.</p>
-          <OpportunityFilters opportunities={opportunities} isLoggedIn={isLoggedIn} />
+          <OpportunityFilters opportunities={opportunities} />
         </div>
       </section>
 

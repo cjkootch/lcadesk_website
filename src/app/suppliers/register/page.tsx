@@ -105,18 +105,20 @@ export default function SupplierRegister() {
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL || "https://app.lcadesk.com"}/api/public/suppliers/register`,
+        `${process.env.NEXT_PUBLIC_API_URL || "https://app.lcadesk.com"}/api/auth/register`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            legal_name: form.legalName,
-            trading_name: form.tradingName || undefined,
-            contact_name: form.contactName,
+            role: "supplier",
+            name: form.contactName,
             email: form.email,
             password: form.password,
-            phone: form.phone || undefined,
+            companyName: form.legalName,
             lcs_cert_id: form.lcsCertId || undefined,
+            lcs_verified: verification.status === "verified",
+            lcs_status: verification.status === "verified" ? "approved" : undefined,
+            lcs_legal_name: verification.companyName || undefined,
             service_categories: form.selectedCategories,
           }),
         }
@@ -124,7 +126,7 @@ export default function SupplierRegister() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Registration failed");
 
-      router.push("/opportunities?registered=true");
+      window.location.href = `${process.env.NEXT_PUBLIC_API_URL || "https://app.lcadesk.com"}/auth/login?role=supplier&registered=true`;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {

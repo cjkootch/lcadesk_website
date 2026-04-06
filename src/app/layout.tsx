@@ -6,8 +6,12 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://lcadesk.com"),
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [
+      { url: "/favicon.png", type: "image/png", sizes: "192x192" },
+    ],
   },
   title: {
     default: "LCA Desk | AI-Powered Local Content Act Compliance Software",

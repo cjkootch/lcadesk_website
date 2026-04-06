@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Building2, ShieldCheck, Search, FileCheck, Truck, Wrench, HardHat, Utensils, GraduationCap, Stethoscope, Anchor, Globe, Leaf, Monitor, Shield, Trash2, Package } from "lucide-react";
-import { getDb } from "@/lib/db";
-import { sql } from "drizzle-orm";
 import CTABanner from "@/components/CTABanner";
 import GeometricBg from "@/components/GeometricBg";
 
@@ -33,11 +31,12 @@ const categories = [
 
 async function getSupplierCount(): Promise<number> {
   try {
-    const db = getDb();
-    const result = await db.execute(
-      sql`SELECT count(DISTINCT contractor_name) as cnt FROM lcs_opportunities WHERE type = 'supplier'`
-    );
-    return Number((result.rows[0] as { cnt: string }).cnt) || 0;
+    const res = await fetch("https://app.lcadesk.com/api/public/opportunities", {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return 0;
+    const data = await res.json();
+    return data.summary?.totalContractors ?? 0;
   } catch {
     return 0;
   }
