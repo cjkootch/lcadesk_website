@@ -84,6 +84,19 @@ const markets: MarketCard[] = [
     pricing: "Pricing from $349/month",
   },
   {
+    flag: "\u{1F1F8}\u{1F1F7}",
+    country: "Suriname",
+    status: "COMING SOON",
+    details: [
+      "National oil company: Staatsolie",
+      "Key operators: TotalEnergies, APA Corp, Petronas, QatarEnergy",
+      "Block 58: 6.5B+ estimated recoverable barrels",
+      "First oil expected ~2028",
+      "Local content framework in development",
+    ],
+    pricing: "LCA Desk Suriname module \u2014 coming 2027",
+  },
+  {
     flag: "\u{1F1F3}\u{1F1E6}",
     country: "Namibia",
     status: "COMING SOON",
