@@ -26,6 +26,30 @@ interface ApiNotice {
   sourceUrl: string | null;
 }
 
+function decodeEntities(str: string | null): string {
+  if (!str) return "";
+  return str
+    .replace(/&#8211;/g, "\u2013")
+    .replace(/&#8212;/g, "\u2014")
+    .replace(/&#038;/g, "&")
+    .replace(/&#amp;/g, "&")
+    .replace(/&amp;/g, "&")
+    .replace(/&#8217;/g, "\u2019")
+    .replace(/&#8220;/g, "\u201C")
+    .replace(/&#8221;/g, "\u201D")
+    .replace(/&#8216;/g, "\u2018")
+    .replace(/&#039;/g, "'")
+    .replace(/&nbsp;/g, " ");
+}
+
+function cleanTitle(raw: string): string {
+  let t = decodeEntities(raw);
+  // Strip trailing " – Local Content Register" or similar suffixes
+  t = t.replace(/\s*[–\-]\s*Local Content Register\s*$/i, "");
+  // Strip leading notice type prefix if duplicated (e.g. "EOI & Pre-Qualification –")
+  return t.trim();
+}
+
 async function getOpportunities(): Promise<PublicOpportunity[]> {
   try {
     const res = await fetch("https://app.lcadesk.com/api/public/opportunities", {
@@ -36,13 +60,13 @@ async function getOpportunities(): Promise<PublicOpportunity[]> {
     const notices: ApiNotice[] = data.notices ?? [];
     return notices.map((n, i) => ({
       id: String(i),
-      title: n.title,
-      contractor_name: n.contractorName,
+      title: cleanTitle(n.title),
+      contractor_name: decodeEntities(n.contractorName) || "Contractor Not Specified",
       type: "supplier" as const,
       notice_type: n.noticeType,
-      lca_category: n.lcaCategory,
+      lca_category: decodeEntities(n.lcaCategory) || null,
       deadline: n.deadline,
-      description: n.description,
+      description: decodeEntities(n.description),
       source_url: n.sourceUrl,
       posted_date: null,
       employment_category: null,
