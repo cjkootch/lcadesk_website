@@ -40,9 +40,12 @@ function ContractorLogo({ name, size = 16 }: { name: string; size?: number }) {
 /* ── Category config ───────────────────────────────────────────── */
 
 const categoryConfig: Record<string, { bg: string; text: string; dot: string; gradient: string }> = {
-  Managerial: { bg: "bg-amber-50", text: "text-amber-700", dot: "bg-amber-500", gradient: "from-amber-500 to-yellow-500" },
+  Management: { bg: "bg-amber-50", text: "text-amber-700", dot: "bg-amber-500", gradient: "from-amber-500 to-yellow-500" },
   Technical: { bg: "bg-blue-50", text: "text-blue-700", dot: "bg-blue-500", gradient: "from-blue-500 to-cyan-500" },
-  "Non-Technical": { bg: "bg-gray-50", text: "text-gray-600", dot: "bg-gray-400", gradient: "from-gray-400 to-slate-500" },
+  Administrative: { bg: "bg-purple-50", text: "text-purple-700", dot: "bg-purple-500", gradient: "from-purple-500 to-purple-600" },
+  "Skilled Labour": { bg: "bg-emerald-50", text: "text-emerald-700", dot: "bg-emerald-500", gradient: "from-emerald-500 to-emerald-600" },
+  "Semi-Skilled Labour": { bg: "bg-cyan-50", text: "text-cyan-700", dot: "bg-cyan-500", gradient: "from-cyan-500 to-cyan-600" },
+  "Unskilled Labour": { bg: "bg-gray-50", text: "text-gray-600", dot: "bg-gray-400", gradient: "from-gray-400 to-slate-500" },
 };
 
 const defaultCat = { bg: "bg-gray-50", text: "text-gray-600", dot: "bg-gray-400", gradient: "from-gray-400 to-gray-500" };
@@ -168,7 +171,7 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
       }
       if (search) {
         const q = search.toLowerCase();
-        const fields = [j.job_title, j.company_name, j.summary || "", j.department || "", j.location || "", j.employment_category || ""];
+        const fields = [j.job_title, j.company_name, j.summary || "", j.ai_teaser || "", j.department || "", j.location || "", j.employment_category || ""];
         if (!fields.some((f) => f.toLowerCase().includes(q))) return false;
       }
       return true;
@@ -464,22 +467,26 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
                     </Link>
                   </h3>
 
-                  {/* Summary with blur gate */}
-                  {job.summary && (
+                  {/* AI Teaser with blur gate */}
+                  {job.ai_teaser && (
                     <div className="mb-3">
+                      <div className="flex items-center gap-1.5 mb-1.5">
+                        <Sparkles size={12} className="text-purple-500" />
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-purple-600">AI Summary</span>
+                      </div>
                       <div className="relative">
                         <p className="text-[13px] text-text-secondary leading-relaxed">
-                          {truncate(job.summary, 100)}
+                          {truncate(job.ai_teaser, 80)}
                         </p>
-                        {job.summary.length > 100 && (
+                        {job.ai_teaser.length > 80 && (
                           <div className="relative mt-1">
                             <p className="text-[13px] text-text-secondary leading-relaxed select-none" style={{ filter: "blur(4px)", WebkitUserSelect: "none" }}>
-                              {job.summary.slice(100, 220)}
+                              {job.ai_teaser.slice(80, 200)}
                             </p>
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white flex items-end justify-center pb-1">
                               <Link
                                 href="/jobs/register"
-                                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full hover:bg-accent/20 transition"
+                                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-purple-600 bg-purple-50 border border-purple-200 px-3 py-1 rounded-full hover:bg-purple-100 transition"
                               >
                                 <Lock size={10} /> Register to see full details
                               </Link>
@@ -487,6 +494,15 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
                           </div>
                         )}
                       </div>
+                    </div>
+                  )}
+
+                  {/* Description fallback — only show if no AI teaser */}
+                  {!job.ai_teaser && job.summary && (
+                    <div className="mb-3">
+                      <p className="text-[13px] text-text-secondary leading-relaxed">
+                        {truncate(job.summary, 120)}
+                      </p>
                     </div>
                   )}
 

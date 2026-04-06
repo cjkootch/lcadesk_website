@@ -54,7 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Job pages
   let jobPages: MetadataRoute.Sitemap = [];
   try {
-    const jobRes = await fetch("https://app.lcadesk.com/api/public/jobs", { next: { revalidate: 3600 } });
+    const jobRes = await fetch("https://app.lcadesk.com/api/public/lcs-jobs", { next: { revalidate: 3600 } });
     if (jobRes.ok) {
       const jobData = await jobRes.json();
       const jobs = jobData.jobs ?? [];

@@ -20,24 +20,27 @@ interface Props {
 interface ApiJob {
   id?: string;
   jobTitle?: string;
-  title?: string;
   companyName?: string;
-  contractorName?: string;
-  department?: string | null;
-  employmentType?: string | null;
   employmentCategory?: string | null;
-  location?: string | null;
-  summary?: string | null;
+  noticeType?: string | null;
   description?: string | null;
-  experienceRequired?: string | null;
-  educationRequired?: string | null;
+  location?: string | null;
   closingDate?: string | null;
-  deadline?: string | null;
   postedDate?: string | null;
   sourceUrl?: string | null;
-  guyaneseFirstConsideration?: boolean;
-  salaryRange?: string | null;
-  contractType?: string | null;
+  status?: string | null;
+  aiTeaser?: string | null;
+  aiData?: {
+    summary?: string | null;
+    responsibilities?: string[] | null;
+    skills?: string[] | null;
+    experience_required?: string | null;
+    education_required?: string | null;
+    employment_type?: string | null;
+    how_to_apply?: string | null;
+    guyanese_first_consideration?: boolean;
+    salary_range?: string | null;
+  } | null;
 }
 
 function decodeEntities(str: string | null): string {
@@ -56,31 +59,46 @@ function decodeEntities(str: string | null): string {
     .replace(/&nbsp;/g, " ");
 }
 
+function cleanLocation(loc: string | null | undefined): string | null {
+  if (!loc) return null;
+  if (loc.includes("<") || loc.includes("data-") || loc.includes("elementor")) return null;
+  return loc.trim() || null;
+}
+
 async function fetchJobs(): Promise<PublicJob[]> {
   try {
-    const res = await fetch("https://app.lcadesk.com/api/public/jobs", {
+    const res = await fetch("https://app.lcadesk.com/api/public/lcs-jobs", {
       next: { revalidate: 3600 },
     });
     if (!res.ok) return [];
     const data = await res.json();
     const jobs: ApiJob[] = data.jobs ?? [];
-    return jobs.map((j, i) => ({
-      id: j.id || String(i),
-      company_name: j.companyName || j.contractorName || "Unknown",
-      job_title: decodeEntities(j.jobTitle || j.title || "Untitled Position"),
-      department: j.department || null,
-      employment_type: j.employmentType || j.contractType || null,
-      location: j.location || null,
-      summary: decodeEntities(j.summary || j.description || null),
-      experience_required: j.experienceRequired || null,
-      education_required: j.educationRequired || null,
-      closing_date: j.closingDate || j.deadline || null,
-      posted_date: j.postedDate || null,
-      source_url: j.sourceUrl || null,
-      guyanese_first_consideration: j.guyaneseFirstConsideration ?? true,
-      employment_category: j.employmentCategory || null,
-      salary_range: j.salaryRange || null,
-    }));
+    return jobs.map((j, i) => {
+      const ai = j.aiData;
+      return {
+        id: j.id || String(i),
+        company_name: j.companyName || "Unknown",
+        job_title: decodeEntities(j.jobTitle || "Untitled Position"),
+        department: null,
+        employment_type: ai?.employment_type || null,
+        location: cleanLocation(j.location),
+        summary: j.aiTeaser || decodeEntities(j.description ?? null) || ai?.summary || null,
+        experience_required: ai?.experience_required || null,
+        education_required: ai?.education_required || null,
+        closing_date: j.closingDate || null,
+        posted_date: j.postedDate || null,
+        source_url: j.sourceUrl || null,
+        guyanese_first_consideration: ai?.guyanese_first_consideration ?? true,
+        employment_category: j.employmentCategory || null,
+        salary_range: ai?.salary_range || null,
+        ai_teaser: j.aiTeaser || null,
+        responsibilities: ai?.responsibilities || null,
+        skills: ai?.skills || null,
+        how_to_apply: ai?.how_to_apply || null,
+        notice_type: j.noticeType || null,
+        status: j.status || null,
+      };
+    });
   } catch {
     return [];
   }
@@ -103,10 +121,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${job.job_title}${company} | Oil Sector Jobs in Guyana`,
-    description: `${job.job_title}${company}${location}. Guyanese nationals receive first consideration under the Local Content Act 2021.${job.summary ? ` ${job.summary.slice(0, 120)}` : ""}`,
+    description: `${job.job_title}${company}${location}. Guyanese nationals receive first consideration under the Local Content Act 2021.${job.ai_teaser ? ` ${job.ai_teaser.slice(0, 120)}` : job.summary ? ` ${job.summary.slice(0, 120)}` : ""}`,
     openGraph: {
       title: `${job.job_title}${company}`,
-      description: job.summary?.slice(0, 200) || `Oil sector employment opportunity${location}. Guyanese nationals prioritized by law.`,
+      description: job.ai_teaser?.slice(0, 200) || job.summary?.slice(0, 200) || `Oil sector employment opportunity${location}. Guyanese nationals prioritized by law.`,
       type: "article",
     },
   };
@@ -129,9 +147,12 @@ function getDeadlineStatus(deadline: string | null) {
 }
 
 const categoryColors: Record<string, { bg: string; text: string }> = {
-  Managerial: { bg: "bg-amber-50", text: "text-amber-700" },
+  Management: { bg: "bg-amber-50", text: "text-amber-700" },
   Technical: { bg: "bg-blue-50", text: "text-blue-700" },
-  "Non-Technical": { bg: "bg-gray-50", text: "text-gray-600" },
+  Administrative: { bg: "bg-purple-50", text: "text-purple-700" },
+  "Skilled Labour": { bg: "bg-emerald-50", text: "text-emerald-700" },
+  "Semi-Skilled Labour": { bg: "bg-cyan-50", text: "text-cyan-700" },
+  "Unskilled Labour": { bg: "bg-gray-50", text: "text-gray-600" },
 };
 
 export default async function JobDetailPage({ params }: Props) {
@@ -279,13 +300,54 @@ export default async function JobDetailPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left: details */}
             <div className="lg:col-span-2 space-y-8">
-              {/* Summary */}
-              {job.summary && (
+              {/* AI Teaser */}
+              {job.ai_teaser && (
+                <div>
+                  <h2 className="font-display text-xl text-text-primary mb-4">About This Position</h2>
+                  <div className="prose prose-sm max-w-none text-text-secondary leading-relaxed">
+                    {job.ai_teaser.split(/\n+/).map((para, i) => (
+                      <p key={i}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Summary fallback */}
+              {!job.ai_teaser && job.summary && (
                 <div>
                   <h2 className="font-display text-xl text-text-primary mb-4">About This Position</h2>
                   <div className="prose prose-sm max-w-none text-text-secondary leading-relaxed">
                     {job.summary.split(/\n+/).map((para, i) => (
                       <p key={i}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Responsibilities */}
+              {job.responsibilities && job.responsibilities.length > 0 && (
+                <div>
+                  <h2 className="font-display text-xl text-text-primary mb-4">Key Responsibilities</h2>
+                  <ul className="space-y-2">
+                    {job.responsibilities.map((r, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-sm text-text-secondary leading-relaxed">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Skills */}
+              {job.skills && job.skills.length > 0 && (
+                <div>
+                  <h2 className="font-display text-xl text-text-primary mb-4">Required Skills</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {job.skills.map((s, i) => (
+                      <span key={i} className="text-xs font-medium bg-gray-100 text-text-secondary px-3 py-1.5 rounded-full border border-gray-200">
+                        {s}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -321,6 +383,14 @@ export default async function JobDetailPage({ params }: Props) {
                       <p className="text-sm text-emerald-800 leading-relaxed">{job.salary_range}</p>
                     </div>
                   )}
+                </div>
+              )}
+
+              {/* How to Apply */}
+              {job.how_to_apply && (
+                <div className="bg-accent/5 border border-accent/20 rounded-xl p-6">
+                  <h3 className="font-semibold text-text-primary mb-2">How to Apply</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">{job.how_to_apply}</p>
                 </div>
               )}
 

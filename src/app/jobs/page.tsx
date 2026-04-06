@@ -31,24 +31,27 @@ export const metadata: Metadata = {
 interface ApiJob {
   id?: string;
   jobTitle?: string;
-  title?: string;
   companyName?: string;
-  contractorName?: string;
-  department?: string | null;
-  employmentType?: string | null;
   employmentCategory?: string | null;
-  location?: string | null;
-  summary?: string | null;
+  noticeType?: string | null;
   description?: string | null;
-  experienceRequired?: string | null;
-  educationRequired?: string | null;
+  location?: string | null;
   closingDate?: string | null;
-  deadline?: string | null;
   postedDate?: string | null;
   sourceUrl?: string | null;
-  guyaneseFirstConsideration?: boolean;
-  salaryRange?: string | null;
-  contractType?: string | null;
+  status?: string | null;
+  aiTeaser?: string | null;
+  aiData?: {
+    summary?: string | null;
+    responsibilities?: string[] | null;
+    skills?: string[] | null;
+    experience_required?: string | null;
+    education_required?: string | null;
+    employment_type?: string | null;
+    how_to_apply?: string | null;
+    guyanese_first_consideration?: boolean;
+    salary_range?: string | null;
+  } | null;
 }
 
 function decodeEntities(str: string | null): string {
@@ -67,40 +70,57 @@ function decodeEntities(str: string | null): string {
     .replace(/&nbsp;/g, " ");
 }
 
+function cleanLocation(loc: string | null | undefined): string | null {
+  if (!loc) return null;
+  // Some records have HTML artifacts in location field
+  if (loc.includes("<") || loc.includes("data-") || loc.includes("elementor")) return null;
+  return loc.trim() || null;
+}
+
 async function getJobs(): Promise<PublicJob[]> {
   try {
-    const res = await fetch("https://app.lcadesk.com/api/public/jobs", {
+    const res = await fetch("https://app.lcadesk.com/api/public/lcs-jobs", {
       next: { revalidate: 3600 },
     });
     if (!res.ok) return [];
     const data = await res.json();
     const jobs: ApiJob[] = data.jobs ?? [];
-    return jobs.map((j, i) => ({
-      id: j.id || String(i),
-      company_name: j.companyName || j.contractorName || "Unknown",
-      job_title: decodeEntities(j.jobTitle || j.title || "Untitled Position"),
-      department: j.department || null,
-      employment_type: j.employmentType || j.contractType || null,
-      location: j.location || null,
-      summary: decodeEntities(j.summary || j.description || null),
-      experience_required: j.experienceRequired || null,
-      education_required: j.educationRequired || null,
-      closing_date: j.closingDate || j.deadline || null,
-      posted_date: j.postedDate || null,
-      source_url: j.sourceUrl || null,
-      guyanese_first_consideration: j.guyaneseFirstConsideration ?? true,
-      employment_category: j.employmentCategory || null,
-      salary_range: j.salaryRange || null,
-    }));
+    return jobs.map((j, i) => {
+      const ai = j.aiData;
+      return {
+        id: j.id || String(i),
+        company_name: j.companyName || "Unknown",
+        job_title: decodeEntities(j.jobTitle || "Untitled Position"),
+        department: null,
+        employment_type: ai?.employment_type || null,
+        location: cleanLocation(j.location),
+        summary: j.aiTeaser || decodeEntities(j.description ?? null) || ai?.summary || null,
+        experience_required: ai?.experience_required || null,
+        education_required: ai?.education_required || null,
+        closing_date: j.closingDate || null,
+        posted_date: j.postedDate || null,
+        source_url: j.sourceUrl || null,
+        guyanese_first_consideration: ai?.guyanese_first_consideration ?? true,
+        employment_category: j.employmentCategory || null,
+        salary_range: ai?.salary_range || null,
+        ai_teaser: j.aiTeaser || null,
+        responsibilities: ai?.responsibilities || null,
+        skills: ai?.skills || null,
+        how_to_apply: ai?.how_to_apply || null,
+        notice_type: j.noticeType || null,
+        status: j.status || null,
+      };
+    });
   } catch {
     return [];
   }
 }
 
 const employmentCategories = [
-  { icon: Building2, title: "Managerial", desc: "Senior leadership, project management, country managers, compliance officers, finance directors", color: "from-amber-500 to-yellow-500" },
-  { icon: Wrench, title: "Technical", desc: "Engineers, geoscientists, HSE specialists, welders, electricians, instrumentation technicians", color: "from-blue-500 to-cyan-500" },
-  { icon: Users, title: "Non-Technical", desc: "Administrative staff, logistics coordinators, catering, security, drivers, warehouse operators", color: "from-gray-500 to-slate-500" },
+  { icon: Building2, title: "Management", desc: "Senior leadership, project management, country managers, compliance officers, finance directors", color: "from-amber-500 to-yellow-500" },
+  { icon: Wrench, title: "Technical", desc: "Engineers, geoscientists, HSE specialists, instrumentation technicians, IT professionals", color: "from-blue-500 to-cyan-500" },
+  { icon: Briefcase, title: "Administrative", desc: "Office staff, HR coordinators, procurement officers, accounting clerks, document controllers", color: "from-purple-500 to-purple-600" },
+  { icon: Users, title: "Skilled & Semi-Skilled Labour", desc: "Welders, electricians, mechanics, riggers, crane operators, heavy equipment operators, drivers", color: "from-emerald-500 to-emerald-600" },
 ];
 
 const faqItems = [
@@ -229,7 +249,7 @@ export default async function JobsPage() {
           <p className="text-text-secondary text-center mb-14 max-w-2xl mx-auto">
             The LCA tracks employment across three categories. Contractors must report hiring numbers in each category and demonstrate Guyanese-first consideration for all.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {employmentCategories.map((cat, i) => (
               <div key={i} className="bg-card rounded-2xl border border-border overflow-hidden card-lift">
                 <div className={`h-1.5 bg-gradient-to-r ${cat.color}`} />

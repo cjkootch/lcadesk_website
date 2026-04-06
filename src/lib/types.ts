@@ -32,4 +32,10 @@ export interface PublicJob {
   guyanese_first_consideration: boolean;
   employment_category: string | null;
   salary_range: string | null;
+  ai_teaser: string | null;
+  responsibilities: string[] | null;
+  skills: string[] | null;
+  how_to_apply: string | null;
+  notice_type: string | null;
+  status: string | null;
 }
