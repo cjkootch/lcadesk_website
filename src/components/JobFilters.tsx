@@ -487,26 +487,26 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
 
                   {/* AI Teaser with blur gate */}
                   {job.ai_teaser && (
-                    <div className="mb-3">
-                      <div className="flex items-center gap-1.5 mb-1.5">
-                        <Sparkles size={12} className="text-purple-500" />
-                        <span className="text-[10px] font-semibold uppercase tracking-wider text-purple-600">AI Summary</span>
+                    <div className="mb-3 bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+                      <div className="flex items-center gap-1.5 mb-2">
+                        <Sparkles size={14} className="text-emerald-600" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">AI Summary</span>
                       </div>
                       <div className="relative">
-                        <p className="text-[13px] text-text-secondary leading-relaxed">
-                          {truncate(job.ai_teaser, 80)}
+                        <p className="text-sm text-emerald-900 leading-relaxed font-medium">
+                          {truncate(job.ai_teaser, 90)}
                         </p>
-                        {job.ai_teaser.length > 80 && (
+                        {job.ai_teaser.length > 90 && (
                           <div className="relative mt-1">
-                            <p className="text-[13px] text-text-secondary leading-relaxed select-none" style={{ filter: "blur(4px)", WebkitUserSelect: "none" }}>
-                              {job.ai_teaser.slice(80, 200)}
+                            <p className="text-sm text-emerald-900 leading-relaxed select-none" style={{ filter: "blur(4px)", WebkitUserSelect: "none" }}>
+                              {job.ai_teaser.slice(90, 220)}
                             </p>
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white flex items-end justify-center pb-1">
+                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-emerald-50 flex items-end justify-center pb-1">
                               <Link
                                 href="/jobs/register"
-                                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-purple-600 bg-purple-50 border border-purple-200 px-3 py-1 rounded-full hover:bg-purple-100 transition"
+                                className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-emerald-600 px-4 py-1.5 rounded-full hover:bg-emerald-700 shadow-sm transition"
                               >
-                                <Lock size={10} /> Register to apply
+                                <Lock size={11} /> Register to apply
                               </Link>
                             </div>
                           </div>
