@@ -189,7 +189,25 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
         return da - db;
       }
       if (sortBy === "title") return a.job_title.localeCompare(b.job_title);
-      // newest: sort by posted_date desc, then by id
+      // Default: most complete listings first (more filled fields = higher rank)
+      const completeness = (j: typeof a) => {
+        let score = 0;
+        if (j.ai_teaser) score += 3;
+        if (j.responsibilities && j.responsibilities.length > 0) score += 2;
+        if (j.skills && j.skills.length > 0) score += 2;
+        if (j.experience_required) score += 1;
+        if (j.education_required) score += 1;
+        if (j.salary_range) score += 1;
+        if (j.how_to_apply) score += 1;
+        if (j.location) score += 1;
+        if (j.employment_type) score += 1;
+        if (j.employment_category) score += 1;
+        if (j.company_name && j.company_name !== "Unknown") score += 1;
+        return score;
+      };
+      const diff = completeness(b) - completeness(a);
+      if (diff !== 0) return diff;
+      // Tiebreak: newest first
       const pa = a.posted_date ? new Date(a.posted_date).getTime() : 0;
       const pb = b.posted_date ? new Date(b.posted_date).getTime() : 0;
       return pb - pa || b.id.localeCompare(a.id);
@@ -324,7 +342,7 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
                 <div>
                   <label className="block text-[11px] font-medium text-text-muted uppercase tracking-wider mb-1.5">Sort By</label>
                   <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortOption)} className="w-full px-3 py-2 rounded-lg border border-border bg-surface text-sm text-text-secondary focus:outline-none focus:border-accent transition">
-                    <option value="newest">Newest First</option>
+                    <option value="newest">Most Complete</option>
                     <option value="deadline">Deadline (soonest)</option>
                     <option value="title">Title (A\u2013Z)</option>
                   </select>
