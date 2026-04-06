@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { fetchOpportunities } from "@/lib/opportunities";
+import { posts } from "@/lib/blog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://lcadesk.com";
@@ -49,5 +50,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...opportunityPages];
+  // Blog posts
+  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...opportunityPages, ...blogPages];
 }
