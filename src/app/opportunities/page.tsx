@@ -50,6 +50,49 @@ function cleanTitle(raw: string): string {
   return t.trim();
 }
 
+/** Try to extract the company name from the description text */
+function extractContractorFromDescription(desc: string | null): string | null {
+  if (!desc) return null;
+
+  // Pattern 1: "CompanyName is requesting/seeking/inviting..."
+  const startMatch = desc.match(
+    /^([A-Z][A-Za-z\s&.,'\-()]+?)\s+(?:is\s+(?:requesting|seeking|inviting|looking|soliciting)|invites|wishes|requires|would like|hereby|has issued|is\s+pleased)/
+  );
+  if (startMatch) {
+    const name = startMatch[1].trim().replace(/[,.]$/, "");
+    if (name.length >= 3 && name.length <= 80) return name;
+  }
+
+  // Pattern 2: "...to CompanyName Offices/Office/Location" or "...to CompanyName."
+  const toMatch = desc.match(
+    /\bto\s+([A-Z][A-Za-z\s&'\-]+?(?:Inc|LLC|Ltd|Corp|Co|Guyana|International|Services|Group)\.?)\b/
+  );
+  if (toMatch) {
+    const name = toMatch[1].trim().replace(/[,.]$/, "");
+    if (name.length >= 3 && name.length <= 80) return name;
+  }
+
+  // Pattern 3: "...by CompanyName" or "...from CompanyName"
+  const byMatch = desc.match(
+    /\b(?:by|from)\s+([A-Z][A-Za-z\s&'\-]+?(?:Inc|LLC|Ltd|Corp|Co|Guyana|International|Services|Group)\.?)\b/
+  );
+  if (byMatch) {
+    const name = byMatch[1].trim().replace(/[,.]$/, "");
+    if (name.length >= 3 && name.length <= 80) return name;
+  }
+
+  // Pattern 4: "on behalf of CompanyName"
+  const behalfMatch = desc.match(
+    /on behalf of\s+([A-Z][A-Za-z\s&'\-()]+?)(?:\s*[.,]|\s+(?:for|to|in|at|is|and|the)\b)/
+  );
+  if (behalfMatch) {
+    const name = behalfMatch[1].trim().replace(/[,.]$/, "");
+    if (name.length >= 3 && name.length <= 80) return name;
+  }
+
+  return null;
+}
+
 async function getOpportunities(): Promise<PublicOpportunity[]> {
   try {
     const res = await fetch("https://app.lcadesk.com/api/public/opportunities", {
@@ -58,22 +101,30 @@ async function getOpportunities(): Promise<PublicOpportunity[]> {
     if (!res.ok) return [];
     const data = await res.json();
     const notices: ApiNotice[] = data.notices ?? [];
-    return notices.map((n, i) => ({
+    return notices.map((n, i) => {
+      const decodedDesc = decodeEntities(n.description);
+      const rawContractor = decodeEntities(n.contractorName);
+      const contractor =
+        rawContractor && rawContractor !== "Unknown"
+          ? rawContractor
+          : extractContractorFromDescription(decodedDesc) || "Contractor Not Specified";
+      return {
       id: String(i),
       title: cleanTitle(n.title),
-      contractor_name: decodeEntities(n.contractorName) || "Contractor Not Specified",
+      contractor_name: contractor,
       type: "supplier" as const,
       notice_type: n.noticeType,
       lca_category: decodeEntities(n.lcaCategory) || null,
       deadline: n.deadline,
-      description: decodeEntities(n.description),
+      description: decodedDesc,
       source_url: n.sourceUrl,
       posted_date: null,
       employment_category: null,
       status: null,
       location: null,
       contract_type: null,
-    }));
+    };
+    });
   } catch {
     return [];
   }
