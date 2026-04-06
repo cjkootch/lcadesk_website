@@ -39,3 +39,32 @@ export interface PublicJob {
   notice_type: string | null;
   status: string | null;
 }
+
+export interface PublicCompany {
+  slug: string;
+  companyName: string;
+  legalName: string | null;
+  website: string | null;
+  description: string | null;
+  industry: string | null;
+  companyType: string | null;
+  guyanaPresence: string | null;
+  keyServices: string[] | null;
+  employeeEstimate: string | null;
+  parentCompany: string | null;
+  likelyFilingObligation: boolean | null;
+  totalOpportunities: number;
+  activeOpportunities: number;
+  totalJobPostings: number;
+  openJobPostings: number;
+  procurementCategories: string[];
+  employmentCategories: string[];
+  lcsServiceCategories: string[];
+  lcsRegistered: boolean;
+  lcsCertId: string | null;
+  lcsStatus: string | null;
+  lcsExpirationDate: string | null;
+  lcsAddress: string | null;
+  claimed: boolean;
+  verified: boolean;
+}

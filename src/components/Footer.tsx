@@ -17,6 +17,7 @@ const columns = [
     links: [
       { label: "Opportunities Board", href: "/opportunities" },
       { label: "Jobs Board \uD83C\uDDEC\uD83C\uDDFE", href: "/jobs" },
+      { label: "Company Directory", href: "/companies" },
       { label: "Supplier Directory", href: "/suppliers" },
       { label: "Verify LCS Certificate", href: "/verify" },
     ],

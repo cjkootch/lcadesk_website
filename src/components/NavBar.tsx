@@ -10,8 +10,9 @@ const links = [
   { href: "/features", label: "Features" },
   { href: "/markets", label: "Markets" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/jobs", label: "Jobs for Guyanese" },
-  { href: "/opportunities", label: "Supplier Opportunities" },
+  { href: "/jobs", label: "Jobs" },
+  { href: "/opportunities", label: "Opportunities" },
+  { href: "/companies", label: "Companies" },
   { href: "/blog", label: "Blog" },
 ];
 
