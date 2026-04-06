@@ -506,7 +506,7 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
                                 href="/jobs/register"
                                 className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-purple-600 bg-purple-50 border border-purple-200 px-3 py-1 rounded-full hover:bg-purple-100 transition"
                               >
-                                <Lock size={10} /> Register to see full details
+                                <Lock size={10} /> Register to apply
                               </Link>
                             </div>
                           </div>
@@ -583,7 +583,7 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
                         href={`/jobs/register?apply=${job.id}`}
                         className="inline-flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-accent transition"
                       >
-                        Apply <ArrowRight size={12} />
+                        Register to Apply <ArrowRight size={12} />
                       </Link>
                     </div>
                     {job.posted_date && (
