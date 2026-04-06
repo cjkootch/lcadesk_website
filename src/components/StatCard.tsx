@@ -50,7 +50,7 @@ export default function StatCard({ value, label, lightOnDark = false }: StatCard
         lightOnDark ? "hover:bg-white/5" : "hover:bg-accent/5"
       }`}
     >
-      <p className={`font-display text-4xl md:text-5xl mb-2 ${
+      <p className={`text-4xl md:text-5xl font-bold tracking-tight mb-2 ${
         lightOnDark ? "text-emerald-300" : "gradient-text"
       }`}>
         {displayed}
