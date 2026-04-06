@@ -15,3 +15,21 @@ export interface PublicOpportunity {
   location: string | null;
   contract_type: string | null;
 }
+
+export interface PublicJob {
+  id: string;
+  company_name: string;
+  job_title: string;
+  department: string | null;
+  employment_type: string | null;
+  location: string | null;
+  summary: string | null;
+  experience_required: string | null;
+  education_required: string | null;
+  closing_date: string | null;
+  posted_date: string | null;
+  source_url: string | null;
+  guyanese_first_consideration: boolean;
+  employment_category: string | null;
+  salary_range: string | null;
+}

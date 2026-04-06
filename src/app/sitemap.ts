@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { fetchOpportunities } from "@/lib/opportunities";
 import { posts } from "@/lib/blog";
+import type { PublicJob } from "@/lib/types";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://lcadesk.com";
@@ -50,6 +51,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Job pages
+  let jobPages: MetadataRoute.Sitemap = [];
+  try {
+    const jobRes = await fetch("https://app.lcadesk.com/api/public/jobs", { next: { revalidate: 3600 } });
+    if (jobRes.ok) {
+      const jobData = await jobRes.json();
+      const jobs = jobData.jobs ?? [];
+      jobPages = jobs.map((j: { id?: string }, i: number) => ({
+        url: `${baseUrl}/jobs/${j.id || i}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+      }));
+    }
+  } catch {}
+
   // Blog posts
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
@@ -58,5 +75,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...opportunityPages, ...blogPages];
+  return [...staticPages, ...opportunityPages, ...jobPages, ...blogPages];
 }
