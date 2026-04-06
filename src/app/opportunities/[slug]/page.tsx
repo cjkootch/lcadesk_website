@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ExternalLink, Calendar, Building2, Tag, ShieldCheck, FileText, AlertTriangle, Clock, Users, Sparkles, Lock } from "lucide-react";
 import { fetchOpportunities } from "@/lib/opportunities";
+import { getContractorLogo } from "@/lib/contractor-logos";
 import CTABanner from "@/components/CTABanner";
 import GeometricBg from "@/components/GeometricBg";
 
@@ -174,12 +175,26 @@ export default async function OpportunityDetailPage({ params }: Props) {
             {opp.title}
           </h1>
 
-          {hasContractor && (
-            <div className="flex items-center gap-2 mb-4">
-              <Building2 size={16} className="text-text-muted" />
-              <span className="text-text-secondary font-medium">{opp.contractor_name}</span>
-            </div>
-          )}
+          {hasContractor && (() => {
+            const logoUrl = getContractorLogo(opp.contractor_name);
+            return (
+              <div className="flex items-center gap-2.5 mb-4">
+                {logoUrl ? (
+                  <img
+                    src={logoUrl}
+                    alt={opp.contractor_name}
+                    width={24}
+                    height={24}
+                    className="w-6 h-6 rounded object-contain"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Building2 size={16} className="text-text-muted" />
+                )}
+                <span className="text-text-secondary font-medium">{opp.contractor_name}</span>
+              </div>
+            );
+          })()}
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-text-muted">
             {opp.deadline && (
@@ -326,15 +341,22 @@ export default async function OpportunityDetailPage({ params }: Props) {
                       </div>
                     </div>
                   )}
-                  {hasContractor && (
-                    <div className="flex items-start gap-2">
-                      <Building2 size={13} className="text-text-muted mt-0.5" />
-                      <div>
-                        <p className="text-xs text-text-muted">Contractor</p>
-                        <p className="text-sm text-text-primary font-medium">{opp.contractor_name}</p>
+                  {hasContractor && (() => {
+                    const sidebarLogo = getContractorLogo(opp.contractor_name);
+                    return (
+                      <div className="flex items-start gap-2">
+                        {sidebarLogo ? (
+                          <img src={sidebarLogo} alt="" width={13} height={13} className="w-[13px] h-[13px] rounded-sm object-contain mt-0.5" loading="lazy" />
+                        ) : (
+                          <Building2 size={13} className="text-text-muted mt-0.5" />
+                        )}
+                        <div>
+                          <p className="text-xs text-text-muted">Contractor</p>
+                          <p className="text-sm text-text-primary font-medium">{opp.contractor_name}</p>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    );
+                  })()}
                   {opp.lca_category && (
                     <div className="flex items-start gap-2">
                       <Tag size={13} className="text-text-muted mt-0.5" />
