@@ -30,6 +30,7 @@ const columns = [
       { label: "\u{1F1EC}\u{1F1ED} Ghana", href: "/markets/ghana" },
       { label: "\u{1F1F2}\u{1F1FF} Mozambique", href: "/markets/mozambique" },
       { label: "\u{1F1F3}\u{1F1E6} Namibia", href: "/markets/namibia" },
+      { label: "\u{1F1F8}\u{1F1F7} Suriname", href: "/markets/suriname" },
     ],
   },
   {
