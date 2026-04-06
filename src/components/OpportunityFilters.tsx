@@ -428,7 +428,9 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
 
                   {/* Title */}
                   <h3 className="font-semibold text-text-primary text-[15px] leading-snug mb-2 group-hover:text-accent transition-colors">
-                    {opp.title}
+                    <Link href={`/opportunities/${opp.id}`} className="hover:underline">
+                      {opp.title}
+                    </Link>
                   </h3>
 
                   {/* Description — gated for non-logged-in users */}
@@ -472,23 +474,24 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
 
                   {/* Footer actions */}
                   <div className="flex items-center justify-between pt-3 border-t border-border/30">
-                    {opp.source_url ? (
-                      <a
-                        href={opp.source_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-hover transition group/link"
-                      >
-                        View Notice <ExternalLink size={13} className="group-hover/link:translate-x-0.5 transition-transform" />
-                      </a>
-                    ) : (
+                    <div className="flex items-center gap-3">
                       <Link
-                        href="/suppliers/register"
+                        href={`/opportunities/${opp.id}`}
                         className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-hover transition group/link"
                       >
-                        Register to Apply <ArrowRight size={13} className="group-hover/link:translate-x-0.5 transition-transform" />
+                        Details <ArrowRight size={13} className="group-hover/link:translate-x-0.5 transition-transform" />
                       </Link>
-                    )}
+                      {opp.source_url && (
+                        <a
+                          href={opp.source_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-accent transition group/link"
+                        >
+                          Source <ExternalLink size={12} />
+                        </a>
+                      )}
+                    </div>
                     {!isLoggedIn && (
                       <span className="inline-flex items-center gap-1 text-[10px] text-text-muted">
                         <BarChart3 size={10} />
