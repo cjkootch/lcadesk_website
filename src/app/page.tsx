@@ -7,6 +7,7 @@ import {
   Droplets, Building2, Ship, HardHat, Factory, Truck, Leaf, Zap,
   FileText, Calendar, BarChart3, Shield, Users, Download,
   Brain, Search, MessageSquare, ArrowRight, X, Check,
+  Briefcase, Package, ClipboardCheck,
 } from "lucide-react";
 import Ticker from "@/components/Ticker";
 import StatCard from "@/components/StatCard";
@@ -163,6 +164,77 @@ export default function HomePage() {
 
       {/* 3. Ticker */}
       <Ticker />
+
+      {/* 3b. Choose Your Path */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Who Are You?</motion.p>
+          <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-4">
+            LCA Desk Serves Three Audiences
+          </motion.h2>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-text-secondary text-center mb-12 max-w-2xl mx-auto">
+            Whether you&apos;re filing compliance reports, bidding on contracts, or looking for work &mdash; the Local Content Act affects you. Choose your path.
+          </motion.p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: ClipboardCheck,
+                title: "LCA Compliance Filers",
+                desc: "Contractors, sub-contractors, and licensees required to file half-yearly reports, annual plans, and master plans with the Secretariat.",
+                cta: "Start Free Trial",
+                href: "https://app.lcadesk.com/auth/signup",
+                color: "from-accent to-teal",
+                tag: "Software Platform",
+              },
+              {
+                icon: Briefcase,
+                title: "Guyanese Job Seekers",
+                desc: "Guyanese nationals looking for oil sector employment. The LCA mandates that contractors give you first consideration in hiring.",
+                cta: "Browse Jobs",
+                href: "/jobs",
+                color: "from-blue-500 to-cyan-500",
+                tag: "Free",
+              },
+              {
+                icon: Package,
+                title: "Guyanese Suppliers",
+                desc: "Local companies seeking procurement opportunities. Contractors must give first consideration to LCS-registered Guyanese suppliers.",
+                cta: "Browse Opportunities",
+                href: "/opportunities",
+                color: "from-amber-500 to-yellow-500",
+                tag: "Free",
+              },
+            ].map((path, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.1 }}
+                className="bg-card rounded-2xl border border-border p-7 card-lift relative overflow-hidden group flex flex-col">
+                <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${path.color}`} />
+                <div className="flex items-center justify-between mb-4">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${path.color} bg-opacity-15 flex items-center justify-center`}
+                    style={{ background: `linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 15%, transparent), color-mix(in srgb, var(--color-teal) 10%, transparent))` }}>
+                    <path.icon size={22} className="text-accent" />
+                  </div>
+                  <span className={`text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full ${
+                    path.tag === "Free" ? "bg-emerald-100 text-emerald-700" : "bg-accent/10 text-accent"
+                  }`}>{path.tag}</span>
+                </div>
+                <h3 className="font-display text-lg text-text-primary mb-2">{path.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed mb-6 flex-1">{path.desc}</p>
+                <Link href={path.href}
+                  className={`inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold transition-all hover:scale-[1.02] ${
+                    i === 0
+                      ? "bg-gradient-to-r from-accent to-teal text-white shadow-md shadow-accent/20 hover:shadow-lg"
+                      : "border-2 border-accent text-accent hover:bg-accent hover:text-white"
+                  }`}>
+                  {path.cta} <ArrowRight size={14} />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 4. Trust badges */}
       <section className="py-16 bg-white">
