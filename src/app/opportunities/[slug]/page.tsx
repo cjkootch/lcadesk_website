@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${noticeType}${opp.title} | Guyana Oil Sector Procurement`,
     description: `${opp.title}${contractor}${category}. Active procurement opportunity in Guyana's oil sector requiring first consideration to LCS-certified Guyanese suppliers under the Local Content Act 2021.${deadline}`,
+    alternates: { canonical: `https://lcadesk.com/opportunities/${slug}` },
     openGraph: {
       title: `${noticeType}${opp.title}`,
       description: opp.ai_teaser?.slice(0, 200) || opp.description?.slice(0, 200) || `Procurement opportunity in Guyana's oil sector.`,
