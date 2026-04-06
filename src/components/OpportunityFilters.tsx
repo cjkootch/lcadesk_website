@@ -61,6 +61,10 @@ function getDeadlineInfo(deadline: string | null) {
   return { label: formatted, urgent: false, expired: false, daysLeft: diff };
 }
 
+function formatDeadline(deadline: string) {
+  return new Date(deadline).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+
 function truncate(str: string, len: number) {
   if (str.length <= len) return str;
   return str.slice(0, len).replace(/\s+\S*$/, "") + "…";
@@ -178,6 +182,11 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
       return true;
     });
     results.sort((a, b) => {
+      // Always push expired to the bottom regardless of sort
+      const aExpired = getDeadlineInfo(a.deadline).expired;
+      const bExpired = getDeadlineInfo(b.deadline).expired;
+      if (aExpired !== bExpired) return aExpired ? 1 : -1;
+
       if (sortBy === "deadline") {
         const da = a.deadline ? new Date(a.deadline).getTime() : Infinity;
         const db = b.deadline ? new Date(b.deadline).getTime() : Infinity;
@@ -403,29 +412,31 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
                 transition={{ delay: Math.min(i * 0.025, 0.15) }}
                 className={`relative bg-white rounded-xl border overflow-hidden transition-all group ${
                   deadline.expired
-                    ? "border-border/50 opacity-70"
+                    ? "border-gray-200 bg-gray-50/50"
                     : deadline.urgent
                       ? "border-amber-200 shadow-sm shadow-amber-100/50"
                       : "border-border/80 hover:shadow-lg hover:shadow-accent/5 hover:border-accent/20"
                 }`}
               >
                 {/* Color accent bar at top */}
-                <div className={`h-1 bg-gradient-to-r ${notice.gradient}`} />
+                <div className={`h-1 bg-gradient-to-r ${deadline.expired ? "from-gray-300 to-gray-300" : notice.gradient}`} />
 
                 <div className="p-5">
                   {/* Header: notice badge + actions */}
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md ${notice.bg} ${notice.text}`}>
+                      <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md ${
+                        deadline.expired ? "bg-gray-100 text-gray-500" : `${notice.bg} ${notice.text}`
+                      }`}>
                         {opp.notice_type || "Notice"}
                       </span>
                       {deadline.urgent && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md animate-pulse">
                           <Clock size={10} /> {deadline.label}
                         </span>
                       )}
                       {deadline.expired && (
-                        <span className="inline-flex items-center gap-1 text-[10px] text-red-500 bg-red-50 px-2 py-0.5 rounded-md">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded-md">
                           Closed
                         </span>
                       )}
@@ -452,7 +463,9 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
                   )}
 
                   {/* Title */}
-                  <h3 className="font-semibold text-text-primary text-[15px] leading-snug mb-2 group-hover:text-accent transition-colors">
+                  <h3 className={`font-semibold text-[15px] leading-snug mb-2 transition-colors ${
+                    deadline.expired ? "text-text-muted" : "text-text-primary group-hover:text-accent"
+                  }`}>
                     <Link href={`/opportunities/${opp.id}`} className="hover:underline">
                       {opp.title}
                     </Link>
@@ -513,16 +526,28 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
                     </div>
                   )}
 
-                  {/* Tags row */}
+                  {/* Deadline + tags row */}
                   <div className="flex flex-wrap gap-1.5 mb-4">
+                    {opp.deadline && (
+                      <span className={`inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-md border ${
+                        deadline.expired
+                          ? "bg-red-50 text-red-600 border-red-200"
+                          : deadline.urgent
+                            ? "bg-amber-50 text-amber-700 border-amber-200"
+                            : "bg-gray-50 text-text-secondary border-gray-100"
+                      }`}>
+                        <Calendar size={10} />
+                        {deadline.expired ? `Closed ${formatDeadline(opp.deadline)}` : `Closes ${formatDeadline(opp.deadline)}`}
+                      </span>
+                    )}
+                    {!opp.deadline && (
+                      <span className="inline-flex items-center gap-1 text-[11px] text-text-muted px-2 py-0.5 rounded-md bg-gray-50 border border-gray-100">
+                        <Calendar size={10} /> Open deadline
+                      </span>
+                    )}
                     {opp.lca_category && (
                       <span className="inline-flex items-center gap-1 text-[11px] font-medium bg-gray-50 text-text-secondary px-2 py-0.5 rounded-md border border-gray-100">
                         <Tag size={10} /> {opp.lca_category}
-                      </span>
-                    )}
-                    {!deadline.expired && !deadline.urgent && opp.deadline && (
-                      <span className="inline-flex items-center gap-1 text-[11px] text-text-muted px-2 py-0.5 rounded-md bg-gray-50 border border-gray-100">
-                        <Calendar size={10} /> {deadline.label}
                       </span>
                     )}
                   </div>
