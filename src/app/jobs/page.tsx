@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Scale, FileCheck, UserCheck, Briefcase, GraduationCap, Wrench, Users, Clock, TrendingUp, ShieldCheck, Building2, User } from "lucide-react";
-import type { PublicOpportunity } from "@/lib/types";
+import type { PublicJob } from "@/lib/types";
 import JobFilters from "@/components/JobFilters";
 import CTABanner from "@/components/CTABanner";
 import GeometricBg from "@/components/GeometricBg";
 import StatCard from "@/components/StatCard";
 import FAQAccordion from "@/components/FAQAccordion";
+import EmailCapture from "@/components/EmailCapture";
 
 export const revalidate = 3600;
 
@@ -28,16 +29,29 @@ export const metadata: Metadata = {
 };
 
 interface ApiJob {
-  title: string;
-  contractorName: string;
-  noticeType: string | null;
-  employmentCategory: string | null;
-  deadline: string | null;
-  description: string | null;
-  sourceUrl: string | null;
-  postedDate: string | null;
-  location: string | null;
-  contractType: string | null;
+  id?: string;
+  jobTitle?: string;
+  companyName?: string;
+  employmentCategory?: string | null;
+  noticeType?: string | null;
+  description?: string | null;
+  location?: string | null;
+  closingDate?: string | null;
+  postedDate?: string | null;
+  sourceUrl?: string | null;
+  status?: string | null;
+  aiTeaser?: string | null;
+  aiData?: {
+    summary?: string | null;
+    responsibilities?: string[] | null;
+    skills?: string[] | null;
+    experience_required?: string | null;
+    education_required?: string | null;
+    employment_type?: string | null;
+    how_to_apply?: string | null;
+    guyanese_first_consideration?: boolean;
+    salary_range?: string | null;
+  } | null;
 }
 
 function decodeEntities(str: string | null): string {
@@ -56,40 +70,57 @@ function decodeEntities(str: string | null): string {
     .replace(/&nbsp;/g, " ");
 }
 
-async function getJobs(): Promise<PublicOpportunity[]> {
+function cleanLocation(loc: string | null | undefined): string | null {
+  if (!loc) return null;
+  // Some records have HTML artifacts in location field
+  if (loc.includes("<") || loc.includes("data-") || loc.includes("elementor")) return null;
+  return loc.trim() || null;
+}
+
+async function getJobs(): Promise<PublicJob[]> {
   try {
-    const res = await fetch("https://app.lcadesk.com/api/public/jobs", {
+    const res = await fetch("https://app.lcadesk.com/api/public/lcs-jobs", {
       next: { revalidate: 3600 },
     });
     if (!res.ok) return [];
     const data = await res.json();
     const jobs: ApiJob[] = data.jobs ?? [];
-    return jobs.map((j, i) => ({
-      id: String(i),
-      contractor_name: j.contractorName || "Unknown",
-      type: "employment" as const,
-      notice_type: j.noticeType,
-      title: decodeEntities(j.title),
-      description: decodeEntities(j.description),
-      lca_category: null,
-      employment_category: j.employmentCategory,
-      posted_date: j.postedDate,
-      deadline: j.deadline,
-      source_url: j.sourceUrl,
-      ai_teaser: null,
-      status: null,
-      location: j.location,
-      contract_type: j.contractType,
-    }));
+    return jobs.map((j, i) => {
+      const ai = j.aiData;
+      return {
+        id: j.id || String(i),
+        company_name: j.companyName || "Unknown",
+        job_title: decodeEntities(j.jobTitle || "Untitled Position"),
+        department: null,
+        employment_type: ai?.employment_type || null,
+        location: cleanLocation(j.location),
+        summary: j.aiTeaser || decodeEntities(j.description ?? null) || ai?.summary || null,
+        experience_required: ai?.experience_required || null,
+        education_required: ai?.education_required || null,
+        closing_date: j.closingDate || null,
+        posted_date: j.postedDate || null,
+        source_url: j.sourceUrl || null,
+        guyanese_first_consideration: ai?.guyanese_first_consideration ?? true,
+        employment_category: j.employmentCategory || null,
+        salary_range: ai?.salary_range || null,
+        ai_teaser: j.aiTeaser || null,
+        responsibilities: ai?.responsibilities || null,
+        skills: ai?.skills || null,
+        how_to_apply: ai?.how_to_apply || null,
+        notice_type: j.noticeType || null,
+        status: j.status || null,
+      };
+    });
   } catch {
     return [];
   }
 }
 
 const employmentCategories = [
-  { icon: Building2, title: "Managerial", desc: "Senior leadership, project management, country managers, compliance officers, finance directors", color: "from-amber-500 to-yellow-500" },
-  { icon: Wrench, title: "Technical", desc: "Engineers, geoscientists, HSE specialists, welders, electricians, instrumentation technicians", color: "from-blue-500 to-cyan-500" },
-  { icon: Users, title: "Non-Technical", desc: "Administrative staff, logistics coordinators, catering, security, drivers, warehouse operators", color: "from-gray-500 to-slate-500" },
+  { icon: Building2, title: "Management", desc: "Senior leadership, project management, country managers, compliance officers, finance directors", color: "from-amber-500 to-yellow-500" },
+  { icon: Wrench, title: "Technical", desc: "Engineers, geoscientists, HSE specialists, instrumentation technicians, IT professionals", color: "from-blue-500 to-cyan-500" },
+  { icon: Briefcase, title: "Administrative", desc: "Office staff, HR coordinators, procurement officers, accounting clerks, document controllers", color: "from-purple-500 to-purple-600" },
+  { icon: Users, title: "Skilled & Semi-Skilled Labour", desc: "Welders, electricians, mechanics, riggers, crane operators, heavy equipment operators, drivers", color: "from-emerald-500 to-emerald-600" },
 ];
 
 const faqItems = [
@@ -103,8 +134,11 @@ const faqItems = [
 
 export default async function JobsPage() {
   const jobs = await getJobs();
-  const activeCount = jobs.length;
-  const uniqueCompanies = new Set(jobs.map((j) => j.contractor_name)).size;
+  const activeCount = jobs.filter((j) => {
+    if (!j.closing_date) return true;
+    return new Date(j.closing_date) >= new Date();
+  }).length;
+  const uniqueCompanies = new Set(jobs.map((j) => j.company_name)).size;
 
   return (
     <main>
@@ -215,7 +249,7 @@ export default async function JobsPage() {
           <p className="text-text-secondary text-center mb-14 max-w-2xl mx-auto">
             The LCA tracks employment across three categories. Contractors must report hiring numbers in each category and demonstrate Guyanese-first consideration for all.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {employmentCategories.map((cat, i) => (
               <div key={i} className="bg-card rounded-2xl border border-border overflow-hidden card-lift">
                 <div className={`h-1.5 bg-gradient-to-r ${cat.color}`} />
@@ -241,8 +275,20 @@ export default async function JobsPage() {
         </div>
       </section>
 
+      {/* Email capture for job alerts */}
+      <section className="bg-surface py-16">
+        <div className="max-w-xl mx-auto px-6">
+          <EmailCapture
+            headline="Get job alerts in your inbox"
+            description="Be the first to know when new oil sector positions are posted. We'll send you matching jobs based on your skills and category preference."
+            list="opportunities"
+            variant="card"
+          />
+        </div>
+      </section>
+
       {/* How to get hired */}
-      <section className="py-24 bg-surface">
+      <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <p className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">For Job Seekers</p>
           <h2 className="font-display text-3xl md:text-4xl text-text-primary text-center mb-14">How to Land an Oil Sector Job</h2>
@@ -266,7 +312,7 @@ export default async function JobsPage() {
       </section>
 
       {/* Why This Board Exists */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-surface">
         <div className="max-w-5xl mx-auto px-6">
           <p className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Our Mission</p>
           <h2 className="font-display text-2xl md:text-3xl text-text-primary text-center mb-12">Why This Board Exists</h2>
@@ -289,7 +335,7 @@ export default async function JobsPage() {
       </section>
 
       {/* Cross-link to Opportunities */}
-      <section className="py-16 bg-surface border-y border-border">
+      <section className="py-16 bg-white border-y border-border">
         <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
           <div className="flex-1">
             <p className="text-xs text-accent font-semibold tracking-widest uppercase mb-2">Also on LCA Desk</p>
@@ -303,7 +349,7 @@ export default async function JobsPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-surface">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-display text-2xl md:text-3xl text-text-primary text-center mb-12">Frequently Asked Questions</h2>
           <FAQAccordion items={faqItems} />
