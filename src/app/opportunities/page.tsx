@@ -82,12 +82,6 @@ export default async function OpportunitiesPage() {
             >
               Log In
             </Link>
-            <Link
-              href="https://app.lcadesk.com/auth/signup"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
-            >
-              Post an Opportunity (Contractors)
-            </Link>
           </div>
         </div>
       </section>
