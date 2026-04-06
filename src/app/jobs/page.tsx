@@ -262,7 +262,7 @@ export default async function JobsPage() {
       <CTABanner
         headline="Are you a Guyanese national looking for oil sector work?"
         body="Register on LCA Desk to receive alerts when positions matching your skills are posted by contractors. It&rsquo;s free."
-        primaryCTA={{ label: "Register Free", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Register Free", href: "/jobs/register" }}
         secondaryCTA={{ label: "View Opportunities", href: "/opportunities" }}
       />
     </>

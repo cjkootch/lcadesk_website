@@ -246,7 +246,7 @@ export default async function OpportunitiesPage() {
       <CTABanner
         headline="Are you a Guyanese supplier?"
         body="Register on LCA Desk to receive alerts when contractors post opportunities in your service category. It&rsquo;s free."
-        primaryCTA={{ label: "Register Free", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Register Free", href: "/suppliers/register" }}
         secondaryCTA={{ label: "Learn More", href: "/features" }}
       />
     </>
