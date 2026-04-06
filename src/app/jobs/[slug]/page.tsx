@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  ArrowLeft, ArrowRight, ExternalLink, Calendar, Building2, Tag,
+  ArrowLeft, ArrowRight, Calendar, Building2, Tag,
   ShieldCheck, FileText, AlertTriangle, Clock, Users, MapPin,
   Briefcase, GraduationCap, DollarSign,
 } from "lucide-react";
@@ -417,9 +417,7 @@ export default async function JobDetailPage({ params }: Props) {
                     <div>
                       <h3 className="font-semibold text-text-primary mb-1.5">How to Apply</h3>
                       <p className="text-sm text-text-secondary leading-relaxed">
-                        {job.source_url
-                          ? "Click \u201CApply Now\u201D to visit the original posting and follow the application instructions. Prepare a tailored CV highlighting relevant experience, certifications, and any prior oil sector work."
-                          : "Register on LCA Desk to apply for this position and receive alerts for similar opportunities. Prepare a tailored CV highlighting your qualifications and relevant experience."}
+                        Click &ldquo;Apply Through LCA Desk&rdquo; to submit your application. We forward it directly to the employer with your profile, certifications, and CV. Prepare a tailored CV highlighting relevant experience and any prior oil sector work.
                       </p>
                     </div>
                   </div>
@@ -443,23 +441,16 @@ export default async function JobDetailPage({ params }: Props) {
             {/* Right: sidebar */}
             <div className="space-y-5">
               <div className="bg-card rounded-2xl border border-border p-6 space-y-4 sticky top-24">
-                {job.source_url && (
-                  <a
-                    href={job.source_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.01] transition-all"
-                  >
-                    Apply Now <ExternalLink size={14} />
-                  </a>
-                )}
-
                 <Link
-                  href="/jobs/register"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl border-2 border-accent text-accent px-6 py-3 text-sm font-semibold hover:bg-accent hover:text-white transition-all"
+                  href={`/jobs/register?apply=${slug}`}
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.01] transition-all"
                 >
-                  Register as Job Seeker <ArrowRight size={14} />
+                  Apply Through LCA Desk <ArrowRight size={14} />
                 </Link>
+
+                <p className="text-xs text-text-muted text-center leading-relaxed">
+                  Your application is sent directly to the employer. Guyanese nationals receive first consideration by law.
+                </p>
 
                 {deadlineStatus?.expired && (
                   <div className="bg-red-50 border border-red-200 rounded-lg p-3">

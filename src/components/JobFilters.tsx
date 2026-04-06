@@ -3,10 +3,10 @@
 import { useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Search, Users, ExternalLink, Calendar, MapPin, AlertTriangle,
+  Search, Users, Calendar, MapPin, AlertTriangle,
   Building2, Tag, ArrowRight, X, SlidersHorizontal, Clock,
   Bookmark, BookmarkCheck, Bell, Lock, Crown,
-  ChevronDown, ChevronUp, Sparkles, Briefcase, DollarSign,
+  Sparkles, Briefcase, DollarSign,
   GraduationCap,
 } from "lucide-react";
 import Link from "next/link";
@@ -579,16 +579,12 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
                       >
                         View Details <ArrowRight size={13} className="group-hover/link:translate-x-0.5 transition-transform" />
                       </Link>
-                      {job.source_url && (
-                        <a
-                          href={job.source_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-accent transition"
-                        >
-                          Apply <ExternalLink size={12} />
-                        </a>
-                      )}
+                      <Link
+                        href={`/jobs/register?apply=${job.id}`}
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-accent transition"
+                      >
+                        Apply <ArrowRight size={12} />
+                      </Link>
                     </div>
                     {job.posted_date && (
                       <span className="text-[10px] text-text-muted">
