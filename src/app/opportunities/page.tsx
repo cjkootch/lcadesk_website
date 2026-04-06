@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   title: "LCA Procurement Opportunities | Guyana Oil Sector",
   description:
     "Active procurement opportunities from oil sector contractors in Guyana. All postings require first consideration to LCS-certified Guyanese suppliers under the Local Content Act 2021.",
+  openGraph: {
+    title: "LCA Procurement Opportunities | Guyana Oil Sector",
+    description: "Active procurement notices from oil sector contractors requiring first consideration to Guyanese suppliers.",
+    images: [{ url: "/og-opportunities.png", width: 1200, height: 630, alt: "LCA procurement opportunities in Guyana" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LCA Procurement Opportunities",
+    description: "Active notices from oil sector contractors in Guyana.",
+    images: ["/og-opportunities.png"],
+  },
 };
 
 async function getOpportunities() {

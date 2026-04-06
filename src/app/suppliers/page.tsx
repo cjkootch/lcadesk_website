@@ -10,6 +10,17 @@ export const metadata: Metadata = {
   title: "Supplier Directory | LCS-Certified Guyanese Suppliers",
   description:
     "Browse Guyanese suppliers registered on the Local Content Register. Find LCS-certified companies across 14 service categories for oil & gas procurement.",
+  openGraph: {
+    title: "Guyanese Supplier Directory | LCS-Certified",
+    description: "Browse LCS-certified Guyanese suppliers across 14 service categories for oil & gas procurement.",
+    images: [{ url: "/og-suppliers.png", width: 1200, height: 630, alt: "Guyanese supplier directory" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Guyanese Supplier Directory",
+    description: "LCS-certified suppliers across 14 service categories.",
+    images: ["/og-suppliers.png"],
+  },
 };
 
 const categories = [

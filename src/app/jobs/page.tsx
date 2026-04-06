@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   title: "Oil Sector Jobs in Guyana | LCA Guyanese-First Employment",
   description:
     "Oil and gas jobs posted by contractors legally required to prioritize Guyanese nationals under the Local Content Act 2021. Updated weekly from the LCS Register.",
+  openGraph: {
+    title: "Oil Sector Jobs in Guyana | Guyanese-First Employment",
+    description: "Jobs from contractors legally required to prioritize Guyanese nationals under the LCA 2021.",
+    images: [{ url: "/og-jobs.png", width: 1200, height: 630, alt: "Oil sector jobs in Guyana" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Oil Sector Jobs in Guyana",
+    description: "Guyanese nationals get first consideration by law.",
+    images: ["/og-jobs.png"],
+  },
 };
 
 interface ApiJob {
