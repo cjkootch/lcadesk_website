@@ -1,0 +1,118 @@
+# LCA Desk — Comprehensive Product Reference
+
+> LCA Desk is the world's first AI-native Local Content Act (LCA) compliance platform for oil and gas sector companies. Built by Stabroek Advisory LLC, Houston, Texas.
+
+## What Problem Does LCA Desk Solve?
+
+Oil and gas companies operating in countries with Local Content Acts (LCAs) must file mandatory compliance reports with government regulators. These reports cover employment of local nationals, procurement from local suppliers, capacity development, and technology transfer. Filing is complex, penalties for non-compliance are severe (GY$1M–$50M per offence in Guyana), and most companies still use spreadsheets and consultants.
+
+LCA Desk automates the entire filing process — from data entry to AI-drafted narratives to Secretariat-ready exports.
+
+## Who Uses LCA Desk?
+
+- **Contractors**: Oil and gas operators, service companies, and sub-contractors on the Local Content Register
+- **Compliance Officers**: Staff responsible for preparing and submitting LCA reports
+- **Legal/Regulatory Teams**: Teams monitoring compliance obligations across multiple jurisdictions
+- **Job Seekers**: Guyanese nationals searching for oil and gas employment opportunities (free access)
+- **Suppliers**: Guyanese-owned businesses registered as local content suppliers (free access)
+
+## Primary Market: Guyana
+
+Guyana's Local Content Act 2021 requires all contractors, sub-contractors, and licensees to file with the Local Content Secretariat. Five mandatory submission types:
+
+1. **H1 Half-Yearly Report** — Due July 30 each year. Covers January–June activity.
+2. **H2 Half-Yearly Report** — Due January 30 each year. Covers July–December activity.
+3. **Annual Local Content Plan** — Forward-looking plan for local content targets.
+4. **Local Content Master Plan** — Multi-year strategic plan for local content integration.
+5. **Annual Performance Report** — Year-end review of actual vs. planned local content performance.
+
+Each report includes multiple sections: employment data (Guyanese vs. non-Guyanese by role), procurement spend (local vs. foreign), capacity development programs, technology transfer initiatives, and a Comparative Analysis narrative.
+
+### Guyana Regulatory Context
+- **Regulator**: Local Content Secretariat (LCS), Ministry of Natural Resources
+- **Governing Law**: Local Content Act 2021, Act No. 18 of 2021
+- **Guidelines**: Version 4.1 reporting guidelines
+- **Penalties**: GY$1 million to GY$50 million per offence; false/misleading submissions are criminal offences
+- **Registration**: All entities must be on the Local Content Register
+
+## Expanding Markets
+
+| Market | Regulator | Status |
+|--------|-----------|--------|
+| Nigeria | Nigerian Content Development and Monitoring Board (NCDMB) | In development |
+| Trinidad & Tobago | Ministry of Energy and Energy Industries (MEEI), Permanent Local Content Committee (PLCC) | In development |
+| Ghana | Petroleum Commission | In development |
+| Mozambique | Instituto Nacional de Petróleo (INP) | In development |
+| Namibia | Ministry of Mines and Energy | In development |
+| Suriname | Staatsolie / Ministry of Natural Resources | In development |
+
+## Pricing
+
+| Plan | Monthly | Annual | Key Features |
+|------|---------|--------|-------------|
+| **Lite** | $99/mo | $948/yr ($79/mo) | 1 entity, 2 users, all 5 submission types, guided data entry, deadline alerts, $25/report export, 1yr history, email support (48hr) |
+| **Pro** | $299/mo | $2,868/yr ($239/mo) | 5 entities, 10 users, unlimited reports, AI Narrative Drafting, AI Compliance Gap Detection, workforce + procurement dashboards, unlimited history, audit log, priority support (24hr) |
+| **Enterprise** | $1,999/mo | $19,990/yr | Unlimited entities/users, all AI features, RBAC, API/ERP integrations, white-glove onboarding, custom workflows, SLA support (4hr, named CSM) |
+| **Full Service** | From $2,500/mo | Custom | Done-for-you filings: data collection, report prep, AI + human review, Secretariat submission, acknowledgement tracking, audit defense |
+
+- 14-day free trial with full Pro access, no credit card required
+- After trial: platform access paused until user upgrades to a paid plan
+- Free accounts for job seekers and suppliers (jobs board and supplier directory only)
+
+## AI Features (Powered by Claude, Anthropic)
+
+### AI Narrative Drafting
+Reads employment, procurement, and capacity development data and drafts the full Comparative Analysis narrative in the formal tone the Secretariat expects. Users review and approve before export.
+
+### Compliance Gap Detection
+Pre-submission risk scan that identifies missing data, inconsistencies, and potential compliance gaps before filing.
+
+### Automatic Data Extraction
+Upload payroll, procurement, and HR documents. AI extracts structured data fields automatically.
+
+### Ask the LCA Expert
+In-app AI assistant trained on the Local Content Act 2021, Version 4.1 guidelines, and regulatory precedents.
+
+## Jobs Board
+
+LCA Desk maintains a public jobs board listing oil and gas employment opportunities in Guyana. Features:
+- AI-enriched job listings with skills, responsibilities, and salary data extracted from postings
+- Filter by employment category (Management, Technical, Administrative, Skilled/Semi-Skilled Labour)
+- Guyanese-first consideration badges
+- Inline application through the LCA Desk portal
+- Free for job seekers
+
+## Supplier Directory
+
+Registered Guyanese suppliers are listed in a searchable directory. Contractors can browse and verify supplier credentials. Suppliers receive a verifiable certification badge.
+
+## Technical Architecture
+
+- Web application at app.lcadesk.com
+- Marketing site at lcadesk.com
+- Built with Next.js (App Router), React, TypeScript
+- Database: PostgreSQL (Neon)
+- AI: Claude by Anthropic
+- Payments: Stripe
+- Hosting: Vercel
+- Auth: Custom with role-based access (viewer, editor, submitter, admin)
+
+## Company
+
+**Stabroek Advisory LLC**
+Houston, Texas, USA
+
+Contact: hello@lcadesk.com
+Website: https://lcadesk.com
+Dashboard: https://app.lcadesk.com
+
+## Key Terms and Definitions
+
+- **LCA**: Local Content Act
+- **LCS**: Local Content Secretariat (Guyana's regulatory body)
+- **NCDMB**: Nigerian Content Development and Monitoring Board
+- **Half-Yearly Report**: Bi-annual compliance report filed with the LCS
+- **Comparative Analysis**: Narrative section of the half-yearly report comparing planned vs. actual local content performance
+- **Local Content Register**: Government registry of all entities required to comply with the LCA
+- **Guyanese-First**: Principle requiring preferential hiring and procurement of Guyanese nationals and businesses
+- **Petroleum Agreement**: Contract between the government and oil companies that triggers LCA obligations

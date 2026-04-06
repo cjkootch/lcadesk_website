@@ -16,6 +16,7 @@ import CTABanner from "@/components/CTABanner";
 import PricingToggle from "@/components/PricingToggle";
 import GeometricBg from "@/components/GeometricBg";
 import UIFrame from "@/components/UIFrame";
+import { BrandedIconDark } from "@/components/BrandedIcon";
 
 const trustBadges = [
   { icon: Droplets, label: "Oil & Gas" },
@@ -50,18 +51,35 @@ const markets = [
 const faqItems = [
   { q: "Who is required to file LCA half-yearly reports?", a: "Every contractor, sub-contractor, and licensee operating under a petroleum agreement in Guyana must file half-yearly reports with the Local Content Secretariat. This applies to all companies on the Local Content Register, regardless of size or nationality." },
   { q: "What are the penalties for non-compliance?", a: "Penalties range from GY$1 million to GY$50 million per offence. False or misleading submissions are a criminal offence. The Secretariat is actively auditing and following up on late or missing submissions." },
-  { q: "What\u2019s the difference between Lite and Pro?", a: "Lite ($99/month) includes platform access plus $25 per report generated \u2014 ideal for infrequent filers. Pro ($599/month) includes unlimited report generation plus AI Narrative Drafting and Compliance Gap Detection. After 4 reports per month, Pro is cheaper than Lite." },
+  { q: "What\u2019s the difference between Lite and Pro?", a: "Lite ($99/month) includes platform access plus $25 per report generated \u2014 ideal for infrequent filers. Pro ($299/month) includes unlimited report generation plus AI Narrative Drafting and Compliance Gap Detection. After 8 reports per month, Pro is cheaper than Lite." },
   { q: "Does the 14-day trial include AI features?", a: "Yes. Your free 14-day trial gives you full Pro access \u2014 including AI Narrative Drafting and Compliance Gap Detection \u2014 with no credit card required." },
-  { q: "What happens to my data after the trial ends?", a: "Your data is saved. If you don\u2019t upgrade, you\u2019ll be downgraded to a read-only view. Upgrade anytime to regain full access and continue where you left off." },
+  { q: "What happens to my data after the trial ends?", a: "Your data is saved securely. If you don\u2019t upgrade to a paid plan, access to the platform is paused \u2014 you won\u2019t be able to create, edit, or export reports. Upgrade anytime to pick up right where you left off." },
   { q: "Will LCA Desk cover Nigeria and other markets?", a: "Yes. Nigeria (NCDMB), Trinidad & Tobago, Ghana, Mozambique, and Namibia are in active development. Join the waitlist on the Markets page to be notified at launch." },
   { q: "Can you handle the Comparative Analysis narrative sections?", a: "Yes \u2014 this is LCA Desk\u2019s signature AI feature. The AI reads your expenditure, employment, and capacity development data and drafts the full narrative in the formal tone the Secretariat expects. You review and approve before export." },
 ];
 
 const vp = { once: true as const, margin: "-60px" as const };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* 1. Hero — split layout with floating dashboard */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-surface pt-24 pb-16">
         <GeometricBg variant="topology" />
@@ -247,9 +265,7 @@ export default function HomePage() {
             {trustBadges.map((b, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.04 }}
                 className="flex flex-col items-center gap-2.5 p-4 rounded-xl bg-surface/80 border border-border hover:border-accent/30 hover:shadow-sm transition-all group cursor-default">
-                <div className="w-10 h-10 rounded-lg bg-accent/[0.08] flex items-center justify-center group-hover:bg-accent/15 transition-colors">
-                  <b.icon size={18} className="text-accent" />
-                </div>
+                <BrandedIconDark icon={b.icon} size="sm" className="group-hover:scale-110 transition-transform" />
                 <span className="text-[11px] text-text-secondary text-center font-medium leading-tight">{b.label}</span>
               </motion.div>
             ))}
@@ -412,9 +428,7 @@ export default function HomePage() {
             {features.map((f, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.06 }}
                 className="bg-card rounded-2xl border border-border p-7 card-lift group">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/15 to-teal/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <f.icon size={22} className="text-accent" />
-                </div>
+                <BrandedIconDark icon={f.icon} size="md" className="mb-5 group-hover:scale-110 transition-transform" />
                 <h3 className="font-semibold text-text-primary mb-2 text-[15px]">{f.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{f.desc}</p>
               </motion.div>

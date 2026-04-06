@@ -184,7 +184,7 @@ export default async function JobsPage() {
             </Link>
           </div>
           <div className="hidden lg:block mt-12">
-            <img src="/illustrations/hero-jobs.png" alt="" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+            <img src="/illustrations/hero-jobs.png" alt="Oil and gas jobs board for Guyanese workers and professionals" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
           </div>
         </div>
       </section>

@@ -9,21 +9,25 @@ import CTABanner from "@/components/CTABanner";
 const pricingFAQs = [
   {
     q: "What's the difference between Lite and Pro?",
-    a: "Lite ($99/month) includes platform access plus $25 per report generated. Pro ($599/month) includes unlimited report generation plus AI Narrative Drafting and Compliance Gap Detection. After 4 reports per month, Pro is cheaper than Lite.",
+    a: "Lite ($99/month) includes platform access plus $25 per report generated. Pro ($299/month) includes unlimited report generation plus AI Narrative Drafting and Compliance Gap Detection. After 8 reports per month, Pro is cheaper than Lite.",
   },
   {
     q: "Does the 14-day trial include AI features?",
     a: "Yes. Full Pro access including AI Narrative Drafting and Compliance Gap Detection — no credit card required.",
   },
   {
+    q: "What happens after the 14-day trial?",
+    a: "If you don't upgrade to a paid plan (Lite or Pro), platform access is paused — you won't be able to create, edit, or export reports. Your data is saved for 90 days. Upgrade anytime to pick up where you left off.",
+  },
+  {
     q: "What happens when I cancel?",
-    a: "You can cancel anytime. Your data is saved and exportable on request. You'll be downgraded to read-only view.",
+    a: "You can cancel anytime. Your data is saved for 90 days and exportable on request. After cancellation, platform access is paused until you resubscribe.",
   },
 ];
 
 export default function PricingPageClient() {
   return (
-    <main>
+    <>
       <HeroSection
         eyebrow="Pricing"
         headline="Simple, transparent pricing."
@@ -65,6 +69,6 @@ export default function PricingPageClient() {
         primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
-    </main>
+    </>
   );
 }

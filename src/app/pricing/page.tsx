@@ -4,10 +4,12 @@ import PricingPageClient from "@/components/PricingPageClient";
 export const metadata: Metadata = {
   title: "Pricing | LCA Desk Compliance Software",
   description:
-    "Simple, transparent pricing for LCA compliance software. Start free for 14 days. Lite from $99/month, Pro from $599/month with AI features. Job seekers and suppliers register free.",
+    "Simple, transparent pricing for LCA compliance software. Start free for 14 days. Lite from $99/month, Pro from $299/month with AI features. Job seekers and suppliers register free.",
+  alternates: { canonical: "https://lcadesk.com/pricing" },
   openGraph: {
-    title: "LCA Desk Pricing | From $99/month",
-    description: "Simple, transparent pricing. 14-day free trial with full Pro access. No credit card required.",
+    title: "LCA Desk Pricing — Plans from $99/month",
+    description: "Lite $99/mo + $25/report. Pro $299/mo with unlimited reports and AI features. 14-day free trial, no credit card required.",
+    url: "https://lcadesk.com/pricing",
   },
 };
 
@@ -40,11 +42,11 @@ const pricingJsonLd = {
     {
       "@type": "Offer",
       name: "Pro",
-      price: "599",
+      price: "299",
       priceCurrency: "USD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "599",
+        price: "299",
         priceCurrency: "USD",
         billingDuration: "P1M",
       },
@@ -72,12 +74,12 @@ const pricingJsonLd = {
 
 export default function PricingPage() {
   return (
-    <>
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
       />
       <PricingPageClient />
-    </>
+    </main>
   );
 }

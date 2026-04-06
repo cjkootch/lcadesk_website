@@ -17,6 +17,7 @@ import HeroSection from "@/components/HeroSection";
 import GeometricBg from "@/components/GeometricBg";
 import UIFrame from "@/components/UIFrame";
 import CTABanner from "@/components/CTABanner";
+import { BrandedIconDark } from "@/components/BrandedIcon";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -273,7 +274,7 @@ ending.`}
               custom={i}
               className="rounded-xl border border-border bg-card p-6"
             >
-              <f.icon className="mb-4 h-8 w-8 text-accent" />
+              <BrandedIconDark icon={f.icon} size="md" className="mb-4" />
               <h3 className="mb-1 text-lg font-semibold text-text-primary">
                 {f.title}
               </h3>
@@ -341,7 +342,7 @@ ending.`}
               custom={i}
               className="rounded-xl border border-border bg-card p-6 text-center"
             >
-              <item.icon className="mx-auto mb-4 h-8 w-8 text-accent" />
+              <BrandedIconDark icon={item.icon} size="md" className="mx-auto mb-4" />
               <h3 className="mb-1 text-lg font-semibold text-text-primary">
                 {item.title}
               </h3>

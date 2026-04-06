@@ -67,7 +67,7 @@ export default function NigeriaPage() {
       />
 
       <div className="hidden lg:block mt-12">
-        <img src="/illustrations/market-nigeria.png" alt="" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+        <img src="/illustrations/market-nigeria.png" alt="Nigeria NCDMB local content compliance overview" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
       </div>
 
       {/* Key stats */}

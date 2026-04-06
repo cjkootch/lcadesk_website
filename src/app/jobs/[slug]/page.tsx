@@ -123,6 +123,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${job.job_title}${company} | Oil Sector Jobs in Guyana`,
     description: `${job.job_title}${company}${location}. Guyanese nationals receive first consideration under the Local Content Act 2021.${job.ai_teaser ? ` ${job.ai_teaser.slice(0, 120)}` : job.summary ? ` ${job.summary.slice(0, 120)}` : ""}`,
+    alternates: { canonical: `https://lcadesk.com/jobs/${slug}` },
     openGraph: {
       title: `${job.job_title}${company}`,
       description: job.ai_teaser?.slice(0, 200) || job.summary?.slice(0, 200) || `Oil sector employment opportunity${location}. Guyanese nationals prioritized by law.`,

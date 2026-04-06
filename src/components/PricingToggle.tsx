@@ -25,7 +25,7 @@ const plans: Plan[] = [
     name: "Lite",
     bestFor: "Small vendors / 1\u201315 employees",
     monthly: 99,
-    annual: 990,
+    annual: 948,
     features: [
       "1 entity",
       "2 users",
@@ -43,8 +43,8 @@ const plans: Plan[] = [
   {
     name: "Pro",
     bestFor: "Growing contractors / 15\u2013150 employees",
-    monthly: 599,
-    annual: 5990,
+    monthly: 299,
+    annual: 2868,
     highlighted: true,
     aiBadge: "Includes AI Narrative Drafting",
     features: [
@@ -134,7 +134,7 @@ export default function PricingToggle() {
             animate={{ opacity: 1, x: 0 }}
             className="text-xs font-medium text-accent bg-accent/10 px-2.5 py-1 rounded-full"
           >
-            Save up to 17%
+            Save up to 20%
           </motion.span>
         )}
       </div>
