@@ -10,6 +10,7 @@ export interface PublicOpportunity {
   posted_date: string | null;
   deadline: string | null;
   source_url: string | null;
+  ai_teaser: string | null;
   status: string | null;
   location: string | null;
   contract_type: string | null;

@@ -8,6 +8,7 @@ interface ApiNotice {
   deadline: string | null;
   description: string | null;
   sourceUrl: string | null;
+  aiTeaser: string | null;
 }
 
 export function decodeEntities(str: string | null): string {
@@ -104,6 +105,7 @@ export async function fetchOpportunities(): Promise<PublicOpportunity[]> {
         deadline: n.deadline,
         description: decodedDesc,
         source_url: n.sourceUrl,
+        ai_teaser: n.aiTeaser ? decodeEntities(n.aiTeaser) : null,
         posted_date: null,
         employment_category: null,
         status: null,

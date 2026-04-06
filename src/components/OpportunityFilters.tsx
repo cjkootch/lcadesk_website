@@ -6,7 +6,7 @@ import {
   Search, Briefcase, ExternalLink, Calendar, AlertTriangle,
   Building2, Tag, ArrowRight, X, SlidersHorizontal, Clock,
   Bookmark, BookmarkCheck, Bell, BellRing, Lock, Crown,
-  ChevronDown, ChevronUp, BarChart3,
+  ChevronDown, ChevronUp, BarChart3, Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 import type { PublicOpportunity } from "@/lib/types";
@@ -147,7 +147,7 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
       }
       if (search) {
         const q = search.toLowerCase();
-        const fields = [o.title, o.contractor_name, o.description || "", o.lca_category || "", o.notice_type || ""];
+        const fields = [o.title, o.contractor_name, o.description || "", o.ai_teaser || "", o.lca_category || "", o.notice_type || ""];
         if (!fields.some((f) => f.toLowerCase().includes(q))) return false;
       }
       return true;
@@ -318,8 +318,8 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
               <Crown size={18} className="text-amber-400" />
             </div>
             <div>
-              <p className="text-white text-sm font-semibold">Upgrade to Pro for contractor insights</p>
-              <p className="text-emerald-200 text-xs">See procurement history, LCA compliance scores, and get early access to new opportunities.</p>
+              <p className="text-white text-sm font-semibold">Unlock full AI analysis on every opportunity</p>
+              <p className="text-emerald-200 text-xs">See complete scope of work, eligibility requirements, and contractor insights — extracted by AI from source documents.</p>
             </div>
           </div>
           <Link href="https://app.lcadesk.com/auth/signup" className="shrink-0 inline-flex items-center gap-1.5 bg-white text-emerald-900 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
@@ -433,8 +433,38 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
                     </Link>
                   </h3>
 
-                  {/* Description — gated for non-logged-in users */}
-                  {opp.description && (
+                  {/* AI Teaser — visible preview + blurred/gated remainder */}
+                  {opp.ai_teaser && (
+                    <div className="mb-3">
+                      <div className="flex items-center gap-1.5 mb-1.5">
+                        <Sparkles size={12} className="text-purple-500" />
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-purple-600">AI Summary</span>
+                      </div>
+                      <div className="relative">
+                        <p className="text-[13px] text-text-secondary leading-relaxed">
+                          {truncate(opp.ai_teaser, 80)}
+                        </p>
+                        {opp.ai_teaser.length > 80 && (
+                          <div className="relative mt-1">
+                            <p className="text-[13px] text-text-secondary leading-relaxed select-none" style={{ filter: "blur(4px)", WebkitUserSelect: "none" }}>
+                              {opp.ai_teaser.slice(80, 200)}
+                            </p>
+                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white flex items-end justify-center pb-1">
+                              <Link
+                                href="https://app.lcadesk.com/auth/signup"
+                                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-purple-600 bg-purple-50 border border-purple-200 px-3 py-1 rounded-full hover:bg-purple-100 transition"
+                              >
+                                <Lock size={10} /> Sign up to see full AI analysis
+                              </Link>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Description fallback — only show if no AI teaser */}
+                  {!opp.ai_teaser && opp.description && (
                     <div className="mb-3">
                       <p className="text-[13px] text-text-secondary leading-relaxed">
                         {!isLoggedIn && hasLongDesc && !isExpanded
