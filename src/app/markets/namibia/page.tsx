@@ -32,6 +32,9 @@ export default function NamibiaPage() {
         sub="Cabinet-approved policy. 11B+ barrels discovered. TotalEnergies, Shell, Galp leading exploration."
         geometricVariant="waves"
       />
+      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/market-namibia.png" alt="Namibia deepwater oil exploration and local content policy" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
 
       {/* Regulatory Summary */}
       <section className="max-w-4xl mx-auto px-6 py-16">

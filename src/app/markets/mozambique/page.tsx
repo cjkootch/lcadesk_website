@@ -32,6 +32,9 @@ export default function MozambiquePage() {
         sub="INP oversight. Law 15/2017. Major LNG sector expansion."
         geometricVariant="waves"
       />
+      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/market-mozambique.png" alt="Mozambique LNG terminal and local content compliance" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
 
       {/* Regulatory Summary */}
       <section className="max-w-4xl mx-auto px-6 py-16">

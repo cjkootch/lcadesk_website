@@ -14,6 +14,9 @@ export default function LCAActOverviewPage() {
         sub="Key provisions, requirements, and compliance obligations under Guyana's Local Content Act."
         geometricVariant="grid"
       />
+      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/hero-lca-overview.png" alt="Guyana Local Content Act 2021 legislation and compliance requirements" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
 
       <section className="max-w-4xl mx-auto px-6 py-16">
         <motion.div

@@ -108,7 +108,7 @@ export default function PricingToggle() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto px-6">
       {/* Toggle */}
       <div className="flex items-center justify-center gap-4 mb-10">
         <span className={`text-sm font-medium transition-colors ${!annual ? "text-text-primary" : "text-text-muted"}`}>

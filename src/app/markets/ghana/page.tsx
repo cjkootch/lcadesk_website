@@ -32,6 +32,9 @@ export default function GhanaPage() {
         sub="LI 2204 Local Content and Local Participation Regulations."
         geometricVariant="waves"
       />
+      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/market-ghana.png" alt="Ghana offshore oil platform and Petroleum Commission compliance" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
 
       {/* Regulatory Summary */}
       <section className="max-w-4xl mx-auto px-6 py-16">

@@ -48,6 +48,9 @@ export default function LCAFilingCalendarPage() {
         sub="Key dates and deadlines for all mandatory Local Content Act submissions."
         geometricVariant="grid"
       />
+      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/hero-filing-calendar.png" alt="LCA filing calendar with deadline markers and submission dates" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
 
       <section className="max-w-4xl mx-auto px-6 py-16">
         <motion.div

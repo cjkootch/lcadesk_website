@@ -14,6 +14,9 @@ export default function AboutPage() {
         sub="LCA Desk was born from firsthand experience navigating Guyana's Local Content Act."
         geometricVariant="topology"
       />
+      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/hero-about.png" alt="LCA Desk team connecting Houston and Guyana energy sectors" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
 
       <section className="max-w-3xl mx-auto px-6 py-16">
         <motion.div

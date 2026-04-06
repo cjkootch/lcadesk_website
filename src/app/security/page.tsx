@@ -90,6 +90,9 @@ export default function SecurityPage() {
         sub="Your LCA data is protected with industry-leading security measures."
         geometricVariant="grid"
       />
+      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/hero-security.png" alt="Enterprise-grade data security and encryption for compliance data" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
 
       {/* 2. Security Cards Grid */}
       <section className="mx-auto max-w-6xl px-6 py-24">

@@ -45,6 +45,9 @@ export default function SurinamePage() {
         sub="Guyana's neighbor is on the verge of becoming a major oil producer. TotalEnergies, APA, Petronas, and others are advancing Block 58 toward first oil. LCA Desk Suriname module coming 2027."
         geometricVariant="waves"
       />
+      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/market-suriname.png" alt="Suriname offshore oil exploration and emerging local content framework" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
 
       {/* Key stats */}
       <section className="relative py-14 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>

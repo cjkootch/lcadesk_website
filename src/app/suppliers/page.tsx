@@ -91,6 +91,10 @@ export default async function SuppliersPage() {
         </div>
       </section>
 
+      <div className="hidden lg:block py-8 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/hero-suppliers.png" alt="Guyanese supplier directory with verified certification badges" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
+
       {/* Stats */}
       <section className="relative py-12 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">

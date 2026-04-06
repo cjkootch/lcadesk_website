@@ -81,6 +81,9 @@ export default function ContactPage() {
         sub="Questions about LCA Desk? We'd love to hear from you."
         geometricVariant="grid"
       />
+      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
+        <img src="/illustrations/hero-contact.png" alt="Contact LCA Desk support team for compliance questions" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
 
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
