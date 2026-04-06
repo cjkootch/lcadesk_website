@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Droplets, Building2, Ship, HardHat, Factory, Truck, Leaf, Zap,
   FileText, Calendar, BarChart3, Shield, Users, Download,
   Brain, Search, MessageSquare, ArrowRight, X, Check,
 } from "lucide-react";
-import HeroSection from "@/components/HeroSection";
 import Ticker from "@/components/Ticker";
 import StatCard from "@/components/StatCard";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -37,7 +37,7 @@ const features = [
 ];
 
 const markets = [
-  { flag: "\u{1F1EC}\u{1F1FE}", name: "Guyana", status: "LIVE", desc: "LCA v4.1 \u00b7 5 submission types \u00b7 GY$50M penalties", cta: "Start Free Trial", href: "/signup" },
+  { flag: "\u{1F1EC}\u{1F1FE}", name: "Guyana", status: "LIVE", desc: "LCA v4.1 \u00b7 5 submission types \u00b7 GY$50M penalties", cta: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" },
   { flag: "\u{1F1F3}\u{1F1EC}", name: "Nigeria", status: "COMING SOON", desc: "NCDMB \u00b7 Nigerian Content Plans \u00b7 5% project value penalties", cta: "Join Waitlist", href: "/markets/nigeria" },
   { flag: "\u{1F1F9}\u{1F1F9}", name: "Trinidad & Tobago", status: "COMING SOON", desc: "MEEI PLCC \u00b7 Local Content Policy \u00b7 EST timezone", cta: "Join Waitlist", href: "/markets/trinidad" },
   { flag: "\u{1F1EC}\u{1F1ED}", name: "Ghana", status: "COMING SOON", desc: "Petroleum Commission \u00b7 LI 2204 regulations", cta: "Join Waitlist", href: "/markets/ghana" },
@@ -60,26 +60,106 @@ const vp = { once: true as const, margin: "-60px" as const };
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero */}
-      <HeroSection
-        eyebrow="LOCAL CONTENT ACT COMPLIANCE \u00b7 AI-POWERED \u00b7 GLOBAL"
-        headline="The Only Software Built for LCA Compliance."
-        sub="LCA Desk manages all five mandatory Local Content Act submissions with AI narrative drafting, compliance gap detection, and one-click Secretariat-ready exports. Built for Guyana. Expanding globally."
-        primaryCTA={{ label: "Start Free 14-Day Trial", href: "/signup" }}
-        secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
-        geometricVariant="topology"
-        fullHeight
-      />
+      {/* 1. Hero — split layout with floating dashboard */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-surface pt-24 pb-16">
+        <GeometricBg variant="topology" />
+        <div className="absolute top-20 left-[10%] w-[500px] h-[500px] bg-accent/[0.07] rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-20 right-[5%] w-[400px] h-[400px] bg-teal/[0.06] rounded-full blur-[100px] pointer-events-none" />
 
-      {/* 2. Trust line */}
-      <div className="bg-white border-b border-border py-4">
-        <div className="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-text-secondary">
-          <span>{"\u2713"} No credit card required</span>
-          <span>{"\u2713"} Full Pro access for 14 days</span>
-          <span>{"\u2713"} Built on LCA v4.1 guidelines</span>
-          <span>{"\u2713"} Powered by Claude AI</span>
+        <div className="relative mx-auto max-w-7xl px-6 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — copy */}
+          <div>
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 mb-6 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-accent text-xs font-semibold tracking-wide uppercase">Now Live in Guyana</span>
+            </motion.div>
+            <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.5 }}
+              className="font-display text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.08] text-text-primary mb-6">
+              The Only Software Built for{" "}
+              <span className="gradient-text-static">LCA Compliance.</span>
+            </motion.h1>
+            <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-lg text-text-secondary max-w-xl mb-8 leading-relaxed">
+              Manage all five mandatory Local Content Act submissions with AI narrative drafting, compliance gap detection, and one-click Secretariat-ready exports.
+            </motion.p>
+            <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
+              className="flex flex-col sm:flex-row gap-3 mb-8">
+              <Link href="https://app.lcadesk.com/auth/signup"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02] transition-all">
+                Start Free 14-Day Trial <ArrowRight size={16} />
+              </Link>
+              <Link href="/demo"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-8 py-4 text-sm font-semibold hover:border-accent hover:text-accent transition-all">
+                Book a Demo
+              </Link>
+            </motion.div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45, duration: 0.5 }}
+              className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-text-muted">
+              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> No credit card required</span>
+              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Full Pro access for 14 days</span>
+              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Cancel anytime</span>
+            </motion.div>
+          </div>
+
+          {/* Right — floating dashboard mockup */}
+          <motion.div initial={{ opacity: 0, y: 24, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
+            className="hidden lg:block">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 via-teal/10 to-transparent rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl border border-border bg-white shadow-2xl shadow-black/[0.08] overflow-hidden">
+                <div className="flex items-center gap-2 px-5 py-3 bg-gray-50 border-b border-border">
+                  <div className="flex gap-1.5"><div className="w-3 h-3 rounded-full bg-red-400" /><div className="w-3 h-3 rounded-full bg-amber-400" /><div className="w-3 h-3 rounded-full bg-green-400" /></div>
+                  <div className="flex-1 mx-3"><div className="bg-white rounded-md px-4 py-1.5 text-xs text-text-muted text-center border border-border/50">app.lcadesk.com/dashboard</div></div>
+                </div>
+                <div className="flex">
+                  <div className="w-44 bg-gray-50 border-r border-border p-3 space-y-0.5 hidden xl:block">
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-accent/10 text-accent text-xs font-medium"><BarChart3 size={13} /> Dashboard</div>
+                    <div className="flex items-center gap-2 px-3 py-2 text-text-muted text-xs"><FileText size={13} /> Submissions</div>
+                    <div className="flex items-center gap-2 px-3 py-2 text-text-muted text-xs"><Users size={13} /> Workforce</div>
+                    <div className="flex items-center gap-2 px-3 py-2 text-text-muted text-xs"><Calendar size={13} /> Calendar</div>
+                    <div className="flex items-center gap-2 px-3 py-2 text-text-muted text-xs"><Brain size={13} /> AI Assistant</div>
+                  </div>
+                  <div className="flex-1 p-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div><p className="text-sm font-semibold text-text-primary">Compliance Dashboard</p><p className="text-[10px] text-text-muted">H1 2025 Filing Period</p></div>
+                      <span className="text-[10px] font-medium bg-accent/10 text-accent px-2 py-0.5 rounded-full">4 entities</span>
+                    </div>
+                    <div className="bg-surface rounded-xl p-3 border border-border">
+                      <div className="flex items-center justify-between mb-1.5"><span className="text-[11px] font-medium text-text-secondary">Overall Completion</span><span className="text-[11px] font-bold text-accent">78%</span></div>
+                      <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden"><div className="h-full bg-gradient-to-r from-accent to-teal rounded-full" style={{ width: "78%" }} /></div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[{ v: "3", l: "Due This Period", c: "text-text-primary" }, { v: "2", l: "AI Drafts Ready", c: "text-accent" }, { v: "12d", l: "Until Deadline", c: "text-amber-500" }].map((s, i) => (
+                        <div key={i} className="bg-surface rounded-lg p-2.5 border border-border text-center">
+                          <p className={`text-base font-bold ${s.c}`} style={{ fontFamily: "var(--font-tech)" }}>{s.v}</p>
+                          <p className="text-[9px] text-text-muted leading-tight">{s.l}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="space-y-1.5">
+                      <div className="flex items-center gap-2 p-2 rounded-lg bg-emerald-50 border border-emerald-200">
+                        <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center flex-shrink-0"><Check size={10} className="text-white" /></div>
+                        <div><p className="text-[11px] font-medium text-text-primary">AI narrative drafted for H1 Report</p><p className="text-[9px] text-text-muted">2 min ago</p></div>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 rounded-lg bg-surface border border-border">
+                        <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0"><Search size={10} className="text-amber-600" /></div>
+                        <div><p className="text-[11px] font-medium text-text-primary">Gap detection found 1 issue</p><p className="text-[9px] text-text-muted">15 min ago</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </div>
+
+        <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10" animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
+          <div className="w-6 h-10 rounded-full border-2 border-accent/30 flex items-start justify-center p-1.5">
+            <motion.div className="w-1.5 h-1.5 rounded-full bg-accent" animate={{ y: [0, 12, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }} />
+          </div>
+        </motion.div>
+      </section>
 
       {/* 3. Ticker */}
       <Ticker />
@@ -87,15 +167,17 @@ export default function HomePage() {
       {/* 4. Trust badges */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="text-center text-text-muted text-sm mb-8 uppercase tracking-widest">
-            Trusted across Guyana&apos;s oil and gas ecosystem
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="text-center text-text-muted text-xs mb-10 uppercase tracking-[0.2em] font-medium">
+            Built for every sector in Guyana&apos;s oil &amp; gas ecosystem
           </motion.p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
             {trustBadges.map((b, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.04 }}
-                className="flex flex-col items-center gap-2 p-4 rounded-xl bg-surface border border-border hover:border-accent/20 transition">
-                <b.icon size={20} className="text-accent" />
-                <span className="text-xs text-text-secondary text-center font-medium">{b.label}</span>
+                className="flex flex-col items-center gap-2.5 p-4 rounded-xl bg-surface/80 border border-border hover:border-accent/30 hover:shadow-sm transition-all group cursor-default">
+                <div className="w-10 h-10 rounded-lg bg-accent/[0.08] flex items-center justify-center group-hover:bg-accent/15 transition-colors">
+                  <b.icon size={18} className="text-accent" />
+                </div>
+                <span className="text-[11px] text-text-secondary text-center font-medium leading-tight">{b.label}</span>
               </motion.div>
             ))}
           </div>
@@ -103,21 +185,27 @@ export default function HomePage() {
       </section>
 
       {/* 5. Problem Section */}
-      <section className="py-20 bg-surface">
+      <section className="py-24 bg-surface">
         <div className="max-w-5xl mx-auto px-6">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">The Problem</motion.p>
           <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-12 leading-tight">
-            Every company in Guyana&apos;s oil sector has a compliance obligation.<br className="hidden md:block" /> Most are still using spreadsheets.
+            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-6 leading-tight">
+            Every company in Guyana&apos;s oil sector has a compliance obligation.
           </motion.h2>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-text-secondary text-center mb-14 max-w-2xl mx-auto">Most are still using spreadsheets, consultants, and guesswork.</motion.p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { title: "The Reporting Burden", color: "border-l-orange-500", desc: "5 mandatory submissions per year, complex Excel templates, overlapping deadlines that catch companies off guard." },
-              { title: "The Complexity", color: "border-l-amber-500", desc: "40+ reporting categories, Section 12 requirements, workforce and procurement breakdowns across multiple entities." },
-              { title: "The Risk", color: "border-l-red-500", desc: "GY$1M\u2013GY$50M penalties per offence, criminal liability for false submissions, active auditing by the Secretariat." },
+              { title: "The Reporting Burden", icon: "5x", color: "from-orange-500 to-amber-500", desc: "5 mandatory submissions per year, complex Excel templates, overlapping deadlines that catch companies off guard." },
+              { title: "The Complexity", icon: "40+", color: "from-amber-500 to-yellow-500", desc: "40+ reporting categories, Section 12 requirements, workforce and procurement breakdowns across multiple entities." },
+              { title: "The Risk", icon: "$50M", color: "from-red-500 to-rose-500", desc: "GY$1M\u2013GY$50M penalties per offence, criminal liability for false submissions, active auditing by the Secretariat." },
             ].map((card, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.1 }}
-                className={`bg-card rounded-xl p-6 border-l-4 ${card.color} border border-border`}>
-                <h3 className="font-semibold text-text-primary mb-2">{card.title}</h3>
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.1 }}
+                className="bg-card rounded-2xl p-7 border border-border card-lift relative overflow-hidden group">
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${card.color}`} />
+                <div className={`text-3xl font-bold bg-gradient-to-r ${card.color} bg-clip-text text-transparent mb-3`} style={{ fontFamily: "var(--font-tech)" }}>{card.icon}</div>
+                <h3 className="font-semibold text-text-primary mb-2 text-lg">{card.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{card.desc}</p>
               </motion.div>
             ))}
@@ -129,12 +217,14 @@ export default function HomePage() {
       <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 30%, #047857 60%, #064E3B 100%)" }}>
         <GeometricBg variant="circuits" />
         <div className="relative max-w-6xl mx-auto px-6 z-10">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-center text-emerald-300 text-sm font-semibold tracking-widest uppercase mb-4">Powered by Claude AI</motion.p>
           <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
             className="font-display text-3xl md:text-4xl text-white text-center mb-4">
             The AI That Does the Hard Work
           </motion.h2>
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="text-emerald-100/70 text-center mb-12 max-w-2xl mx-auto">
-            Four AI capabilities purpose-built for LCA compliance
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="text-emerald-100/60 text-center mb-14 max-w-2xl mx-auto">
+            Four AI capabilities purpose-built for LCA compliance — so you can focus on running your business.
           </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
@@ -205,59 +295,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. Product Mockups */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <UIFrame title="LCA Desk — Dashboard">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between p-3 bg-surface rounded-lg">
-                <span className="text-sm font-medium">Submissions Due</span>
-                <span className="text-accent font-bold" style={{ fontFamily: "var(--font-tech)" }}>3</span>
-              </div>
-              <div className="flex items-center justify-between p-3 bg-surface rounded-lg">
-                <span className="text-sm font-medium">Completion</span>
-                <span className="text-accent font-bold" style={{ fontFamily: "var(--font-tech)" }}>78%</span>
-              </div>
-              <div className="flex items-center justify-between p-3 bg-surface rounded-lg">
-                <span className="text-sm font-medium">Entities</span>
-                <span className="text-accent font-bold" style={{ fontFamily: "var(--font-tech)" }}>4</span>
-              </div>
-              <div className="flex items-center justify-between p-3 bg-emerald-50 rounded-lg border border-emerald-200">
-                <span className="text-sm font-medium text-accent">Next Deadline</span>
-                <span className="text-accent font-bold text-sm">H1 Report — Jul 30</span>
-              </div>
-            </div>
-          </UIFrame>
-          <UIFrame title="Submit Checklist">
-            <div className="space-y-3">
-              {["Employment data entered", "Procurement data entered", "Training records uploaded", "AI narrative drafted", "Gap detection passed"].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 p-2">
-                  <div className={`w-5 h-5 rounded-full flex items-center justify-center ${i < 3 ? "bg-accent text-white" : "bg-surface border border-border"}`}>
-                    {i < 3 && <Check size={12} />}
-                  </div>
-                  <span className={`text-sm ${i < 3 ? "text-text-primary" : "text-text-muted"}`}>{item}</span>
+      {/* 7. How It Works */}
+      <section className="py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">How It Works</motion.p>
+          <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-16">
+            Three steps to compliant filings
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-12 left-[20%] right-[20%] h-px bg-gradient-to-r from-accent/30 via-accent/50 to-accent/30" />
+            {[
+              { step: "01", title: "Enter your data", desc: "Input employment, procurement, and training data through guided wizards — or upload existing spreadsheets.", icon: FileText },
+              { step: "02", title: "AI drafts your report", desc: "Claude AI generates Secretariat-ready narratives, detects compliance gaps, and flags issues before you file.", icon: Brain },
+              { step: "03", title: "Export & submit", desc: "One-click PDF and Excel exports formatted exactly as the Secretariat expects. Full audit trail included.", icon: Download },
+            ].map((s, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.15 }}
+                className="text-center relative">
+                <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-accent/10 to-teal/5 border border-accent/20 flex items-center justify-center mx-auto mb-6 relative z-10">
+                  <s.icon size={32} className="text-accent" />
                 </div>
-              ))}
-            </div>
-          </UIFrame>
+                <span className="text-accent text-xs font-bold tracking-widest uppercase" style={{ fontFamily: "var(--font-tech)" }}>Step {s.step}</span>
+                <h3 className="font-semibold text-text-primary text-lg mt-2 mb-2">{s.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed max-w-xs mx-auto">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* 8. Features Grid */}
-      <section className="py-20 bg-surface">
+      <section className="py-24 bg-surface">
         <div className="max-w-6xl mx-auto px-6">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Platform Features</motion.p>
           <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-12">
+            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-14">
             Everything You Need for LCA Compliance
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.05 }}
-                className="bg-card rounded-xl border border-border p-6 hover:border-accent/20 transition">
-                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <f.icon size={20} className="text-accent" />
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.06 }}
+                className="bg-card rounded-2xl border border-border p-7 card-lift group">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/15 to-teal/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <f.icon size={22} className="text-accent" />
                 </div>
-                <h3 className="font-semibold text-text-primary mb-2">{f.title}</h3>
+                <h3 className="font-semibold text-text-primary mb-2 text-[15px]">{f.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
@@ -265,46 +350,75 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 8b. Integrations strip */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-center text-text-muted text-xs mb-10 uppercase tracking-[0.2em] font-medium">
+            Connects with the tools you already use
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+            className="flex flex-wrap items-center justify-center gap-10 md:gap-14">
+            <div className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+              <Image src="/zapier-logo.svg" alt="Zapier" width={120} height={34} className="h-8 w-auto" />
+            </div>
+            <div className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+              <Image src="/quickbooks-logo.png" alt="QuickBooks" width={140} height={34} className="h-8 w-auto" />
+            </div>
+            <div className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+              <Image src="/xero-logo.png" alt="Xero" width={80} height={34} className="h-8 w-auto" />
+            </div>
+            <div className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+              <Image src="/claude-logo.png" alt="Claude AI" width={120} height={26} className="h-7 w-auto" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* 9. Stats bar */}
       <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>
         <GeometricBg variant="hexagons" />
         <div className="relative max-w-6xl mx-auto px-6 z-10">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatCard value="1,300+" label="Companies Filing in Guyana" lightOnDark />
             <StatCard value="35+" label="Countries With LCA Laws" lightOnDark />
-            <StatCard value="5x" label="Annual Mandatory Submissions" lightOnDark />
-            <StatCard value="50,000,000" label="GY$ Maximum Penalty" lightOnDark />
-            <StatCard value="900,000+" label="Barrels/Day (and growing)" lightOnDark />
+            <StatCard value="GY$50M" label="Maximum Penalty Per Offence" lightOnDark />
+            <StatCard value="900K+" label="Barrels/Day (and growing)" lightOnDark />
           </div>
         </div>
       </section>
 
       {/* 10. Markets Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Global Coverage</motion.p>
           <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
             className="font-display text-3xl md:text-4xl text-text-primary text-center mb-4">
             Built for Guyana. Expanding Globally.
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
-            className="text-text-secondary text-center mb-12 max-w-2xl mx-auto">
+            className="text-text-secondary text-center mb-14 max-w-2xl mx-auto">
             Local content compliance is mandatory in 35+ countries. LCA Desk is building jurisdiction modules for every major oil-producing market &mdash; one platform, every LCA framework.
           </motion.p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {markets.map((m, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.05 }}
-                className="bg-card rounded-2xl border border-border p-6 hover:border-accent/20 transition">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-2xl">{m.flag}</span>
-                  <h3 className="font-semibold text-text-primary">{m.name}</h3>
-                  <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ml-auto ${
-                    m.status === "LIVE" ? "bg-accent text-white" : "bg-gray-100 text-text-muted"
-                  }`}>{m.status}</span>
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.06 }}
+                className="bg-card rounded-2xl border border-border p-7 card-lift group relative overflow-hidden">
+                {m.status === "LIVE" && <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-teal" />}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-3xl">{m.flag}</span>
+                  <div>
+                    <h3 className="font-semibold text-text-primary text-lg">{m.name}</h3>
+                    <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${
+                      m.status === "LIVE" ? "bg-accent text-white" : "bg-gray-100 text-text-muted"
+                    }`}>{m.status}</span>
+                  </div>
                 </div>
-                <p className="text-sm text-text-secondary mb-4">{m.desc}</p>
-                <Link href={m.href} className={`text-sm font-medium inline-flex items-center gap-1 ${
-                  m.status === "LIVE" ? "text-accent hover:text-accent-hover" : "text-text-muted hover:text-accent"
-                } transition`}>
+                <p className="text-sm text-text-secondary mb-5 leading-relaxed">{m.desc}</p>
+                <Link href={m.href} className={`text-sm font-semibold inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all ${
+                  m.status === "LIVE" ? "text-accent" : "text-text-muted hover:text-accent"
+                }`}>
                   {m.cta} <ArrowRight size={14} />
                 </Link>
               </motion.div>
@@ -318,10 +432,12 @@ export default function HomePage() {
       </section>
 
       {/* 11. Pricing */}
-      <section id="pricing" className="py-20 bg-surface">
+      <section id="pricing" className="py-24 bg-surface">
         <div className="max-w-6xl mx-auto px-6">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Pricing</motion.p>
           <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-12">
+            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-14">
             Simple, Transparent Pricing
           </motion.h2>
           <PricingToggle />
@@ -339,45 +455,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 13. Comparison strip */}
-      <section className="py-20 bg-surface">
-        <div className="max-w-4xl mx-auto px-6">
+      {/* 13. Comparison table */}
+      <section className="py-24 bg-surface">
+        <div className="max-w-3xl mx-auto px-6">
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Why Switch</motion.p>
           <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-12">
+            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-14">
             LCA Desk vs. The Old Way
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp}
-              className="bg-card rounded-2xl border border-red-200 p-6">
-              <h3 className="font-semibold text-red-600 mb-4 flex items-center gap-2"><X size={18} /> The Old Way</h3>
-              <ul className="space-y-3">
-                {["Manual spreadsheets", "Missed deadlines", "No audit trail", "Copy-paste narratives", "No gap detection"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-text-secondary">
-                    <X size={14} className="text-red-400" /> {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }} viewport={vp}
-              className="bg-card rounded-2xl border border-emerald-200 p-6">
-              <h3 className="font-semibold text-accent mb-4 flex items-center gap-2"><Check size={18} /> LCA Desk</h3>
-              <ul className="space-y-3">
-                {["AI-powered platform", "Automated reminders", "Full audit log", "AI-drafted narratives", "Proactive gap alerts"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-text-secondary">
-                    <Check size={14} className="text-accent" /> {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+            className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm">
+            <div className="grid grid-cols-3 bg-gray-50 border-b border-border">
+              <div className="p-4 text-xs font-semibold text-text-muted uppercase tracking-wider">Capability</div>
+              <div className="p-4 text-xs font-semibold text-red-500 uppercase tracking-wider text-center">Spreadsheets</div>
+              <div className="p-4 text-xs font-semibold text-accent uppercase tracking-wider text-center">LCA Desk</div>
+            </div>
+            {[
+              { cap: "Data entry", old: "Manual Excel", desk: "Guided wizards" },
+              { cap: "Narrative sections", old: "Copy-paste", desk: "AI-drafted" },
+              { cap: "Gap detection", old: "None", desk: "Automatic" },
+              { cap: "Deadline tracking", old: "Calendar reminders", desk: "Built-in alerts" },
+              { cap: "Audit trail", old: "None", desk: "Full log" },
+              { cap: "Multi-entity", old: "Separate files", desk: "Unified dashboard" },
+              { cap: "Export format", old: "Varies", desk: "Secretariat-ready" },
+            ].map((row, i) => (
+              <div key={i} className={`grid grid-cols-3 ${i % 2 === 0 ? "" : "bg-gray-50/50"} ${i < 6 ? "border-b border-border/50" : ""}`}>
+                <div className="p-4 text-sm font-medium text-text-primary">{row.cap}</div>
+                <div className="p-4 text-sm text-center flex items-center justify-center gap-1.5 text-text-muted"><X size={14} className="text-red-400" /> {row.old}</div>
+                <div className="p-4 text-sm text-center flex items-center justify-center gap-1.5 text-text-secondary font-medium"><Check size={14} className="text-accent" /> {row.desk}</div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
-      {/* 14. CTA Banner */}
+      {/* 14. Social proof strip */}
+      <section className="py-16 bg-white border-b border-border">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+            className="bg-gradient-to-br from-surface to-white rounded-2xl border border-border p-8 md:p-10 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-accent to-teal rounded-full" />
+            <p className="font-display text-2xl md:text-3xl text-text-primary mb-3 leading-snug">
+              &ldquo;LCA Desk replaces the spreadsheets, the consultants, and the guesswork &mdash; with a single platform built specifically for the Local Content Act.&rdquo;
+            </p>
+            <p className="text-sm text-text-muted mt-4">
+              Built by <span className="font-semibold text-text-secondary">Stabroek Advisory LLC</span> &middot; Houston, TX &middot; Specialists in Guyana&apos;s oil &amp; gas compliance
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 15. CTA Banner */}
       <CTABanner
         headline="Your next LCA filing deadline is closer than you think."
         body="H1 reports are due July 30. H2 reports are due January 30. Start your free 14-day trial — full Pro access, no credit card required."
-        primaryCTA={{ label: "Start Free Trial", href: "/signup" }}
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

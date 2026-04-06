@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Check, Sparkles, Headset } from "lucide-react";
+import Image from "next/image";
+import { Check, Headset } from "lucide-react";
 
 interface Plan {
   name: string;
@@ -35,7 +36,7 @@ const plans: Plan[] = [
       "1 year data history",
       "Email support (48hr)",
     ],
-    cta: { label: "Start Free Trial", href: "/signup" },
+    cta: { label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" },
     monthlySubtext: "per month + $25 per report generated",
     annualSubtext: "$990/yr \u00b7 save $198 \u00b7 + $25/report",
   },
@@ -57,7 +58,7 @@ const plans: Plan[] = [
       "Audit log",
       "Priority support (24hr)",
     ],
-    cta: { label: "Start Free Trial", href: "/signup" },
+    cta: { label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" },
     monthlySubtext: "per month",
     annualSubtext: "$5,990/yr \u00b7 save $1,198",
   },
@@ -228,9 +229,7 @@ export default function PricingToggle() {
 
       {/* Anthropic credibility strip */}
       <div className="bg-gray-800 rounded-2xl p-6 mt-12 max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-        <div className="w-10 h-10 rounded-lg bg-orange-500 flex items-center justify-center flex-shrink-0">
-          <Sparkles size={20} className="text-white" />
-        </div>
+        <Image src="/claude-logo.png" alt="Claude by Anthropic" width={140} height={30} className="h-8 w-auto flex-shrink-0" />
         <div>
           <p className="text-white font-semibold text-sm">Powered by Claude &mdash; Anthropic&apos;s AI</p>
           <p className="text-gray-400 text-sm mt-1">

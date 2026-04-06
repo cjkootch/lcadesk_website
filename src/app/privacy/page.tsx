@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Learn how LCA Desk protects your data with enterprise-grade encryption and strict privacy practices for local content compliance filings.",
+};
 
 export default function PrivacyPage() {
   return (

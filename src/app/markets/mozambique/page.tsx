@@ -124,7 +124,7 @@ export default function MozambiquePage() {
       <CTABanner
         headline="Ready to simplify LCA compliance?"
         body="Start your free 14-day trial today. No credit card required."
-        primaryCTA={{ label: "Start Free Trial", href: "/signup" }}
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </main>

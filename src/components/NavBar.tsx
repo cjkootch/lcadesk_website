@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { href: "/features", label: "Features" },
   { href: "/markets", label: "Markets" },
+  { href: "/opportunities", label: "Opportunities" },
+  { href: "/jobs", label: "Jobs \uD83C\uDDEC\uD83C\uDDFE" },
   { href: "/pricing", label: "Pricing" },
   { href: "/security", label: "Security" },
   { href: "/blog", label: "Blog" },
@@ -30,13 +33,8 @@ export default function NavBar() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-xs font-[family-name:var(--font-tech)]">LC</span>
-          </div>
-          <span className="text-xl font-semibold font-[family-name:var(--font-tech)] text-text-primary">
-            LCA Desk
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image src="/lca-desk-logo.png" alt="LCA Desk" width={140} height={40} className="h-9 w-auto" priority />
         </Link>
 
         {/* Desktop */}
@@ -54,13 +52,19 @@ export default function NavBar() {
 
         <div className="hidden md:flex items-center gap-3">
           <Link
+            href="https://app.lcadesk.com/auth/login"
+            className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
+          >
+            Log In
+          </Link>
+          <Link
             href="/demo"
             className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
           >
             Book a Demo
           </Link>
           <Link
-            href="/signup"
+            href="https://app.lcadesk.com/auth/signup"
             className="rounded-lg bg-gradient-to-r from-accent to-teal px-5 py-2 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/20 hover:scale-[1.02] transition-all"
           >
             Start Free Trial
@@ -98,6 +102,13 @@ export default function NavBar() {
                 </Link>
               ))}
               <Link
+                href="https://app.lcadesk.com/auth/login"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
+              >
+                Log In
+              </Link>
+              <Link
                 href="/demo"
                 onClick={() => setMobileOpen(false)}
                 className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
@@ -105,7 +116,7 @@ export default function NavBar() {
                 Book a Demo
               </Link>
               <Link
-                href="/signup"
+                href="https://app.lcadesk.com/auth/signup"
                 onClick={() => setMobileOpen(false)}
                 className="rounded-lg bg-gradient-to-r from-accent to-teal px-5 py-2.5 text-sm font-semibold text-white text-center hover:shadow-lg transition-all"
               >

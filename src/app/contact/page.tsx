@@ -38,6 +38,8 @@ const contactInfo = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -52,9 +54,23 @@ export default function ContactPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed to submit");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please email hello@lcadesk.com directly.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -161,14 +177,19 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-lg text-white font-medium text-sm transition-opacity hover:opacity-90"
+                  disabled={submitting}
+                  className="w-full py-3 rounded-lg text-white font-medium text-sm transition-opacity hover:opacity-90 disabled:opacity-60"
                   style={{
                     background:
                       "linear-gradient(135deg, #00A87A 0%, #047857 100%)",
                   }}
                 >
-                  Send Message
+                  {submitting ? "Sending..." : "Send Message"}
                 </button>
+
+                {error && (
+                  <p className="text-xs text-red-500">{error}</p>
+                )}
 
                 <p className="text-xs text-text-muted">
                   Interested in the Full Service managed filing plan? Select
