@@ -46,7 +46,7 @@ export default async function SuppliersPage() {
   const supplierCount = await getSupplierCount();
 
   return (
-    <>
+    <main>
       {/* Hero */}
       <section className="relative pt-32 pb-16 overflow-hidden bg-surface">
         <GeometricBg variant="grid" />
@@ -194,6 +194,6 @@ export default async function SuppliersPage() {
         primaryCTA={{ label: "Register Your Company", href: "/suppliers/register" }}
         secondaryCTA={{ label: "Browse Opportunities", href: "/opportunities" }}
       />
-    </>
+    </main>
   );
 }

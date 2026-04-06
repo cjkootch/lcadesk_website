@@ -47,7 +47,7 @@ export default async function OpportunitiesPage() {
   const uniqueCategories = new Set(opportunities.map((o) => o.lca_category).filter(Boolean)).size;
 
   return (
-    <>
+    <main>
       {/* Hero */}
       <section className="relative pt-32 pb-16 overflow-hidden bg-surface">
         <GeometricBg variant="grid" />
@@ -229,6 +229,6 @@ export default async function OpportunitiesPage() {
         primaryCTA={{ label: "Register Free", href: "/suppliers/register" }}
         secondaryCTA={{ label: "Learn More", href: "/features" }}
       />
-    </>
+    </main>
   );
 }

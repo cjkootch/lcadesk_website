@@ -50,12 +50,21 @@ export const metadata: Metadata = {
       "The world's first AI-native Local Content Act compliance platform. Manage mandatory LCA filings for Guyana, Nigeria, Trinidad, Ghana, Mozambique and more.",
     url: "https://lcadesk.com",
     siteName: "LCA Desk",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "LCA Desk — AI-Powered Local Content Act Compliance Software",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "LCA Desk | AI-Powered LCA Compliance",
     description:
       "The world's first AI-native Local Content Act compliance platform for oil and gas.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

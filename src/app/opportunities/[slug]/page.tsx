@@ -142,7 +142,7 @@ export default async function OpportunityDetailPage({ params }: Props) {
   };
 
   return (
-    <>
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -380,6 +380,6 @@ export default async function OpportunityDetailPage({ params }: Props) {
         primaryCTA={{ label: "Register as Supplier", href: "/suppliers/register" }}
         secondaryCTA={{ label: "Browse All Opportunities", href: "/opportunities" }}
       />
-    </>
+    </main>
   );
 }

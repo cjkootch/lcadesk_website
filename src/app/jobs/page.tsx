@@ -95,7 +95,7 @@ export default async function JobsPage() {
   const uniqueCompanies = new Set(jobs.map((j) => j.contractor_name)).size;
 
   return (
-    <>
+    <main>
       {/* Hero */}
       <section className="relative pt-32 pb-16 overflow-hidden bg-surface">
         <GeometricBg variant="waves" />
@@ -305,6 +305,6 @@ export default async function JobsPage() {
         primaryCTA={{ label: "Register Free", href: "/jobs/register" }}
         secondaryCTA={{ label: "View Opportunities", href: "/opportunities" }}
       />
-    </>
+    </main>
   );
 }
