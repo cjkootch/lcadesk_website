@@ -26,10 +26,33 @@ const contractorDomains: Record<string, string> = {
   "Sustainable Environmental Solutions": "sustainableenvsolutions.com",
 };
 
+// Logos we have downloaded locally in /public/logos/
+const localLogos = new Set([
+  "bakerhughes.com",
+  "cnooc.com.cn",
+  "dof.com",
+  "exxonmobil.com",
+  "halliburton.com",
+  "hess.com",
+  "internationalsos.com",
+  "modec.com",
+  "newfortressenergy.com",
+  "oceaneering.com",
+  "slb.com",
+  "saipem.com",
+  "seacormarine.com",
+  "stenadrilling.com",
+  "technipfmc.com",
+  "tenaris.com",
+  "totalenergies.com",
+  "weatherford.com",
+  "sbmoffshore.com",
+]);
+
 export function getContractorLogo(name: string): string | null {
   const domain = contractorDomains[name];
-  if (!domain) return null;
-  return `https://logo.clearbit.com/${domain}`;
+  if (!domain || !localLogos.has(domain)) return null;
+  return `/logos/${domain}.png`;
 }
 
 export function getContractorDomain(name: string): string | null {
