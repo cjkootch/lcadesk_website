@@ -10,6 +10,7 @@ import type { PublicJob } from "@/lib/types";
 import { getContractorLogo } from "@/lib/contractor-logos";
 import CTABanner from "@/components/CTABanner";
 import GeometricBg from "@/components/GeometricBg";
+import JobApplyForm from "@/components/JobApplyForm";
 
 export const revalidate = 3600;
 
@@ -441,16 +442,9 @@ export default async function JobDetailPage({ params }: Props) {
             {/* Right: sidebar */}
             <div className="space-y-5">
               <div className="bg-card rounded-2xl border border-border p-6 space-y-4 sticky top-24">
-                <Link
-                  href={`/jobs/register?apply=${slug}`}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.01] transition-all"
-                >
-                  Apply Through LCA Desk <ArrowRight size={14} />
-                </Link>
-
-                <p className="text-xs text-text-muted text-center leading-relaxed">
-                  Your application is sent directly to the employer. Guyanese nationals receive first consideration by law.
-                </p>
+                {!deadlineStatus?.expired ? (
+                  <JobApplyForm jobId={slug} jobTitle={job.job_title} companyName={job.company_name} />
+                ) : null}
 
                 {deadlineStatus?.expired && (
                   <div className="bg-red-50 border border-red-200 rounded-lg p-3">
