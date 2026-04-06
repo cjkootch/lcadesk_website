@@ -183,6 +183,9 @@ export default async function JobsPage() {
               Employers: Post a Position
             </Link>
           </div>
+          <div className="hidden lg:block mt-12">
+            <img src="/illustrations/hero-jobs.png" alt="" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+          </div>
         </div>
       </section>
 

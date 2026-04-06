@@ -95,6 +95,9 @@ export default async function OpportunitiesPage() {
               Log In
             </Link>
           </div>
+          <div className="hidden lg:block mt-12">
+            <img src="/illustrations/hero-opportunities.png" alt="" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+          </div>
         </div>
       </section>
 

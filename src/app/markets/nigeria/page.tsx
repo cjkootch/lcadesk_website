@@ -66,6 +66,10 @@ export default function NigeriaPage() {
         geometricVariant="waves"
       />
 
+      <div className="hidden lg:block mt-12">
+        <img src="/illustrations/market-nigeria.png" alt="" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      </div>
+
       {/* Key stats */}
       <section className="relative py-14 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>
         <div className="max-w-5xl mx-auto px-6">
