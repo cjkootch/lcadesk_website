@@ -20,6 +20,7 @@ import {
 import HeroSection from "@/components/HeroSection";
 import CTABanner from "@/components/CTABanner";
 import FAQAccordion from "@/components/FAQAccordion";
+import EmailCapture from "@/components/EmailCapture";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -259,6 +260,18 @@ export default function HalfYearlyReportGuideClient() {
           <p className="text-xs text-text-muted text-center mt-4">
             Source: Local Content Act 2021, Sections 53–57. Penalties are per offence and may be compounded.
           </p>
+        </div>
+      </section>
+
+      {/* Email capture */}
+      <section className="py-12 bg-surface">
+        <div className="max-w-xl mx-auto px-6">
+          <EmailCapture
+            headline="Get LCA filing deadline reminders"
+            description="We'll email you 30, 14, and 7 days before each half-yearly report deadline. Never miss a filing date again."
+            list="filing_reminders"
+            variant="card"
+          />
         </div>
       </section>
 

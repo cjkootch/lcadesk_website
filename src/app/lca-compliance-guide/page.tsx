@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import CTABanner from "@/components/CTABanner";
+import EmailCapture from "@/components/EmailCapture";
 
 const steps = [
   {
@@ -70,6 +71,15 @@ export default function LCAComplianceGuidePage() {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      <section className="max-w-xl mx-auto px-6 py-12">
+        <EmailCapture
+          headline="Get compliance tips & deadline reminders"
+          description="Join compliance officers getting LCA filing reminders and regulatory updates. No spam."
+          list="filing_reminders"
+          variant="card"
+        />
       </section>
 
       <section className="max-w-4xl mx-auto px-6 pb-12">
