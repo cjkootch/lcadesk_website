@@ -599,9 +599,7 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
         </div>
       ) : (
         <div className="text-center py-20">
-          <div className="w-16 h-16 rounded-2xl bg-surface border border-border flex items-center justify-center mx-auto mb-5">
-            <Users size={28} className="text-text-muted" />
-          </div>
+          <img src="/illustrations/empty-no-results.png" alt="" className="w-24 h-24 mx-auto mb-5 opacity-80" />
           <h3 className="font-semibold text-text-primary text-lg mb-2">
             {hasFilters ? "No matching positions" : "Job postings loading"}
           </h3>
