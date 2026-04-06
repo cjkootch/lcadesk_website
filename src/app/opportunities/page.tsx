@@ -7,6 +7,7 @@ import CTABanner from "@/components/CTABanner";
 import GeometricBg from "@/components/GeometricBg";
 import StatCard from "@/components/StatCard";
 import FAQAccordion from "@/components/FAQAccordion";
+import { getSession } from "@/lib/public-auth";
 
 export const revalidate = 3600;
 
@@ -100,7 +101,11 @@ const faqItems = [
 ];
 
 export default async function OpportunitiesPage() {
-  const opportunities = await getOpportunities();
+  const [opportunities, session] = await Promise.all([
+    getOpportunities(),
+    getSession("supplier"),
+  ]);
+  const isLoggedIn = !!session;
   const activeCount = opportunities.length;
   const uniqueContractors = new Set(opportunities.map((o) => o.contractor_name)).size;
   const uniqueCategories = new Set(opportunities.map((o) => o.lca_category).filter(Boolean)).size;
@@ -211,7 +216,7 @@ export default async function OpportunitiesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-display text-2xl md:text-3xl text-text-primary mb-2">Browse Opportunities</h2>
           <p className="text-text-secondary mb-8">Filter by category, notice type, or search by company name.</p>
-          <OpportunityFilters opportunities={opportunities} />
+          <OpportunityFilters opportunities={opportunities} isLoggedIn={isLoggedIn} />
         </div>
       </section>
 
