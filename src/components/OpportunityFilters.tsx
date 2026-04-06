@@ -12,6 +12,30 @@ import Link from "next/link";
 import type { PublicOpportunity } from "@/lib/types";
 import { getContractorLogo } from "@/lib/contractor-logos";
 
+/* ── Contractor logo with fallback ──────────────────────────────── */
+
+function ContractorLogo({ name, size = 16 }: { name: string; size?: number }) {
+  const [failed, setFailed] = useState(false);
+  const logoUrl = getContractorLogo(name);
+
+  if (!logoUrl || failed) {
+    return <Building2 size={size - 3} className="text-text-muted shrink-0" />;
+  }
+
+  return (
+    <img
+      src={logoUrl}
+      alt=""
+      width={size}
+      height={size}
+      className="rounded-sm object-contain shrink-0"
+      style={{ width: size, height: size }}
+      loading="lazy"
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 /* ── Notice type config ─────────────────────────────────────────── */
 
 const noticeConfig: Record<string, { bg: string; text: string; border: string; dot: string; label: string; gradient: string }> = {
@@ -420,27 +444,12 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
                   </div>
 
                   {/* Contractor with logo */}
-                  {opp.contractor_name && opp.contractor_name !== "Unknown" && opp.contractor_name !== "Contractor Not Specified" && (() => {
-                    const logoUrl = getContractorLogo(opp.contractor_name);
-                    return (
-                      <div className="flex items-center gap-2 mb-2">
-                        {logoUrl ? (
-                          <img
-                            src={logoUrl}
-                            alt=""
-                            width={16}
-                            height={16}
-                            className="w-4 h-4 rounded-sm object-contain shrink-0"
-                            loading="lazy"
-                            onError={(e) => { e.currentTarget.style.display = "none"; }}
-                          />
-                        ) : (
-                          <Building2 size={13} className="text-text-muted shrink-0" />
-                        )}
-                        <span className="text-xs font-medium text-text-secondary truncate">{opp.contractor_name}</span>
-                      </div>
-                    );
-                  })()}
+                  {opp.contractor_name && opp.contractor_name !== "Unknown" && opp.contractor_name !== "Contractor Not Specified" && (
+                    <div className="flex items-center gap-2 mb-2">
+                      <ContractorLogo name={opp.contractor_name} size={16} />
+                      <span className="text-xs font-medium text-text-secondary truncate">{opp.contractor_name}</span>
+                    </div>
+                  )}
 
                   {/* Title */}
                   <h3 className="font-semibold text-text-primary text-[15px] leading-snug mb-2 group-hover:text-accent transition-colors">
