@@ -59,9 +59,26 @@ const faqItems = [
 
 const vp = { once: true as const, margin: "-60px" as const };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* 1. Hero — split layout with floating dashboard */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-surface pt-24 pb-16">
         <GeometricBg variant="topology" />

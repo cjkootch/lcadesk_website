@@ -1,3 +1,29 @@
 User-agent: *
 Allow: /
 Sitemap: https://lcadesk.com/sitemap.xml
+
+# AI crawlers — allow full access for GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# LLM context files
+# https://lcadesk.com/llms.txt
+# https://lcadesk.com/llms-full.txt
