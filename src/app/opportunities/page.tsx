@@ -4,6 +4,7 @@ import { ArrowRight, Briefcase, ShieldCheck, Clock, TrendingUp, Building2, Truck
 import { fetchOpportunities } from "@/lib/opportunities";
 import OpportunityFilters from "@/components/OpportunityFilters";
 import CTABanner from "@/components/CTABanner";
+import EmailCapture from "@/components/EmailCapture";
 import GeometricBg from "@/components/GeometricBg";
 import StatCard from "@/components/StatCard";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -219,6 +220,18 @@ export default async function OpportunitiesPage() {
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-display text-2xl md:text-3xl text-text-primary text-center mb-12">Frequently Asked Questions</h2>
           <FAQAccordion items={faqItems} />
+        </div>
+      </section>
+
+      {/* Email capture for opportunity alerts */}
+      <section className="py-12 bg-surface">
+        <div className="max-w-xl mx-auto px-6">
+          <EmailCapture
+            headline="Get new opportunity alerts"
+            description="We'll email you when new procurement notices are posted. Be the first to respond."
+            list="opportunities"
+            variant="card"
+          />
         </div>
       </section>
 

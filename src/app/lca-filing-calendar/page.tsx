@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import CTABanner from "@/components/CTABanner";
+import EmailCapture from "@/components/EmailCapture";
 
 const filings = [
   {
@@ -89,6 +90,15 @@ export default function LCAFilingCalendarPage() {
           Based on LCA v4.1 guidelines (June 2025). Always confirm deadlines
           with the Local Content Secretariat.
         </p>
+      </section>
+
+      <section className="max-w-xl mx-auto px-6 py-12">
+        <EmailCapture
+          headline="Get filing deadline reminders"
+          description="We'll email you 30, 14, and 7 days before each LCA filing deadline. No spam."
+          list="filing_reminders"
+          variant="card"
+        />
       </section>
 
       <section className="max-w-4xl mx-auto px-6 pb-12">

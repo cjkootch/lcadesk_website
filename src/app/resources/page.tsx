@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import CTABanner from "@/components/CTABanner";
+import EmailCapture from "@/components/EmailCapture";
 
 const resources = [
   {
@@ -67,6 +68,15 @@ export default function ResourcesPage() {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      <section className="max-w-xl mx-auto px-6 pb-16">
+        <EmailCapture
+          headline="Get LCA filing deadline reminders"
+          description="We'll email you before each filing deadline — 30, 14, and 7 days out. Free, no account required."
+          list="filing_reminders"
+          variant="card"
+        />
       </section>
 
       <CTABanner
