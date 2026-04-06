@@ -38,6 +38,7 @@ const columns = [
       { label: "Blog", href: "/blog" },
       { label: "LCA Filing Calendar", href: "/lca-filing-calendar" },
       { label: "LCA Act Overview", href: "/lca-act-overview" },
+      { label: "Half-Yearly Report Guide", href: "/lca-half-yearly-report-guide" },
       { label: "Compliance Guide", href: "/lca-compliance-guide" },
       { label: "All Resources", href: "/resources" },
     ],

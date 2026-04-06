@@ -91,6 +91,18 @@ export default function LCAFilingCalendarPage() {
         </p>
       </section>
 
+      <section className="max-w-4xl mx-auto px-6 pb-12">
+        <div className="bg-surface rounded-xl border border-border p-6 flex flex-col sm:flex-row items-center gap-4">
+          <div className="flex-1">
+            <p className="font-semibold text-text-primary mb-1">Half-Yearly Report due soon?</p>
+            <p className="text-sm text-text-secondary">Read our complete guide — who must file, what&apos;s required, penalties up to GY$50M, and common mistakes to avoid.</p>
+          </div>
+          <Link href="/lca-half-yearly-report-guide" className="inline-flex items-center gap-2 rounded-lg border-2 border-accent text-accent px-5 py-2.5 text-sm font-semibold hover:bg-accent hover:text-white transition-all whitespace-nowrap">
+            Report Guide →
+          </Link>
+        </div>
+      </section>
+
       <CTABanner
         headline="Never miss an LCA filing deadline."
         body="LCA Desk sends automated reminders and manages your filing calendar. Start free."

@@ -72,6 +72,18 @@ export default function LCAComplianceGuidePage() {
         </div>
       </section>
 
+      <section className="max-w-4xl mx-auto px-6 pb-12">
+        <div className="bg-surface rounded-xl border border-border p-6 flex flex-col sm:flex-row items-center gap-4">
+          <div className="flex-1">
+            <p className="font-semibold text-text-primary mb-1">Need help with the Half-Yearly Report?</p>
+            <p className="text-sm text-text-secondary">Our detailed guide covers deadlines, the 3 required sub-reports, penalties, and common filing mistakes.</p>
+          </div>
+          <Link href="/lca-half-yearly-report-guide" className="inline-flex items-center gap-2 rounded-lg border-2 border-accent text-accent px-5 py-2.5 text-sm font-semibold hover:bg-accent hover:text-white transition-all whitespace-nowrap">
+            Half-Yearly Report Guide →
+          </Link>
+        </div>
+      </section>
+
       <CTABanner
         headline="Let LCA Desk handle the complexity."
         body="Start your free 14-day trial — full Pro access, no credit card required."
