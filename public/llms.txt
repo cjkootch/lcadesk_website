@@ -23,7 +23,7 @@ Nigeria (NCDMB), Trinidad & Tobago (MEEI PLCC), Ghana (Petroleum Commission), Mo
 - Ask the LCA Expert: In-app AI assistant trained on LCA Act and v4.1 guidelines
 
 ## Company
-Houston, Texas. Powered by Stabroek Advisory LLC. AI features powered by Claude (Anthropic).
+Houston, Texas. AI features powered by Claude (Anthropic).
 
 ## Contact
 hello@lcadesk.com | lcadesk.com

@@ -1,6 +1,6 @@
 # LCA Desk — Comprehensive Product Reference
 
-> LCA Desk is the world's first AI-native Local Content Act (LCA) compliance platform for oil and gas sector companies. Built by Stabroek Advisory LLC, Houston, Texas.
+> LCA Desk is the world's first AI-native Local Content Act (LCA) compliance platform for oil and gas sector companies. Based in Houston, Texas.
 
 ## What Problem Does LCA Desk Solve?
 
@@ -99,7 +99,7 @@ Registered Guyanese suppliers are listed in a searchable directory. Contractors 
 
 ## Company
 
-**Stabroek Advisory LLC**
+**LCA Desk**
 Houston, Texas, USA
 
 Contact: hello@lcadesk.com

@@ -40,12 +40,10 @@ export default function AboutPage() {
             </p>
             <p>
               <Link
-                href="https://stabroekadvisory.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
                 className="text-accent hover:underline font-medium"
               >
-                Learn more about Stabroek Advisory &rarr;
+                Get in touch &rarr;
               </Link>
             </p>
           </motion.div>

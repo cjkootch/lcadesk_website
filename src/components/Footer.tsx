@@ -71,7 +71,7 @@ export default function Footer() {
               The world&apos;s only AI-native Local Content Act compliance platform. Built for Guyana. Expanding globally.
             </p>
             <p className="text-gray-500 text-xs mt-2">
-              Powered by Stabroek Advisory LLC &middot; Houston, TX
+              Houston, TX
             </p>
           </div>
 

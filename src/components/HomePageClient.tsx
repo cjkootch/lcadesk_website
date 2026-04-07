@@ -572,7 +572,7 @@ export default function HomePageClient() {
               &ldquo;LCA Desk replaces the spreadsheets, the consultants, and the guesswork &mdash; with a single platform built specifically for the Local Content Act.&rdquo;
             </p>
             <p className="text-sm text-text-muted mt-4">
-              Built by <span className="font-semibold text-text-secondary">Stabroek Advisory LLC</span> &middot; Houston, TX &middot; Specialists in Guyana&apos;s oil &amp; gas compliance
+              Houston, TX &middot; Specialists in Guyana&apos;s oil &amp; gas compliance
             </p>
           </motion.div>
         </div>

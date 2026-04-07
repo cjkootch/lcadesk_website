@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="font-display text-xl font-semibold text-text-primary mb-4">1. Introduction</h2>
             <p className="mb-3">
-              LCA Desk (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is operated by Stabroek Advisory LLC, a company registered in Houston, Texas, USA. This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our website (lcadesk.com) and platform (app.lcadesk.com).
+              LCA Desk (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is operated by LCA Desk, a company registered in Houston, Texas, USA. This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our website (lcadesk.com) and platform (app.lcadesk.com).
             </p>
             <p>By using LCA Desk, you consent to the practices described in this policy. If you do not agree, please do not use our services.</p>
           </section>
@@ -180,7 +180,7 @@ export default function PrivacyPage() {
             <h2 className="font-display text-xl font-semibold text-text-primary mb-4">14. Contact</h2>
             <p className="mb-2">For privacy-related inquiries:</p>
             <div className="bg-surface rounded-xl border border-border p-5">
-              <p className="font-medium text-text-primary mb-1">Stabroek Advisory LLC</p>
+              <p className="font-medium text-text-primary mb-1">LCA Desk</p>
               <p>Houston, Texas, USA</p>
               <p>Email: <a href="mailto:privacy@lcadesk.com" className="text-accent hover:underline">privacy@lcadesk.com</a></p>
               <p>General: <a href="mailto:hello@lcadesk.com" className="text-accent hover:underline">hello@lcadesk.com</a></p>
