@@ -62,38 +62,39 @@ export default async function SuppliersPage() {
       <section className="relative pt-32 pb-16 overflow-hidden bg-surface">
         <GeometricBg variant="grid" />
         <div className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-accent/[0.05] rounded-full blur-[100px] pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-6 z-10">
-          <div className="inline-flex items-center gap-2 mb-5 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
-            <ShieldCheck size={14} className="text-accent" />
-            <span className="text-accent text-xs font-semibold tracking-wide uppercase">LCS Register Verified</span>
+        <div className="relative max-w-7xl mx-auto px-6 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 mb-5 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
+              <ShieldCheck size={14} className="text-accent" />
+              <span className="text-accent text-xs font-semibold tracking-wide uppercase">LCS Register Verified</span>
+            </div>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
+              Guyanese{" "}
+              <span className="gradient-text-static">Supplier Directory</span>
+            </h1>
+            <p className="text-lg text-text-secondary max-w-2xl mb-8 leading-relaxed">
+              Browse suppliers registered on the Local Content Register. Contractors are legally required to give first consideration to these Guyanese companies under the LCA 2021.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/suppliers/register"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
+              >
+                Register Your Company <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/opportunities"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
+              >
+                Browse Opportunities
+              </Link>
+            </div>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
-            Guyanese{" "}
-            <span className="gradient-text-static">Supplier Directory</span>
-          </h1>
-          <p className="text-lg text-text-secondary max-w-2xl mb-8 leading-relaxed">
-            Browse suppliers registered on the Local Content Register. Contractors are legally required to give first consideration to these Guyanese companies under the LCA 2021.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/suppliers/register"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
-            >
-              Register Your Company <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="/opportunities"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
-            >
-              Browse Opportunities
-            </Link>
+          <div className="hidden lg:block">
+            <img src="/illustrations/hero-suppliers.png" alt="Guyanese supplier directory with verified certification badges" className="w-full rounded-2xl" loading="eager" />
           </div>
         </div>
       </section>
-
-      <div className="hidden lg:block py-8 max-w-5xl mx-auto px-6">
-        <img src="/illustrations/hero-suppliers.png" alt="Guyanese supplier directory with verified certification badges" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
-      </div>
 
       {/* Stats */}
       <section className="relative py-12 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>

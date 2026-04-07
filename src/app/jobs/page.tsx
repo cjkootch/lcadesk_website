@@ -146,45 +146,47 @@ export default async function JobsPage() {
       <section className="relative pt-32 pb-16 overflow-hidden bg-surface">
         <GeometricBg variant="waves" />
         <div className="absolute top-20 left-[10%] w-[400px] h-[400px] bg-accent/[0.05] rounded-full blur-[100px] pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-6 z-10">
-          <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
-            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
-              <span className="text-xs">{"\uD83C\uDDEC\uD83C\uDDFE"}</span>
-              <span className="text-accent text-xs font-semibold tracking-wide uppercase">Guyanese Nationals Prioritized by Law</span>
+        <div className="relative max-w-7xl mx-auto px-6 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
+              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
+                <span className="text-xs">{"\uD83C\uDDEC\uD83C\uDDFE"}</span>
+                <span className="text-accent text-xs font-semibold tracking-wide uppercase">Guyanese Nationals Prioritized by Law</span>
+              </div>
+              <Link href="/jobs/dashboard" className="inline-flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent transition">
+                <User size={14} /> Job Seeker Dashboard
+              </Link>
             </div>
-            <Link href="/jobs/dashboard" className="inline-flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent transition">
-              <User size={14} /> Job Seeker Dashboard
-            </Link>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
+              Oil Sector Jobs{" "}
+              <span className="gradient-text-static">in Guyana</span>
+            </h1>
+            <p className="text-lg text-text-secondary max-w-2xl mb-8 leading-relaxed">
+              Positions posted by contractors required under the Local Content Act 2021 to prioritize Guyanese nationals in hiring. Every employer listed here has an active LCA filing obligation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/jobs/register"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
+              >
+                Register as a Job Seeker <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/jobs/login"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
+              >
+                Log In
+              </Link>
+              <Link
+                href="https://app.lcadesk.com/auth/signup"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
+              >
+                Employers: Post a Position
+              </Link>
+            </div>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
-            Oil Sector Jobs{" "}
-            <span className="gradient-text-static">in Guyana</span>
-          </h1>
-          <p className="text-lg text-text-secondary max-w-2xl mb-8 leading-relaxed">
-            Positions posted by contractors required under the Local Content Act 2021 to prioritize Guyanese nationals in hiring. Every employer listed here has an active LCA filing obligation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              href="/jobs/register"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
-            >
-              Register as a Job Seeker <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="/jobs/login"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
-            >
-              Log In
-            </Link>
-            <Link
-              href="https://app.lcadesk.com/auth/signup"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
-            >
-              Employers: Post a Position
-            </Link>
-          </div>
-          <div className="hidden lg:block mt-12">
-            <img src="/illustrations/hero-jobs.png" alt="Oil and gas jobs board for Guyanese workers and professionals" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+          <div className="hidden lg:block">
+            <img src="/illustrations/hero-jobs.png" alt="Oil and gas jobs board for Guyanese workers and professionals" className="w-full rounded-2xl" loading="eager" />
           </div>
         </div>
       </section>
