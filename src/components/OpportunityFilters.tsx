@@ -356,7 +356,7 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
               <p className="text-emerald-200 text-xs">See complete scope of work, eligibility requirements, and contractor insights — extracted by AI from source documents.</p>
             </div>
           </div>
-          <Link href="https://app.lcadesk.com/auth/signup" className="shrink-0 inline-flex items-center gap-1.5 bg-white text-emerald-900 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
+          <Link href="https://app.lcadesk.com/auth/signup?role=supplier" className="shrink-0 inline-flex items-center gap-1.5 bg-white text-emerald-900 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
             Learn More <ArrowRight size={12} />
           </Link>
         </div>
@@ -489,7 +489,7 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
                             </p>
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white flex items-end justify-center pb-1">
                               <Link
-                                href="https://app.lcadesk.com/auth/signup"
+                                href="https://app.lcadesk.com/auth/signup?role=supplier"
                                 className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-purple-600 bg-purple-50 border border-purple-200 px-3 py-1 rounded-full hover:bg-purple-100 transition"
                               >
                                 <Lock size={10} /> Sign up to see full AI analysis

@@ -403,7 +403,7 @@ ending.`}
       <CTABanner
         headline="Ready to modernize your LCA workflow?"
         body="Start your 30-day trial today. Full Professional access, card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </main>

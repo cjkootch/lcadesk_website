@@ -178,7 +178,7 @@ export default async function JobsPage() {
                 Log In
               </Link>
               <Link
-                href="https://app.lcadesk.com/auth/signup"
+                href="https://app.lcadesk.com/auth/signup?role=filer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
               >
                 Employers: Post a Position

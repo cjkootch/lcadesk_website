@@ -46,12 +46,13 @@ const columns = [
     ],
   },
   {
-    title: "Company",
+    title: "Solutions",
     links: [
+      { label: "For Contractors", href: "/for-contractors" },
+      { label: "For Suppliers", href: "/for-suppliers" },
+      { label: "For Job Seekers", href: "/for-job-seekers" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
     ],
   },
 ];

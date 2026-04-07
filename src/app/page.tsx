@@ -105,7 +105,7 @@ export default function HomePage() {
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
               className="flex flex-col sm:flex-row gap-3 mb-8">
-              <Link href="https://app.lcadesk.com/auth/signup"
+              <Link href="https://app.lcadesk.com/auth/signup?role=filer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02] transition-all">
                 Start 30-Day Trial <ArrowRight size={16} />
               </Link>
@@ -204,7 +204,7 @@ export default function HomePage() {
                 title: "LCA Compliance Filers",
                 desc: "Contractors, sub-contractors, and licensees required to file half-yearly reports, annual plans, and master plans with the Secretariat.",
                 cta: "Start 30-Day Trial",
-                href: "https://app.lcadesk.com/auth/signup",
+                href: "https://app.lcadesk.com/auth/signup?role=filer",
                 color: "from-accent to-teal",
                 tag: "Software Platform",
               },
@@ -599,7 +599,7 @@ export default function HomePage() {
       <CTABanner
         headline="Your next LCA filing deadline is closer than you think."
         body="H1 reports are due July 30. H2 reports are due January 30. Start your 30-day trial — full Professional access, card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

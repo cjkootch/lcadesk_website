@@ -241,7 +241,7 @@ export default async function OpportunityDetailPage({ params }: Props) {
                       </p>
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/80 to-purple-50 flex items-end justify-center pb-2">
                         <Link
-                          href="https://app.lcadesk.com/auth/signup"
+                          href="https://app.lcadesk.com/auth/signup?role=supplier"
                           className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-purple-600 px-5 py-2.5 rounded-lg hover:bg-purple-700 shadow-lg shadow-purple-500/25 transition"
                         >
                           <Lock size={13} /> Sign up for full AI analysis

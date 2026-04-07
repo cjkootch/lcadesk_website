@@ -38,7 +38,7 @@ const features = [
 ];
 
 const markets = [
-  { flag: "\u{1F1EC}\u{1F1FE}", name: "Guyana", status: "LIVE", desc: "LCA v4.1 \u00b7 5 submission types \u00b7 GY$50M penalties", cta: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" },
+  { flag: "\u{1F1EC}\u{1F1FE}", name: "Guyana", status: "LIVE", desc: "LCA v4.1 \u00b7 5 submission types \u00b7 GY$50M penalties", cta: "Start 30-Day Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" },
   { flag: "\u{1F1F3}\u{1F1EC}", name: "Nigeria", status: "COMING SOON", desc: "NCDMB \u00b7 Nigerian Content Plans \u00b7 5% project value penalties", cta: "Join Waitlist", href: "/markets/nigeria" },
   { flag: "\u{1F1F9}\u{1F1F9}", name: "Trinidad & Tobago", status: "COMING SOON", desc: "MEEI PLCC \u00b7 Local Content Policy \u00b7 EST timezone", cta: "Join Waitlist", href: "/markets/trinidad" },
   { flag: "\u{1F1EC}\u{1F1ED}", name: "Ghana", status: "COMING SOON", desc: "Petroleum Commission \u00b7 LI 2204 regulations", cta: "Join Waitlist", href: "/markets/ghana" },
@@ -49,8 +49,8 @@ const markets = [
 const faqItems = [
   { q: "Who is required to file LCA half-yearly reports?", a: "Every contractor, sub-contractor, and licensee operating under a petroleum agreement in Guyana must file half-yearly reports with the Local Content Secretariat. This applies to all companies on the Local Content Register, regardless of size or nationality." },
   { q: "What are the penalties for non-compliance?", a: "Penalties range from GY$1 million to GY$50 million per offence. False or misleading submissions are a criminal offence. The Secretariat is actively auditing and following up on late or missing submissions." },
-  { q: "What\u2019s the difference between Lite and Pro?", a: "Lite ($99/month) includes platform access plus $25 per report generated \u2014 ideal for infrequent filers. Pro ($299/month) includes unlimited report generation plus AI Narrative Drafting and Compliance Gap Detection. After 8 reports per month, Pro is cheaper than Lite." },
-  { q: "Does the 14-day trial include AI features?", a: "Yes. Your free 14-day trial gives you full Pro access \u2014 including AI Narrative Drafting and Compliance Gap Detection \u2014 with no credit card required." },
+  { q: "What\u2019s the difference between Essentials and Professional?", a: "Essentials ($199/month) covers 1 entity, 3 users, all 5 submission types, and includes a Compliance Health Score. Professional ($399/month) adds AI Narrative Drafting, Compliance Gap Detection, up to 5 entities, workforce + procurement dashboards, and a payment log." },
+  { q: "Does the 30-day trial include AI features?", a: "Yes. Your 30-day trial gives you full Professional access \u2014 including AI Narrative Drafting and Compliance Gap Detection. A credit card is collected at signup but you won\u2019t be charged until the trial ends." },
   { q: "What happens to my data after the trial ends?", a: "Your data is saved securely. If you don\u2019t upgrade to a paid plan, access to the platform is paused \u2014 you won\u2019t be able to create, edit, or export reports. Upgrade anytime to pick up right where you left off." },
   { q: "Will LCA Desk cover Nigeria and other markets?", a: "Yes. Nigeria (NCDMB), Trinidad & Tobago, Ghana, Mozambique, and Namibia are in active development. Join the waitlist on the Markets page to be notified at launch." },
   { q: "Can you handle the Comparative Analysis narrative sections?", a: "Yes \u2014 this is LCA Desk\u2019s signature AI feature. The AI reads your expenditure, employment, and capacity development data and drafts the full narrative in the formal tone the Secretariat expects. You review and approve before export." },
@@ -86,9 +86,9 @@ export default function HomePageClient() {
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
               className="flex flex-col sm:flex-row gap-3 mb-8">
-              <Link href="https://app.lcadesk.com/auth/signup"
+              <Link href="https://app.lcadesk.com/auth/signup?role=filer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02] transition-all">
-                Start Free 14-Day Trial <ArrowRight size={16} />
+                Start 30-Day Free Trial <ArrowRight size={16} />
               </Link>
               <Link href="/demo"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-8 py-4 text-sm font-semibold hover:border-accent hover:text-accent transition-all">
@@ -97,8 +97,8 @@ export default function HomePageClient() {
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45, duration: 0.5 }}
               className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-text-muted">
-              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> No credit card required</span>
-              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Full Pro access for 14 days</span>
+              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> 30-day trial, card collected</span>
+              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Full Professional access</span>
               <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Cancel anytime</span>
             </motion.div>
           </div>
@@ -182,29 +182,29 @@ export default function HomePageClient() {
             {[
               {
                 icon: ClipboardCheck,
-                title: "LCA Compliance Filers",
-                desc: "Contractors, sub-contractors, and licensees required to file half-yearly reports, annual plans, and master plans with the Secretariat.",
-                cta: "Start Free Trial",
-                href: "https://app.lcadesk.com/auth/signup",
+                title: "Contractors & Filers",
+                desc: "Stop filing with spreadsheets. Generate your LCA reports in minutes, not days. AI narrative drafting, gap detection, and Secretariat-ready exports.",
+                cta: "Start 30-Day Free Trial",
+                href: "/for-contractors",
                 color: "from-accent to-teal",
-                tag: "Software Platform",
-              },
-              {
-                icon: Briefcase,
-                title: "Guyanese Job Seekers",
-                desc: "Guyanese nationals looking for oil sector employment. The LCA mandates that contractors give you first consideration in hiring.",
-                cta: "Browse Jobs",
-                href: "/jobs",
-                color: "from-blue-500 to-cyan-500",
-                tag: "Free",
+                tag: "From $199/mo",
               },
               {
                 icon: Package,
                 title: "Guyanese Suppliers",
-                desc: "Local companies seeking procurement opportunities. Contractors must give first consideration to LCS-registered Guyanese suppliers.",
-                cta: "Browse Opportunities",
-                href: "/opportunities",
+                desc: "Get discovered by every contractor in Guyana\u2019s petroleum sector. Your LCS certificate works harder on LCA Desk. Browse opportunities, express interest, track responses.",
+                cta: "Get Listed",
+                href: "/for-suppliers",
                 color: "from-amber-500 to-yellow-500",
+                tag: "Free + Pro $99/mo",
+              },
+              {
+                icon: Briefcase,
+                title: "Guyanese Job Seekers",
+                desc: "Your skills are in demand. Build your profile, get certified, get hired. Browse petroleum sector jobs from contractors required to prioritize Guyanese nationals.",
+                cta: "Find Petroleum Jobs",
+                href: "/for-job-seekers",
+                color: "from-blue-500 to-cyan-500",
                 tag: "Free",
               },
             ].map((path, i) => (
@@ -581,8 +581,8 @@ export default function HomePageClient() {
       {/* 15. CTA Banner */}
       <CTABanner
         headline="Your next LCA filing deadline is closer than you think."
-        body="H1 reports are due July 30. H2 reports are due January 30. Start your free 14-day trial — full Pro access, no credit card required."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        body="H1 reports are due July 30. H2 reports are due January 30. Start your 30-day trial — full Professional access, card collected at signup."
+        primaryCTA={{ label: "Start 30-Day Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

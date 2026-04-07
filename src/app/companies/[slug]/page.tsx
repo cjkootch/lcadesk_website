@@ -312,7 +312,7 @@ export default async function CompanyDetailPage({ params }: Props) {
                   Claim this profile to add your description, services, and contact details.
                 </p>
                 <Link
-                  href="https://app.lcadesk.com/auth/signup"
+                  href="https://app.lcadesk.com/auth/signup?role=supplier"
                   className="inline-flex items-center gap-2 rounded-lg bg-accent text-white px-4 py-2 text-xs font-semibold hover:bg-accent/90 transition-colors"
                 >
                   Claim Profile <ArrowRight size={12} />

@@ -70,7 +70,7 @@ export default async function CompaniesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
-              href="https://app.lcadesk.com/auth/signup"
+              href="https://app.lcadesk.com/auth/signup?role=supplier"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
             >
               Claim Your Profile <ArrowRight size={16} />
@@ -109,7 +109,7 @@ export default async function CompaniesPage() {
       <CTABanner
         headline="Is your company listed?"
         body="Claim your profile, add services, and connect with suppliers and job seekers."
-        primaryCTA={{ label: "Claim Your Profile", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Claim Your Profile", href: "https://app.lcadesk.com/auth/signup?role=supplier" }}
         secondaryCTA={{ label: "Contact Us", href: "/contact" }}
       />
     </main>

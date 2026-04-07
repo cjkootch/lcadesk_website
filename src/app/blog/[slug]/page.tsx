@@ -263,7 +263,7 @@ export default async function BlogPostPage({ params }: Props) {
               LCA Desk automates report generation, flags compliance gaps, and tracks your deadlines. 30-day trial — card collected at signup.
             </p>
             <Link
-              href="https://app.lcadesk.com/auth/signup"
+              href="https://app.lcadesk.com/auth/signup?role=filer"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
             >
               Start 30-Day Trial <ArrowRight size={16} />
@@ -321,7 +321,7 @@ export default async function BlogPostPage({ params }: Props) {
       <CTABanner
         headline="Stop guessing. Start filing with confidence."
         body="LCA Desk walks you through every required field. Auto-generates compliant reports. Flags gaps before you submit."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>
