@@ -20,7 +20,7 @@ import http from "http";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  timeout: 120000, // 2 minute timeout for DALL-E generation
+  timeout: 300000, // 5 minute timeout for DALL-E generation
 });
 
 const OUTPUT_DIR = path.join(process.cwd(), "public", "illustrations");
