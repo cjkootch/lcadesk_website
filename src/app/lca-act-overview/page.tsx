@@ -14,11 +14,8 @@ export default function LCAActOverviewPage() {
         sub="Key provisions, requirements, and compliance obligations under Guyana's Local Content Act."
         geometricVariant="grid"
       />
-      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
-        <img src="/illustrations/hero-lca-overview.png" alt="Guyana Local Content Act 2021 legislation and compliance requirements" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
-      </div>
-
-      <section className="max-w-4xl mx-auto px-6 py-16">
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-start">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -107,6 +104,10 @@ export default function LCAActOverviewPage() {
             </p>
           </div>
         </motion.div>
+        <div className="hidden lg:block sticky top-24 w-80">
+          <img src="/illustrations/hero-lca-overview.png" alt="Guyana Local Content Act 2021 legislation and compliance requirements" className="w-full rounded-2xl" loading="eager" />
+        </div>
+        </div>
       </section>
 
       <CTABanner

@@ -48,11 +48,8 @@ export default function LCAComplianceGuidePage() {
         sub="Step-by-step guide to preparing and submitting your Local Content Act filings."
         geometricVariant="grid"
       />
-      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
-        <img src="/illustrations/hero-compliance-guide.png" alt="Step-by-step compliance guide roadmap for LCA filings" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
-      </div>
-
-      <section className="max-w-4xl mx-auto px-6 py-16">
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div className="space-y-8">
           {steps.map((step, i) => (
             <motion.div
@@ -73,6 +70,10 @@ export default function LCAComplianceGuidePage() {
               </div>
             </motion.div>
           ))}
+        </div>
+        <div className="hidden lg:block sticky top-24">
+          <img src="/illustrations/hero-compliance-guide.png" alt="Step-by-step compliance guide roadmap for LCA filings" className="w-full rounded-2xl" loading="eager" />
+        </div>
         </div>
       </section>
 
