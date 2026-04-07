@@ -88,10 +88,10 @@ export default async function CompaniesPage() {
       {/* Stats */}
       <section className="relative py-8 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value={summary.total.toLocaleString()} label="Total Companies" />
-          <StatCard value={summary.lcsRegistered.toLocaleString()} label="LCS Registered" />
-          <StatCard value={summary.withOpportunities.toString()} label="Active Procurement" />
-          <StatCard value={summary.hiring.toString()} label="Currently Hiring" />
+          <StatCard value={summary.total.toLocaleString()} label="Total Companies" lightOnDark />
+          <StatCard value={summary.lcsRegistered.toLocaleString()} label="LCS Registered" lightOnDark />
+          <StatCard value={summary.withOpportunities.toString()} label="Active Procurement" lightOnDark />
+          <StatCard value={summary.hiring.toString()} label="Currently Hiring" lightOnDark />
         </div>
       </section>
 
