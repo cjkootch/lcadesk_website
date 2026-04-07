@@ -314,7 +314,7 @@ export default function SupplierRegister() {
 
             <p className="text-xs text-text-muted text-center pt-2">
               Already registered?{" "}
-              <Link href="/suppliers/login" className="text-accent hover:underline font-medium">Log in</Link>
+              <Link href="https://app.lcadesk.com/auth/login" className="text-accent hover:underline font-medium">Log in</Link>
             </p>
           </form>
 

@@ -166,13 +166,13 @@ export default async function JobsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
-                href="/jobs/register"
+                href="https://app.lcadesk.com/auth/signup?role=job_seeker"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
               >
                 Register as a Job Seeker <ArrowRight size={16} />
               </Link>
               <Link
-                href="/jobs/login"
+                href="https://app.lcadesk.com/auth/login"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
               >
                 Log In
@@ -365,7 +365,7 @@ export default async function JobsPage() {
       <CTABanner
         headline="Are you a Guyanese national looking for oil sector work?"
         body="Register on LCA Desk to receive alerts when positions matching your skills are posted by contractors. It&rsquo;s free."
-        primaryCTA={{ label: "Register Free", href: "/jobs/register" }}
+        primaryCTA={{ label: "Register Free", href: "https://app.lcadesk.com/auth/signup?role=job_seeker" }}
         secondaryCTA={{ label: "View Opportunities", href: "/opportunities" }}
       />
     </main>

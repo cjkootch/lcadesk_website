@@ -101,13 +101,13 @@ function AuthPrompt({ action, onClose }: { action: string; onClose: () => void }
         </p>
         <div className="flex flex-col gap-3">
           <Link
-            href="/suppliers/register"
+            href="https://app.lcadesk.com/auth/signup?role=supplier"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
           >
             Register Free <ArrowRight size={14} />
           </Link>
           <Link
-            href="/suppliers/login"
+            href="https://app.lcadesk.com/auth/login"
             className="text-sm font-medium text-text-secondary hover:text-accent transition"
           >
             Already have an account? Log in
@@ -606,7 +606,7 @@ export default function OpportunityFilters({ opportunities, isLoggedIn = false }
             </button>
           ) : (
             <Link
-              href="/suppliers/register"
+              href="https://app.lcadesk.com/auth/signup?role=supplier"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-6 py-3 text-sm font-semibold text-white hover:shadow-lg shadow-accent/25 transition-all"
             >
               Register as a Supplier

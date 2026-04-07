@@ -312,7 +312,7 @@ export default async function OpportunityDetailPage({ params }: Props) {
                 )}
 
                 <Link
-                  href="/suppliers/register"
+                  href="https://app.lcadesk.com/auth/signup?role=supplier"
                   className="w-full inline-flex items-center justify-center gap-2 rounded-xl border-2 border-accent text-accent px-6 py-3 text-sm font-semibold hover:bg-accent hover:text-white transition-all"
                 >
                   Register as Supplier <ArrowRight size={14} />
@@ -429,7 +429,7 @@ export default async function OpportunityDetailPage({ params }: Props) {
       <CTABanner
         headline="Are you a Guyanese supplier?"
         body="Register on LCA Desk to receive alerts when opportunities matching your service categories are posted. It's free."
-        primaryCTA={{ label: "Register as Supplier", href: "/suppliers/register" }}
+        primaryCTA={{ label: "Register as Supplier", href: "https://app.lcadesk.com/auth/signup?role=supplier" }}
         secondaryCTA={{ label: "Browse All Opportunities", href: "/opportunities" }}
       />
     </main>

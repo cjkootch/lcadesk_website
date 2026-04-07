@@ -119,10 +119,10 @@ export default function PricingPage() {
             If you&apos;re a <strong>Guyanese job seeker</strong> or a <strong>Guyanese supplier</strong>, registration and access are completely free.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link href="/jobs/register" className="inline-flex items-center gap-2 rounded-lg border-2 border-emerald-600 text-emerald-700 px-5 py-2.5 text-sm font-semibold hover:bg-emerald-600 hover:text-white transition-all">
+            <Link href="https://app.lcadesk.com/auth/signup?role=job_seeker" className="inline-flex items-center gap-2 rounded-lg border-2 border-emerald-600 text-emerald-700 px-5 py-2.5 text-sm font-semibold hover:bg-emerald-600 hover:text-white transition-all">
               Register as Job Seeker
             </Link>
-            <Link href="/suppliers/register" className="inline-flex items-center gap-2 rounded-lg border-2 border-emerald-600 text-emerald-700 px-5 py-2.5 text-sm font-semibold hover:bg-emerald-600 hover:text-white transition-all">
+            <Link href="https://app.lcadesk.com/auth/signup?role=supplier" className="inline-flex items-center gap-2 rounded-lg border-2 border-emerald-600 text-emerald-700 px-5 py-2.5 text-sm font-semibold hover:bg-emerald-600 hover:text-white transition-all">
               Register as Supplier
             </Link>
           </div>

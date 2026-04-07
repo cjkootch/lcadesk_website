@@ -211,7 +211,7 @@ export default function JobSeekerRegister() {
 
               <p className="text-xs text-text-muted text-center pt-2">
                 Already have an account?{" "}
-                <Link href="/jobs/login" className="text-accent hover:underline font-medium">Log in</Link>
+                <Link href="https://app.lcadesk.com/auth/login" className="text-accent hover:underline font-medium">Log in</Link>
               </p>
             </form>
 

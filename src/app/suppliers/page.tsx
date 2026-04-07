@@ -77,7 +77,7 @@ export default async function SuppliersPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
-                href="/suppliers/register"
+                href="https://app.lcadesk.com/auth/signup?role=supplier"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
               >
                 Register Your Company <ArrowRight size={16} />
@@ -207,7 +207,7 @@ export default async function SuppliersPage() {
       <CTABanner
         headline="Ready to grow your oil sector business?"
         body="Register on LCA Desk to get matched with procurement opportunities from contractors required to source locally."
-        primaryCTA={{ label: "Register Your Company", href: "/suppliers/register" }}
+        primaryCTA={{ label: "Register Your Company", href: "https://app.lcadesk.com/auth/signup?role=supplier" }}
         secondaryCTA={{ label: "Browse Opportunities", href: "/opportunities" }}
       />
     </main>

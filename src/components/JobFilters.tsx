@@ -104,13 +104,13 @@ function AuthPrompt({ action, onClose }: { action: string; onClose: () => void }
         </p>
         <div className="flex flex-col gap-3">
           <Link
-            href="/jobs/register"
+            href="https://app.lcadesk.com/auth/signup?role=job_seeker"
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
           >
             Register Free <ArrowRight size={14} />
           </Link>
           <Link
-            href="/jobs/login"
+            href="https://app.lcadesk.com/auth/login"
             className="text-sm font-medium text-text-secondary hover:text-accent transition"
           >
             Already have an account? Log in
@@ -365,7 +365,7 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
               <p className="text-emerald-200 text-xs">See role requirements, salary context, and how your profile matches \u2014 powered by AI analysis of each posting.</p>
             </div>
           </div>
-          <Link href="/jobs/register" className="shrink-0 inline-flex items-center gap-1.5 bg-white text-emerald-900 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
+          <Link href="https://app.lcadesk.com/auth/signup?role=job_seeker" className="shrink-0 inline-flex items-center gap-1.5 bg-white text-emerald-900 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
             Register Free <ArrowRight size={12} />
           </Link>
         </div>
@@ -503,7 +503,7 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
                             </p>
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-emerald-50 flex items-end justify-center pb-1">
                               <Link
-                                href="/jobs/register"
+                                href={`https://app.lcadesk.com/auth/signup?role=job_seeker&apply=${job.id}`}
                                 className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-emerald-600 px-4 py-1.5 rounded-full hover:bg-emerald-700 shadow-sm transition"
                               >
                                 <Lock size={11} /> Register to apply
@@ -580,7 +580,7 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
                         View Details <ArrowRight size={13} className="group-hover/link:translate-x-0.5 transition-transform" />
                       </Link>
                       <Link
-                        href={`/jobs/register?apply=${job.id}`}
+                        href={`https://app.lcadesk.com/auth/signup?role=job_seeker&apply=${job.id}`}
                         className="inline-flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-accent transition"
                       >
                         Register to Apply <ArrowRight size={12} />
@@ -617,7 +617,7 @@ export default function JobFilters({ jobs, isLoggedIn = false }: Props) {
             </button>
           ) : (
             <Link
-              href="/jobs/register"
+              href="https://app.lcadesk.com/auth/signup?role=job_seeker"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-6 py-3 text-sm font-semibold text-white hover:shadow-lg shadow-accent/25 transition-all"
             >
               Register as a Job Seeker
