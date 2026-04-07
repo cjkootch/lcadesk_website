@@ -7,6 +7,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   featured?: boolean;
+  image?: string;
   content: string;
 }
 
@@ -29,6 +30,7 @@ export const posts: BlogPost[] = [
     date: "2025-12-15",
     readTime: "6 min read",
     featured: true,
+    image: "/illustrations/blog-v41-changes.png",
     content: `The Local Content Secretariat released Version 4.1 of the Half-Yearly Report Submission Guideline in June 2025, updating the framework that governs how contractors, sub-contractors, and licensees report their local content performance.
 
 ## What Changed in v4.1
@@ -92,6 +94,7 @@ If you're still preparing reports manually, the v4.1 changes make this a good ti
     author: "LCA Desk Team",
     date: "2025-11-28",
     readTime: "5 min read",
+    image: "/illustrations/blog-filing-mistakes.png",
     content: `Filing your half-yearly report shouldn't be stressful, but the Local Content Secretariat reviews every submission — and inconsistencies trigger follow-up requests, delays, and potential penalties. Here are the five mistakes we see most often.
 
 ## 1. Inconsistent Numbers Between Narrative and Data Template
@@ -137,6 +140,7 @@ Each of these mistakes can result in a Request for Information from the Secretar
     author: "LCA Desk Team",
     date: "2025-11-10",
     readTime: "8 min read",
+    image: "/illustrations/blog-nigeria-guyana.png",
     content: `Nigeria and Guyana represent two of the most significant local content compliance environments in the global oil and gas industry. Nigeria's framework has been in place since 2010; Guyana's is newer but evolving rapidly. Companies operating in both — or considering expansion — need to understand the key differences.
 
 ## The Laws
@@ -207,6 +211,7 @@ LCA Desk currently supports Guyana's Local Content Act with full report generati
     author: "LCA Desk Team",
     date: "2025-10-22",
     readTime: "4 min read",
+    image: "/illustrations/blog-first-consideration.png",
     content: `"First consideration" is the cornerstone of Guyana's Local Content Act 2021. Section 22 requires that contractors, sub-contractors, and licensees give first consideration to Guyanese suppliers in procurement. But the Act doesn't define "first consideration" with precision — and that ambiguity creates compliance risk.
 
 ## What the Act Says
@@ -262,6 +267,7 @@ The Secretariat also receives complaints from Guyanese suppliers who believe the
     date: "2026-03-18",
     readTime: "5 min read",
     featured: false,
+    image: "/illustrations/blog-h1-timeline.png",
     content: `The H1 2026 half-yearly report covers January 1 – June 30, 2026, and is due to the Local Content Secretariat by July 30, 2026. Late submissions incur an automatic GY$1 million penalty. Here's how to prepare.
 
 ## Timeline
@@ -345,6 +351,7 @@ Most LCA Desk users go from period-end to submission in 2-3 days instead of 4-6 
     author: "LCA Desk Team",
     date: "2026-04-01",
     readTime: "3 min read",
+    image: "/illustrations/blog-product-update.png",
     content: `Here's what we shipped in Q1 2026.
 
 ## AI-Powered Opportunity Summaries

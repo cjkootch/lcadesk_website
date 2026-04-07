@@ -89,6 +89,38 @@ const illustrations: { name: string; prompt: string; size: "1792x1024" | "1024x1
     size: "1024x1024",
   },
 
+  // Blog post-specific illustrations (wide, for card thumbnails)
+  {
+    name: "blog-v41-changes",
+    prompt: `${STYLE} A document template transitioning from an old version to a new version — two overlapping pages with the front one showing updated sections highlighted in emerald green. Version number badge "4.1" as an abstract shape. Arrows indicating changes and updates. Clean, editorial.`,
+    size: "1792x1024",
+  },
+  {
+    name: "blog-filing-mistakes",
+    prompt: `${STYLE} Five warning triangles or caution icons arranged in a row, each with a different abstract symbol inside (mismatched numbers, missing field, clock/late, empty section, wrong format). A large red X over one, green checkmarks over corrected versions. Represents common filing errors.`,
+    size: "1792x1024",
+  },
+  {
+    name: "blog-nigeria-guyana",
+    prompt: `${STYLE} Two abstract country silhouettes side by side — one representing West Africa, one representing South America/Caribbean — connected by comparison arrows and a balance scale between them. Oil derrick icons on each side. Dual-column comparison layout feel. Emerald and amber color split.`,
+    size: "1792x1024",
+  },
+  {
+    name: "blog-first-consideration",
+    prompt: `${STYLE} A procurement flowchart showing a decision tree: local supplier icon at the top with a priority badge/star, foreign supplier icon below with a documentation/clipboard icon. Arrows showing the evaluation path. Magnifying glass examining the decision. Legal gavel subtly in corner. Represents procurement first-consideration principle.`,
+    size: "1792x1024",
+  },
+  {
+    name: "blog-h1-timeline",
+    prompt: `${STYLE} A horizontal timeline with milestone markers from left to right, showing phases: data collection (folder icon), validation (checkmark), drafting (pencil), review (eye), submission (send/upload arrow). Calendar showing "July 30" as the endpoint with a flag. Progress bar visual. Clean Gantt-chart inspired layout.`,
+    size: "1792x1024",
+  },
+  {
+    name: "blog-product-update",
+    prompt: `${STYLE} A laptop screen showing a dashboard with new feature cards popping out: AI sparkle icon, bell notification, bar chart, and a rocket. Confetti or celebration dots around it. Represents a product launch / feature update announcement. Optimistic, forward-looking energy.`,
+    size: "1792x1024",
+  },
+
   // Market page headers (wide)
   {
     name: "market-guyana",
