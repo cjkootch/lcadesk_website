@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   ArrowLeft, Building2, ShieldCheck, Briefcase, Users, MapPin,
   ExternalLink, Calendar, Tag, ArrowRight, Globe, AlertTriangle,
+  Lock, BarChart3, FileText, TrendingUp, Shield, Eye,
 } from "lucide-react";
 import type { PublicCompany } from "@/lib/types";
 import CompanyDetailClient from "@/components/CompanyDetailClient";
@@ -215,6 +216,132 @@ export default async function CompanyDetailPage({ params }: Props) {
                 </p>
               </div>
             )}
+
+            {/* Filing Obligation Indicator */}
+            {company.likelyFilingObligation && (
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <FileText size={16} className="text-amber-600" />
+                  <h3 className="font-semibold text-amber-900 text-sm">LCA Filing Obligation</h3>
+                </div>
+                <p className="text-sm text-amber-800">
+                  Based on public data, this company likely has a filing obligation under the Local Content Act 2021.
+                  This means they must submit half-yearly reports, annual plans, and other mandatory filings to the Secretariat.
+                </p>
+              </div>
+            )}
+
+            {/* Compliance Intelligence Teaser */}
+            <div className="relative rounded-2xl border border-border overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <BarChart3 size={18} className="text-accent" />
+                  <h2 className="text-lg font-semibold text-text-primary">Compliance Intelligence</h2>
+                  <span className="text-[10px] font-semibold uppercase tracking-wider bg-accent/10 text-accent px-2 py-0.5 rounded-full ml-auto">Premium</span>
+                </div>
+
+                {/* Blurred preview */}
+                <div className="relative select-none" aria-hidden="true">
+                  <div className="blur-[6px] pointer-events-none space-y-4">
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="bg-surface rounded-lg p-4 text-center">
+                        <p className="text-2xl font-bold text-text-primary" style={{ fontFamily: "var(--font-tech)" }}>87%</p>
+                        <p className="text-xs text-text-muted">Compliance Score</p>
+                      </div>
+                      <div className="bg-surface rounded-lg p-4 text-center">
+                        <p className="text-2xl font-bold text-text-primary" style={{ fontFamily: "var(--font-tech)" }}>12</p>
+                        <p className="text-xs text-text-muted">Reports Filed</p>
+                      </div>
+                      <div className="bg-surface rounded-lg p-4 text-center">
+                        <p className="text-2xl font-bold text-accent" style={{ fontFamily: "var(--font-tech)" }}>On Time</p>
+                        <p className="text-xs text-text-muted">Last Filing</p>
+                      </div>
+                    </div>
+                    <div className="bg-surface rounded-lg p-4">
+                      <p className="text-xs font-medium text-text-secondary mb-2">Procurement Breakdown</p>
+                      <div className="flex gap-1 h-6">
+                        <div className="bg-accent rounded h-full" style={{ width: "65%" }} />
+                        <div className="bg-teal rounded h-full" style={{ width: "20%" }} />
+                        <div className="bg-amber-400 rounded h-full" style={{ width: "15%" }} />
+                      </div>
+                      <div className="flex justify-between mt-1.5">
+                        <span className="text-[10px] text-text-muted">Local: 65%</span>
+                        <span className="text-[10px] text-text-muted">Regional: 20%</span>
+                        <span className="text-[10px] text-text-muted">Foreign: 15%</span>
+                      </div>
+                    </div>
+                    <div className="bg-surface rounded-lg p-4">
+                      <p className="text-xs font-medium text-text-secondary mb-2">Workforce Composition</p>
+                      <div className="flex gap-1 h-6">
+                        <div className="bg-blue-500 rounded h-full" style={{ width: "88%" }} />
+                        <div className="bg-slate-300 rounded h-full" style={{ width: "12%" }} />
+                      </div>
+                      <div className="flex justify-between mt-1.5">
+                        <span className="text-[10px] text-text-muted">Guyanese: 88%</span>
+                        <span className="text-[10px] text-text-muted">Non-Guyanese: 12%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Overlay CTA */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-card/40 via-card/60 to-card/90 flex flex-col items-center justify-center">
+                    <div className="bg-card border border-border rounded-xl p-6 shadow-lg text-center max-w-sm">
+                      <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
+                        <Lock size={18} className="text-accent" />
+                      </div>
+                      <p className="font-semibold text-text-primary text-sm mb-1">Unlock Compliance Intelligence</p>
+                      <p className="text-xs text-text-secondary mb-4">
+                        See filing history, compliance scores, procurement patterns, and workforce data for every company on the register.
+                      </p>
+                      <Link
+                        href="https://app.lcadesk.com/auth/signup?role=filer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-accent to-teal px-5 py-2.5 text-xs font-semibold text-white hover:shadow-lg transition-all"
+                      >
+                        Start 30-Day Free Trial <ArrowRight size={12} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Activity History Teaser */}
+            <div className="relative rounded-2xl border border-border overflow-hidden">
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <TrendingUp size={18} className="text-accent" />
+                  <h2 className="text-lg font-semibold text-text-primary">Activity Timeline</h2>
+                  <span className="text-[10px] font-semibold uppercase tracking-wider bg-accent/10 text-accent px-2 py-0.5 rounded-full ml-auto">Premium</span>
+                </div>
+                <div className="relative select-none" aria-hidden="true">
+                  <div className="blur-[6px] pointer-events-none space-y-3">
+                    {[
+                      { date: "Mar 2026", text: "Posted 3 new procurement opportunities in Marine & Offshore" },
+                      { date: "Feb 2026", text: "Filed H2 2025 Half-Yearly Report (on time)" },
+                      { date: "Jan 2026", text: "Hired 14 Guyanese nationals across 3 employment categories" },
+                      { date: "Dec 2025", text: "Updated Annual Plan for 2026 filing period" },
+                      { date: "Nov 2025", text: "Added 2 new Guyanese suppliers to procurement records" },
+                    ].map((item, i) => (
+                      <div key={i} className="flex gap-3 items-start">
+                        <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-xs font-medium text-text-muted">{item.date}</p>
+                          <p className="text-sm text-text-secondary">{item.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/50 to-card flex items-end justify-center pb-4">
+                    <Link
+                      href="https://app.lcadesk.com/auth/signup?role=filer"
+                      className="inline-flex items-center gap-2 rounded-lg border-2 border-accent text-accent px-5 py-2.5 text-xs font-semibold hover:bg-accent hover:text-white transition-all"
+                    >
+                      <Eye size={13} /> Sign up to see full activity history
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Sidebar */}
@@ -222,6 +349,36 @@ export default async function CompanyDetailPage({ params }: Props) {
             {/* Company Info Card */}
             <div className="bg-card rounded-xl border border-border p-5 space-y-4">
               <h3 className="font-semibold text-text-primary text-sm">Company Info</h3>
+
+              {company.legalName && company.legalName !== company.companyName && (
+                <div className="flex items-start gap-2">
+                  <FileText size={14} className="text-text-muted mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs text-text-muted">Legal Name</p>
+                    <p className="text-sm text-text-primary">{company.legalName}</p>
+                  </div>
+                </div>
+              )}
+
+              {company.industry && (
+                <div className="flex items-start gap-2">
+                  <Tag size={14} className="text-text-muted mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs text-text-muted">Industry</p>
+                    <p className="text-sm text-text-primary">{company.industry}</p>
+                  </div>
+                </div>
+              )}
+
+              {company.companyType && (
+                <div className="flex items-start gap-2">
+                  <Building2 size={14} className="text-text-muted mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs text-text-muted">Company Type</p>
+                    <p className="text-sm text-text-primary">{company.companyType}</p>
+                  </div>
+                </div>
+              )}
 
               {company.parentCompany && (
                 <div className="flex items-start gap-2">
@@ -274,6 +431,31 @@ export default async function CompanyDetailPage({ params }: Props) {
                 </a>
               )}
             </div>
+
+            {/* Platform Activity */}
+            {(company.totalOpportunities > 0 || company.totalJobPostings > 0) && (
+              <div className="bg-card rounded-xl border border-border p-5">
+                <h3 className="font-semibold text-text-primary text-sm mb-4">Platform Activity</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-surface rounded-lg p-3 text-center">
+                    <p className="text-xl font-bold text-text-primary" style={{ fontFamily: "var(--font-tech)" }}>{company.totalOpportunities}</p>
+                    <p className="text-[10px] text-text-muted">Total Opportunities</p>
+                  </div>
+                  <div className="bg-surface rounded-lg p-3 text-center">
+                    <p className="text-xl font-bold text-text-primary" style={{ fontFamily: "var(--font-tech)" }}>{company.activeOpportunities}</p>
+                    <p className="text-[10px] text-text-muted">Active Now</p>
+                  </div>
+                  <div className="bg-surface rounded-lg p-3 text-center">
+                    <p className="text-xl font-bold text-text-primary" style={{ fontFamily: "var(--font-tech)" }}>{company.totalJobPostings}</p>
+                    <p className="text-[10px] text-text-muted">Total Job Posts</p>
+                  </div>
+                  <div className="bg-surface rounded-lg p-3 text-center">
+                    <p className="text-xl font-bold text-text-primary" style={{ fontFamily: "var(--font-tech)" }}>{company.openJobPostings}</p>
+                    <p className="text-[10px] text-text-muted">Open Now</p>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* LCS Registration Card */}
             {company.lcsRegistered && (
