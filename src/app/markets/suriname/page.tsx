@@ -40,13 +40,13 @@ export default function SurinamePage() {
   return (
     <main className="min-h-screen bg-surface">
       <HeroSection
-        eyebrow={"\u{1F1F8}\u{1F1F7} Suriname"}
+        eyebrow="Suriname"
         headline="Local Content Compliance — Suriname"
         sub="Guyana's neighbor is on the verge of becoming a major oil producer. TotalEnergies, APA, Petronas, and others are advancing Block 58 toward first oil. LCA Desk Suriname module coming 2027."
         geometricVariant="waves"
       />
-      <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
-        <img src="/illustrations/market-suriname.png" alt="Suriname offshore oil exploration and emerging local content framework" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      <div className="hidden lg:block -mt-8 mb-0 relative z-10">
+        <img src="/illustrations/market-suriname.png" alt="Suriname offshore oil exploration and emerging local content framework" className="w-full max-w-3xl mx-auto rounded-2xl opacity-90" loading="eager" />
       </div>
 
       {/* Key stats */}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Clock, Calendar, User, Tag } from "lucide-react";
 import type { BlogPost } from "@/lib/blog";
 import EmailCapture from "@/components/EmailCapture";
@@ -66,8 +67,22 @@ export default function BlogPageClient({ posts, categories }: Props) {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-br from-emerald-900 to-emerald-800 rounded-2xl p-8 md:p-10 relative overflow-hidden"
+              className="bg-gradient-to-br from-emerald-900 to-emerald-800 rounded-2xl relative overflow-hidden md:flex md:flex-row-reverse"
             >
+              {featured.image && (
+                <div className="relative w-full md:w-2/5 aspect-[16/9] md:aspect-auto md:min-h-[280px] overflow-hidden">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/60 to-transparent md:block hidden" />
+                </div>
+              )}
+              <div className="p-8 md:p-10 relative flex-1">
               <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4" />
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -95,6 +110,7 @@ export default function BlogPageClient({ posts, categories }: Props) {
                     <Calendar size={12} /> {formatDate(featured.date)}
                   </span>
                 </div>
+              </div>
               </div>
             </motion.div>
           </Link>
@@ -148,10 +164,24 @@ export default function BlogPageClient({ posts, categories }: Props) {
                     href={`/blog/${post.slug}`}
                     className="block bg-white rounded-2xl border border-border overflow-hidden group hover:shadow-lg hover:shadow-accent/5 hover:border-accent/20 transition-all h-full"
                   >
-                    {/* Color bar */}
-                    <div className={`h-1 ${color.bg.replace("50", "400").replace("bg-", "bg-")}`}
-                      style={{ background: `var(--${color.dot.replace("bg-", "").replace("-500", "")}-500, ${color.dot === "bg-blue-500" ? "#3b82f6" : color.dot === "bg-emerald-500" ? "#10b981" : color.dot === "bg-purple-500" ? "#8b5cf6" : color.dot === "bg-amber-500" ? "#f59e0b" : "#9ca3af"})` }}
-                    />
+                    {/* Thumbnail image */}
+                    {post.image && (
+                      <div className="relative w-full aspect-[16/9] overflow-hidden bg-surface">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      </div>
+                    )}
+                    {/* Color bar (fallback when no image) */}
+                    {!post.image && (
+                      <div className={`h-1`}
+                        style={{ background: `var(--${color.dot.replace("bg-", "").replace("-500", "")}-500, ${color.dot === "bg-blue-500" ? "#3b82f6" : color.dot === "bg-emerald-500" ? "#10b981" : color.dot === "bg-purple-500" ? "#8b5cf6" : color.dot === "bg-amber-500" ? "#f59e0b" : "#9ca3af"})` }}
+                      />
+                    )}
                     <div className="p-6 flex flex-col h-full">
                       {/* Category + date */}
                       <div className="flex items-center justify-between mb-3">
