@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Check, Headset } from "lucide-react";
+import { Check, Headset, ChevronDown, X, Minus } from "lucide-react";
 
 interface Plan {
   name: string;
@@ -101,6 +101,185 @@ const plans: Plan[] = [
     cta: { label: "Get a Quote", href: "/contact" },
   },
 ];
+
+type CellValue = boolean | string;
+
+interface ComparisonRow {
+  feature: string;
+  essentials: CellValue;
+  professional: CellValue;
+  enterprise: CellValue;
+  managed: CellValue;
+}
+
+interface ComparisonCategory {
+  category: string;
+  rows: ComparisonRow[];
+}
+
+const comparisonData: ComparisonCategory[] = [
+  {
+    category: "Capacity",
+    rows: [
+      { feature: "Entities / projects", essentials: "1", professional: "Up to 5", enterprise: "Unlimited", managed: "Unlimited" },
+      { feature: "Users", essentials: "3", professional: "10", enterprise: "Unlimited", managed: "N/A" },
+      { feature: "Data history", essentials: "1 year", professional: "Unlimited", enterprise: "Unlimited", managed: "Unlimited" },
+    ],
+  },
+  {
+    category: "Filing & Reporting",
+    rows: [
+      { feature: "All 5 submission types", essentials: true, professional: true, enterprise: true, managed: true },
+      { feature: "Guided data entry wizard", essentials: true, professional: true, enterprise: true, managed: true },
+      { feature: "Unlimited report generation", essentials: true, professional: true, enterprise: true, managed: true },
+      { feature: "Secretariat-ready exports (PDF & Excel)", essentials: true, professional: true, enterprise: true, managed: true },
+      { feature: "Notice of Submission letter", essentials: true, professional: true, enterprise: true, managed: true },
+      { feature: "Deadline alerts & filing calendar", essentials: true, professional: true, enterprise: true, managed: true },
+    ],
+  },
+  {
+    category: "AI Features",
+    rows: [
+      { feature: "AI Narrative Drafting", essentials: false, professional: true, enterprise: true, managed: true },
+      { feature: "AI Compliance Gap Detection", essentials: false, professional: true, enterprise: true, managed: true },
+      { feature: "Ask the LCA Expert (AI assistant)", essentials: false, professional: true, enterprise: true, managed: true },
+      { feature: "Document Intelligence", essentials: false, professional: false, enterprise: true, managed: true },
+    ],
+  },
+  {
+    category: "Analytics & Insights",
+    rows: [
+      { feature: "Compliance Health Score", essentials: true, professional: true, enterprise: true, managed: true },
+      { feature: "Workforce dashboards", essentials: false, professional: true, enterprise: true, managed: true },
+      { feature: "Procurement dashboards", essentials: false, professional: true, enterprise: true, managed: true },
+      { feature: "Payment log", essentials: false, professional: true, enterprise: true, managed: true },
+      { feature: "Full audit trail", essentials: false, professional: true, enterprise: true, managed: true },
+    ],
+  },
+  {
+    category: "Administration",
+    rows: [
+      { feature: "Role-based permissions", essentials: false, professional: false, enterprise: true, managed: "N/A" },
+      { feature: "API / ERP integrations", essentials: false, professional: false, enterprise: true, managed: "N/A" },
+      { feature: "Custom workflows", essentials: false, professional: false, enterprise: true, managed: "N/A" },
+      { feature: "White-glove onboarding", essentials: false, professional: false, enterprise: true, managed: true },
+    ],
+  },
+  {
+    category: "Managed Services",
+    rows: [
+      { feature: "Data collection coordination", essentials: false, professional: false, enterprise: false, managed: true },
+      { feature: "Report preparation", essentials: false, professional: false, enterprise: false, managed: true },
+      { feature: "AI drafting + human review", essentials: false, professional: false, enterprise: false, managed: true },
+      { feature: "Secretariat submission on your behalf", essentials: false, professional: false, enterprise: false, managed: true },
+      { feature: "Acknowledgement tracking", essentials: false, professional: false, enterprise: false, managed: true },
+      { feature: "Audit defense", essentials: false, professional: false, enterprise: false, managed: true },
+    ],
+  },
+  {
+    category: "Support",
+    rows: [
+      { feature: "Email support", essentials: "48hr", professional: "24hr", enterprise: "4hr SLA", managed: "4hr SLA" },
+      { feature: "Named CSM", essentials: false, professional: false, enterprise: true, managed: true },
+    ],
+  },
+];
+
+function CellIcon({ value }: { value: CellValue }) {
+  if (value === true) return <Check size={16} className="text-accent mx-auto" />;
+  if (value === false) return <Minus size={14} className="text-text-muted/40 mx-auto" />;
+  if (value === "N/A") return <span className="text-xs text-text-muted">N/A</span>;
+  return <span className="text-xs font-medium text-text-secondary">{value}</span>;
+}
+
+function ComparisonTable() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="mt-10 max-w-5xl mx-auto">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl border border-border bg-card hover:bg-surface text-sm font-semibold text-text-secondary hover:text-accent transition-all"
+      >
+        {open ? "Hide" : "Compare all features"}
+        <ChevronDown size={16} className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="mt-6 rounded-2xl border border-border bg-card overflow-x-auto shadow-sm">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="border-b border-border bg-surface">
+                    <th className="p-4 text-xs font-semibold text-text-muted uppercase tracking-wider w-[40%]">Feature</th>
+                    <th className="p-4 text-xs font-semibold text-text-muted uppercase tracking-wider text-center">Essentials</th>
+                    <th className="p-4 text-xs font-semibold text-accent uppercase tracking-wider text-center relative">
+                      Professional
+                      <span className="absolute -top-0.5 left-1/2 -translate-x-1/2 w-16 h-0.5 bg-accent rounded-full" />
+                    </th>
+                    <th className="p-4 text-xs font-semibold text-text-muted uppercase tracking-wider text-center">Enterprise</th>
+                    <th className="p-4 text-xs font-semibold text-text-muted uppercase tracking-wider text-center">Managed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonData.map((cat) => (
+                    <>
+                      <tr key={cat.category}>
+                        <td colSpan={5} className="px-4 pt-5 pb-2">
+                          <span className="text-xs font-bold text-accent uppercase tracking-widest">{cat.category}</span>
+                        </td>
+                      </tr>
+                      {cat.rows.map((row, j) => (
+                        <tr key={`${cat.category}-${j}`} className={`border-t border-border/50 ${j % 2 === 0 ? "" : "bg-surface/30"}`}>
+                          <td className="px-4 py-3 text-sm text-text-primary">{row.feature}</td>
+                          <td className="px-4 py-3 text-center"><CellIcon value={row.essentials} /></td>
+                          <td className="px-4 py-3 text-center bg-accent/[0.02]"><CellIcon value={row.professional} /></td>
+                          <td className="px-4 py-3 text-center"><CellIcon value={row.enterprise} /></td>
+                          <td className="px-4 py-3 text-center"><CellIcon value={row.managed} /></td>
+                        </tr>
+                      ))}
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Plan CTAs at bottom of table */}
+            <div className="grid grid-cols-4 gap-4 mt-4 max-w-5xl">
+              <div className="text-center">
+                <Link href="https://app.lcadesk.com/auth/signup?role=filer" className="text-xs font-semibold text-accent hover:underline">
+                  Start Trial
+                </Link>
+              </div>
+              <div className="text-center">
+                <Link href="https://app.lcadesk.com/auth/signup?role=filer" className="text-xs font-semibold text-accent hover:underline">
+                  Start Trial
+                </Link>
+              </div>
+              <div className="text-center">
+                <Link href="/contact" className="text-xs font-semibold text-accent hover:underline">
+                  Contact Us
+                </Link>
+              </div>
+              <div className="text-center">
+                <Link href="/contact" className="text-xs font-semibold text-accent hover:underline">
+                  Get a Quote
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function PricingToggle() {
   const [annual, setAnnual] = useState(false);
@@ -231,6 +410,9 @@ export default function PricingToggle() {
       <p className="text-text-muted text-sm text-center mt-8">
         30-day trial with card collected upfront. Cancel anytime. Data exportable on request.
       </p>
+
+      {/* Feature comparison table */}
+      <ComparisonTable />
 
       {/* Anthropic credibility strip */}
       <div className="bg-gray-800 rounded-2xl p-6 mt-12 max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
