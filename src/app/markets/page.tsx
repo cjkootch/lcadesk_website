@@ -22,6 +22,7 @@ interface MarketCard {
   status: "LIVE" | "COMING SOON";
   details: string[];
   pricing?: string;
+  href: string;
   cta?: { label: string; href: string };
 }
 
@@ -30,6 +31,7 @@ const markets: MarketCard[] = [
     flag: "\u{1F1EC}\u{1F1FE}",
     country: "Guyana",
     status: "LIVE",
+    href: "/markets/guyana",
     details: [
       "Regulatory body: Local Content Secretariat",
       "Key requirements: 5 submission types, LCA v4.1 guidelines",
@@ -43,6 +45,7 @@ const markets: MarketCard[] = [
     flag: "\u{1F1F3}\u{1F1EC}",
     country: "Nigeria",
     status: "COMING SOON",
+    href: "/markets/nigeria",
     details: [
       "Regulatory body: NCDMB",
       "Requirements: Nigerian Content Plans, Performance Reports, 106 workforce targets",
@@ -55,6 +58,7 @@ const markets: MarketCard[] = [
     flag: "\u{1F1F9}\u{1F1F9}",
     country: "Trinidad & Tobago",
     status: "COMING SOON",
+    href: "/markets/trinidad",
     details: [
       "Regulatory body: MEEI Permanent Local Content Committee (PLCC)",
       "Policy: Local Content and Local Participation Policy Framework (2004)",
@@ -66,6 +70,7 @@ const markets: MarketCard[] = [
     flag: "\u{1F1EC}\u{1F1ED}",
     country: "Ghana",
     status: "COMING SOON",
+    href: "/markets/ghana",
     details: [
       "Regulatory body: Petroleum Commission",
       "Regulations: LI 2204",
@@ -76,6 +81,7 @@ const markets: MarketCard[] = [
     flag: "\u{1F1F2}\u{1F1FF}",
     country: "Mozambique",
     status: "COMING SOON",
+    href: "/markets/mozambique",
     details: [
       "Regulatory body: INP",
       "Law: 15/2017",
@@ -87,6 +93,7 @@ const markets: MarketCard[] = [
     flag: "\u{1F1F8}\u{1F1F7}",
     country: "Suriname",
     status: "COMING SOON",
+    href: "/markets/suriname",
     details: [
       "National oil company: Staatsolie",
       "Key operators: TotalEnergies, APA Corp, Petronas, QatarEnergy",
@@ -100,6 +107,7 @@ const markets: MarketCard[] = [
     flag: "\u{1F1F3}\u{1F1E6}",
     country: "Namibia",
     status: "COMING SOON",
+    href: "/markets/namibia",
     details: [
       "Regulatory body: Ministry of Mines and Energy",
       "Policy: National Upstream Petroleum Local Content Policy (Cabinet approved Dec 2024)",
@@ -138,7 +146,7 @@ export default function MarketsPage() {
           {markets.map((market, i) => (
             <motion.div
               key={market.country}
-              className="rounded-2xl border border-border p-6 bg-card"
+              className="rounded-2xl border border-border p-6 bg-card group relative"
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
@@ -146,9 +154,12 @@ export default function MarketsPage() {
               viewport={{ once: true, margin: "-60px" }}
               custom={i}
             >
+              {/* Clickable overlay for the whole card */}
+              <Link href={market.href} className="absolute inset-0 z-0 rounded-2xl" aria-label={`View ${market.country} market`} />
+
               {/* Header */}
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-text-primary">
+              <div className="flex items-center justify-between mb-4 relative z-10">
+                <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent transition-colors">
                   {market.flag} {market.country}
                 </h3>
                 <span
@@ -163,7 +174,7 @@ export default function MarketsPage() {
               </div>
 
               {/* Details */}
-              <ul className="space-y-2 mb-5">
+              <ul className="space-y-2 mb-5 relative z-10">
                 {market.details.map((detail, j) => (
                   <li key={j} className="text-sm text-text-secondary leading-relaxed">
                     {detail}
@@ -173,14 +184,14 @@ export default function MarketsPage() {
 
               {/* Pricing note */}
               {market.pricing && (
-                <p className="text-xs text-text-muted mb-4 italic">{market.pricing}</p>
+                <p className="text-xs text-text-muted mb-4 italic relative z-10">{market.pricing}</p>
               )}
 
               {/* CTA for LIVE market */}
               {market.cta && (
                 <Link
                   href={market.cta.href}
-                  className="inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
+                  className="relative z-10 inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
                 >
                   {market.cta.label}
                   <ArrowRight className="w-4 h-4" />
@@ -189,7 +200,7 @@ export default function MarketsPage() {
 
               {/* Email capture for COMING SOON */}
               {market.status === "COMING SOON" && (
-                <div className="mt-1">
+                <div className="mt-1 relative z-10">
                   {submitted[market.country] ? (
                     <p className="text-sm text-accent font-medium">
                       ✓ You&apos;re on the waitlist!
@@ -222,6 +233,13 @@ export default function MarketsPage() {
                   )}
                 </div>
               )}
+
+              {/* View market link */}
+              <div className="mt-4 relative z-10">
+                <span className="text-sm font-medium text-accent inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                  {market.status === "LIVE" ? "Explore market" : "Learn more"} <ArrowRight size={14} />
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>
