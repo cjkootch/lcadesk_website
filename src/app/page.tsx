@@ -8,6 +8,7 @@ import {
   FileText, Calendar, BarChart3, Shield, Users, Download,
   Brain, Search, MessageSquare, ArrowRight, X, Check,
   Briefcase, Package, ClipboardCheck,
+  BookOpen, Award, GraduationCap,
 } from "lucide-react";
 import Ticker from "@/components/Ticker";
 import StatCard from "@/components/StatCard";
@@ -55,6 +56,8 @@ const faqItems = [
   { q: "What happens to my data after the trial ends?", a: "Your data is saved securely. If you don\u2019t upgrade to a paid plan, access to the platform is paused \u2014 you won\u2019t be able to create, edit, or export reports. Upgrade anytime to pick up right where you left off." },
   { q: "Will LCA Desk cover Nigeria and other markets?", a: "Yes. Nigeria (NCDMB), Trinidad & Tobago, Ghana, Mozambique, and Namibia are in active development. Join the waitlist on the Markets page to be notified at launch." },
   { q: "Can you handle the Comparative Analysis narrative sections?", a: "Yes \u2014 this is LCA Desk\u2019s signature AI feature. The AI reads your expenditure, employment, and capacity development data and drafts the full narrative in the formal tone the Secretariat expects. You review and approve before export." },
+  { q: "Does LCA Desk offer training on the Local Content Act?", a: "Yes. LCA Desk includes two built-in courses: LCA Fundamentals (5 modules covering the Act, deadlines, penalties, and LC rate calculation) and Mastering LCA Desk (8 modules on every platform feature). Completion badges appear in your audit trail, demonstrating due diligence to the Secretariat." },
+  { q: "Can I show the Secretariat that my team completed compliance training?", a: "Yes. Badges from completed courses appear in your audit trail alongside filing activity. When the Secretariat reviews your submission, they can see that the individuals who prepared and attested the report completed structured LCA training." },
 ];
 
 const vp = { once: true as const, margin: "-60px" as const };
@@ -436,6 +439,49 @@ export default function HomePage() {
                 <p className="text-sm text-text-secondary leading-relaxed">{f.desc}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8a. Training callout */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="bg-gradient-to-br from-emerald-900 to-emerald-800 rounded-2xl p-10 md:p-14 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4" />
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-center">
+              <div>
+                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+                  className="text-emerald-300 text-xs font-semibold tracking-widest uppercase mb-3 flex items-center gap-2">
+                  <GraduationCap size={16} /> Built-In Training
+                </motion.p>
+                <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+                  className="font-display text-2xl md:text-3xl text-white mb-4 leading-snug">
+                  Your team needs to understand the law before they can file it.
+                </motion.h2>
+                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+                  className="text-emerald-100/80 text-sm md:text-base leading-relaxed mb-6 max-w-xl">
+                  LCA Desk includes structured compliance training &mdash; not just software. Two courses, badges in the audit trail, team progress tracking. The Secretariat is watching. Show them your team was prepared.
+                </motion.p>
+                <div className="flex flex-wrap gap-4 mb-6">
+                  {[
+                    { icon: BookOpen, label: "LCA Fundamentals", detail: "5 modules" },
+                    { icon: Award, label: "Mastering LCA Desk", detail: "8 modules" },
+                    { icon: Shield, label: "Audit Trail Badges", detail: "On completion" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2 backdrop-blur">
+                      <item.icon size={14} className="text-emerald-300" />
+                      <div>
+                        <p className="text-white text-xs font-semibold">{item.label}</p>
+                        <p className="text-emerald-200/60 text-[10px]">{item.detail}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <Link href="/training" className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-emerald-200 hover:gap-3 transition-all">
+                  Explore the Learning Centre <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

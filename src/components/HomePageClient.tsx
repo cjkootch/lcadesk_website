@@ -54,6 +54,8 @@ const faqItems = [
   { q: "What happens to my data after the trial ends?", a: "Your data is saved securely. If you don\u2019t upgrade to a paid plan, access to the platform is paused \u2014 you won\u2019t be able to create, edit, or export reports. Upgrade anytime to pick up right where you left off." },
   { q: "Will LCA Desk cover Nigeria and other markets?", a: "Yes. Nigeria (NCDMB), Trinidad & Tobago, Ghana, Mozambique, and Namibia are in active development. Join the waitlist on the Markets page to be notified at launch." },
   { q: "Can you handle the Comparative Analysis narrative sections?", a: "Yes \u2014 this is LCA Desk\u2019s signature AI feature. The AI reads your expenditure, employment, and capacity development data and drafts the full narrative in the formal tone the Secretariat expects. You review and approve before export." },
+  { q: "Does LCA Desk offer training on the Local Content Act?", a: "Yes. LCA Desk includes two built-in courses: LCA Fundamentals (5 modules covering the Act, deadlines, penalties, and LC rate calculation) and Mastering LCA Desk (8 modules on every platform feature). Completion badges appear in your audit trail, demonstrating due diligence to the Secretariat." },
+  { q: "Can I show the Secretariat that my team completed compliance training?", a: "Yes. Badges from completed courses appear in your audit trail alongside filing activity. When the Secretariat reviews your submission, they can see that the individuals who prepared and attested the report completed structured LCA training." },
 ];
 
 const vp = { once: true as const, margin: "-60px" as const };
