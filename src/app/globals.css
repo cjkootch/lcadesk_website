@@ -35,7 +35,7 @@
   --color-text-muted: var(--text-muted);
   --color-emerald-deep: var(--emerald-deep);
   --color-teal: var(--teal);
-  --font-display: 'Playfair Display', serif;
+  --font-display: 'Inter', sans-serif;
   --font-sans: 'DM Sans', sans-serif;
   --font-tech: 'Inter', sans-serif;
 }
