@@ -77,7 +77,7 @@ const faqJsonLd = {
       name: "What does the Half-Yearly Report contain?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The report consists of three sub-reports: Employment (workforce data by nationality and position), Expenditure/Procurement (spending with Guyanese vs. foreign suppliers), and Capacity Development (training and skills transfer programs).",
+        text: "The report consists of three sub-reports: Employment (workforce data by nationality, position, and remuneration), Expenditure/Procurement (spending with Guyanese vs. foreign suppliers, including Supplier Type), and Capacity Development (training and skills transfer programs). Current template is Version 4, June 2025.",
       },
     },
   ],

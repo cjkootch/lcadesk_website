@@ -46,7 +46,7 @@ const faqItems = [
   { q: "What are the penalties for not filing?", a: "Failure to submit carries a GY$5 million penalty. Late submission is GY$1 million. False or misleading submissions are GY$1 million. Operating without meeting minimum local content requirements can result in fines up to GY$50 million." },
   { q: "What format is the report submitted in?", a: "Reports are submitted as a PDF narrative report accompanied by an Excel data template. Both must be emailed to the Local Content Secretariat. LCA Desk automates the generation of both documents from your data." },
   { q: "Can I use LCA Desk to prepare my filing?", a: "Yes. LCA Desk's guided wizard walks you through every required field, auto-generates the narrative PDF and Excel template, flags compliance gaps before submission, and tracks your deadlines. Start with a 30-day trial." },
-  { q: "What version of the template is current?", a: "The current template is Version 4.0, with the submission guideline at Version 4.1 (published June 2025). LCA Desk stays current with all template updates from the Secretariat." },
+  { q: "What version of the template is current?", a: "The current template is Version 4 (June 2025). Key changes from V3 include the addition of a Supplier Type field in the Expenditure Sub-Report and the requirement for remuneration data in the Employment Sub-Report. LCA Desk stays current with all template updates from the Secretariat." },
 ];
 
 export default function HalfYearlyReportGuideClient() {
@@ -141,14 +141,14 @@ export default function HalfYearlyReportGuideClient() {
               {
                 icon: Users,
                 title: "Employment Report",
-                what: "Workforce data broken down by nationality, position level, and department.",
+                what: "Workforce data broken down by nationality, position level, department, and remuneration (required as of V4).",
                 why: "The LCA sets minimum Guyanese employment targets across job categories. The Secretariat tracks whether you're meeting these thresholds.",
                 risk: "Falling below minimum employment ratios can trigger enforcement action.",
               },
               {
                 icon: DollarSign,
                 title: "Expenditure Report",
-                what: "Procurement spending categorized by Guyanese vs. foreign suppliers across all 14 service categories.",
+                what: "Procurement spending categorized by Guyanese vs. foreign suppliers across all 14 service categories, including Supplier Type classification (V4).",
                 why: "Section 22 requires first consideration for Guyanese suppliers. The Secretariat measures your local procurement percentage against minimum targets.",
                 risk: "Insufficient local procurement spend is the most common compliance gap.",
               },
@@ -374,7 +374,7 @@ export default function HalfYearlyReportGuideClient() {
                 "Excel template auto-populated in the correct format",
                 "Built-in consistency checks between narrative and data",
                 "Deadline reminders and filing status tracking",
-                "Download submission-ready PDF + Excel, email to Secretariat",
+                "Download submission-ready PDF, Excel, and Notice of Submission letter — email to Secretariat",
               ].map((step, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />

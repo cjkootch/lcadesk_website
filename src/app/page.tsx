@@ -35,7 +35,7 @@ const features = [
   { icon: BarChart3, title: "Dashboards & Analytics", desc: "Workforce composition, procurement spend, training investment — all visualized." },
   { icon: Shield, title: "Audit Trail", desc: "Every change logged with user, timestamp, and reason. Secretariat-ready." },
   { icon: Users, title: "Multi-Entity Support", desc: "Manage compliance for multiple subsidiaries, JVs, and project entities." },
-  { icon: Download, title: "One-Click Export", desc: "Generate Secretariat-ready PDFs and Excel files with a single click." },
+  { icon: Download, title: "Secretariat-Ready Exports", desc: "Export the Excel template, Comparative Analysis PDF, and Notice of Submission letter — all pre-filled. Everything the Secretariat requires, in one click." },
 ];
 
 const markets = [

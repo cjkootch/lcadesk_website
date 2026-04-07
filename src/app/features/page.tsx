@@ -59,8 +59,8 @@ const gridFeatures = [
   },
   {
     icon: Download,
-    title: "One-Click Export",
-    description: "Secretariat-ready PDFs and Excel files.",
+    title: "Secretariat-Ready Exports",
+    description: "Export the Excel template, Comparative Analysis PDF, and Notice of Submission letter — all pre-filled. Everything the Secretariat requires, in one click.",
   },
 ];
 
