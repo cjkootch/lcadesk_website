@@ -60,14 +60,14 @@ export default function NigeriaPage() {
   return (
     <main className="min-h-screen bg-surface">
       <HeroSection
-        eyebrow={"\u{1F1F3}\u{1F1EC} Nigeria"}
+        eyebrow="Nigeria"
         headline="NCDMB Compliance — Nigeria"
         sub="Africa's largest oil producer. 1,500+ companies regulated by the Nigerian Content Development & Monitoring Board. LCA Desk Nigeria module coming Q3 2026."
         geometricVariant="waves"
       />
 
-      <div className="hidden lg:block mt-12">
-        <img src="/illustrations/market-nigeria.png" alt="Nigeria NCDMB local content compliance overview" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      <div className="hidden lg:block -mt-8 mb-0 relative z-10">
+        <img src="/illustrations/market-nigeria.png" alt="Nigeria NCDMB local content compliance overview" className="w-full max-w-3xl mx-auto rounded-2xl opacity-90" loading="eager" />
       </div>
 
       {/* Key stats */}

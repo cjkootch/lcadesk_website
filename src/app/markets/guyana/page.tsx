@@ -25,7 +25,7 @@ export default function GuyanaPage() {
   return (
     <main className="min-h-screen bg-surface">
       <HeroSection
-        eyebrow="\u{1F1EC}\u{1F1FE} Guyana"
+        eyebrow="Guyana"
         headline="Local Content Act Compliance — Guyana"
         sub="The world's fastest-growing economy. 1,300+ companies required to file. LCA Desk is the only dedicated software."
         geometricVariant="topology"
@@ -33,8 +33,8 @@ export default function GuyanaPage() {
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
 
-      <div className="hidden lg:block mt-12">
-        <img src="/illustrations/market-guyana.png" alt="Guyana Local Content Act compliance dashboard overview" className="w-full max-w-2xl mx-auto rounded-2xl opacity-90" loading="eager" />
+      <div className="hidden lg:block -mt-8 mb-0 relative z-10">
+        <img src="/illustrations/market-guyana.png" alt="Guyana Local Content Act compliance dashboard overview" className="w-full max-w-3xl mx-auto rounded-2xl opacity-90" loading="eager" />
       </div>
 
       {/* Regulatory Overview */}
