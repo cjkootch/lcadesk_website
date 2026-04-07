@@ -57,10 +57,10 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">5. Free Trial</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">5. Trial Period</h2>
             <ul className="list-disc pl-5 space-y-1.5">
-              <li>New accounts receive a 14-day free trial with full Pro-tier access.</li>
-              <li>No credit card is required to start a trial.</li>
+              <li>New accounts receive a 30-day trial with full Professional-tier access. A credit card is collected at signup.</li>
+              <li>A credit card is collected at signup. You will not be charged until the trial ends.</li>
               <li>At the end of the trial, platform access is suspended unless you subscribe to a paid plan. Your data is retained for 90 days.</li>
               <li>Data entered during the trial is retained and accessible if you subscribe.</li>
             </ul>

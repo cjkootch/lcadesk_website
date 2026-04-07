@@ -29,7 +29,7 @@ export default function GuyanaPage() {
         headline="Local Content Act Compliance — Guyana"
         sub="The world's fastest-growing economy. 1,300+ companies required to file. LCA Desk is the only dedicated software."
         geometricVariant="topology"
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
 
@@ -195,8 +195,8 @@ export default function GuyanaPage() {
 
       <CTABanner
         headline="Ready to simplify your Guyana LCA filings?"
-        body="Start your free 14-day trial with full Pro access."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        body="Start your 30-day trial with full Professional access."
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
       />
     </main>
   );

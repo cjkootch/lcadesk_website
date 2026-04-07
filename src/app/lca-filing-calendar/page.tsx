@@ -116,7 +116,7 @@ export default function LCAFilingCalendarPage() {
       <CTABanner
         headline="Never miss an LCA filing deadline."
         body="LCA Desk sends automated reminders and manages your filing calendar. Start free."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

@@ -114,8 +114,8 @@ export default function GhanaPage() {
 
       <CTABanner
         headline="Ready to simplify LCA compliance?"
-        body="Start your free 14-day trial today. No credit card required."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        body="Start your 30-day trial today. Card collected at signup."
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </main>

@@ -253,7 +253,7 @@ export default function SurinamePage() {
       <CTABanner
         headline="Already operating in Guyana?"
         body="LCA Desk is live for Guyana's Local Content Act. Companies compliant in Guyana will have a head start in Suriname."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "View Guyana Module", href: "/markets/guyana" }}
       />
     </main>

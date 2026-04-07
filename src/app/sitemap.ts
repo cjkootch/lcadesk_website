@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { fetchOpportunities } from "@/lib/opportunities";
 import { posts } from "@/lib/blog";
-import type { PublicJob } from "@/lib/types";
+import type { PublicJob, PublicCompany } from "@/lib/types";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://lcadesk.com";
@@ -32,6 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/lca-act-overview`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/lca-compliance-guide`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/lca-half-yearly-report-guide`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/companies`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/suppliers`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/verify`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/jobs/register`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
@@ -75,5 +76,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...opportunityPages, ...jobPages, ...blogPages];
+  // Company pages
+  let companyPages: MetadataRoute.Sitemap = [];
+  try {
+    const compRes = await fetch("https://app.lcadesk.com/api/public/companies?sort=opportunities", { next: { revalidate: 3600 } });
+    if (compRes.ok) {
+      const compData = await compRes.json();
+      const companies: PublicCompany[] = compData.companies ?? [];
+      companyPages = companies
+        .filter((c) => c.activeOpportunities > 0 || c.openJobPostings > 0 || c.lcsRegistered)
+        .map((c) => ({
+          url: `${baseUrl}/companies/${c.slug}`,
+          lastModified: new Date(),
+          changeFrequency: "weekly" as const,
+          priority: 0.6,
+        }));
+    }
+  } catch {}
+
+  return [...staticPages, ...opportunityPages, ...jobPages, ...blogPages, ...companyPages];
 }

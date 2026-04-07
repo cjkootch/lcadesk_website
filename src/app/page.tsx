@@ -51,8 +51,8 @@ const markets = [
 const faqItems = [
   { q: "Who is required to file LCA half-yearly reports?", a: "Every contractor, sub-contractor, and licensee operating under a petroleum agreement in Guyana must file half-yearly reports with the Local Content Secretariat. This applies to all companies on the Local Content Register, regardless of size or nationality." },
   { q: "What are the penalties for non-compliance?", a: "Penalties range from GY$1 million to GY$50 million per offence. False or misleading submissions are a criminal offence. The Secretariat is actively auditing and following up on late or missing submissions." },
-  { q: "What\u2019s the difference between Lite and Pro?", a: "Lite ($99/month) includes platform access plus $25 per report generated \u2014 ideal for infrequent filers. Pro ($299/month) includes unlimited report generation plus AI Narrative Drafting and Compliance Gap Detection. After 8 reports per month, Pro is cheaper than Lite." },
-  { q: "Does the 14-day trial include AI features?", a: "Yes. Your free 14-day trial gives you full Pro access \u2014 including AI Narrative Drafting and Compliance Gap Detection \u2014 with no credit card required." },
+  { q: "What\u2019s the difference between Essentials and Professional?", a: "Essentials ($199/month) covers 1 entity, 3 users, all 5 submission types, and includes a Compliance Health Score. Professional ($399/month) adds AI Narrative Drafting, Compliance Gap Detection, up to 5 entities, workforce + procurement dashboards, and a payment log." },
+  { q: "Does the 30-day trial include AI features?", a: "Yes. Your 30-day trial gives you full Professional access \u2014 including AI Narrative Drafting and Compliance Gap Detection. A credit card is collected at signup but you won\u2019t be charged until the trial ends." },
   { q: "What happens to my data after the trial ends?", a: "Your data is saved securely. If you don\u2019t upgrade to a paid plan, access to the platform is paused \u2014 you won\u2019t be able to create, edit, or export reports. Upgrade anytime to pick up right where you left off." },
   { q: "Will LCA Desk cover Nigeria and other markets?", a: "Yes. Nigeria (NCDMB), Trinidad & Tobago, Ghana, Mozambique, and Namibia are in active development. Join the waitlist on the Markets page to be notified at launch." },
   { q: "Can you handle the Comparative Analysis narrative sections?", a: "Yes \u2014 this is LCA Desk\u2019s signature AI feature. The AI reads your expenditure, employment, and capacity development data and drafts the full narrative in the formal tone the Secretariat expects. You review and approve before export." },
@@ -107,7 +107,7 @@ export default function HomePage() {
               className="flex flex-col sm:flex-row gap-3 mb-8">
               <Link href="https://app.lcadesk.com/auth/signup"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02] transition-all">
-                Start Free 14-Day Trial <ArrowRight size={16} />
+                Start 30-Day Trial <ArrowRight size={16} />
               </Link>
               <Link href="/demo"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-8 py-4 text-sm font-semibold hover:border-accent hover:text-accent transition-all">
@@ -116,8 +116,8 @@ export default function HomePage() {
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45, duration: 0.5 }}
               className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-text-muted">
-              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> No credit card required</span>
-              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Full Pro access for 14 days</span>
+              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> 30-day trial, card collected</span>
+              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Full Professional access</span>
               <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Cancel anytime</span>
             </motion.div>
           </div>
@@ -203,7 +203,7 @@ export default function HomePage() {
                 icon: ClipboardCheck,
                 title: "LCA Compliance Filers",
                 desc: "Contractors, sub-contractors, and licensees required to file half-yearly reports, annual plans, and master plans with the Secretariat.",
-                cta: "Start Free Trial",
+                cta: "Start 30-Day Trial",
                 href: "https://app.lcadesk.com/auth/signup",
                 color: "from-accent to-teal",
                 tag: "Software Platform",
@@ -598,8 +598,8 @@ export default function HomePage() {
       {/* 15. CTA Banner */}
       <CTABanner
         headline="Your next LCA filing deadline is closer than you think."
-        body="H1 reports are due July 30. H2 reports are due January 30. Start your free 14-day trial — full Pro access, no credit card required."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        body="H1 reports are due July 30. H2 reports are due January 30. Start your 30-day trial — full Professional access, card collected at signup."
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

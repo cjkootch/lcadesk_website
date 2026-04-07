@@ -260,13 +260,13 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="bg-gradient-to-r from-accent/5 to-teal/5 border border-accent/20 rounded-2xl p-8 text-center">
             <h3 className="font-display text-xl text-text-primary mb-2">Ready to simplify your LCA filings?</h3>
             <p className="text-sm text-text-secondary max-w-lg mx-auto mb-5">
-              LCA Desk automates report generation, flags compliance gaps, and tracks your deadlines. Free 14-day trial — no credit card.
+              LCA Desk automates report generation, flags compliance gaps, and tracks your deadlines. 30-day trial — card collected at signup.
             </p>
             <Link
               href="https://app.lcadesk.com/auth/signup"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
             >
-              Start Free Trial <ArrowRight size={16} />
+              Start 30-Day Trial <ArrowRight size={16} />
             </Link>
           </div>
         </div>
@@ -321,7 +321,7 @@ export default async function BlogPostPage({ params }: Props) {
       <CTABanner
         headline="Stop guessing. Start filing with confidence."
         body="LCA Desk walks you through every required field. Auto-generates compliant reports. Flags gaps before you submit."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

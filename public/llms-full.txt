@@ -50,12 +50,12 @@ Each report includes multiple sections: employment data (Guyanese vs. non-Guyane
 
 | Plan | Monthly | Annual | Key Features |
 |------|---------|--------|-------------|
-| **Lite** | $99/mo | $948/yr ($79/mo) | 1 entity, 2 users, all 5 submission types, guided data entry, deadline alerts, $25/report export, 1yr history, email support (48hr) |
-| **Pro** | $299/mo | $2,868/yr ($239/mo) | 5 entities, 10 users, unlimited reports, AI Narrative Drafting, AI Compliance Gap Detection, workforce + procurement dashboards, unlimited history, audit log, priority support (24hr) |
-| **Enterprise** | $1,999/mo | $19,990/yr | Unlimited entities/users, all AI features, RBAC, API/ERP integrations, white-glove onboarding, custom workflows, SLA support (4hr, named CSM) |
-| **Full Service** | From $2,500/mo | Custom | Done-for-you filings: data collection, report prep, AI + human review, Secretariat submission, acknowledgement tracking, audit defense |
+| **Essentials** | $199/mo | $1,910/yr ($159/mo) | 1 entity, 3 users, all 5 submission types, guided data entry, deadline alerts, Compliance Health Score, unlimited reports, 1yr history, email support (48hr) |
+| **Professional** | $399/mo | $3,830/yr ($319/mo) | 5 entities, 10 users, unlimited reports, AI Narrative Drafting, AI Compliance Gap Detection, Compliance Health Score, workforce + procurement dashboards, payment log, unlimited history, audit trail, priority support (24hr) |
+| **Enterprise** | Custom | Custom | Unlimited entities/users, all AI features, RBAC, API/ERP integrations, white-glove onboarding, custom workflows, SLA support (4hr, named CSM) |
+| **Managed Service** | From $2,500/mo | Custom | Done-for-you filings: data collection, report prep, AI + human review, Secretariat submission, acknowledgement tracking, audit defense |
 
-- 14-day free trial with full Pro access, no credit card required
+- 30-day trial with card collected at signup, full Professional access
 - After trial: platform access paused until user upgrades to a paid plan
 - Free accounts for job seekers and suppliers (jobs board and supplier directory only)
 
