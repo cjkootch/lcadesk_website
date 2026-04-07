@@ -37,7 +37,7 @@ const markets: MarketCard[] = [
       "Filing: H1 (Jul 30), H2 (Jan 30), Annual Plan, Master Plan, Performance Report",
       "Companies: 1,300+",
     ],
-    cta: { label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" },
+    cta: { label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" },
   },
   {
     flag: "\u{1F1F3}\u{1F1EC}",
@@ -235,8 +235,8 @@ export default function MarketsPage() {
 
       <CTABanner
         headline="Ready to simplify LCA compliance?"
-        body="Start your free 14-day trial today. No credit card required."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        body="Start your 30-day trial today. Card collected at signup."
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </main>

@@ -143,7 +143,7 @@ export default function NavBar() {
             href="https://app.lcadesk.com/auth/signup"
             className="rounded-lg bg-gradient-to-r from-accent to-teal px-5 py-2 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/20 hover:scale-[1.02] transition-all"
           >
-            Start Free Trial
+            Start 30-Day Trial
           </Link>
         </div>
 
@@ -196,7 +196,7 @@ export default function NavBar() {
                 onClick={() => setMobileOpen(false)}
                 className="rounded-lg bg-gradient-to-r from-accent to-teal px-5 py-2.5 text-sm font-semibold text-white text-center hover:shadow-lg transition-all"
               >
-                Start Free Trial
+                Start 30-Day Trial
               </Link>
             </div>
           </motion.div>

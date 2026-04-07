@@ -298,7 +298,7 @@ export default async function JobsPage() {
           <div className="space-y-8">
             {[
               { num: "1", title: "Get certified", desc: "Offshore roles require BOSIET/HUET certification. Technical roles need trade certificates or engineering degrees. HSE certifications (NEBOSH, IOSH) are valued across all categories. Invest in the credentials that contractors are required to verify." },
-              { num: "2", title: "Register on LCA Desk", desc: "Create your profile with your skills, certifications, and preferred employment category. We\u2019ll notify you when contractors post positions matching your qualifications." },
+              { num: "2", title: "Join the Talent Pool", desc: "Register on LCA Desk\u2019s Talent Pool with your skills, certifications, and preferred employment category. Contractors searching for Guyanese candidates can find your profile directly. We\u2019ll also notify you when matching positions are posted." },
               { num: "3", title: "Apply early and professionally", desc: "When a position appears, apply quickly with a tailored CV highlighting relevant experience. Include your certification numbers and any prior oil sector experience. Contractors must evaluate local applications before considering expatriates." },
               { num: "4", title: "Know your rights", desc: "Under Section 18, you\u2019re entitled to pay comparable to expatriates doing the same work. Under Section 12, contractors must give you first consideration. If you believe these rights were violated, contact the Local Content Secretariat." },
             ].map((step, i) => (

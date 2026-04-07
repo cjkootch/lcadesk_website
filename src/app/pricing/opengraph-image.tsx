@@ -1,15 +1,15 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "LCA Desk Pricing — Plans from $99/month";
+export const alt = "LCA Desk Pricing — Plans from $199/month";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Image() {
   const plans = [
-    { name: "Lite", price: "$99", period: "/mo", note: "+ $25/report", color: "#94a3b8" },
-    { name: "Pro", price: "$299", period: "/mo", note: "AI included", color: "#10b981", highlight: true },
-    { name: "Enterprise", price: "$1,999", period: "/mo", note: "Custom", color: "#94a3b8" },
+    { name: "Essentials", price: "$199", period: "/mo", note: "All 5 submissions", color: "#94a3b8" },
+    { name: "Professional", price: "$399", period: "/mo", note: "AI included", color: "#10b981", highlight: true },
+    { name: "Enterprise", price: "Custom", period: "", note: "Contact us", color: "#94a3b8" },
   ];
 
   return new ImageResponse(
@@ -50,13 +50,13 @@ export default function Image() {
               <span style={{ fontSize: "14px", fontWeight: 600, color: plan.color, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>{plan.name}</span>
               <div style={{ display: "flex", alignItems: "baseline" }}>
                 <span style={{ fontSize: "48px", fontWeight: 700, color: "white" }}>{plan.price}</span>
-                <span style={{ fontSize: "18px", color: "#64748b", marginLeft: "4px" }}>{plan.period}</span>
+                {plan.period && <span style={{ fontSize: "18px", color: "#64748b", marginLeft: "4px" }}>{plan.period}</span>}
               </div>
               <span style={{ fontSize: "13px", color: "#64748b", marginTop: "8px" }}>{plan.note}</span>
             </div>
           ))}
         </div>
-        <p style={{ fontSize: "16px", color: "#10b981", marginTop: "32px" }}>14-day free trial · No credit card required</p>
+        <p style={{ fontSize: "16px", color: "#10b981", marginTop: "32px" }}>30-day trial · Card collected at signup</p>
       </div>
     ),
     { ...size }

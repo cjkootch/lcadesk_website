@@ -10,8 +10,8 @@ export default function AboutPage() {
     <>
       <HeroSection
         eyebrow="About"
-        headline="Built by Energy Traders Who Needed It Themselves"
-        sub="LCA Desk was born from firsthand experience navigating Guyana's Local Content Act."
+        headline="The AI-Native Platform for Local Content Compliance"
+        sub="LCA Desk is the world's only purpose-built software for Local Content Act compliance — from guided data entry to AI narrative drafting."
         geometricVariant="topology"
       />
       <div className="hidden lg:block mt-12 max-w-5xl mx-auto px-6">
@@ -26,20 +26,20 @@ export default function AboutPage() {
           className="space-y-6 text-text-secondary leading-relaxed"
         >
           <p>
-            LCA Desk is built by a team that has spent years working in
-            Guyana&apos;s oil and gas sector. We saw the compliance burden
-            firsthand — complex spreadsheets, overlapping deadlines, and the
-            constant risk of penalties.
+            LCA Desk is the world&apos;s only AI-native Local Content Act compliance platform.
+            We handle all five mandatory submission types — half-yearly reports, annual plans,
+            master plans, performance reports, and procurement filings — with AI narrative
+            drafting, compliance gap detection, and one-click Secretariat-ready exports.
           </p>
           <p>
-            We built the software we wished existed. A single platform that
-            handles all five mandatory LCA submission types, uses AI to draft
-            the hardest sections, and keeps you ahead of every deadline.
+            Built by a team that has spent years working in Guyana&apos;s oil and gas sector,
+            we saw the compliance burden firsthand — complex spreadsheets, overlapping deadlines,
+            and the constant risk of penalties. We built the software we wished existed.
           </p>
           <p>
             Based in Houston, Texas, we serve contractors, subcontractors, and
             licensees across Guyana&apos;s petroleum sector — and we&apos;re
-            expanding to Nigeria, Trinidad, Ghana, Mozambique, and Namibia.
+            expanding to Nigeria, Trinidad, Ghana, Mozambique, Namibia, and Suriname.
           </p>
           <p>
             <Link
@@ -56,8 +56,8 @@ export default function AboutPage() {
 
       <CTABanner
         headline="Ready to simplify LCA compliance?"
-        body="Start your free 14-day trial — full Pro access, no credit card required."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        body="Start your 30-day trial — full Professional access, card collected at signup."
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

@@ -285,8 +285,8 @@ export default function NigeriaPage() {
 
       <CTABanner
         headline="Already filing in Guyana?"
-        body="LCA Desk is live for Guyana's Local Content Act. Start your free 14-day trial today."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        body="LCA Desk is live for Guyana's Local Content Act. Start your 30-day trial today."
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "View Guyana Module", href: "/markets/guyana" }}
       />
     </main>

@@ -22,29 +22,30 @@ interface Plan {
 
 const plans: Plan[] = [
   {
-    name: "Lite",
-    bestFor: "Small vendors / 1\u201315 employees",
-    monthly: 99,
-    annual: 948,
+    name: "Essentials",
+    bestFor: "Small contractors / 1\u201315 employees",
+    monthly: 199,
+    annual: 1910,
     features: [
       "1 entity",
-      "2 users",
+      "3 users",
       "All 5 mandatory submission types",
       "Guided data entry wizard",
       "Deadline alerts & filing calendar",
-      "Filing export: $25 per report generated",
+      "Compliance Health Score",
+      "Unlimited report generation",
       "1 year data history",
       "Email support (48hr)",
     ],
-    cta: { label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" },
-    monthlySubtext: "per month + $25 per report generated",
-    annualSubtext: "$990/yr \u00b7 save $198 \u00b7 + $25/report",
+    cta: { label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" },
+    monthlySubtext: "per month",
+    annualSubtext: "$1,910/yr \u00b7 save $478",
   },
   {
-    name: "Pro",
+    name: "Professional",
     bestFor: "Growing contractors / 15\u2013150 employees",
-    monthly: 299,
-    annual: 2868,
+    monthly: 399,
+    annual: 3830,
     highlighted: true,
     aiBadge: "Includes AI Narrative Drafting",
     features: [
@@ -53,20 +54,21 @@ const plans: Plan[] = [
       "Unlimited report generation",
       "AI Narrative Drafting",
       "AI Compliance Gap Detection",
+      "Compliance Health Score",
       "Workforce + procurement dashboards",
+      "Payment log & audit trail",
       "Unlimited data history",
-      "Audit log",
       "Priority support (24hr)",
     ],
-    cta: { label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" },
+    cta: { label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" },
     monthlySubtext: "per month",
-    annualSubtext: "$5,990/yr \u00b7 save $1,198",
+    annualSubtext: "$3,830/yr \u00b7 save $958",
   },
   {
     name: "Enterprise",
     bestFor: "Large contractors / multi-entity",
-    monthly: 1999,
-    annual: 19990,
+    monthly: null,
+    annual: null,
     aiBadge: "All AI Features + Document Intelligence",
     features: [
       "Unlimited entities",
@@ -79,11 +81,9 @@ const plans: Plan[] = [
       "SLA support (4hr, named CSM)",
     ],
     cta: { label: "Contact Us", href: "/contact" },
-    monthlySubtext: "per month",
-    annualSubtext: "$19,990/yr \u00b7 save $3,998",
   },
   {
-    name: "Full Service",
+    name: "Managed Service",
     bestFor: "Done-for-you filings",
     monthly: null,
     annual: null,
@@ -99,8 +99,6 @@ const plans: Plan[] = [
       "Audit defense",
     ],
     cta: { label: "Get a Quote", href: "/contact" },
-    monthlySubtext: "starting price",
-    annualSubtext: "Custom annual contract",
   },
 ];
 
@@ -182,6 +180,10 @@ export default function PricingToggle() {
                 <span className="font-[family-name:var(--font-tech)] text-3xl font-bold text-text-primary">
                   From $2,500
                 </span>
+              ) : plan.monthly === null ? (
+                <span className="font-[family-name:var(--font-tech)] text-3xl font-bold text-text-primary">
+                  Custom
+                </span>
               ) : (
                 <motion.span
                   key={`${plan.name}-${annual}`}
@@ -189,15 +191,18 @@ export default function PricingToggle() {
                   animate={{ opacity: 1, y: 0 }}
                   className="font-[family-name:var(--font-tech)] text-3xl font-bold text-text-primary"
                 >
-                  ${annual ? Math.round(plan.annual! / 12).toLocaleString() : plan.monthly!.toLocaleString()}
+                  ${annual ? Math.round(plan.annual! / 12).toLocaleString() : plan.monthly.toLocaleString()}
                 </motion.span>
               )}
-              <span className="text-sm text-text-muted ml-1">/mo</span>
+              {plan.monthly !== null && <span className="text-sm text-text-muted ml-1">/mo</span>}
             </div>
 
-            <p className="text-xs text-text-muted mb-5">
-              {annual ? plan.annualSubtext : plan.monthlySubtext}
-            </p>
+            {(plan.monthlySubtext || plan.annualSubtext) && (
+              <p className="text-xs text-text-muted mb-5">
+                {annual ? plan.annualSubtext : plan.monthlySubtext}
+              </p>
+            )}
+            {!plan.monthlySubtext && !plan.annualSubtext && <div className="mb-5" />}
 
             <ul className="space-y-2.5 mb-8 flex-1">
               {plan.features.map((f) => (
@@ -224,7 +229,7 @@ export default function PricingToggle() {
 
       {/* Footnote */}
       <p className="text-text-muted text-sm text-center mt-8">
-        No setup fees. Cancel anytime. Data exportable on request.
+        30-day trial with card collected upfront. Cancel anytime. Data exportable on request.
       </p>
 
       {/* Anthropic credibility strip */}

@@ -45,7 +45,7 @@ const faqItems = [
   { q: "Who must file the LCA Half-Yearly Report?", a: "Contractors, sub-contractors, and licensees operating in Guyana's petroleum sector are required to file under Section 47 of the Local Content Act 2021. This includes all companies involved in petroleum operations, whether directly or through subcontracting arrangements." },
   { q: "What are the penalties for not filing?", a: "Failure to submit carries a GY$5 million penalty. Late submission is GY$1 million. False or misleading submissions are GY$1 million. Operating without meeting minimum local content requirements can result in fines up to GY$50 million." },
   { q: "What format is the report submitted in?", a: "Reports are submitted as a PDF narrative report accompanied by an Excel data template. Both must be emailed to the Local Content Secretariat. LCA Desk automates the generation of both documents from your data." },
-  { q: "Can I use LCA Desk to prepare my filing?", a: "Yes. LCA Desk's guided wizard walks you through every required field, auto-generates the narrative PDF and Excel template, flags compliance gaps before submission, and tracks your deadlines. Start with a free 14-day trial." },
+  { q: "Can I use LCA Desk to prepare my filing?", a: "Yes. LCA Desk's guided wizard walks you through every required field, auto-generates the narrative PDF and Excel template, flags compliance gaps before submission, and tracks your deadlines. Start with a 30-day trial." },
   { q: "What version of the template is current?", a: "The current template is Version 4.0, with the submission guideline at Version 4.1 (published June 2025). LCA Desk stays current with all template updates from the Secretariat." },
 ];
 
@@ -56,7 +56,7 @@ export default function HalfYearlyReportGuideClient() {
         eyebrow="Compliance Guide"
         headline="LCA Half-Yearly Report Guide"
         sub="Everything you need to know about Guyana's mandatory half-yearly filing — deadlines, who must file, what's required, and the penalties for non-compliance."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "View Filing Calendar", href: "/lca-filing-calendar" }}
         geometricVariant="grid"
       />
@@ -206,7 +206,7 @@ export default function HalfYearlyReportGuideClient() {
               href="https://app.lcadesk.com/auth/signup"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
             >
-              Start Free 14-Day Trial <ArrowRight size={16} />
+              Start 30-Day Trial <ArrowRight size={16} />
             </Link>
           </motion.div>
         </div>
@@ -327,7 +327,7 @@ export default function HalfYearlyReportGuideClient() {
               href="https://app.lcadesk.com/auth/signup"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-6 py-3 text-sm font-semibold text-white whitespace-nowrap hover:shadow-lg hover:scale-[1.02] transition-all"
             >
-              Try Free <ArrowRight size={14} />
+              Start 30-Day Trial <ArrowRight size={14} />
             </Link>
           </motion.div>
         </div>
@@ -428,8 +428,8 @@ export default function HalfYearlyReportGuideClient() {
 
       <CTABanner
         headline="Stop guessing. Start filing with confidence."
-        body="LCA Desk walks you through every required field, auto-generates compliant reports, and flags gaps before you submit. 14-day free trial — no credit card."
-        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup" }}
+        body="LCA Desk walks you through every required field, auto-generates compliant reports, and flags gaps before you submit. 30-day trial — card collected at signup."
+        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </main>
