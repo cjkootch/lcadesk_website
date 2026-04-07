@@ -16,7 +16,6 @@ import CTABanner from "@/components/CTABanner";
 import PricingToggle from "@/components/PricingToggle";
 import GeometricBg from "@/components/GeometricBg";
 import UIFrame from "@/components/UIFrame";
-import { BrandedIconDark } from "@/components/BrandedIcon";
 
 const trustBadges = [
   { icon: Droplets, label: "Oil & Gas" },
@@ -265,7 +264,9 @@ export default function HomePage() {
             {trustBadges.map((b, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.04 }}
                 className="flex flex-col items-center gap-2.5 p-4 rounded-xl bg-surface/80 border border-border hover:border-accent/30 hover:shadow-sm transition-all group cursor-default">
-                <BrandedIconDark icon={b.icon} size="sm" className="group-hover:scale-110 transition-transform" />
+                <div className="w-10 h-10 rounded-lg bg-accent/[0.08] flex items-center justify-center group-hover:bg-accent/15 transition-colors">
+                  <b.icon size={18} className="text-accent" />
+                </div>
                 <span className="text-[11px] text-text-secondary text-center font-medium leading-tight">{b.label}</span>
               </motion.div>
             ))}
@@ -428,7 +429,9 @@ export default function HomePage() {
             {features.map((f, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.06 }}
                 className="bg-card rounded-2xl border border-border p-7 card-lift group">
-                <BrandedIconDark icon={f.icon} size="md" className="mb-5 group-hover:scale-110 transition-transform" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/15 to-teal/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <f.icon size={22} className="text-accent" />
+                </div>
                 <h3 className="font-semibold text-text-primary mb-2 text-[15px]">{f.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{f.desc}</p>
               </motion.div>
