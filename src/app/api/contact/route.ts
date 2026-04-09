@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { track } from "@vercel/analytics/server";
 
 const HUBSPOT_PORTAL_ID = "245833475";
-const HUBSPOT_FORM_GUID = process.env.HUBSPOT_FORM_GUID || "";
+const HUBSPOT_FORM_GUID = process.env.HUBSPOT_FORM_GUID || "8b37db6a-7062-4b35-a039-3af713aed2f4";
 
 export async function POST(req: Request) {
   try {
@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     if (HUBSPOT_FORM_GUID) {
       try {
         const hsRes = await fetch(
-          `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`,
+          `https://api-na2.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
