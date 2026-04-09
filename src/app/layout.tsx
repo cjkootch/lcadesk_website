@@ -44,9 +44,6 @@ export const metadata: Metadata = {
   authors: [{ name: "LCA Desk" }],
   creator: "LCA Desk",
   publisher: "LCA Desk",
-  alternates: {
-    canonical: "https://lcadesk.com",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",

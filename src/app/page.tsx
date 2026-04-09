@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import Ticker from "@/components/Ticker";
 import CTABanner from "@/components/CTABanner";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://lcadesk.com" },
+};
 import HeroSection from "@/components/home/HeroSection";
 import ProblemSection from "@/components/home/ProblemSection";
 import PlatformArchitectureSection from "@/components/home/PlatformArchitectureSection";
