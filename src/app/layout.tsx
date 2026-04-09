@@ -185,7 +185,7 @@ export default function RootLayout({
         </Script>
         <Script
           id="hs-script-loader"
-          src="//js.hs-scripts.com/245833475.js"
+          src="//js-na2.hs-scripts.com/245833475.js"
           strategy="afterInteractive"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
