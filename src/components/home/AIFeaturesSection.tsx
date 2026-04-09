@@ -44,7 +44,7 @@ export default function RulesAndAutomationSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Rules-as-Code */}
           <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="bg-white/[0.07] backdrop-blur border border-white/10 rounded-2xl p-7">
+            className="bg-white/[0.14] backdrop-blur-md border border-white/20 rounded-2xl p-7 shadow-lg shadow-black/10">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl bg-emerald-400/20 flex items-center justify-center">
                 <Scale size={20} className="text-emerald-300" />
@@ -54,14 +54,14 @@ export default function RulesAndAutomationSection() {
                 <span className="text-[10px] font-medium text-emerald-300 uppercase tracking-wider">Foundation</span>
               </div>
             </div>
-            <p className="text-emerald-100/70 text-sm mb-5">
+            <p className="text-emerald-100/85 text-sm mb-5">
               Every jurisdiction's filing obligations are encoded as configurable validation rules. No custom code per country. Change the schema, and the platform enforces the new requirements automatically.
             </p>
             <div className="space-y-2.5">
               {rulesItems.map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-sm">
                   <item.icon size={15} className="text-emerald-400 flex-shrink-0" />
-                  <span className="text-emerald-100/80">{item.label}</span>
+                  <span className="text-emerald-100/90">{item.label}</span>
                 </div>
               ))}
             </div>
@@ -69,7 +69,7 @@ export default function RulesAndAutomationSection() {
 
           {/* AI Automation */}
           <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: 0.1 }}
-            className="bg-white/[0.07] backdrop-blur border border-white/10 rounded-2xl p-7">
+            className="bg-white/[0.14] backdrop-blur-md border border-white/20 rounded-2xl p-7 shadow-lg shadow-black/10">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl bg-emerald-400/20 flex items-center justify-center">
                 <Brain size={20} className="text-emerald-300" />
@@ -79,14 +79,14 @@ export default function RulesAndAutomationSection() {
                 <span className="text-[10px] font-medium text-emerald-300 uppercase tracking-wider">Acceleration Layer</span>
               </div>
             </div>
-            <p className="text-emerald-100/70 text-sm mb-5">
+            <p className="text-emerald-100/85 text-sm mb-5">
               AI handles the narrative, interpretive, and pattern-detection work that rules engines cannot. It drafts, flags, and explains, so filers and reviewers spend time on exceptions, not data assembly.
             </p>
             <div className="space-y-2.5 mb-6">
               {aiItems.map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-sm">
                   <item.icon size={15} className="text-emerald-400 flex-shrink-0" />
-                  <span className="text-emerald-100/80">{item.label}</span>
+                  <span className="text-emerald-100/90">{item.label}</span>
                 </div>
               ))}
             </div>
