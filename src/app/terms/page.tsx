@@ -51,7 +51,7 @@ export default function TermsPage() {
               <li>You must provide accurate, complete, and current information when registering.</li>
               <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
               <li>You are responsible for all activity that occurs under your account.</li>
-              <li>You must notify us immediately at <a href="mailto:hello@lcadesk.com" className="text-accent hover:underline">hello@lcadesk.com</a> if you suspect unauthorized access.</li>
+              <li>You must notify us immediately at <a href="mailto:support@lcadesk.com" className="text-accent hover:underline">support@lcadesk.com</a> if you suspect unauthorized access.</li>
               <li>We reserve the right to suspend or terminate accounts that violate these Terms.</li>
             </ul>
           </section>
@@ -145,7 +145,7 @@ export default function TermsPage() {
               These Terms are governed by the laws of the State of Texas, United States, without regard to conflict of law principles. Any disputes arising from these Terms or the Service shall be resolved through:
             </p>
             <ol className="list-decimal pl-5 space-y-1.5">
-              <li><strong className="text-text-primary">Informal resolution:</strong> Both parties agree to attempt to resolve disputes informally by contacting <a href="mailto:hello@lcadesk.com" className="text-accent hover:underline">hello@lcadesk.com</a> before initiating formal proceedings.</li>
+              <li><strong className="text-text-primary">Informal resolution:</strong> Both parties agree to attempt to resolve disputes informally by contacting <a href="mailto:support@lcadesk.com" className="text-accent hover:underline">support@lcadesk.com</a> before initiating formal proceedings.</li>
               <li><strong className="text-text-primary">Arbitration:</strong> If informal resolution fails, disputes will be resolved through binding arbitration administered in Houston, Texas.</li>
             </ol>
             <p className="mt-3">You agree to waive any right to participate in class action lawsuits or class-wide arbitration against us.</p>
@@ -162,7 +162,7 @@ export default function TermsPage() {
             <div className="bg-surface rounded-xl border border-border p-5">
               <p className="font-medium text-text-primary mb-1">LCA Desk</p>
               <p>Houston, Texas, USA</p>
-              <p>Email: <a href="mailto:hello@lcadesk.com" className="text-accent hover:underline">hello@lcadesk.com</a></p>
+              <p>Email: <a href="mailto:support@lcadesk.com" className="text-accent hover:underline">support@lcadesk.com</a></p>
               <p>Website: <Link href="/" className="text-accent hover:underline">lcadesk.com</Link></p>
             </div>
           </section>

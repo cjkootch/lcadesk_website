@@ -100,7 +100,7 @@ const jsonLd = {
         addressRegion: "TX",
         addressCountry: "US",
       },
-      email: "hello@lcadesk.com",
+      email: "support@lcadesk.com",
       sameAs: [],
       knowsAbout: [
         "Local Content Act Compliance",
@@ -183,6 +183,11 @@ export default function RootLayout({
             gtag('config', 'G-J4T660ZKK3');
           `}
         </Script>
+        <Script
+          id="hs-script-loader"
+          src="//js.hs-scripts.com/245833475.js"
+          strategy="afterInteractive"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

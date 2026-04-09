@@ -46,9 +46,21 @@ export default function DemoPage() {
         body: JSON.stringify({ ...form, inquiryType: "demo" }),
       });
       if (!res.ok) throw new Error("Failed");
+
+      // Identify contact in HubSpot
+      const _hsq = (window as any)._hsq = (window as any)._hsq || [];
+      _hsq.push(["identify", {
+        email: form.email,
+        firstname: form.name.split(" ")[0],
+        lastname: form.name.split(" ").slice(1).join(" "),
+        company: form.company,
+        hs_lead_status: "NEW",
+      }]);
+      _hsq.push(["trackPageView"]);
+
       setSubmitted(true);
     } catch {
-      setError("Something went wrong. Please email hello@lcadesk.com directly.");
+      setError("Something went wrong. Please try again or email support@lcadesk.com.");
     } finally {
       setSubmitting(false);
     }
@@ -96,8 +108,8 @@ export default function DemoPage() {
             </ul>
             <p className="text-text-muted text-sm mt-8">
               Or email{" "}
-              <a href="mailto:hello@lcadesk.com" className="text-accent hover:underline">
-                hello@lcadesk.com
+              <a href="mailto:support@lcadesk.com" className="text-accent hover:underline">
+                support@lcadesk.com
               </a>{" "}
               to schedule directly
             </p>

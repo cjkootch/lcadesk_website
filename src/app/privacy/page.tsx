@@ -183,7 +183,7 @@ export default function PrivacyPage() {
               <p className="font-medium text-text-primary mb-1">LCA Desk</p>
               <p>Houston, Texas, USA</p>
               <p>Email: <a href="mailto:privacy@lcadesk.com" className="text-accent hover:underline">privacy@lcadesk.com</a></p>
-              <p>General: <a href="mailto:hello@lcadesk.com" className="text-accent hover:underline">hello@lcadesk.com</a></p>
+              <p>General: <a href="mailto:support@lcadesk.com" className="text-accent hover:underline">support@lcadesk.com</a></p>
             </div>
           </section>
 

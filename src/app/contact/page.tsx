@@ -21,8 +21,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@lcadesk.com",
-    href: "mailto:hello@lcadesk.com",
+    value: "support@lcadesk.com",
+    href: "mailto:support@lcadesk.com",
   },
   {
     icon: MapPin,
@@ -65,9 +65,21 @@ export default function ContactPage() {
         body: JSON.stringify(form),
       });
       if (!res.ok) throw new Error("Failed to submit");
+
+      // Identify contact in HubSpot
+      const _hsq = (window as any)._hsq = (window as any)._hsq || [];
+      _hsq.push(["identify", {
+        email: form.email,
+        firstname: form.name.split(" ")[0],
+        lastname: form.name.split(" ").slice(1).join(" "),
+        company: form.company,
+        hs_lead_status: "NEW",
+      }]);
+      _hsq.push(["trackPageView"]);
+
       setSubmitted(true);
     } catch {
-      setError("Something went wrong. Please email hello@lcadesk.com directly.");
+      setError("Something went wrong. Please try again or email support@lcadesk.com.");
     } finally {
       setSubmitting(false);
     }
