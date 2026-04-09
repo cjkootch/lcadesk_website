@@ -63,7 +63,7 @@ export default function NavBar() {
     >
       <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center group">
-          <Image src="/lca-desk-logo.png" alt="LCA Desk" width={140} height={40} className="h-9 w-auto" priority />
+          <Image src="/lca-desk-logo.svg" alt="LCA Desk" width={140} height={40} className="h-9 w-auto" priority />
         </Link>
 
         {/* Desktop */}

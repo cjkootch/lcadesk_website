@@ -66,7 +66,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-12 mb-12">
           <div className="lg:col-span-2">
             <div className="mb-4">
-              <Image src="/lca-desk-logo-white.png" alt="LCA Desk" width={160} height={44} className="h-10 w-auto" />
+              <Image src="/lca-desk-logo-white.svg" alt="LCA Desk" width={160} height={44} className="h-10 w-auto" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               Regulatory-grade compliance infrastructure for local content programs. Configurable for every jurisdiction.
