@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   Search, Building2, ShieldCheck, Briefcase, Users, ArrowRight,
   X, SlidersHorizontal, MapPin, ExternalLink, Tag, ChevronDown,
+  Lock,
 } from "lucide-react";
 import type { PublicCompany } from "@/lib/types";
 import { getContractorLogo } from "@/lib/contractor-logos";
@@ -44,11 +45,13 @@ function ContractorLogo({ name, size = 32 }: { name: string; size?: number }) {
 type SortKey = "relevance" | "name" | "opportunities" | "jobs";
 type FilterKey = "all" | "lcs" | "hiring" | "procurement";
 
+const FREE_LIMIT = 12;
+
 export default function CompanyFilters({ companies }: Props) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<SortKey>("relevance");
   const [filter, setFilter] = useState<FilterKey>("all");
-  const [showCount, setShowCount] = useState(50);
+  const showCount = FREE_LIMIT;
 
   const filtered = useMemo(() => {
     let result = [...companies];
@@ -129,7 +132,7 @@ export default function CompanyFilters({ companies }: Props) {
             type="text"
             placeholder="Search companies, services..."
             value={query}
-            onChange={(e) => { setQuery(e.target.value); setShowCount(50); }}
+            onChange={(e) => setQuery(e.target.value)}
             className="w-full pl-10 pr-10 py-3 rounded-xl border border-border bg-card text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all"
           />
           {query && (
@@ -159,7 +162,7 @@ export default function CompanyFilters({ companies }: Props) {
         {filterTabs.map((tab) => (
           <button
             key={tab.key}
-            onClick={() => { setFilter(tab.key); setShowCount(50); }}
+            onClick={() => setFilter(tab.key)}
             className={`whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-all ${
               filter === tab.key
                 ? "bg-accent text-white shadow-sm"
@@ -274,16 +277,37 @@ export default function CompanyFilters({ companies }: Props) {
         </div>
       )}
 
-      {/* Load more */}
-      {showCount < filtered.length && (
-        <div className="text-center mt-10">
-          <button
-            onClick={() => setShowCount((prev) => prev + 50)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border text-sm font-medium text-text-primary hover:bg-card hover:border-accent/30 transition-all"
-          >
-            Load More ({filtered.length - showCount} remaining)
-            <ArrowRight size={14} />
-          </button>
+      {/* Paygate */}
+      {filtered.length > FREE_LIMIT && (
+        <div className="relative mt-0">
+          {/* Gradient fade over last row */}
+          <div className="absolute -top-40 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none z-10" />
+
+          <div className="relative z-20 text-center pt-8 pb-4">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 mb-4">
+              <Lock size={20} className="text-accent" />
+            </div>
+            <h3 className="text-xl font-semibold text-text-primary mb-2">
+              {filtered.length - FREE_LIMIT} more companies available
+            </h3>
+            <p className="text-text-secondary text-sm max-w-md mx-auto mb-6">
+              Start your free 30-day trial to access the full company directory, advanced filters, and company profiles.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="https://app.lcadesk.com/auth/signup?role=filer"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
+              >
+                Start 30-Day Trial <ArrowRight size={16} />
+              </a>
+              <a
+                href="/demo"
+                className="inline-flex items-center gap-2 rounded-xl border border-border px-7 py-3.5 text-sm font-semibold text-text-primary hover:bg-card transition-all"
+              >
+                Book a Demo
+              </a>
+            </div>
+          </div>
         </div>
       )}
     </div>
