@@ -1,92 +1,102 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { Brain, Search, FileText, MessageSquare, ArrowRight } from "lucide-react";
+import {
+  Scale, Clock, FileCheck, BarChart3, CheckCircle, AlertTriangle,
+  Brain, Search, FileText, Zap,
+} from "lucide-react";
 import GeometricBg from "@/components/GeometricBg";
-import UIFrame from "@/components/UIFrame";
 
 const vp = { once: true as const, margin: "-60px" as const };
 
-export default function AIFeaturesSection() {
+const rulesItems = [
+  { icon: Scale, label: "Jurisdiction-specific filing schemas" },
+  { icon: FileCheck, label: "Required fields and evidence requirements" },
+  { icon: Clock, label: "Deadlines, filing windows, and cadence controls" },
+  { icon: CheckCircle, label: "Completeness and threshold enforcement" },
+  { icon: BarChart3, label: "Plan vs. actual variance checks" },
+  { icon: AlertTriangle, label: "Validation logic and export requirements" },
+];
+
+const aiItems = [
+  { icon: Brain, label: "Draft comparative analysis narratives" },
+  { icon: Search, label: "Flag compliance gaps and missing evidence" },
+  { icon: FileText, label: "Explain variance between plan and actuals" },
+  { icon: Zap, label: "Accelerate repetitive review workflows" },
+];
+
+export default function RulesAndAutomationSection() {
   return (
     <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 30%, #047857 60%, #064E3B 100%)" }}>
       <GeometricBg variant="circuits" />
       <div className="relative max-w-6xl mx-auto px-6 z-10">
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
-          className="text-center text-emerald-300 text-sm font-semibold tracking-widest uppercase mb-4">Powered by Claude AI</motion.p>
+          className="text-center text-emerald-300 text-sm font-semibold tracking-widest uppercase mb-4">Platform Engine</motion.p>
         <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
           className="font-display text-3xl md:text-4xl text-white text-center mb-4">
-          The AI That Does the Hard Work
+          Built on Regulatory Rules and Workflow Automation
         </motion.h2>
-        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="text-emerald-100/60 text-center mb-14 max-w-2xl mx-auto">
-          Four AI capabilities purpose-built for LCA compliance — so you can focus on running your business.
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+          className="text-emerald-100/60 text-center mb-14 max-w-2xl mx-auto">
+          The rules engine encodes each jurisdiction's filing requirements as structured, enforceable logic. AI accelerates the work that rules alone cannot automate.
         </motion.p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Rules-as-Code */}
           <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6">
-            <div className="flex items-center gap-2 mb-3">
-              <Brain size={18} className="text-emerald-300" />
-              <h3 className="text-white font-semibold">AI Narrative Drafting</h3>
-              <span className="text-[10px] font-medium bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full ml-auto">MOST REQUESTED</span>
-            </div>
-            <p className="text-emerald-100/70 text-sm mb-4">Feed LCA Desk your employment, expenditure, and capacity data. The AI drafts the full Comparative Analysis narrative in the formal tone the Secretariat expects.</p>
-            <UIFrame title="AI Narrative Drafting">
-              <div className="bg-gray-900 rounded p-3 text-xs font-mono">
-                <p className="text-emerald-400">&gt; Drafting H1 2026 Comparative Analysis...</p>
-                <p className="text-gray-400 mt-1">Section: Employment &amp; Training</p>
-                <p className="text-gray-300 mt-1">The contractor employed 847 Guyanese nationals during H1 2026, representing 92% of total workforce...</p>
+            className="bg-white/[0.07] backdrop-blur border border-white/10 rounded-2xl p-7">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-emerald-400/20 flex items-center justify-center">
+                <Scale size={20} className="text-emerald-300" />
               </div>
-            </UIFrame>
+              <div>
+                <h3 className="text-white font-semibold text-lg">Rules-as-Code Engine</h3>
+                <span className="text-[10px] font-medium text-emerald-300 uppercase tracking-wider">Foundation</span>
+              </div>
+            </div>
+            <p className="text-emerald-100/70 text-sm mb-5">
+              Every jurisdiction's filing obligations are encoded as configurable validation rules. No custom code per country. Change the schema, and the platform enforces the new requirements automatically.
+            </p>
+            <div className="space-y-2.5">
+              {rulesItems.map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-sm">
+                  <item.icon size={15} className="text-emerald-400 flex-shrink-0" />
+                  <span className="text-emerald-100/80">{item.label}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
+          {/* AI Automation */}
           <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: 0.1 }}
-            className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6">
-            <div className="flex items-center gap-2 mb-3">
-              <Search size={18} className="text-emerald-300" />
-              <h3 className="text-white font-semibold">Compliance Gap Detection</h3>
-              <span className="text-[10px] font-medium bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full ml-auto">PROACTIVE</span>
-            </div>
-            <p className="text-emerald-100/70 text-sm mb-4">Before you file, LCA Desk scans your data for missing fields, inconsistencies, and potential red flags.</p>
-            <UIFrame title="Gap Detection Report">
-              <div className="bg-gray-900 rounded p-3 text-xs font-mono">
-                <p className="text-amber-400">{"\u26a0"} Gap detected: Section 4.2 — Local procurement percentage (67%) falls below the 80% target threshold.</p>
-                <p className="text-emerald-400 mt-1">{"\u2713"} Section 3.1 Employment data: Complete</p>
-                <p className="text-emerald-400">{"\u2713"} Section 5.1 Training expenditure: Complete</p>
+            className="bg-white/[0.07] backdrop-blur border border-white/10 rounded-2xl p-7">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-emerald-400/20 flex items-center justify-center">
+                <Brain size={20} className="text-emerald-300" />
               </div>
-            </UIFrame>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: 0.2 }}
-            className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6">
-            <div className="flex items-center gap-2 mb-3">
-              <FileText size={18} className="text-emerald-300" />
-              <h3 className="text-white font-semibold">Automatic Data Extraction</h3>
-              <span className="text-[10px] font-medium bg-white/10 text-gray-300 px-2 py-0.5 rounded-full ml-auto">COMING SOON</span>
-            </div>
-            <p className="text-emerald-100/70 text-sm">Upload payroll exports, procurement spreadsheets, and training records. The AI maps fields to LCA categories automatically.</p>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: 0.3 }}
-            className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6">
-            <div className="flex items-center gap-2 mb-3">
-              <MessageSquare size={18} className="text-emerald-300" />
-              <h3 className="text-white font-semibold">Ask the LCA Expert</h3>
-              <span className="text-[10px] font-medium bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full ml-auto">AVAILABLE NOW</span>
-            </div>
-            <p className="text-emerald-100/70 text-sm mb-4">In-app AI assistant trained on the LCA Act 2021 and Version 4.1 guidelines. Ask any compliance question.</p>
-            <UIFrame title="LCA Expert">
-              <div className="bg-gray-900 rounded p-3 text-xs font-mono">
-                <p className="text-blue-400">Q: What&apos;s the deadline for H1 2026 half-yearly reports?</p>
-                <p className="text-gray-300 mt-1">A: July 30, 2026. Per Section 21(1), half-yearly reports must be submitted within 30 days of each half-year period ending.</p>
+              <div>
+                <h3 className="text-white font-semibold text-lg">AI Workflow Automation</h3>
+                <span className="text-[10px] font-medium text-emerald-300 uppercase tracking-wider">Acceleration Layer</span>
               </div>
-            </UIFrame>
+            </div>
+            <p className="text-emerald-100/70 text-sm mb-5">
+              AI handles the narrative, interpretive, and pattern-detection work that rules engines cannot. It drafts, flags, and explains, so filers and reviewers spend time on exceptions, not data assembly.
+            </p>
+            <div className="space-y-2.5 mb-6">
+              {aiItems.map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-sm">
+                  <item.icon size={15} className="text-emerald-400 flex-shrink-0" />
+                  <span className="text-emerald-100/80">{item.label}</span>
+                </div>
+              ))}
+            </div>
+            {/* Mini demo */}
+            <div className="bg-gray-900/60 rounded-xl p-4 border border-white/5">
+              <p className="text-[10px] text-emerald-400 font-mono mb-1">&gt; Drafting H1 2026 Comparative Analysis...</p>
+              <p className="text-[10px] text-gray-400 font-mono">Section: Employment &amp; Training</p>
+              <p className="text-[10px] text-gray-300 font-mono mt-1">"The contractor employed 847 Guyanese nationals during H1 2026, representing 92% of total workforce, an increase of 4.2% over the prior period..."</p>
+            </div>
           </motion.div>
-        </div>
-        <div className="text-center mt-8">
-          <Link href="/features" className="text-emerald-300 hover:text-white text-sm font-medium inline-flex items-center gap-1 transition">
-            See all features <ArrowRight size={14} />
-          </Link>
         </div>
       </div>
     </section>

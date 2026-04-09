@@ -1,19 +1,18 @@
 import Ticker from "@/components/Ticker";
 import CTABanner from "@/components/CTABanner";
 import HeroSection from "@/components/home/HeroSection";
-import AudiencePathsSection from "@/components/home/AudiencePathsSection";
-import TrustBadgesSection from "@/components/home/TrustBadgesSection";
 import ProblemSection from "@/components/home/ProblemSection";
+import PlatformArchitectureSection from "@/components/home/PlatformArchitectureSection";
 import AIFeaturesSection from "@/components/home/AIFeaturesSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
 import FeaturesGridSection from "@/components/home/FeaturesGridSection";
-import TrainingCalloutSection from "@/components/home/TrainingCalloutSection";
-import IntegrationsSection from "@/components/home/IntegrationsSection";
+import ComparisonSection from "@/components/home/ComparisonSection";
+import BuiltAgainstOfficialSection from "@/components/home/BuiltAgainstOfficialSection";
+import RegulatedWorkflowsSection from "@/components/home/RegulatedWorkflowsSection";
 import StatsBarSection from "@/components/home/StatsBarSection";
 import MarketsSection from "@/components/home/MarketsSection";
 import PricingSection from "@/components/home/PricingSection";
 import FAQSection from "@/components/home/FAQSection";
-import ComparisonSection from "@/components/home/ComparisonSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
 
 export default function HomePage() {
@@ -21,25 +20,24 @@ export default function HomePage() {
     <>
       <HeroSection />
       <Ticker />
-      <AudiencePathsSection />
-      <TrustBadgesSection />
       <ProblemSection />
+      <PlatformArchitectureSection />
       <AIFeaturesSection />
       <HowItWorksSection />
       <FeaturesGridSection />
-      <TrainingCalloutSection />
-      <IntegrationsSection />
+      <ComparisonSection />
+      <BuiltAgainstOfficialSection />
+      <RegulatedWorkflowsSection />
       <StatsBarSection />
       <MarketsSection />
       <PricingSection />
       <FAQSection />
-      <ComparisonSection />
       <SocialProofSection />
       <CTABanner
-        headline="Your next LCA filing deadline is closer than you think."
-        body="H1 reports are due July 30. H2 reports are due January 30. Start your 30-day trial — full Professional access, card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
-        secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
+        headline="Your next filing deadline is closer than you think."
+        body="Mandated local content filings recur on fixed schedules. Start your 30-day trial with full platform access, or request a demo for your jurisdiction."
+        primaryCTA={{ label: "Request a Demo", href: "/demo" }}
+        secondaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
       />
     </>
   );

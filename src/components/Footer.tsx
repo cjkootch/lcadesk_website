@@ -23,15 +23,15 @@ const columns = [
     ],
   },
   {
-    title: "Markets",
+    title: "Jurisdictions",
     links: [
       { label: "\u{1F1EC}\u{1F1FE} Guyana", href: "/markets/guyana" },
-      { label: "\u{1F1F3}\u{1F1EC} Nigeria", href: "/markets/nigeria" },
-      { label: "\u{1F1F9}\u{1F1F9} Trinidad & Tobago", href: "/markets/trinidad" },
-      { label: "\u{1F1EC}\u{1F1ED} Ghana", href: "/markets/ghana" },
-      { label: "\u{1F1F2}\u{1F1FF} Mozambique", href: "/markets/mozambique" },
       { label: "\u{1F1F3}\u{1F1E6} Namibia", href: "/markets/namibia" },
+      { label: "\u{1F1F2}\u{1F1FF} Mozambique", href: "/markets/mozambique" },
+      { label: "\u{1F1EC}\u{1F1ED} Ghana", href: "/markets/ghana" },
+      { label: "\u{1F1F3}\u{1F1EC} Nigeria", href: "/markets/nigeria" },
       { label: "\u{1F1F8}\u{1F1F7} Suriname", href: "/markets/suriname" },
+      { label: "All Jurisdictions", href: "/markets" },
     ],
   },
   {
@@ -49,9 +49,9 @@ const columns = [
   {
     title: "Solutions",
     links: [
+      { label: "For Regulators", href: "/for-regulators" },
       { label: "For Contractors", href: "/for-contractors" },
       { label: "For Suppliers", href: "/for-suppliers" },
-      { label: "For Job Seekers", href: "/for-job-seekers" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
     ],
@@ -69,7 +69,7 @@ export default function Footer() {
               <Image src="/lca-desk-logo-white.png" alt="LCA Desk" width={160} height={44} className="h-10 w-auto" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              The world&apos;s only AI-native Local Content Act compliance platform. Built for Guyana. Expanding globally.
+              Regulatory-grade compliance infrastructure for local content programs. Proven in Guyana. Configurable for every jurisdiction.
             </p>
             <p className="text-gray-500 text-xs mt-2">
               Houston, TX

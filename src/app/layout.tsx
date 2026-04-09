@@ -16,27 +16,30 @@ export const metadata: Metadata = {
     ],
   },
   title: {
-    default: "LCA Desk | AI-Powered Local Content Act Compliance Software",
+    default: "LCA Desk | Regulatory-Grade Local Content Compliance Platform",
     template: "%s | LCA Desk",
   },
   description:
-    "LCA Desk is the world's first AI-native Local Content Act compliance platform. Manage mandatory LCA filings for Guyana, Nigeria, Trinidad, Ghana, Mozambique and more — from a single dashboard.",
+    "LCA Desk is a regulatory-grade compliance operating system for local content programs. Digitize mandated filing, validation, regulator review, and audit workflows for extractive industries. Proven in Guyana. Configurable for every jurisdiction.",
   keywords: [
-    "local content act compliance software",
-    "LCA compliance platform",
+    "local content compliance platform",
+    "local content act software",
+    "regulatory compliance operating system",
+    "local content filing software",
     "Guyana local content act",
-    "NCDMB compliance software",
-    "Nigerian content plan software",
-    "LCA half-yearly report",
     "local content secretariat",
+    "NCDMB compliance",
+    "LCA half-yearly report",
     "oil gas compliance software",
     "LCA desk",
     "local content reporting",
-    "Trinidad local content",
-    "Ghana petroleum commission compliance",
-    "Mozambique local content",
+    "regulator filing intake",
+    "compliance audit trail",
+    "jurisdiction packs",
     "Namibia local content policy",
-    "AI compliance software oil gas",
+    "Mozambique REFC",
+    "Ghana petroleum commission",
+    "extractive industry compliance",
   ],
   authors: [{ name: "LCA Desk" }],
   creator: "LCA Desk",
@@ -47,9 +50,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "LCA Desk | AI-Powered Local Content Act Compliance Software",
+    title: "LCA Desk | Regulatory-Grade Local Content Compliance Platform",
     description:
-      "The world's first AI-native Local Content Act compliance platform. Manage mandatory LCA filings for Guyana, Nigeria, Trinidad, Ghana, Mozambique and more.",
+      "Regulatory-grade compliance infrastructure for local content programs. Digitize mandated filing, validation, regulator review, and audit workflows for extractive industries.",
     url: "https://lcadesk.com",
     siteName: "LCA Desk",
     images: [
@@ -57,15 +60,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "LCA Desk — AI-Powered Local Content Act Compliance Software",
+        alt: "LCA Desk - Regulatory-Grade Local Content Compliance Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LCA Desk | AI-Powered LCA Compliance",
+    title: "LCA Desk | Local Content Compliance Platform",
     description:
-      "The world's first AI-native Local Content Act compliance platform for oil and gas.",
+      "Regulatory-grade compliance infrastructure for local content programs in extractive industries.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -90,7 +93,7 @@ const jsonLd = {
       name: "LCA Desk",
       url: "https://lcadesk.com",
       description:
-        "The world's first AI-native Local Content Act compliance platform for oil and gas sector companies.",
+        "Regulatory-grade compliance operating system for local content programs in extractive industries. Digitize mandated filing, validation, regulator review, and audit workflows.",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Houston",
@@ -101,11 +104,13 @@ const jsonLd = {
       sameAs: [],
       knowsAbout: [
         "Local Content Act Compliance",
+        "Regulatory Filing Infrastructure",
         "Oil and Gas Compliance",
         "LCA Half-Yearly Report",
         "Local Content Secretariat",
         "NCDMB Compliance",
-        "AI Compliance Software",
+        "Jurisdiction Pack Configuration",
+        "Compliance Audit Trail",
       ],
     },
     {
@@ -122,7 +127,7 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       description:
-        "AI-powered Local Content Act compliance software. Manage all mandatory LCA submissions from a single dashboard.",
+        "Regulatory-grade compliance operating system for local content programs. Digitize mandated filing, validation, regulator review, and audit workflows across jurisdictions.",
       url: "https://lcadesk.com",
       offers: [
         {

@@ -7,8 +7,9 @@ import { Menu, X, ChevronDown, Briefcase, Users, Building2, Package } from "luci
 import { motion, AnimatePresence } from "framer-motion";
 
 const topLinks = [
-  { href: "/features", label: "Features" },
-  { href: "/markets", label: "Markets" },
+  { href: "/features", label: "Platform" },
+  { href: "/markets", label: "Jurisdictions" },
+  { href: "/for-regulators", label: "For Regulators" },
   { href: "/pricing", label: "Pricing" },
 ];
 
@@ -20,8 +21,9 @@ const directoryLinks = [
 ];
 
 const allMobileLinks = [
-  { href: "/features", label: "Features" },
-  { href: "/markets", label: "Markets" },
+  { href: "/features", label: "Platform" },
+  { href: "/markets", label: "Jurisdictions" },
+  { href: "/for-regulators", label: "For Regulators" },
   { href: "/pricing", label: "Pricing" },
   { href: "/jobs", label: "Jobs Board" },
   { href: "/opportunities", label: "Opportunities" },

@@ -3,259 +3,220 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Globe, FileCheck, Scale, Clock } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import CTABanner from "@/components/CTABanner";
+import EmailCapture from "@/components/EmailCapture";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.08, duration: 0.45, ease: "easeOut" as const },
-  }),
-};
+const vp = { once: true as const, margin: "-60px" as const };
 
-interface MarketCard {
+interface Jurisdiction {
   flag: string;
   country: string;
-  status: "LIVE" | "COMING SOON";
-  details: string[];
-  pricing?: string;
+  regulator: string;
+  filingTypes: string;
+  cadence: string;
+  submissionMethod: string;
+  status: "Live" | "In Development" | "Roadmap" | "Early Access" | "Enterprise Roadmap";
   href: string;
-  cta?: { label: string; href: string };
+  priority: number;
+  detail: string;
 }
 
-const markets: MarketCard[] = [
+const jurisdictions: Jurisdiction[] = [
   {
     flag: "\u{1F1EC}\u{1F1FE}",
     country: "Guyana",
-    status: "LIVE",
+    regulator: "Local Content Secretariat",
+    filingTypes: "Half-yearly reports (H1/H2), annual plans, master plans, performance reports",
+    cadence: "Semi-annual + annual",
+    submissionMethod: "Email + Excel/PDF (transitioning to digital)",
+    status: "Live",
     href: "/markets/guyana",
-    details: [
-      "Regulatory body: Local Content Secretariat",
-      "Key requirements: 5 submission types, LCA v4.1 guidelines",
-      "Penalties: GY$1M\u2013GY$50M per offence",
-      "Filing: H1 (Jul 30), H2 (Jan 30), Annual Plan, Master Plan, Performance Report",
-      "Companies: 1,300+",
-    ],
-    cta: { label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" },
-  },
-  {
-    flag: "\u{1F1F3}\u{1F1EC}",
-    country: "Nigeria",
-    status: "COMING SOON",
-    href: "/markets/nigeria",
-    details: [
-      "Regulatory body: NCDMB",
-      "Requirements: Nigerian Content Plans, Performance Reports, 106 workforce targets",
-      "Penalties: 5% of project value per offence, or project cancellation",
-      "Companies affected: 1,500+",
-    ],
-    pricing: "LCA Desk Nigeria module \u2014 pricing from $699/month",
-  },
-  {
-    flag: "\u{1F1F9}\u{1F1F9}",
-    country: "Trinidad & Tobago",
-    status: "COMING SOON",
-    href: "/markets/trinidad",
-    details: [
-      "Regulatory body: MEEI Permanent Local Content Committee (PLCC)",
-      "Policy: Local Content and Local Participation Policy Framework (2004)",
-      "Same timezone as Houston (EST)",
-    ],
-    pricing: "Pricing from $499/month",
-  },
-  {
-    flag: "\u{1F1EC}\u{1F1ED}",
-    country: "Ghana",
-    status: "COMING SOON",
-    href: "/markets/ghana",
-    details: [
-      "Regulatory body: Petroleum Commission",
-      "Regulations: LI 2204",
-    ],
-    pricing: "Pricing from $399/month",
-  },
-  {
-    flag: "\u{1F1F2}\u{1F1FF}",
-    country: "Mozambique",
-    status: "COMING SOON",
-    href: "/markets/mozambique",
-    details: [
-      "Regulatory body: INP",
-      "Law: 15/2017",
-      "LNG sector: TotalEnergies, ENI, ExxonMobil",
-    ],
-    pricing: "Pricing from $349/month",
-  },
-  {
-    flag: "\u{1F1F8}\u{1F1F7}",
-    country: "Suriname",
-    status: "COMING SOON",
-    href: "/markets/suriname",
-    details: [
-      "National oil company: Staatsolie",
-      "Key operators: TotalEnergies, APA Corp, Petronas, QatarEnergy",
-      "Block 58: 6.5B+ estimated recoverable barrels",
-      "First oil expected ~2028",
-      "Local content framework in development",
-    ],
-    pricing: "LCA Desk Suriname module \u2014 coming 2027",
+    priority: 1,
+    detail: "Reference deployment. All 5 LCA submission types supported under Version 4.1 guidelines. Over 1,300 companies with filing obligations. Penalties range from GY$1M to GY$50M per offence.",
   },
   {
     flag: "\u{1F1F3}\u{1F1E6}",
     country: "Namibia",
-    status: "COMING SOON",
+    regulator: "Ministry of Mines and Energy",
+    filingTypes: "Annual performance reporting, procurement consolidation, employment/training reports",
+    cadence: "Annual + quarterly procurement",
+    submissionMethod: "Process being formalized (draft policy stage)",
+    status: "In Development",
     href: "/markets/namibia",
-    details: [
-      "Regulatory body: Ministry of Mines and Energy",
-      "Policy: National Upstream Petroleum Local Content Policy (Cabinet approved Dec 2024)",
-      "Operators: TotalEnergies, Shell, Galp, ExxonMobil, Chevron",
-      "11B+ barrels discovered",
-    ],
-    pricing: "Pricing from $299/month",
+    priority: 2,
+    detail: "Draft upstream petroleum local content policy defines annual performance reporting, employment/training reporting, and procurement achievement consolidation. Opportunity to become the default system as the policy operationalizes.",
+  },
+  {
+    flag: "\u{1F1F2}\u{1F1FF}",
+    country: "Mozambique",
+    regulator: "INP (Instituto Nacional de Petroleo)",
+    filingTypes: "REFC quarterly filing (employment, training, national contracting)",
+    cadence: "Quarterly",
+    submissionMethod: "Template-based email/portal upload (assumed)",
+    status: "In Development",
+    href: "/markets/mozambique",
+    priority: 3,
+    detail: "DM 55/2024 creates a regulator-facing quarterly REFC requirement. Clear recurring cadence with high administrative burden. Portuguese language, INP-specific schemas, and evidence requirements linked to contracting and workforce.",
+  },
+  {
+    flag: "\u{1F1EC}\u{1F1ED}",
+    country: "Ghana",
+    regulator: "Petroleum Commission / Minerals Commission",
+    filingTypes: "Annual plans, performance reports, procurement plans, quarterly employment/training",
+    cadence: "Annual + quarterly",
+    submissionMethod: "Document-based with partial portal (ePortal for procurement/tenders)",
+    status: "Roadmap",
+    href: "/markets/ghana",
+    priority: 4,
+    detail: "Dual-sector coverage. Petroleum Commission requires annual plans under LI 2204 and performance reports within 45 days. Minerals Commission requires procurement plans under LI 2431 with semi-annual implementation reports.",
+  },
+  {
+    flag: "\u{1F1FF}\u{1F1F2}",
+    country: "Zambia",
+    regulator: "Ministry of Mines and Minerals Development",
+    filingTypes: "Mining local participation reporting",
+    cadence: "Per Statutory Instrument No. 68/2025",
+    submissionMethod: "Mining Cadastre Portal (report submission available)",
+    status: "Roadmap",
+    href: "#",
+    priority: 5,
+    detail: "New mining local content rules adopted via SI No. 68 of 2025. Mining Cadastre Portal already supports report submission. Integration opportunity as the statutory instrument is implemented.",
+  },
+  {
+    flag: "\u{1F1F8}\u{1F1F7}",
+    country: "Suriname",
+    regulator: "Local Content Board",
+    filingTypes: "Policy-stage enablement (templates and registries being designed)",
+    cadence: "To be defined",
+    submissionMethod: "Pre-template stage",
+    status: "Early Access",
+    href: "/markets/suriname",
+    priority: 6,
+    detail: "Government created a Local Content Board to coordinate policy. Opportunity to provide turnkey filing workflow as the operational mechanism. Block 58 development drives urgency.",
+  },
+  {
+    flag: "\u{1F1F3}\u{1F1EC}",
+    country: "Nigeria",
+    regulator: "NCDMB",
+    filingTypes: "Statutory reports: procurement, employment, R&D, technology transfer, marine services",
+    cadence: "Quarterly + annual",
+    submissionMethod: "NOGIC JQS portal + email templates",
+    status: "Enterprise Roadmap",
+    href: "/markets/nigeria",
+    priority: 7,
+    detail: "Extensive reporting ecosystem with strong incumbent portal (NOGIC JQS). Better approached via partnership/integration once LCA Desk has multi-country credibility. Niche opportunities exist in regulator intake add-ons.",
   },
 ];
 
+const statusColors: Record<string, string> = {
+  "Live": "bg-accent text-white",
+  "In Development": "bg-blue-100 text-blue-700",
+  "Roadmap": "bg-gray-100 text-text-muted",
+  "Early Access": "bg-amber-100 text-amber-700",
+  "Enterprise Roadmap": "bg-purple-100 text-purple-700",
+};
+
 export default function MarketsPage() {
-  const [emails, setEmails] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState<Record<string, boolean>>({});
-
-  function handleEmailChange(country: string, value: string) {
-    setEmails((prev) => ({ ...prev, [country]: value }));
-  }
-
-  function handleNotify(country: string) {
-    if (!emails[country]) return;
-    setSubmitted((prev) => ({ ...prev, [country]: true }));
-  }
-
   return (
     <main className="min-h-screen bg-surface">
       <HeroSection
-        eyebrow="Markets"
-        headline="Built for Guyana. Expanding to 35+ Countries."
-        sub="Local content compliance is mandatory in 35+ countries. LCA Desk is building jurisdiction modules for every major oil-producing market."
+        eyebrow="Jurisdiction Coverage"
+        headline="Configurable Compliance Infrastructure for Every Local Content Regime"
+        sub="Each country runs on a jurisdiction pack that defines filing schemas, validation rules, deadlines, evidence requirements, and export formats. One platform. Jurisdiction-specific compliance."
         geometricVariant="waves"
       />
 
-      {/* Market Cards */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {markets.map((market, i) => (
-            <motion.div
-              key={market.country}
-              className="rounded-2xl border border-border p-6 bg-card group relative"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              whileHover={{ y: -4 }}
-              viewport={{ once: true, margin: "-60px" }}
-              custom={i}
-            >
-              {/* Clickable overlay for the whole card */}
-              <Link href={market.href} className="absolute inset-0 z-0 rounded-2xl" aria-label={`View ${market.country} market`} />
-
-              {/* Header */}
-              <div className="flex items-center justify-between mb-4 relative z-10">
-                <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent transition-colors">
-                  {market.flag} {market.country}
-                </h3>
-                <span
-                  className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                    market.status === "LIVE"
-                      ? "bg-accent text-white"
-                      : "bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-300"
-                  }`}
-                >
-                  {market.status}
-                </span>
-              </div>
-
-              {/* Details */}
-              <ul className="space-y-2 mb-5 relative z-10">
-                {market.details.map((detail, j) => (
-                  <li key={j} className="text-sm text-text-secondary leading-relaxed">
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Pricing note */}
-              {market.pricing && (
-                <p className="text-xs text-text-muted mb-4 italic relative z-10">{market.pricing}</p>
-              )}
-
-              {/* CTA for LIVE market */}
-              {market.cta && (
-                <Link
-                  href={market.cta.href}
-                  className="relative z-10 inline-flex items-center gap-2 bg-accent text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
-                >
-                  {market.cta.label}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              )}
-
-              {/* Email capture for COMING SOON */}
-              {market.status === "COMING SOON" && (
-                <div className="mt-1 relative z-10">
-                  {submitted[market.country] ? (
-                    <p className="text-sm text-accent font-medium">
-                      ✓ You&apos;re on the waitlist!
-                    </p>
-                  ) : (
-                    <form
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        handleNotify(market.country);
-                      }}
-                      className="flex gap-2"
-                    >
-                      <input
-                        type="email"
-                        required
-                        placeholder="you@company.com"
-                        value={emails[market.country] || ""}
-                        onChange={(e) =>
-                          handleEmailChange(market.country, e.target.value)
-                        }
-                        className="flex-1 rounded-lg border border-border px-3 py-2 bg-surface text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent"
-                      />
-                      <button
-                        type="submit"
-                        className="bg-accent text-white text-sm font-medium px-4 py-2 rounded-lg hover:opacity-90 transition-opacity whitespace-nowrap"
-                      >
-                        Notify Me
-                      </button>
-                    </form>
-                  )}
+      {/* Strategic approach */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {[
+              { icon: Globe, title: "Configuration, Not Custom Code", desc: "Adding a new jurisdiction means configuring a pack, not building bespoke software. Filing schemas, validation rules, and export formats are parameterized." },
+              { icon: Scale, title: "Grounded in Official Requirements", desc: "Every jurisdiction pack is built against published regulatory templates, government-issued guidelines, and official filing rules. No generic forms." },
+              { icon: Clock, title: "Prioritized by Readiness", desc: "Expansion follows a sequencing model based on filing clarity, digital gap, regulator mandate authority, and competitive landscape." },
+            ].map((card, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.1 }}
+                className="bg-card rounded-2xl border border-border p-6">
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                  <card.icon size={20} className="text-accent" />
                 </div>
-              )}
-
-              {/* View market link */}
-              <div className="mt-4 relative z-10">
-                <span className="text-sm font-medium text-accent inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                  {market.status === "LIVE" ? "Explore market" : "Learn more"} <ArrowRight size={14} />
-                </span>
-              </div>
-            </motion.div>
-          ))}
+                <h3 className="font-semibold text-text-primary mb-2">{card.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">{card.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* Footer text */}
-        <p className="text-center text-text-muted text-sm mt-12">
-          35+ countries have local content laws. We&apos;re building them all.
-          More jurisdictions announced quarterly.
-        </p>
+      {/* Jurisdiction detail cards */}
+      <section className="py-20 bg-surface">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
+            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-4">
+            Jurisdiction Roadmap
+          </motion.h2>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
+            className="text-text-secondary text-center mb-12 max-w-2xl mx-auto">
+            Sequenced by regulatory readiness and adoption feasibility, not market size.
+          </motion.p>
+
+          <div className="space-y-5">
+            {jurisdictions.map((j, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.05 }}
+                className="bg-card rounded-2xl border border-border p-6 md:p-7 relative overflow-hidden">
+                {j.status === "Live" && <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-teal" />}
+                <div className="flex flex-col md:flex-row md:items-start gap-5">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 md:w-48 flex-shrink-0">
+                    <span className="text-3xl">{j.flag}</span>
+                    <div>
+                      <h3 className="font-semibold text-text-primary text-lg">{j.country}</h3>
+                      <span className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${statusColors[j.status]}`}>{j.status}</span>
+                    </div>
+                  </div>
+
+                  {/* Detail */}
+                  <div className="flex-1 space-y-3">
+                    <p className="text-sm text-text-secondary leading-relaxed">{j.detail}</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 text-xs text-text-muted">
+                      <div><span className="font-semibold text-text-secondary">Regulator:</span> {j.regulator}</div>
+                      <div><span className="font-semibold text-text-secondary">Cadence:</span> {j.cadence}</div>
+                      <div className="sm:col-span-2"><span className="font-semibold text-text-secondary">Filing types:</span> {j.filingTypes}</div>
+                      <div className="sm:col-span-2"><span className="font-semibold text-text-secondary">Current method:</span> {j.submissionMethod}</div>
+                    </div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="flex-shrink-0 md:self-center">
+                    {j.status === "Live" ? (
+                      <Link href={j.href} className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:gap-2.5 transition-all">
+                        Explore <ArrowRight size={14} />
+                      </Link>
+                    ) : j.href !== "#" ? (
+                      <Link href={j.href} className="inline-flex items-center gap-1.5 text-sm font-semibold text-text-muted hover:text-accent hover:gap-2.5 transition-all">
+                        Learn more <ArrowRight size={14} />
+                      </Link>
+                    ) : null}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="text-center text-text-muted text-sm mt-10">
+            Additional jurisdictions added based on regulatory readiness and demand.{" "}
+            <Link href="/contact" className="text-accent hover:underline">Contact us</Link> to discuss your jurisdiction.
+          </p>
+        </div>
       </section>
 
       <CTABanner
-        headline="Ready to simplify LCA compliance?"
-        body="Start your 30-day trial today. Card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
-        secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
+        headline="Operating in a jurisdiction not listed?"
+        body="LCA Desk jurisdiction packs are configurable. If your country has mandated local content reporting, we can scope a deployment."
+        primaryCTA={{ label: "Request a Demo", href: "/demo" }}
+        secondaryCTA={{ label: "Contact Us", href: "/contact" }}
       />
     </main>
   );

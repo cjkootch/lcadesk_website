@@ -7,10 +7,10 @@ export default function StatsBarSection() {
       <GeometricBg variant="hexagons" />
       <div className="relative max-w-6xl mx-auto px-6 z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <StatCard value="7" label="Jurisdictions in Pipeline" lightOnDark />
+          <StatCard value="35+" label="Countries With LC Mandates" lightOnDark />
           <StatCard value="1,300+" label="Companies Filing in Guyana" lightOnDark />
-          <StatCard value="35+" label="Countries With LCA Laws" lightOnDark />
-          <StatCard value="GY$50M" label="Maximum Penalty Per Offence" lightOnDark />
-          <StatCard value="900K+" label="Barrels/Day (and growing)" lightOnDark />
+          <StatCard value="5" label="Filing Types Supported" lightOnDark />
         </div>
       </div>
     </section>
