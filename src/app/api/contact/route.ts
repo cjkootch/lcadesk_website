@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, company, inquiryType, message } = body;
+    const { name, email, phone, company, country, role, inquiryType, message } = body;
 
     if (!name || !email) {
       return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
@@ -17,7 +17,10 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           name,
           email,
+          phone,
           company,
+          country,
+          role,
           inquiryType,
           message: message || `${inquiryType || "general"} inquiry`,
         }),

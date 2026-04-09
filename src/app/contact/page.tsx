@@ -43,7 +43,9 @@ export default function ContactPage() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     company: "",
+    country: "",
     inquiryType: "",
     message: "",
   });
@@ -73,6 +75,8 @@ export default function ContactPage() {
         firstname: form.name.split(" ")[0],
         lastname: form.name.split(" ").slice(1).join(" "),
         company: form.company,
+        phone: form.phone,
+        country: form.country,
         hs_lead_status: "NEW",
       }]);
       _hsq.push(["trackPageView"]);
@@ -141,6 +145,19 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
+                    className={inputClasses}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">
                     Company
                   </label>
                   <input
@@ -150,6 +167,31 @@ export default function ContactPage() {
                     onChange={handleChange}
                     className={inputClasses}
                   />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">
+                    Country
+                  </label>
+                  <select
+                    name="country"
+                    value={form.country}
+                    onChange={handleChange}
+                    className={inputClasses}
+                  >
+                    <option value="">Select country</option>
+                    <option value="Guyana">Guyana</option>
+                    <option value="Namibia">Namibia</option>
+                    <option value="Mozambique">Mozambique</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Suriname">Suriname</option>
+                    <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                    <option value="Zambia">Zambia</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
 
                 <div>

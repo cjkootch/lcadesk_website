@@ -29,9 +29,9 @@ export default function DemoPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
-  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", country: "", role: "", message: "" });
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
@@ -54,6 +54,9 @@ export default function DemoPage() {
         firstname: form.name.split(" ")[0],
         lastname: form.name.split(" ").slice(1).join(" "),
         company: form.company,
+        phone: form.phone,
+        country: form.country,
+        jobtitle: form.role,
         hs_lead_status: "NEW",
       }]);
       _hsq.push(["trackPageView"]);
@@ -136,7 +139,7 @@ export default function DemoPage() {
               <form onSubmit={handleSubmit} className="bg-card rounded-2xl border border-border p-8 space-y-5">
                 <h3 className="text-lg font-semibold text-text-primary">Request a Demo</h3>
                 <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-1.5">Name</label>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">Full Name</label>
                   <input type="text" name="name" required value={form.name} onChange={handleChange} className={inputClasses} />
                 </div>
                 <div>
@@ -144,12 +147,45 @@ export default function DemoPage() {
                   <input type="email" name="email" required value={form.email} onChange={handleChange} className={inputClasses} />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-1.5">Company</label>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">Phone Number</label>
+                  <input type="tel" name="phone" required value={form.phone} onChange={handleChange} className={inputClasses} />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">Company / Organization</label>
                   <input type="text" name="company" required value={form.company} onChange={handleChange} className={inputClasses} />
                 </div>
                 <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">Role</label>
+                  <select name="role" required value={form.role} onChange={handleChange} className={inputClasses}>
+                    <option value="">Select your role</option>
+                    <option value="regulator">Regulator / Government</option>
+                    <option value="operator">Operator / Licensee</option>
+                    <option value="contractor">Contractor / Sub-contractor</option>
+                    <option value="supplier">Supplier / Service Provider</option>
+                    <option value="consultant">Consultant / Advisor</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">Country</label>
+                  <select name="country" required value={form.country} onChange={handleChange} className={inputClasses}>
+                    <option value="">Select country</option>
+                    <option value="Guyana">Guyana</option>
+                    <option value="Namibia">Namibia</option>
+                    <option value="Mozambique">Mozambique</option>
+                    <option value="Ghana">Ghana</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Suriname">Suriname</option>
+                    <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                    <option value="Zambia">Zambia</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">What are you most interested in?</label>
-                  <textarea name="message" rows={3} value={form.message} onChange={handleChange} placeholder="e.g. AI narrative drafting, filing automation, compliance gap detection..." className={inputClasses} />
+                  <textarea name="message" rows={3} value={form.message} onChange={handleChange} placeholder="e.g. filing automation, regulator review workflows, jurisdiction expansion..." className={inputClasses} />
                 </div>
                 <button
                   type="submit"
