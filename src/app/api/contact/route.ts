@@ -53,6 +53,7 @@ export async function POST(req: Request) {
                 { name: "email", value: email },
                 { name: "firstname", value: firstName },
                 { name: "lastname", value: lastName },
+                { name: "0-2/name", value: name },
                 ...(phone ? [{ name: "phone", value: phone }] : []),
                 ...(company ? [{ name: "company", value: company }] : []),
                 ...(country ? [{ name: "country", value: country }] : []),
