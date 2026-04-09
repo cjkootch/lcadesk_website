@@ -48,20 +48,6 @@ export default function DemoPage() {
       });
       if (!res.ok) throw new Error("Failed");
 
-      // Identify contact in HubSpot
-      const _hsq = (window as any)._hsq = (window as any)._hsq || [];
-      _hsq.push(["identify", {
-        email: form.email,
-        firstname: form.name.split(" ")[0],
-        lastname: form.name.split(" ").slice(1).join(" "),
-        company: form.company,
-        phone: form.phone,
-        country: form.country,
-        jobtitle: form.role,
-        hs_lead_status: "NEW",
-      }]);
-      _hsq.push(["trackPageView"]);
-
       track("Demo Requested", {
         company: form.company,
         country: form.country,

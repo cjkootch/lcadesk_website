@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { track } from "@vercel/analytics/server";
 
+const HUBSPOT_PORTAL_ID = "245833475";
+const HUBSPOT_FORM_GUID = process.env.HUBSPOT_FORM_GUID || "";
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -10,7 +13,11 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
     }
 
-    // Submit to backend (best-effort, non-blocking on failure)
+    const nameParts = (name as string).trim().split(/\s+/);
+    const firstName = nameParts[0] || "";
+    const lastName = nameParts.slice(1).join(" ") || "";
+
+    // Submit to backend (best-effort)
     try {
       const res = await fetch("https://app.lcadesk.com/api/public/contact", {
         method: "POST",
@@ -31,6 +38,40 @@ export async function POST(req: Request) {
       }
     } catch (e) {
       console.error("Backend contact API error:", e);
+    }
+
+    // Submit to HubSpot Forms API (best-effort)
+    if (HUBSPOT_FORM_GUID) {
+      try {
+        const hsRes = await fetch(
+          `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              fields: [
+                { name: "email", value: email },
+                { name: "firstname", value: firstName },
+                { name: "lastname", value: lastName },
+                ...(phone ? [{ name: "phone", value: phone }] : []),
+                ...(company ? [{ name: "company", value: company }] : []),
+                ...(country ? [{ name: "country", value: country }] : []),
+                ...(role ? [{ name: "jobtitle", value: role }] : []),
+                ...(message ? [{ name: "message", value: message }] : []),
+              ],
+              context: {
+                pageUri: req.headers.get("referer") || "https://lcadesk.com",
+                pageName: inquiryType === "demo" ? "Demo Request" : "Contact Form",
+              },
+            }),
+          }
+        );
+        if (!hsRes.ok) {
+          console.error("HubSpot form submission returned", hsRes.status, await hsRes.text().catch(() => ""));
+        }
+      } catch (e) {
+        console.error("HubSpot submission error:", e);
+      }
     }
 
     // Server-side Vercel analytics

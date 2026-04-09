@@ -69,19 +69,6 @@ export default function ContactPage() {
       });
       if (!res.ok) throw new Error("Failed to submit");
 
-      // Identify contact in HubSpot
-      const _hsq = (window as any)._hsq = (window as any)._hsq || [];
-      _hsq.push(["identify", {
-        email: form.email,
-        firstname: form.name.split(" ")[0],
-        lastname: form.name.split(" ").slice(1).join(" "),
-        company: form.company,
-        phone: form.phone,
-        country: form.country,
-        hs_lead_status: "NEW",
-      }]);
-      _hsq.push(["trackPageView"]);
-
       track("Contact Submitted", {
         inquiryType: form.inquiryType,
         country: form.country,
