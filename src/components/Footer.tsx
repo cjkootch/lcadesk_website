@@ -69,7 +69,7 @@ export default function Footer() {
               <Image src="/lca-desk-logo-white.png" alt="LCA Desk" width={160} height={44} className="h-10 w-auto" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Regulatory-grade compliance infrastructure for local content programs. Proven in Guyana. Configurable for every jurisdiction.
+              Regulatory-grade compliance infrastructure for local content programs. Configurable for every jurisdiction.
             </p>
             <p className="text-gray-500 text-xs mt-2">
               Houston, TX

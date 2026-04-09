@@ -27,7 +27,7 @@ export default function HeroSection() {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
             className="text-lg text-text-secondary max-w-xl mb-8 leading-relaxed">
-            LCA Desk digitizes mandated local content filing, validation, regulator review, and audit workflows for extractive industries. Built for regulators and industry. Proven in Guyana. Configurable for every jurisdiction.
+            LCA Desk digitizes mandated local content filing, validation, regulator review, and audit workflows for extractive industries. Built for regulators and industry. Configurable for every jurisdiction.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-3 mb-8">

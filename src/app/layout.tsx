@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | LCA Desk",
   },
   description:
-    "LCA Desk is a regulatory-grade compliance operating system for local content programs. Digitize mandated filing, validation, regulator review, and audit workflows for extractive industries. Proven in Guyana. Configurable for every jurisdiction.",
+    "LCA Desk is a regulatory-grade compliance operating system for local content programs. Digitize mandated filing, validation, regulator review, and audit workflows for extractive industries. Configurable for every jurisdiction.",
   keywords: [
     "local content compliance platform",
     "local content act software",
