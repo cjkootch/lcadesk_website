@@ -10,7 +10,7 @@ import GeometricBg from "@/components/GeometricBg";
 export default function JobSeekerRegister() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const applyJobId = searchParams.get("apply");
+  const applyJobId = searchParams?.get("apply") ?? null;
 
   const [form, setForm] = useState({
     fullName: "",

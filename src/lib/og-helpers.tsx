@@ -1,4 +1,5 @@
 /** Shared style primitives for all OG images */
+import type { ReactNode } from "react";
 
 export const ogBackground = "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)";
 
@@ -84,7 +85,7 @@ export function OgBadge({ text, bgColor = "rgba(16,185,129,0.15)", textColor = o
   );
 }
 
-export function OgContainer({ children }: { children: React.ReactNode }) {
+export function OgContainer({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
