@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Company Directory | Oil & Gas Companies in Guyana",
+  title: "Company Directory | Local Content Sector Companies",
   description:
-    "Browse 600+ oil and gas companies operating in Guyana. Filter by LCS registration, service category, hiring status, and active procurement. The most comprehensive directory of Guyana's energy sector.",
+    "Browse companies operating under local content regimes. Filter by registration status, service category, hiring activity, and active procurement. Currently covering Guyana, with more jurisdictions coming soon.",
   alternates: { canonical: "https://lcadesk.com/companies" },
   openGraph: {
-    title: "Company Directory — Guyana Oil & Gas Sector | LCA Desk",
-    description: "600+ companies in Guyana's energy sector. Filter by LCS registration, procurement, hiring, and service category.",
+    title: "Company Directory | LCA Desk",
+    description: "Companies operating under local content regimes. Filter by registration status, procurement, and hiring activity.",
     url: "https://lcadesk.com/companies",
   },
 };

@@ -14,10 +14,10 @@ const topLinks = [
 ];
 
 const directoryLinks = [
-  { href: "/jobs", label: "Jobs Board", desc: "Oil & gas positions for Guyanese", icon: Users },
-  { href: "/opportunities", label: "Opportunities", desc: "Procurement & tenders", icon: Briefcase },
-  { href: "/companies", label: "Companies", desc: "639+ sector companies", icon: Building2 },
-  { href: "/suppliers", label: "Supplier Directory", desc: "Guyanese suppliers & services", icon: Package },
+  { href: "/jobs", label: "Jobs Board", desc: "Sector jobs and positions", icon: Users },
+  { href: "/opportunities", label: "Opportunities", desc: "Procurement and tenders", icon: Briefcase },
+  { href: "/companies", label: "Companies", desc: "Sector company profiles", icon: Building2 },
+  { href: "/suppliers", label: "Supplier Directory", desc: "Registered suppliers and services", icon: Package },
 ];
 
 const allMobileLinks = [

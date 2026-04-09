@@ -117,7 +117,7 @@ export default function CompanyFilters({ companies }: Props) {
 
   const filterTabs: { key: FilterKey; label: string; count: number }[] = [
     { key: "all", label: "All", count: companies.length },
-    { key: "lcs", label: "LCS Registered", count: companies.filter((c) => c.lcsRegistered).length },
+    { key: "lcs", label: "Regulator Registered", count: companies.filter((c) => c.lcsRegistered).length },
     { key: "procurement", label: "Active Procurement", count: companies.filter((c) => c.activeOpportunities > 0).length },
     { key: "hiring", label: "Hiring", count: companies.filter((c) => c.openJobPostings > 0).length },
   ];

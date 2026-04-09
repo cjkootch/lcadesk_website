@@ -39,10 +39,11 @@ async function fetchCompanies(): Promise<ApiResponse> {
 }
 
 const faqItems = [
-  { q: "Who are these companies?", a: "This directory includes every company operating in Guyana's oil and gas sector — contractors, sub-contractors, licensees, and service providers. Data comes from the Local Content Secretariat Register, public procurement notices, and job postings." },
-  { q: "What does LCS Registered mean?", a: "Companies registered with the Local Content Secretariat (LCS) are on the official Local Content Register maintained by the Government of Guyana. Registration is required for all entities operating under petroleum agreements." },
+  { q: "Who are these companies?", a: "This directory includes companies operating under local content regimes, including contractors, sub-contractors, licensees, and service providers. Data is sourced from regulator registers, public procurement notices, and job postings." },
+  { q: "What does Regulator Registered mean?", a: "Companies marked as registered appear on an official local content register maintained by the relevant jurisdiction's regulator. In Guyana, this is the Local Content Secretariat (LCS) Register." },
   { q: "How do I claim my company profile?", a: "Company profiles are automatically generated from public data. To claim and enrich your profile with a description, services, and contact information, sign up for LCA Desk and verify your organization." },
-  { q: "How often is this data updated?", a: "Company data is updated weekly from the LCS Register, procurement notices, and job postings. Opportunity and job counts reflect the latest available data." },
+  { q: "How often is this data updated?", a: "Company data is updated weekly from regulator registers, procurement notices, and job postings. Opportunity and job counts reflect the latest available data." },
+  { q: "Which jurisdictions are covered?", a: "The directory currently covers companies operating in Guyana. Additional jurisdictions will be added as LCA Desk expands to new markets." },
 ];
 
 export default async function CompaniesPage() {
@@ -66,7 +67,7 @@ export default async function CompaniesPage() {
             <span className="gradient-text-static">Directory</span>
           </h1>
           <p className="text-lg text-text-secondary max-w-2xl mb-8 leading-relaxed">
-            Every company operating in Guyana&apos;s oil and gas sector — contractors, sub-contractors, and service providers. Filter by LCS registration, hiring, and procurement activity.
+            Companies operating under local content regimes, starting with Guyana. Filter by registration status, hiring activity, and procurement.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
@@ -89,7 +90,7 @@ export default async function CompaniesPage() {
       <section className="relative py-8 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6">
           <StatCard value={summary.total.toLocaleString()} label="Total Companies" lightOnDark />
-          <StatCard value={summary.lcsRegistered.toLocaleString()} label="LCS Registered" lightOnDark />
+          <StatCard value={summary.lcsRegistered.toLocaleString()} label="Regulator Registered" lightOnDark />
           <StatCard value={summary.withOpportunities.toString()} label="Active Procurement" lightOnDark />
           <StatCard value={summary.hiring.toString()} label="Currently Hiring" lightOnDark />
         </div>

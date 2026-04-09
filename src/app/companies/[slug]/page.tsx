@@ -44,12 +44,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (company.openJobPostings > 0) parts.push(`${company.openJobPostings} Open Jobs`);
 
   return {
-    title: `${company.companyName} | Guyana Oil & Gas Directory`,
-    description: `${company.companyName} — ${parts.join(", ") || "Company in Guyana's oil and gas sector"}. ${company.description || "View company profile, procurement opportunities, and job openings."}`.slice(0, 300),
+    title: `${company.companyName} | Company Directory`,
+    description: `${company.companyName} - ${parts.join(", ") || "Company operating under a local content regime"}. ${company.description || "View company profile, procurement opportunities, and job openings."}`.slice(0, 300),
     alternates: { canonical: `https://lcadesk.com/companies/${slug}` },
     openGraph: {
       title: company.companyName,
-      description: company.description || `${company.companyName} — company operating in Guyana's oil and gas sector.`,
+      description: company.description || `${company.companyName} - company in the local content sector.`,
     },
   };
 }
@@ -159,7 +159,7 @@ export default async function CompanyDetailPage({ params }: Props) {
                 </h2>
                 <p className="text-sm text-text-secondary mb-3">
                   This company has {company.activeOpportunities} active procurement {company.activeOpportunities === 1 ? "notice" : "notices"}.
-                  Guyanese suppliers receive first consideration under the Local Content Act.
+                  Local suppliers receive first consideration under applicable local content legislation.
                 </p>
                 <Link
                   href={`/opportunities?company=${encodeURIComponent(company.companyName)}`}
@@ -187,7 +187,7 @@ export default async function CompanyDetailPage({ params }: Props) {
                 </h2>
                 <p className="text-sm text-text-secondary mb-3">
                   {company.openJobPostings} open {company.openJobPostings === 1 ? "position" : "positions"}.
-                  Guyanese nationals receive first consideration for employment.
+                  Local nationals receive first consideration for employment under applicable local content legislation.
                 </p>
                 <Link
                   href={`/jobs?company=${encodeURIComponent(company.companyName)}`}
@@ -277,8 +277,8 @@ export default async function CompanyDetailPage({ params }: Props) {
                         <div className="bg-slate-300 rounded h-full" style={{ width: "12%" }} />
                       </div>
                       <div className="flex justify-between mt-1.5">
-                        <span className="text-[10px] text-text-muted">Guyanese: 88%</span>
-                        <span className="text-[10px] text-text-muted">Non-Guyanese: 12%</span>
+                        <span className="text-[10px] text-text-muted">Local: 88%</span>
+                        <span className="text-[10px] text-text-muted">Non-Local: 12%</span>
                       </div>
                     </div>
                   </div>
@@ -318,9 +318,9 @@ export default async function CompanyDetailPage({ params }: Props) {
                     {[
                       { date: "Mar 2026", text: "Posted 3 new procurement opportunities in Marine & Offshore" },
                       { date: "Feb 2026", text: "Filed H2 2025 Half-Yearly Report (on time)" },
-                      { date: "Jan 2026", text: "Hired 14 Guyanese nationals across 3 employment categories" },
+                      { date: "Jan 2026", text: "Hired 14 local nationals across 3 employment categories" },
                       { date: "Dec 2025", text: "Updated Annual Plan for 2026 filing period" },
-                      { date: "Nov 2025", text: "Added 2 new Guyanese suppliers to procurement records" },
+                      { date: "Nov 2025", text: "Added 2 new local suppliers to procurement records" },
                     ].map((item, i) => (
                       <div key={i} className="flex gap-3 items-start">
                         <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
@@ -404,7 +404,7 @@ export default async function CompanyDetailPage({ params }: Props) {
                 <div className="flex items-start gap-2">
                   <MapPin size={14} className="text-text-muted mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-xs text-text-muted">Guyana Presence</p>
+                    <p className="text-xs text-text-muted">Local Presence</p>
                     <p className="text-sm text-text-primary">{company.guyanaPresence}</p>
                   </div>
                 </div>
