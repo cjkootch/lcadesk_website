@@ -67,11 +67,12 @@ export default function DemoPage() {
       <HeroSection
         eyebrow="Demo"
         headline="See LCA Desk in Action"
-        sub="30-minute live demo. We'll build a live LCA submission from your company's data."
+        sub="30-minute live demo. We'll walk through a real compliance workflow with your team."
         geometricVariant="nodes"
+        compact
       />
 
-      <section className="max-w-4xl mx-auto px-6 py-20">
+      <section className="max-w-4xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left: What you'll see */}
           <motion.div

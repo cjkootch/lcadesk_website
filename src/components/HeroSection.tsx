@@ -12,6 +12,7 @@ interface HeroProps {
   primaryCTA?: { label: string; href: string };
   secondaryCTA?: { label: string; href: string };
   fullHeight?: boolean;
+  compact?: boolean;
   geometricVariant?: "grid" | "topology" | "nodes" | "waves" | "hexagons" | "circuits";
 }
 
@@ -31,13 +32,14 @@ export default function HeroSection({
   primaryCTA,
   secondaryCTA,
   fullHeight = false,
+  compact = false,
   geometricVariant = "grid",
 }: HeroProps) {
   return (
     <section
       className={`relative flex items-center justify-center overflow-hidden bg-surface ${
-        fullHeight ? "min-h-screen" : "min-h-[60vh]"
-      } pt-24 pb-16`}
+        fullHeight ? "min-h-screen" : compact ? "" : "min-h-[60vh]"
+      } pt-28 ${compact ? "pb-10" : "pb-16"}`}
     >
       <GeometricBg variant={geometricVariant} />
 
