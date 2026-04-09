@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { track } from "@vercel/analytics/server";
 
 export async function POST(req: Request) {
   try {
@@ -32,7 +33,13 @@ export async function POST(req: Request) {
       console.error("Backend contact API error:", e);
     }
 
-    // Always return success - HubSpot tracking handles contact creation client-side
+    // Server-side Vercel analytics
+    await track("Form Submission", {
+      type: inquiryType || "general",
+      country: country || "unknown",
+      hasCompany: !!company,
+    }).catch(() => {});
+
     return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: "Failed to submit" }, { status: 500 });

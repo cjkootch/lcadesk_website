@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { track } from "@vercel/analytics";
 import HeroSection from "@/components/HeroSection";
 
 const fadeUp = {
@@ -60,6 +61,12 @@ export default function DemoPage() {
         hs_lead_status: "NEW",
       }]);
       _hsq.push(["trackPageView"]);
+
+      track("Demo Requested", {
+        company: form.company,
+        country: form.country,
+        role: form.role,
+      });
 
       setSubmitted(true);
     } catch {

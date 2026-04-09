@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Clock } from "lucide-react";
+import { track } from "@vercel/analytics";
 import HeroSection from "@/components/HeroSection";
 
 const fadeUp = {
@@ -80,6 +81,11 @@ export default function ContactPage() {
         hs_lead_status: "NEW",
       }]);
       _hsq.push(["trackPageView"]);
+
+      track("Contact Submitted", {
+        inquiryType: form.inquiryType,
+        country: form.country,
+      });
 
       setSubmitted(true);
     } catch {

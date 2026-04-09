@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bell, CheckCircle2, AlertTriangle, ArrowRight, Loader2 } from "lucide-react";
+import { track } from "@vercel/analytics";
 
 const APP_URL = process.env.NEXT_PUBLIC_API_URL || "https://app.lcadesk.com";
 
@@ -46,6 +47,7 @@ export default function EmailCapture({
         throw new Error(data.error || "Something went wrong. Please try again.");
       }
 
+      track("Email Subscribed", { list });
       setStatus("success");
       setEmail("");
     } catch (err: unknown) {
