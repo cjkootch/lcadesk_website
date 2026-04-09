@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { track } from "@vercel/analytics/server";
 
 const HUBSPOT_PORTAL_ID = "245833475";
-const HUBSPOT_FORM_GUID = process.env.HUBSPOT_FORM_GUID || "8b37db6a-7062-4b35-a039-3af713aed2f4";
+const HUBSPOT_FORM_GUID = process.env.HUBSPOT_FORM_GUID || "a1d49ef7-4a52-4488-b66b-c70b7fb6d76c";
 
 export async function POST(req: Request) {
   try {
