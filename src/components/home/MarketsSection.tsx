@@ -2,18 +2,17 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 const vp = { once: true as const, margin: "-60px" as const };
 
 const jurisdictions = [
-  { flag: "\u{1F1EC}\u{1F1FE}", country: "Guyana", regime: "Half-yearly reporting, annual plans", cadence: "Semi-annual + annual", regulator: "Local Content Secretariat", status: "Live", statusColor: "bg-accent text-white" },
-  { flag: "\u{1F1F3}\u{1F1E6}", country: "Namibia", regime: "Annual performance, procurement, employment reporting", cadence: "Annual + quarterly", regulator: "Ministry of Mines and Energy", status: "In Development", statusColor: "bg-blue-100 text-blue-700" },
-  { flag: "\u{1F1F2}\u{1F1FF}", country: "Mozambique", regime: "REFC quarterly filing", cadence: "Quarterly", regulator: "INP (Instituto Nacional de Petroleo)", status: "In Development", statusColor: "bg-blue-100 text-blue-700" },
-  { flag: "\u{1F1EC}\u{1F1ED}", country: "Ghana", regime: "Annual plans, performance reports, procurement plans", cadence: "Annual + quarterly", regulator: "Petroleum Commission / Minerals Commission", status: "Roadmap", statusColor: "bg-gray-100 text-text-muted" },
-  { flag: "\u{1F1F8}\u{1F1F7}", country: "Suriname", regime: "Policy-stage enablement", cadence: "To be defined", regulator: "Local Content Board", status: "Early Access", statusColor: "bg-amber-100 text-amber-700" },
-  { flag: "\u{1F1FF}\u{1F1F2}", country: "Zambia", regime: "Mining local participation reporting", cadence: "Per SI No. 68/2025", regulator: "Ministry of Mines", status: "Roadmap", statusColor: "bg-gray-100 text-text-muted" },
-  { flag: "\u{1F1F3}\u{1F1EC}", country: "Nigeria", regime: "NCDMB statutory reports, procurement, R&D", cadence: "Quarterly + annual", regulator: "NCDMB", status: "Enterprise Roadmap", statusColor: "bg-gray-100 text-text-muted" },
+  { flag: "\u{1F1EC}\u{1F1FE}", country: "Guyana", regime: "Half-yearly reporting, annual plans", cadence: "Semi-annual + annual", regulator: "Local Content Secretariat", detail: "PDF comparative analysis and Excel expenditure/employment workbook, per LCA v4.1 guidelines", status: "Live", statusColor: "bg-accent text-white" },
+  { flag: "\u{1F1F3}\u{1F1E6}", country: "Namibia", regime: "Annual performance, procurement, employment reporting", cadence: "Annual + quarterly", regulator: "Ministry of Mines and Energy", detail: "Procurement consolidation and employment/training data, per draft upstream LC policy", status: "In Development", statusColor: "bg-blue-100 text-blue-700" },
+  { flag: "\u{1F1F2}\u{1F1FF}", country: "Mozambique", regime: "REFC quarterly filing", cadence: "Quarterly", regulator: "INP (Instituto Nacional de Petroleo)", detail: "Employment, training, and national contracting filings per DM 55/2024", status: "In Development", statusColor: "bg-blue-100 text-blue-700" },
+  { flag: "\u{1F1EC}\u{1F1ED}", country: "Ghana", regime: "Annual plans, performance reports, procurement plans", cadence: "Annual + quarterly", regulator: "Petroleum Commission / Minerals Commission", detail: "Reports under LI 2204, plus Minerals Commission procurement plans under LI 2431", status: "Roadmap", statusColor: "bg-gray-100 text-text-muted" },
+  { flag: "\u{1F1F8}\u{1F1F7}", country: "Suriname", regime: "Policy-stage enablement", cadence: "To be defined", regulator: "Local Content Board", detail: "Early-stage regulatory framework support", status: "Early Access", statusColor: "bg-amber-100 text-amber-700" },
+  { flag: "\u{1F1FF}\u{1F1F2}", country: "Zambia", regime: "Mining local participation reporting", cadence: "Per SI No. 68/2025", regulator: "Ministry of Mines", detail: "Mining local content rules under Statutory Instrument No. 68 of 2025", status: "Roadmap", statusColor: "bg-gray-100 text-text-muted" },
+  { flag: "\u{1F1F3}\u{1F1EC}", country: "Nigeria", regime: "NCDMB statutory reports, procurement, R&D", cadence: "Quarterly + annual", regulator: "NCDMB", detail: "Procurement, employment, R&D, technology transfer, and marine services utilization", status: "Enterprise Roadmap", statusColor: "bg-gray-100 text-text-muted" },
 ];
 
 export default function MarketsSection() {
@@ -24,11 +23,11 @@ export default function MarketsSection() {
           className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Jurisdiction Coverage</motion.p>
         <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
           className="font-display text-3xl md:text-4xl text-text-primary text-center mb-4">
-          Configurable for Every Jurisdiction
+          Built Against Official Filing Rules and Templates
         </motion.h2>
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
           className="text-text-secondary text-center mb-12 max-w-2xl mx-auto">
-          Each country runs on configurable filing templates, validation rules, deadlines, evidence requirements, and export formats. One platform, jurisdiction-specific compliance.
+          Every jurisdiction pack is grounded in published regulatory requirements, official templates, and government-issued filing guidelines. One platform, jurisdiction-specific compliance.
         </motion.p>
 
         {/* Jurisdiction table */}
@@ -49,9 +48,12 @@ export default function MarketsSection() {
                 <span className="text-xl">{j.flag}</span>
                 <span className="font-semibold text-text-primary text-sm">{j.country}</span>
               </div>
-              <div className="col-span-3 text-sm text-text-secondary flex items-center">
+              <div className="col-span-3 text-text-secondary flex items-center">
                 <span className="md:hidden text-xs text-text-muted mr-2">Regime:</span>
-                {j.regime}
+                <div>
+                  <p className="text-sm">{j.regime}</p>
+                  <p className="text-xs text-text-muted mt-0.5 hidden lg:block">{j.detail}</p>
+                </div>
               </div>
               <div className="col-span-2 text-sm text-text-secondary flex items-center">
                 <span className="md:hidden text-xs text-text-muted mr-2">Cadence:</span>

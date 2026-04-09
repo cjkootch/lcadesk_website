@@ -12,7 +12,6 @@ import AIFeaturesSection from "@/components/home/AIFeaturesSection";
 import HowItWorksSection from "@/components/home/HowItWorksSection";
 import FeaturesGridSection from "@/components/home/FeaturesGridSection";
 import ComparisonSection from "@/components/home/ComparisonSection";
-import BuiltAgainstOfficialSection from "@/components/home/BuiltAgainstOfficialSection";
 import RegulatedWorkflowsSection from "@/components/home/RegulatedWorkflowsSection";
 import StatsBarSection from "@/components/home/StatsBarSection";
 import MarketsSection from "@/components/home/MarketsSection";
@@ -31,7 +30,6 @@ export default function HomePage() {
       <HowItWorksSection />
       <FeaturesGridSection />
       <ComparisonSection />
-      <BuiltAgainstOfficialSection />
       <RegulatedWorkflowsSection />
       <StatsBarSection />
       <MarketsSection />
