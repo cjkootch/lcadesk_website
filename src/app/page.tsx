@@ -4,6 +4,26 @@ import CTABanner from "@/components/CTABanner";
 
 export const metadata: Metadata = {
   alternates: { canonical: "https://lcadesk.com" },
+  openGraph: {
+    title: "LCA Desk | Regulatory-Grade Local Content Compliance Platform",
+    description:
+      "AI-powered compliance platform for local content programs. Digitize mandated filing, validation, regulator review, and audit workflows. Configurable for every jurisdiction.",
+    url: "https://lcadesk.com",
+  },
+};
+
+const homeFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "What is LCA Desk?", acceptedAnswer: { "@type": "Answer", text: "LCA Desk is a regulatory-grade compliance operating system for local content programs. It digitizes mandated filing, validation, regulator review, and audit workflows for extractive industries. The platform is configurable per jurisdiction, starting with Guyana." } },
+    { "@type": "Question", name: "Who uses LCA Desk?", acceptedAnswer: { "@type": "Answer", text: "Both sides of the compliance relationship. Industry users (operators, contractors, subcontractors, suppliers) prepare and submit filings. Regulators and secretariats receive, review, validate, and audit those submissions." } },
+    { "@type": "Question", name: "How is this different from a filing portal?", acceptedAnswer: { "@type": "Answer", text: "Filing portals handle document upload. LCA Desk manages the full compliance lifecycle: structured data collection, rules-based validation, AI-assisted narrative drafting, reviewer queues, resubmission handling, evidence linking, and immutable audit trails." } },
+    { "@type": "Question", name: "How does LCA Desk handle multiple jurisdictions?", acceptedAnswer: { "@type": "Answer", text: "Each jurisdiction runs on a configurable pack that defines filing schemas, required fields, deadlines, validation rules, evidence requirements, and export formats. Adding a new country means configuring a new pack, not writing custom software." } },
+    { "@type": "Question", name: "What role does AI play in the platform?", acceptedAnswer: { "@type": "Answer", text: "AI is an acceleration layer, not the core product. It drafts comparative analysis narratives, flags compliance gaps, surfaces missing evidence, and explains variance between plans and actuals." } },
+    { "@type": "Question", name: "What penalties exist for non-compliance?", acceptedAnswer: { "@type": "Answer", text: "Penalties vary by jurisdiction. In Guyana, penalties range from GY$1 million to GY$50 million per offence. False or misleading submissions carry criminal liability." } },
+    { "@type": "Question", name: "How do I get started?", acceptedAnswer: { "@type": "Answer", text: "For industry users, request a demo or start a 30-day trial with full platform access. For regulators and government bodies, contact us to discuss a pilot deployment scoped to your jurisdiction and filing requirements." } },
+  ],
 };
 import HeroSection from "@/components/home/HeroSection";
 import ProblemSection from "@/components/home/ProblemSection";
@@ -22,6 +42,10 @@ import SocialProofSection from "@/components/home/SocialProofSection";
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
+      />
       <HeroSection />
       <Ticker />
       <ProblemSection />

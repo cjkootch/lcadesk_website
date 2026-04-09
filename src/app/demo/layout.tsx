@@ -4,6 +4,12 @@ export const metadata: Metadata = {
   title: "Request a Demo",
   description:
     "Book a personalized demo of LCA Desk and see how AI-powered compliance tools can streamline your Local Content Act filings.",
+  alternates: { canonical: "https://lcadesk.com/demo" },
+  openGraph: {
+    title: "Request a Demo — LCA Desk",
+    description: "30-minute live demo. See AI narrative drafting, compliance gap detection, and report generation in a real compliance workflow.",
+    url: "https://lcadesk.com/demo",
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

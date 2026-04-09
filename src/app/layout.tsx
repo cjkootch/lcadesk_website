@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lcadesk.com"),
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/favicon.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
     ],
   },
   title: {
