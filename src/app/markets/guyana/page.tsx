@@ -34,7 +34,7 @@ export default function GuyanaPage() {
       />
 
       <div className="hidden lg:block -mt-8 mb-0 relative z-10">
-        <img src="/illustrations/market-guyana.svg" alt="Guyana Local Content Act compliance dashboard overview" className="w-full max-w-3xl mx-auto rounded-2xl opacity-90" loading="eager" />
+        <img src="/illustrations/market-guyana.png" alt="Guyana Local Content Act compliance dashboard overview" className="w-full max-w-3xl mx-auto rounded-2xl opacity-90" loading="eager" />
       </div>
 
       {/* Regulatory Overview */}
