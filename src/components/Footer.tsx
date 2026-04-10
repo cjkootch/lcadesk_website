@@ -54,6 +54,7 @@ const columns = [
       { label: "For Suppliers", href: "/for-suppliers" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
+      { label: "Affiliate Program", href: "/affiliate" },
     ],
   },
 ];
