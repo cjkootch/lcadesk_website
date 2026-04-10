@@ -71,14 +71,17 @@ export default function AboutPage() {
               />
             </div>
             <div>
-              <p className="text-accent text-xs font-semibold tracking-widest uppercase mb-2">Founder</p>
-              <h2 className="font-display text-2xl text-text-primary mb-1">Cole Kutschinski</h2>
-              <p className="text-sm text-text-muted mb-4">Founder &amp; CEO, LCA Desk</p>
+              <h2 className="font-display text-xl md:text-2xl text-text-primary mb-4 leading-snug">
+                Founded by an Operator Who Understands Workflow Complexity
+              </h2>
               <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                Cole built LCA Desk after years working in Guyana&apos;s oil and gas sector, where he saw firsthand how contractors struggled with local content compliance — fragmented spreadsheets, unclear filing rules, and the constant risk of penalties up to GY$50 million. He founded LCA Desk to replace that chaos with a single platform built specifically for the regulatory workflows that extractive industries face.
+                LCA Desk was built by Cole Kutschinski, a technology founder and executive with 17+ years of experience leading operational transformation across complex, highly regulated industries.
+              </p>
+              <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                Having built and scaled systems across enterprise environments, Cole saw firsthand how manual reporting processes consume time, introduce risk, and slow supplier growth. LCA Desk was created to solve that problem by turning disconnected workflows into accurate, audit-ready local content reports.
               </p>
               <p className="text-text-secondary text-sm leading-relaxed mb-5">
-                Based in Houston, Texas, Cole leads product development and strategy, working closely with regulators and industry operators to build compliance infrastructure that scales across jurisdictions.
+                Today, the platform helps suppliers, contractors, and operators move from spreadsheets and manual filings to a modern compliance workflow built for speed and accuracy.
               </p>
               <a
                 href="https://www.linkedin.com/in/cole-kutschinski"
@@ -86,7 +89,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg> Connect on LinkedIn
+                <img src="/illustrations/linkedin-icon.webp" alt="LinkedIn" className="w-5 h-5" /> Cole Kutschinski on LinkedIn
               </a>
             </div>
           </motion.div>
