@@ -63,7 +63,7 @@ export default function NamibiaPage() {
         headline="Local Content Policy — Namibia"
         sub="Africa's newest frontier. 11B+ barrels discovered. TotalEnergies, Shell, and Galp leading exploration. LCA Desk Namibia module coming 2027."
         geometricVariant="waves"
-        heroImage={{ src: "/illustrations/market-namibia.png", alt: "Namibia oil exploration" }}
+        heroImage={{ src: "/illustrations/market-namibia.svg", alt: "Namibia oil exploration" }}
       />
 
       {/* Key stats */}

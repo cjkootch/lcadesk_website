@@ -63,7 +63,7 @@ export default function GhanaPage() {
         headline="Petroleum Commission Compliance — Ghana"
         sub="West Africa's established producer. 50+ companies regulated under LI 2204. LCA Desk Ghana module coming 2027."
         geometricVariant="waves"
-        heroImage={{ src: "/illustrations/market-ghana.png", alt: "Ghana petroleum compliance" }}
+        heroImage={{ src: "/illustrations/market-ghana.svg", alt: "Ghana petroleum compliance" }}
       />
 
       {/* Key stats */}

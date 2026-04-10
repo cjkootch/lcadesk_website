@@ -63,7 +63,7 @@ export default function TrinidadPage() {
         headline="Local Content Compliance — Trinidad & Tobago"
         sub="Caribbean's largest oil & gas producer. 100+ companies under MEEI oversight. Same timezone as Houston. LCA Desk T&T module coming 2027."
         geometricVariant="waves"
-        heroImage={{ src: "/illustrations/market-trinidad.png", alt: "Trinidad and Tobago energy sector" }}
+        heroImage={{ src: "/illustrations/market-trinidad.svg", alt: "Trinidad and Tobago energy sector" }}
       />
 
       {/* Key stats */}

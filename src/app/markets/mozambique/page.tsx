@@ -63,7 +63,7 @@ export default function MozambiquePage() {
         headline="Local Content Compliance — Mozambique"
         sub="East Africa's emerging LNG giant. 30+ companies under INP oversight. $50B+ in LNG investment. LCA Desk Mozambique module coming 2027."
         geometricVariant="waves"
-        heroImage={{ src: "/illustrations/market-mozambique.png", alt: "Mozambique LNG compliance" }}
+        heroImage={{ src: "/illustrations/market-mozambique.svg", alt: "Mozambique LNG compliance" }}
       />
 
       {/* Key stats */}
