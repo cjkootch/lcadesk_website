@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <>
-      <HeroSection headline="Terms of Service" sub="Last updated: April 6, 2026" geometricVariant="grid" />
+      <HeroSection headline="Terms of Service" sub="Last updated: April 10, 2026" geometricVariant="grid" />
       <div className="max-w-3xl mx-auto px-6 py-16">
         <div className="space-y-10 text-sm text-text-secondary leading-relaxed">
 
@@ -80,7 +80,51 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">7. Data Ownership & Intellectual Property</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">7. Affiliate &amp; Referral Program</h2>
+            <p className="mb-3">LCA Desk offers an Affiliate Program that allows approved participants (&ldquo;Affiliates&rdquo;) to earn recurring commissions by referring new customers to the Service. By participating, you agree to the following additional terms:</p>
+
+            <h3 className="font-semibold text-text-primary mb-2">7.1 Eligibility &amp; Enrollment</h3>
+            <ul className="list-disc pl-5 space-y-1.5 mb-4">
+              <li>Any individual or entity may apply to become an Affiliate by registering at <a href="https://app.lcadesk.com/auth/signup?role=affiliate" className="text-accent hover:underline">app.lcadesk.com</a>.</li>
+              <li>We reserve the right to approve, reject, or revoke Affiliate status at our sole discretion.</li>
+              <li>Current LCA Desk employees and their immediate family members are not eligible.</li>
+            </ul>
+
+            <h3 className="font-semibold text-text-primary mb-2">7.2 Referral Tracking &amp; Attribution</h3>
+            <ul className="list-disc pl-5 space-y-1.5 mb-4">
+              <li>Each Affiliate receives a unique referral code and tracking link. Referrals are attributed based on the referral code used during the referred customer&apos;s signup.</li>
+              <li>A referral is considered &ldquo;Qualified&rdquo; when the referred customer subscribes to a paid plan (Essentials, Professional, or Enterprise).</li>
+              <li>Both the Affiliate and the referred customer receive 14 additional trial days upon qualification.</li>
+              <li>Self-referrals (referring your own accounts or entities you control) are not permitted and may result in forfeiture of commissions and termination of Affiliate status.</li>
+            </ul>
+
+            <h3 className="font-semibold text-text-primary mb-2">7.3 Commission Structure &amp; Payment</h3>
+            <ul className="list-disc pl-5 space-y-1.5 mb-4">
+              <li>Affiliates earn a 20% recurring commission on the monthly subscription fee paid by each Qualified referral, for as long as the referral maintains an active paid subscription.</li>
+              <li>Commission rates: Essentials ($39.80/mo), Professional ($99.80/mo), Enterprise ($199.80/mo) per active referral.</li>
+              <li>Commissions are paid monthly via PayPal on the 1st of each month for the prior month&apos;s qualifying activity.</li>
+              <li>Minimum payout threshold is $50. Unpaid balances below the threshold carry forward to the next payment cycle.</li>
+              <li>Affiliates are responsible for providing accurate PayPal payment information and for any taxes owed on commission income.</li>
+            </ul>
+
+            <h3 className="font-semibold text-text-primary mb-2">7.4 Prohibited Affiliate Conduct</h3>
+            <ul className="list-disc pl-5 space-y-1.5 mb-4">
+              <li>Affiliates must not engage in misleading, deceptive, or spammy marketing practices when promoting LCA Desk.</li>
+              <li>Affiliates must not bid on LCA Desk branded keywords (e.g., &ldquo;LCA Desk,&rdquo; &ldquo;lcadesk.com&rdquo;) in paid search advertising without prior written consent.</li>
+              <li>Affiliates must not misrepresent their relationship with LCA Desk or imply endorsement by any government or regulatory body.</li>
+              <li>Affiliates must not create fake accounts, use bots, or engage in any form of click fraud or referral manipulation.</li>
+            </ul>
+
+            <h3 className="font-semibold text-text-primary mb-2">7.5 Modification &amp; Termination</h3>
+            <ul className="list-disc pl-5 space-y-1.5 mb-4">
+              <li>We may modify commission rates, payment terms, or program rules with 30 days&apos; notice to active Affiliates via email.</li>
+              <li>Either party may terminate the Affiliate relationship at any time. Upon termination, pending commissions that have met the payout threshold will be paid in the next payment cycle. Commissions on future referral payments cease immediately.</li>
+              <li>We may immediately terminate Affiliate status and forfeit unpaid commissions if an Affiliate violates these Terms or engages in fraudulent activity.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">8. Data Ownership &amp; Intellectual Property</h2>
             <h3 className="font-semibold text-text-primary mb-2">Your Data</h3>
             <p className="mb-3">You retain full ownership of all data, documents, and content you upload or create using the Service (&ldquo;Your Data&rdquo;). We do not claim any intellectual property rights over Your Data. We process Your Data solely to provide and improve the Service.</p>
             <h3 className="font-semibold text-text-primary mb-2">Our Intellectual Property</h3>
@@ -90,7 +134,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">8. Acceptable Use</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">9. Acceptable Use</h2>
             <p className="mb-3">You agree not to:</p>
             <ul className="list-disc pl-5 space-y-1.5">
               <li>Use the Service for any unlawful purpose or to submit false or misleading information to regulatory bodies.</li>
@@ -103,7 +147,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">9. Service Availability & Modifications</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">10. Service Availability &amp; Modifications</h2>
             <ul className="list-disc pl-5 space-y-1.5">
               <li>We strive to maintain high availability but do not guarantee uninterrupted access. The Service may be temporarily unavailable due to maintenance, updates, or factors beyond our control.</li>
               <li>We may modify, suspend, or discontinue features of the Service at any time. We will provide reasonable notice for material changes that affect paid subscribers.</li>
@@ -112,7 +156,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">10. Limitation of Liability</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">11. Limitation of Liability</h2>
             <div className="bg-surface rounded-xl border border-border p-5">
               <p className="mb-3">TO THE MAXIMUM EXTENT PERMITTED BY LAW, STABROEK ADVISORY LLC AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR:</p>
               <ul className="list-disc pl-5 space-y-1.5">
@@ -126,21 +170,21 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">11. Indemnification</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">12. Indemnification</h2>
             <p>You agree to indemnify, defend, and hold harmless LCA Desk, its officers, directors, employees, and agents from any claims, liabilities, damages, losses, or expenses (including reasonable legal fees) arising from your use of the Service, violation of these Terms, or infringement of any third-party rights.</p>
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">12. Termination</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">13. Termination</h2>
             <ul className="list-disc pl-5 space-y-1.5">
               <li>You may terminate your account at any time by contacting us or using the account settings.</li>
               <li>We may suspend or terminate your access if you violate these Terms, fail to pay fees when due, or if required by law.</li>
-              <li>Upon termination, your right to use the Service ceases immediately. Sections 3, 7, 10, 11, 13, and 14 survive termination.</li>
+              <li>Upon termination, your right to use the Service ceases immediately. Sections 3, 7, 8, 11, 12, 14, and 15 survive termination.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">13. Governing Law & Dispute Resolution</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">14. Governing Law &amp; Dispute Resolution</h2>
             <p className="mb-3">
               These Terms are governed by the laws of the State of Texas, United States, without regard to conflict of law principles. Any disputes arising from these Terms or the Service shall be resolved through:
             </p>
@@ -152,12 +196,12 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">14. Changes to These Terms</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">15. Changes to These Terms</h2>
             <p>We may update these Terms from time to time. We will notify registered users of material changes via email at least 30 days in advance. Your continued use of the Service after changes take effect constitutes acceptance of the revised Terms. The &ldquo;Last updated&rdquo; date at the top of this page reflects the most recent revision.</p>
           </section>
 
           <section>
-            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">15. Contact</h2>
+            <h2 className="font-display text-xl font-semibold text-text-primary mb-4">16. Contact</h2>
             <p className="mb-2">For questions about these Terms:</p>
             <div className="bg-surface rounded-xl border border-border p-5">
               <p className="font-medium text-text-primary mb-1">LCA Desk</p>

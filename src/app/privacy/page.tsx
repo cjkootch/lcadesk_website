@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <HeroSection headline="Privacy Policy" sub="Last updated: April 6, 2026" geometricVariant="grid" />
+      <HeroSection headline="Privacy Policy" sub="Last updated: April 10, 2026" geometricVariant="grid" />
       <div className="max-w-3xl mx-auto px-6 py-16">
         <div className="space-y-10 text-sm text-text-secondary leading-relaxed">
 
@@ -32,6 +32,7 @@ export default function PrivacyPage() {
               <li><strong className="text-text-primary">Payment information:</strong> Billing details processed by our payment provider (Stripe). We do not store credit card numbers on our servers.</li>
               <li><strong className="text-text-primary">Communications:</strong> Emails, contact form submissions, and support requests.</li>
               <li><strong className="text-text-primary">Email subscriptions:</strong> Email address and subscription preferences when you sign up for filing deadline reminders or opportunity alerts.</li>
+              <li><strong className="text-text-primary">Affiliate data:</strong> If you participate in our Affiliate Program, we collect your referral code, referral tracking data (clicks, signups, and conversions attributed to your link), PayPal email address for commission payouts, and commission payment history.</li>
             </ul>
             <h3 className="font-semibold text-text-primary mb-2">2.2 Information Collected Automatically</h3>
             <ul className="list-disc pl-5 space-y-1.5">
@@ -49,6 +50,7 @@ export default function PrivacyPage() {
               <li>Send filing deadline reminders, opportunity alerts, and product updates you have opted into.</li>
               <li>Respond to your support requests and inquiries.</li>
               <li>Analyze usage patterns to improve the platform experience.</li>
+              <li>Track referrals, calculate commissions, and process affiliate payouts for participants in our Affiliate Program.</li>
               <li>Detect, prevent, and address technical issues and security threats.</li>
               <li>Comply with legal obligations.</li>
             </ul>
@@ -87,6 +89,7 @@ export default function PrivacyPage() {
               <li><strong className="text-text-primary">Active accounts:</strong> We retain your data for as long as your account is active.</li>
               <li><strong className="text-text-primary">Cancelled accounts:</strong> Upon account cancellation, we retain your data for 90 days to allow for reactivation. After 90 days, your data is permanently deleted unless required by law.</li>
               <li><strong className="text-text-primary">Email subscriptions:</strong> We retain your email address until you unsubscribe. You can unsubscribe at any time via the link in any email.</li>
+              <li><strong className="text-text-primary">Affiliate data:</strong> Referral tracking data and commission payment history are retained for 3 years after termination of Affiliate status for tax and accounting purposes.</li>
               <li><strong className="text-text-primary">Legal requirements:</strong> We may retain certain data longer if required to comply with legal, tax, or regulatory obligations.</li>
             </ul>
           </section>
@@ -130,7 +133,8 @@ export default function PrivacyPage() {
             <p className="mb-3">We share data with the following third-party services, strictly for operational purposes:</p>
             <ul className="list-disc pl-5 space-y-1.5">
               <li><strong className="text-text-primary">Anthropic (Claude API):</strong> AI processing. Data processed in real-time, not stored.</li>
-              <li><strong className="text-text-primary">Stripe:</strong> Payment processing. Subject to <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Stripe&apos;s Privacy Policy</a>.</li>
+              <li><strong className="text-text-primary">Stripe:</strong> Payment processing for subscriptions. Subject to <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Stripe&apos;s Privacy Policy</a>.</li>
+              <li><strong className="text-text-primary">PayPal:</strong> Affiliate commission payouts. We share your PayPal email address with PayPal to process monthly commission payments. Subject to <a href="https://www.paypal.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">PayPal&apos;s Privacy Policy</a>.</li>
               <li><strong className="text-text-primary">Resend:</strong> Transactional email delivery (filing reminders, alerts).</li>
               <li><strong className="text-text-primary">Google Analytics:</strong> Anonymous site usage analytics.</li>
               <li><strong className="text-text-primary">Vercel:</strong> Website and application hosting.</li>
