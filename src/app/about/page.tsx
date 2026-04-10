@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Linkedin } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import CTABanner from "@/components/CTABanner";
 
@@ -53,10 +54,50 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Founder */}
+      <section className="bg-white py-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            className="flex flex-col md:flex-row items-center gap-10"
+          >
+            <div className="shrink-0">
+              <img
+                src="/illustrations/founder-cole.png"
+                alt="Cole Kutschinski, Founder of LCA Desk"
+                className="w-40 h-40 rounded-2xl object-cover shadow-lg"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <p className="text-accent text-xs font-semibold tracking-widest uppercase mb-2">Founder</p>
+              <h2 className="font-display text-2xl text-text-primary mb-1">Cole Kutschinski</h2>
+              <p className="text-sm text-text-muted mb-4">Founder &amp; CEO, LCA Desk</p>
+              <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                Cole built LCA Desk after years working in Guyana&apos;s oil and gas sector, where he saw firsthand how contractors struggled with local content compliance — fragmented spreadsheets, unclear filing rules, and the constant risk of penalties up to GY$50 million. He founded LCA Desk to replace that chaos with a single platform built specifically for the regulatory workflows that extractive industries face.
+              </p>
+              <p className="text-text-secondary text-sm leading-relaxed mb-5">
+                Based in Houston, Texas, Cole leads product development and strategy, working closely with regulators and industry operators to build compliance infrastructure that scales across jurisdictions.
+              </p>
+              <a
+                href="https://www.linkedin.com/in/cole-kutschinski"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
+              >
+                <Linkedin size={16} /> Connect on LinkedIn
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <CTABanner
         headline="Ready to simplify LCA compliance?"
         body="Start your 30-day trial — full Professional access, card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>
