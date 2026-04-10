@@ -63,11 +63,8 @@ export default function TrinidadPage() {
         headline="Local Content Compliance — Trinidad & Tobago"
         sub="Caribbean's largest oil & gas producer. 100+ companies under MEEI oversight. Same timezone as Houston. LCA Desk T&T module coming 2027."
         geometricVariant="waves"
+        heroImage={{ src: "/illustrations/market-trinidad.png", alt: "Trinidad and Tobago energy sector" }}
       />
-
-      <div className="hidden lg:block -mt-8 mb-0 relative z-10">
-        <img src="/illustrations/market-trinidad.png" alt="Trinidad and Tobago offshore oil platform and Caribbean energy sector" className="w-full max-w-3xl mx-auto rounded-2xl opacity-90" loading="eager" />
-      </div>
 
       {/* Key stats */}
       <section className="relative py-14 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>

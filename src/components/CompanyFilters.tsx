@@ -271,7 +271,7 @@ export default function CompanyFilters({ companies }: Props) {
       {/* Empty state */}
       {displayed.length === 0 && (
         <div className="text-center py-20">
-          <img src="/illustrations/empty-no-results.png" alt="" className="w-24 h-24 mx-auto mb-5 opacity-80" />
+          <img src="/illustrations/empty-no-results.svg" alt="" className="w-24 h-24 mx-auto mb-5 opacity-80" />
           <p className="text-text-secondary font-medium mb-2">No companies found</p>
           <p className="text-text-muted text-sm">Try adjusting your search or filter criteria.</p>
         </div>

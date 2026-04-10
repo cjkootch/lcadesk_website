@@ -31,11 +31,8 @@ export default function GuyanaPage() {
         geometricVariant="topology"
         primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
+        heroImage={{ src: "/illustrations/market-guyana.png", alt: "Guyana Local Content Act compliance" }}
       />
-
-      <div className="hidden lg:block -mt-8 mb-0 relative z-10">
-        <img src="/illustrations/market-guyana.png" alt="Guyana Local Content Act compliance dashboard overview" className="w-full max-w-3xl mx-auto rounded-2xl opacity-90" loading="eager" />
-      </div>
 
       {/* Regulatory Overview */}
       <section className="max-w-4xl mx-auto px-6 py-16">

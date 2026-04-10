@@ -64,11 +64,8 @@ export default function NigeriaPage() {
         headline="NCDMB Compliance — Nigeria"
         sub="Africa's largest oil producer. 1,500+ companies regulated by the Nigerian Content Development & Monitoring Board. LCA Desk Nigeria module coming Q3 2026."
         geometricVariant="waves"
+        heroImage={{ src: "/illustrations/market-nigeria.png", alt: "Nigeria NCDMB compliance" }}
       />
-
-      <div className="hidden lg:block -mt-8 mb-0 relative z-10">
-        <img src="/illustrations/market-nigeria.png" alt="Nigeria NCDMB local content compliance overview" className="w-full max-w-3xl mx-auto rounded-2xl opacity-90" loading="eager" />
-      </div>
 
       {/* Key stats */}
       <section className="relative py-14 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>

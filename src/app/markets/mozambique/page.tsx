@@ -63,11 +63,8 @@ export default function MozambiquePage() {
         headline="Local Content Compliance — Mozambique"
         sub="East Africa's emerging LNG giant. 30+ companies under INP oversight. $50B+ in LNG investment. LCA Desk Mozambique module coming 2027."
         geometricVariant="waves"
+        heroImage={{ src: "/illustrations/market-mozambique.png", alt: "Mozambique LNG compliance" }}
       />
-
-      <div className="hidden lg:block -mt-8 mb-0 relative z-10">
-        <img src="/illustrations/market-mozambique.png" alt="Mozambique LNG terminal and local content compliance" className="w-full max-w-3xl mx-auto rounded-2xl opacity-90" loading="eager" />
-      </div>
 
       {/* Key stats */}
       <section className="relative py-14 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>
