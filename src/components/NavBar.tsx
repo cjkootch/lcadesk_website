@@ -141,12 +141,12 @@ export default function NavBar() {
           >
             Book a Demo
           </Link>
-          <Link
+          <a
             href="https://app.lcadesk.com/auth/signup?role=filer"
             className="rounded-lg bg-gradient-to-r from-accent to-teal px-5 py-2 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/20 hover:scale-[1.02] transition-all"
           >
-            Start 30-Day Trial
-          </Link>
+            Start Free Trial
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -179,26 +179,26 @@ export default function NavBar() {
                   {l.label}
                 </Link>
               ))}
-              <Link
-                href="https://app.lcadesk.com/auth/login"
-                onClick={() => setMobileOpen(false)}
-                className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
-              >
-                Log In
-              </Link>
-              <Link
-                href="/demo"
-                onClick={() => setMobileOpen(false)}
-                className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
-              >
-                Book a Demo
-              </Link>
-              <Link
+              <a
                 href="https://app.lcadesk.com/auth/signup?role=filer"
                 onClick={() => setMobileOpen(false)}
                 className="rounded-lg bg-gradient-to-r from-accent to-teal px-5 py-2.5 text-sm font-semibold text-white text-center hover:shadow-lg transition-all"
               >
-                Start 30-Day Trial
+                Start Free Trial
+              </a>
+              <Link
+                href="/demo"
+                onClick={() => setMobileOpen(false)}
+                className="rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-secondary text-center hover:border-accent hover:text-accent transition-all"
+              >
+                Book a Demo
+              </Link>
+              <Link
+                href="https://app.lcadesk.com/auth/login"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm text-text-muted hover:text-accent transition-colors font-medium text-center"
+              >
+                Log In
               </Link>
             </div>
           </motion.div>

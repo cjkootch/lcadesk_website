@@ -33,12 +33,20 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-3 mb-8">
             <Link href="/demo"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02] transition-all">
-              Request a Demo <ArrowRight size={16} />
+              Book a Demo <ArrowRight size={16} />
             </Link>
-            <Link href="/for-regulators"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-8 py-4 text-sm font-semibold hover:border-accent hover:text-accent transition-all">
-              For Regulators
-            </Link>
+            <a href="https://app.lcadesk.com/auth/signup?role=filer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-accent/30 text-accent px-8 py-4 text-sm font-semibold hover:bg-accent/5 hover:border-accent transition-all">
+              Start 30-Day Trial
+            </a>
+          </motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }}
+            className="flex items-center gap-2 text-xs text-text-muted mb-4">
+            <Check size={13} className="text-accent" /> Full Professional access
+            <span className="text-border">·</span>
+            Cancel anytime
+            <span className="text-border">·</span>
+            No charge until day 31
           </motion.div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45, duration: 0.5 }}
             className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-text-muted">

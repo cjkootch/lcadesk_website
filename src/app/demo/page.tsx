@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { track } from "@vercel/analytics";
 import HeroSection from "@/components/HeroSection";
 
@@ -121,17 +121,29 @@ export default function DemoPage() {
             custom={2}
           >
             {submitted ? (
-              <div className="bg-card rounded-2xl border border-border p-8 text-center">
-                <p className="text-lg font-semibold text-text-primary mb-2">
+              <div className="bg-card rounded-2xl border border-border p-8 text-center space-y-4">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto">
+                  <Check className="w-6 h-6 text-accent" />
+                </div>
+                <p className="text-lg font-semibold text-text-primary">
                   Demo request received!
                 </p>
                 <p className="text-sm text-text-secondary">
-                  We&apos;ll email you within 24 hours to schedule a time.
+                  Check your email — we&apos;ll send a calendar link within 24 hours to schedule your walkthrough.
                 </p>
+                <div className="pt-2 border-t border-border">
+                  <p className="text-xs text-text-muted mb-3">Want to explore on your own in the meantime?</p>
+                  <a
+                    href="https://app.lcadesk.com/auth/signup?role=filer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
+                  >
+                    Start your free trial <ArrowRight size={14} />
+                  </a>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-card rounded-2xl border border-border p-8 space-y-5">
-                <h3 className="text-lg font-semibold text-text-primary">Request a Demo</h3>
+                <h3 className="text-lg font-semibold text-text-primary">Book a Demo</h3>
                 <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">Full Name</label>
                   <input type="text" name="name" required value={form.name} onChange={handleChange} className={inputClasses} />
@@ -139,10 +151,6 @@ export default function DemoPage() {
                 <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">Work Email</label>
                   <input type="email" name="email" required value={form.email} onChange={handleChange} className={inputClasses} />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-1.5">Phone Number</label>
-                  <input type="tel" name="phone" required value={form.phone} onChange={handleChange} className={inputClasses} />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-text-secondary mb-1.5">Company / Organization</label>
@@ -161,25 +169,8 @@ export default function DemoPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-1.5">Country</label>
-                  <select name="country" required value={form.country} onChange={handleChange} className={inputClasses}>
-                    <option value="">Select country</option>
-                    <option value="Guyana">Guyana</option>
-                    <option value="Namibia">Namibia</option>
-                    <option value="Mozambique">Mozambique</option>
-                    <option value="Ghana">Ghana</option>
-                    <option value="Nigeria">Nigeria</option>
-                    <option value="Suriname">Suriname</option>
-                    <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                    <option value="Zambia">Zambia</option>
-                    <option value="United States">United States</option>
-                    <option value="United Kingdom">United Kingdom</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-1.5">What are you most interested in?</label>
-                  <textarea name="message" rows={3} value={form.message} onChange={handleChange} placeholder="e.g. filing automation, regulator review workflows, jurisdiction expansion..." className={inputClasses} />
+                  <label className="block text-sm font-medium text-text-secondary mb-1.5">What are you most interested in? <span className="text-text-muted font-normal">(optional)</span></label>
+                  <textarea name="message" rows={2} value={form.message} onChange={handleChange} placeholder="e.g. filing automation, regulator review workflows..." className={inputClasses} />
                 </div>
                 <button
                   type="submit"
@@ -187,9 +178,14 @@ export default function DemoPage() {
                   className="w-full py-3 rounded-lg text-white font-medium text-sm transition-opacity hover:opacity-90 disabled:opacity-60"
                   style={{ background: "linear-gradient(135deg, #00A87A 0%, #047857 100%)" }}
                 >
-                  {submitting ? "Submitting..." : "Request Demo"}
+                  {submitting ? "Submitting..." : "Book a Demo"}
                 </button>
                 {error && <p className="text-xs text-red-500">{error}</p>}
+                <p className="text-xs text-text-muted text-center">
+                  Or{" "}
+                  <a href="https://app.lcadesk.com/auth/signup?role=filer" className="text-accent hover:underline">start a free trial</a>
+                  {" "}— full access for 30 days.
+                </p>
               </form>
             )}
           </motion.div>

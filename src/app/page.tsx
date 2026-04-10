@@ -38,6 +38,7 @@ import MarketsSection from "@/components/home/MarketsSection";
 import PricingSection from "@/components/home/PricingSection";
 import FAQSection from "@/components/home/FAQSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
+import EmailCapture from "@/components/EmailCapture";
 
 export default function HomePage() {
   return (
@@ -60,11 +61,20 @@ export default function HomePage() {
       <PricingSection />
       <FAQSection />
       <SocialProofSection />
+      <section className="py-16 bg-white">
+        <div className="max-w-xl mx-auto px-6">
+          <EmailCapture
+            headline="Get LCA filing deadline reminders"
+            description="We'll email you 30, 14, and 7 days before each filing deadline. No spam — just the dates that matter."
+            list="filing_reminders"
+          />
+        </div>
+      </section>
       <CTABanner
         headline="Your next filing deadline is closer than you think."
-        body="Mandated local content filings recur on fixed schedules. Start your 30-day trial with full platform access, or request a demo for your jurisdiction."
-        primaryCTA={{ label: "Request a Demo", href: "/demo" }}
-        secondaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        body="Mandated local content filings recur on fixed schedules. Start your 30-day trial with full platform access, or book a demo for your jurisdiction."
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>
   );

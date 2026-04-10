@@ -13,6 +13,7 @@ import {
   Eye,
   ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import GeometricBg from "@/components/GeometricBg";
 import UIFrame from "@/components/UIFrame";
@@ -319,6 +320,36 @@ ending.`}
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Mid-page CTA */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-2xl px-6 text-center">
+          <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="text-2xl font-display font-semibold text-text-primary mb-4">
+            Ready to see this in action?
+          </motion.p>
+          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+            className="text-text-secondary mb-8">
+            Start a free trial with full Professional access, or book a live walkthrough with our team.
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="https://app.lcadesk.com/auth/signup?role=filer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
+            >
+              Start Free Trial <ArrowRight size={16} />
+            </a>
+            <Link
+              href="/demo"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-8 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
+            >
+              Book a Demo
+            </Link>
+          </motion.div>
+          <p className="text-xs text-text-muted mt-4">30-day trial · Full Professional access · No charge until day 31</p>
         </div>
       </section>
 
