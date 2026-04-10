@@ -37,7 +37,11 @@ export default function HowItWorksSection() {
             </motion.div>
           ))}
         </div>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="mt-12 text-center">
+          <a href="https://app.lcadesk.com/auth/signup?role=filer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all">
+            Start Your Free Trial
+          </a>
+          <p className="text-xs text-text-muted mt-3">Full Professional access for 30 days</p>
+        </motion.div>
       </div>
     </section>
-  );
-}

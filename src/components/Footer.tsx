@@ -10,6 +10,7 @@ const columns = [
       { label: "Security", href: "/security" },
       { label: "Changelog", href: "/changelog" },
       { label: "Book a Demo", href: "/demo" },
+      { label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" },
     ],
   },
   {

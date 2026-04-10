@@ -91,7 +91,12 @@ export default function FeaturesGridSection() {
             </motion.div>
           ))}
         </div>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="mt-12 text-center">
+          <p className="text-text-secondary text-sm mb-4">All features included in your 30-day trial.</p>
+          <a href="https://app.lcadesk.com/auth/signup?role=filer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all">
+            Start Free Trial
+          </a>
+        </motion.div>
       </div>
     </section>
-  );
 }

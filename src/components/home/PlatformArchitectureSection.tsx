@@ -84,7 +84,11 @@ export default function PlatformArchitectureSection() {
             </motion.div>
           ))}
         </div>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="mt-10 text-center">
+          <a href="https://app.lcadesk.com/auth/signup?role=filer" className="text-sm font-semibold text-accent hover:underline">
+            See the platform in action — start a free trial &rarr;
+          </a>
+        </motion.div>
       </div>
     </section>
-  );
 }

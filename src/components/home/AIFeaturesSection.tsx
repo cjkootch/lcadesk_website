@@ -98,6 +98,12 @@ export default function RulesAndAutomationSection() {
             </div>
           </motion.div>
         </div>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="mt-12 text-center">
+          <p className="text-emerald-100/70 text-sm mb-4">Claude AI + rules engine. Try it with your own data.</p>
+          <a href="https://app.lcadesk.com/auth/signup?role=filer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-emerald-900 px-8 py-3 text-sm font-semibold hover:bg-emerald-50 hover:shadow-lg transition-all">
+            Start Free Trial
+          </a>
+        </motion.div>
       </div>
     </section>
   );

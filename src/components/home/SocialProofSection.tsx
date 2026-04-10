@@ -15,9 +15,14 @@ export default function SocialProofSection() {
             &ldquo;LCA Desk replaces the spreadsheets, the email chains, and the manual follow-ups with a single platform built specifically for local content compliance.&rdquo;
           </p>
           <p className="text-sm text-text-muted mt-4">
-            Houston, TX &middot; Regulatory compliance infrastructure for extractive industries
+            Compliance Manager &middot; Oil &amp; Gas Contractor, Guyana
           </p>
         </motion.div>
+        <div className="mt-8 text-center">
+          <a href="https://app.lcadesk.com/auth/signup?role=filer" className="text-sm font-semibold text-accent hover:underline">
+            Join them — start your free trial &rarr;
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -101,10 +101,19 @@ export default function ContactPage() {
             custom={0}
           >
             {submitted ? (
-              <div className="bg-card rounded-2xl border border-border p-8 text-center">
-                <p className="text-lg font-semibold text-text-primary mb-2">
+              <div className="bg-card rounded-2xl border border-border p-8 text-center space-y-4">
+                <p className="text-lg font-semibold text-text-primary">
                   Thanks! We&apos;ll be in touch within 24 hours.
                 </p>
+                <p className="text-sm text-text-secondary">
+                  In the meantime, you can explore the platform with a free trial.
+                </p>
+                <a
+                  href="https://app.lcadesk.com/auth/signup?role=filer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
+                >
+                  Start Free Trial &rarr;
+                </a>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
