@@ -115,7 +115,7 @@ export default function HeroSection({
             transition={{ delay: 0.3, duration: 0.6 }}
             className="hidden lg:block"
           >
-            <img src={heroImage.src} alt={heroImage.alt} className="w-full max-w-md mx-auto drop-shadow-xl" loading="eager" />
+            <img src={heroImage.src} alt={heroImage.alt} className="w-full max-w-md mx-auto drop-shadow-xl mix-blend-multiply" loading="eager" />
           </motion.div>
         )}
       </div>
