@@ -91,4 +91,5 @@ export default function PlatformArchitectureSection() {
         </motion.div>
       </div>
     </section>
+  );
 }

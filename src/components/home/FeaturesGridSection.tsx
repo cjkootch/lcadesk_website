@@ -99,4 +99,5 @@ export default function FeaturesGridSection() {
         </motion.div>
       </div>
     </section>
+  );
 }
