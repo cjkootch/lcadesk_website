@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Check, ArrowRight, Shield, Globe, FileCheck } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import GeometricBg from "@/components/GeometricBg";
 
 export default function HeroSection() {
@@ -56,7 +56,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Right: platform schematic */}
+        {/* Right: platform screenshot */}
         <motion.div initial={{ opacity: 0, y: 24, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
           className="hidden lg:block">
           <div className="relative">
@@ -65,50 +65,9 @@ export default function HeroSection() {
               {/* Browser chrome */}
               <div className="flex items-center gap-2 px-5 py-3 bg-gray-50 border-b border-border">
                 <div className="flex gap-1.5"><div className="w-3 h-3 rounded-full bg-red-400" /><div className="w-3 h-3 rounded-full bg-amber-400" /><div className="w-3 h-3 rounded-full bg-green-400" /></div>
-                <div className="flex-1 mx-3"><div className="bg-white rounded-md px-4 py-1.5 text-xs text-text-muted text-center border border-border/50">app.lcadesk.com/reviewer/queue</div></div>
+                <div className="flex-1 mx-3"><div className="bg-white rounded-md px-4 py-1.5 text-xs text-text-muted text-center border border-border/50">app.lcadesk.com/dashboard</div></div>
               </div>
-              {/* Reviewer console mockup */}
-              <div className="p-5 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-text-primary">Submission Review Queue</p>
-                    <p className="text-[10px] text-text-muted">Guyana H1 2026 Filing Period</p>
-                  </div>
-                  <span className="text-[10px] font-medium bg-accent/10 text-accent px-2 py-0.5 rounded-full">12 pending review</span>
-                </div>
-                {/* Submission rows */}
-                <div className="space-y-2">
-                  {[
-                    { company: "Atlantic Marine Services Ltd", type: "Half-Yearly Report", status: "Submitted", statusColor: "bg-blue-100 text-blue-700", score: "94%" },
-                    { company: "Guyana Oilfield Supplies Inc", type: "Half-Yearly Report", status: "Needs Information", statusColor: "bg-amber-100 text-amber-700", score: "71%" },
-                    { company: "Caribbean Drilling Corp", type: "Annual Plan", status: "Under Review", statusColor: "bg-purple-100 text-purple-700", score: "88%" },
-                  ].map((row, i) => (
-                    <div key={i} className="flex items-center gap-3 p-2.5 rounded-lg bg-surface border border-border">
-                      <div className="flex-1 min-w-0">
-                        <p className="text-[11px] font-medium text-text-primary truncate">{row.company}</p>
-                        <p className="text-[9px] text-text-muted">{row.type}</p>
-                      </div>
-                      <span className={`text-[9px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${row.statusColor}`}>{row.status}</span>
-                      <div className="text-right flex-shrink-0">
-                        <p className="text-[10px] font-bold text-accent">{row.score}</p>
-                        <p className="text-[8px] text-text-muted">Validation</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                {/* Bottom bar */}
-                <div className="flex items-center gap-3 pt-2 border-t border-border/50">
-                  <div className="flex items-center gap-1.5 text-[10px] text-text-muted">
-                    <Shield size={11} className="text-accent" /> Audit trail active
-                  </div>
-                  <div className="flex items-center gap-1.5 text-[10px] text-text-muted">
-                    <Globe size={11} className="text-accent" /> Guyana LCA v4.1
-                  </div>
-                  <div className="flex items-center gap-1.5 text-[10px] text-text-muted">
-                    <FileCheck size={11} className="text-accent" /> 47 rules validated
-                  </div>
-                </div>
-              </div>
+              <img src="/illustrations/feature-dashboard.png" alt="LCA Desk compliance dashboard" className="w-full" loading="eager" />
             </div>
           </div>
         </motion.div>
