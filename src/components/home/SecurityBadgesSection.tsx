@@ -62,7 +62,7 @@ export default function SecurityBadgesSection() {
             >
               <div className="flex-shrink-0">
                 {"logo" in badge && badge.logo ? (
-                  <img src={badge.logo} alt={badge.label} className="w-7 h-7 object-contain" />
+                  <img src={badge.logo} alt={badge.label} className="w-10 h-10 object-contain" />
                 ) : (
                   "icon" in badge && badge.icon
                 )}
