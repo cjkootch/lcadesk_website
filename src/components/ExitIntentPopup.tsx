@@ -56,11 +56,12 @@ export default function ExitIntentPopup() {
             </button>
 
             <div className="text-center">
-              <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7 text-accent">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
+              <div className="rounded-xl overflow-hidden border border-border mb-5 shadow-sm">
+                <img
+                  src="/illustrations/feature-dashboard.png"
+                  alt="LCA Desk compliance dashboard showing reports, analytics, and filing status"
+                  className="w-full h-auto"
+                />
               </div>
               <h2 className="font-display text-xl text-text-primary mb-2">
                 Don&apos;t leave without your free trial
