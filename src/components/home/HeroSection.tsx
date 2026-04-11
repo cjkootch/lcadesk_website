@@ -32,10 +32,12 @@ export default function HeroSection() {
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-3 mb-8">
-            <Link href="/demo"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 hover:scale-[1.02] transition-all">
-              Book a Demo <ArrowRight size={16} />
-            </Link>
+            <motion.div animate={{ boxShadow: ["0 10px 25px -5px rgba(0,168,122,0.25)", "0 10px 35px -5px rgba(0,168,122,0.45)", "0 10px 25px -5px rgba(0,168,122,0.25)"] }} transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }} className="rounded-xl">
+              <Link href="/demo"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-4 text-sm font-semibold text-white hover:scale-[1.02] transition-transform">
+                Book a Demo <ArrowRight size={16} />
+              </Link>
+            </motion.div>
             <a href="https://app.lcadesk.com/auth/signup?role=filer"
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-accent/30 text-accent px-8 py-4 text-sm font-semibold hover:bg-accent/5 hover:border-accent transition-all">
               Start Free Trial
