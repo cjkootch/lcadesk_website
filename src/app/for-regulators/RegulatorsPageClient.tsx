@@ -92,6 +92,29 @@ export default function RegulatorsPageClient() {
         </div>
       </section>
 
+      {/* Secretariat Dashboard Preview */}
+      <section className="py-16 bg-surface">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 via-teal/10 to-transparent rounded-3xl blur-2xl" />
+              <div className="relative rounded-2xl border border-border bg-white shadow-2xl shadow-black/[0.08] overflow-hidden">
+                <div className="flex items-center gap-2 px-5 py-3 bg-gray-50 border-b border-border">
+                  <div className="flex gap-1.5"><div className="w-3 h-3 rounded-full bg-red-400" /><div className="w-3 h-3 rounded-full bg-amber-400" /><div className="w-3 h-3 rounded-full bg-green-400" /></div>
+                  <div className="flex-1 mx-3"><div className="bg-white rounded-md px-4 py-1.5 text-xs text-text-muted text-center border border-border/50">app.lcadesk.com/secretariat/review-queue</div></div>
+                </div>
+                <img src="/illustrations/screenshot-secretariat.png" alt="LCA Desk Secretariat review console" className="w-full" loading="eager" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Capabilities */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
