@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Check, ArrowRight } from "lucide-react";
 import GeometricBg from "@/components/GeometricBg";
 
@@ -67,7 +68,7 @@ export default function HeroSection() {
                 <div className="flex gap-1.5"><div className="w-3 h-3 rounded-full bg-red-400" /><div className="w-3 h-3 rounded-full bg-amber-400" /><div className="w-3 h-3 rounded-full bg-green-400" /></div>
                 <div className="flex-1 mx-3"><div className="bg-white rounded-md px-4 py-1.5 text-xs text-text-muted text-center border border-border/50">app.lcadesk.com/dashboard</div></div>
               </div>
-              <img src="/illustrations/feature-dashboard.png" alt="LCA Desk compliance dashboard" className="w-full" loading="eager" />
+              <Image src="/illustrations/feature-dashboard.png" alt="LCA Desk compliance dashboard" width={800} height={500} quality={90} className="w-full" priority />
             </div>
           </div>
         </motion.div>

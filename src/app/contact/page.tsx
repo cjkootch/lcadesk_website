@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Mail, MapPin, Clock } from "lucide-react";
 import { track } from "@vercel/analytics";
 import HeroSection from "@/components/HeroSection";
@@ -287,7 +288,7 @@ export default function ContactPage() {
               </motion.div>
             ))}
             <div className="hidden lg:block">
-              <img src="/illustrations/hero-contact.png" alt="Contact LCA Desk support team for compliance questions" className="w-full rounded-2xl" loading="eager" />
+              <Image src="/illustrations/hero-contact.png" alt="Contact LCA Desk support team for compliance questions" width={600} height={400} quality={90} className="w-full rounded-2xl" />
             </div>
           </div>
         </div>

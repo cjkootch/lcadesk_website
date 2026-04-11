@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
 import CTABanner from "@/components/CTABanner";
 import EmailCapture from "@/components/EmailCapture";
@@ -93,7 +94,7 @@ export default function LCAFilingCalendarPage() {
         </p>
         </div>
         <div className="hidden lg:block sticky top-24 w-72">
-          <img src="/illustrations/hero-filing-calendar.png" alt="LCA filing calendar with deadline markers and submission dates" className="w-full rounded-2xl" loading="eager" />
+          <Image src="/illustrations/hero-filing-calendar.png" alt="LCA filing calendar with deadline markers and submission dates" width={600} height={400} quality={90} className="w-full rounded-2xl" />
         </div>
         </div>
       </section>

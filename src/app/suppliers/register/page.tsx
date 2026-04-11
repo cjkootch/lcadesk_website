@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Building2, ShieldCheck, AlertTriangle, Loader2 } from "lucide-react";
@@ -142,7 +143,7 @@ export default function SupplierRegister() {
       <div className="relative max-w-xl mx-auto px-6 z-10">
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
           <div className="text-center mb-8">
-            <img src="/illustrations/feature-register.png" alt="Supplier registration" className="w-24 h-24 object-contain mx-auto mb-5 drop-shadow-lg" />
+            <Image src="/illustrations/feature-register.png" alt="Supplier registration" width={96} height={96} quality={90} className="w-24 h-24 object-contain mx-auto mb-5 drop-shadow-lg" />
             <h1 className="font-display text-3xl md:text-4xl text-text-primary mb-3">
               Register as a <span className="gradient-text-static">Supplier</span>
             </h1>

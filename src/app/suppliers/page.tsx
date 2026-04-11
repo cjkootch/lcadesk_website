@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Building2, ShieldCheck, Search, FileCheck, Truck, Wrench, HardHat, Utensils, GraduationCap, Stethoscope, Anchor, Globe, Leaf, Monitor, Shield, Trash2, Package } from "lucide-react";
 import CTABanner from "@/components/CTABanner";
 import GeometricBg from "@/components/GeometricBg";
@@ -91,7 +92,7 @@ export default async function SuppliersPage() {
             </div>
           </div>
           <div className="hidden lg:block">
-            <img src="/illustrations/hero-suppliers.png" alt="Supplier directory with verified certification badges" className="w-full rounded-2xl" loading="eager" />
+            <Image src="/illustrations/hero-suppliers.png" alt="Supplier directory with verified certification badges" width={600} height={400} quality={90} className="w-full rounded-2xl" />
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Search, ShieldCheck, AlertTriangle, XCircle, Loader2, FileCheck, Clock, Building2 } from "lucide-react";
 import GeometricBg from "@/components/GeometricBg";
 
@@ -52,7 +53,7 @@ export default function VerifyPage() {
         <div className="absolute top-20 right-[10%] w-[400px] h-[400px] bg-accent/[0.05] rounded-full blur-[100px] pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-6 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="hidden lg:block order-2">
-          <img src="/illustrations/hero-verify.png" alt="Certificate verification" className="w-full max-w-md mx-auto drop-shadow-xl" loading="eager" />
+          <Image src="/illustrations/hero-verify.png" alt="Certificate verification" width={500} height={500} quality={90} className="w-full max-w-md mx-auto drop-shadow-xl" />
         </div>
         <div className="text-center lg:text-left">
           <div className="inline-flex items-center gap-2 mb-5 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">

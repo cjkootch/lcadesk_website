@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Scale, FileCheck, UserCheck, Briefcase, GraduationCap, Wrench, Users, Clock, TrendingUp, ShieldCheck, Building2, User } from "lucide-react";
 import type { PublicJob } from "@/lib/types";
 import JobFilters from "@/components/JobFilters";
@@ -186,7 +187,7 @@ export default async function JobsPage() {
             </div>
           </div>
           <div className="hidden lg:block">
-            <img src="/illustrations/hero-jobs.png" alt="Oil and gas jobs board for Guyanese workers and professionals" className="w-full rounded-2xl" loading="eager" />
+            <Image src="/illustrations/hero-jobs.png" alt="Oil and gas jobs board for Guyanese workers and professionals" width={600} height={400} quality={90} className="w-full rounded-2xl" />
           </div>
         </div>
       </section>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Clock, Calendar, User, Tag } from "lucide-react";
 import type { BlogPost } from "@/lib/blog";
 import EmailCapture from "@/components/EmailCapture";
@@ -157,9 +158,12 @@ export default function BlogPageClient({ posts, categories }: Props) {
                   >
                     {/* Cover image */}
                     <div className="h-36 bg-surface flex items-center justify-center overflow-hidden">
-                      <img
+                      <Image
                         src={categoryImages[post.category] || "/illustrations/blog-guide.png"}
                         alt=""
+                        width={200}
+                        height={96}
+                        quality={85}
                         className="h-24 w-auto object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>

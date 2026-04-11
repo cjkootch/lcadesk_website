@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
 import CTABanner from "@/components/CTABanner";
 
@@ -48,7 +49,7 @@ export default function AboutPage() {
             </p>
           </motion.div>
           <div className="hidden lg:block">
-            <img src="/illustrations/hero-about.png" alt="LCA Desk team connecting Houston and Guyana energy sectors" className="w-full rounded-2xl" loading="eager" />
+            <Image src="/illustrations/hero-about.png" alt="LCA Desk team connecting Houston and Guyana energy sectors" width={600} height={400} quality={90} className="w-full rounded-2xl" />
           </div>
         </div>
       </section>
@@ -63,11 +64,13 @@ export default function AboutPage() {
             className="flex flex-col md:flex-row items-center gap-10"
           >
             <div className="shrink-0">
-              <img
+              <Image
                 src="/illustrations/founder-cole.png"
                 alt="Cole Kutschinski, Founder of LCA Desk"
+                width={160}
+                height={160}
+                quality={90}
                 className="w-40 h-40 rounded-2xl object-cover shadow-lg"
-                loading="lazy"
               />
             </div>
             <div>
@@ -89,7 +92,7 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline"
               >
-                <img src="/illustrations/linkedin-icon.webp" alt="LinkedIn" className="w-5 h-5" /> Cole Kutschinski on LinkedIn
+                <Image src="/illustrations/linkedin-icon.webp" alt="LinkedIn" width={20} height={20} className="w-5 h-5" /> Cole Kutschinski on LinkedIn
               </a>
             </div>
           </motion.div>

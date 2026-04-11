@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Lock,
   Cloud,
@@ -95,7 +96,7 @@ export default function SecurityPage() {
       <section className="mx-auto max-w-6xl px-6 py-24">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div className="hidden lg:block rounded-xl border border-border bg-card p-6">
-            <img src="/illustrations/hero-security.png" alt="Enterprise-grade data security and encryption for compliance data" className="w-full rounded-2xl" loading="eager" />
+            <Image src="/illustrations/hero-security.png" alt="Enterprise-grade data security and encryption for compliance data" width={600} height={400} quality={90} className="w-full rounded-2xl" />
           </div>
           {securityCards.map((card, i) => (
             <motion.div

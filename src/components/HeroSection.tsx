@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import GeometricBg from "./GeometricBg";
 
@@ -115,7 +116,7 @@ export default function HeroSection({
             transition={{ delay: 0.3, duration: 0.6 }}
             className="hidden lg:block"
           >
-            <img src={heroImage.src} alt={heroImage.alt} className="w-full max-w-md mx-auto drop-shadow-xl" loading="eager" />
+            <Image src={heroImage.src} alt={heroImage.alt} width={500} height={500} quality={90} className="w-full max-w-md mx-auto drop-shadow-xl" priority />
           </motion.div>
         )}
       </div>

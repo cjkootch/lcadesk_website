@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Briefcase, ShieldCheck, Clock, TrendingUp, Building2, Truck, Wrench, HardHat, Utensils, GraduationCap, Stethoscope, Anchor } from "lucide-react";
 import { fetchOpportunities } from "@/lib/opportunities";
 import OpportunityFilters from "@/components/OpportunityFilters";
@@ -98,7 +99,7 @@ export default async function OpportunitiesPage() {
             </div>
           </div>
           <div className="hidden lg:block">
-            <img src="/illustrations/hero-opportunities.png" alt="Oil and gas procurement opportunities board for Guyana local content" className="w-full rounded-2xl" loading="eager" />
+            <Image src="/illustrations/hero-opportunities.png" alt="Oil and gas procurement opportunities board for Guyana local content" width={600} height={400} quality={90} className="w-full rounded-2xl" />
           </div>
         </div>
       </section>
