@@ -142,9 +142,7 @@ export default function SupplierRegister() {
       <div className="relative max-w-xl mx-auto px-6 z-10">
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
           <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent/15 to-teal/10 flex items-center justify-center mx-auto mb-5">
-              <Building2 size={24} className="text-accent" />
-            </div>
+            <img src="/illustrations/feature-register.png" alt="Supplier registration" className="w-24 h-24 object-contain mx-auto mb-5 drop-shadow-lg" />
             <h1 className="font-display text-3xl md:text-4xl text-text-primary mb-3">
               Register as a <span className="gradient-text-static">Supplier</span>
             </h1>

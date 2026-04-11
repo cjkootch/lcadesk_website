@@ -29,6 +29,13 @@ const categoryColors: Record<string, { bg: string; text: string; dot: string }> 
 
 const defaultColor = { bg: "bg-gray-50", text: "text-gray-600", dot: "bg-gray-400" };
 
+const categoryImages: Record<string, string> = {
+  "Regulatory Updates": "/illustrations/blog-regulatory.png",
+  "Compliance Tips": "/illustrations/blog-guide.png",
+  "Industry Analysis": "/illustrations/blog-regulatory.png",
+  "Product Updates": "/illustrations/blog-guide.png",
+};
+
 export default function BlogPageClient({ posts, categories }: Props) {
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -148,10 +155,14 @@ export default function BlogPageClient({ posts, categories }: Props) {
                     href={`/blog/${post.slug}`}
                     className="block bg-white rounded-2xl border border-border overflow-hidden group hover:shadow-lg hover:shadow-accent/5 hover:border-accent/20 transition-all h-full"
                   >
-                    {/* Color bar */}
-                    <div className={`h-1`}
-                      style={{ background: `var(--${color.dot.replace("bg-", "").replace("-500", "")}-500, ${color.dot === "bg-blue-500" ? "#3b82f6" : color.dot === "bg-emerald-500" ? "#10b981" : color.dot === "bg-purple-500" ? "#8b5cf6" : color.dot === "bg-amber-500" ? "#f59e0b" : "#9ca3af"})` }}
-                    />
+                    {/* Cover image */}
+                    <div className="h-36 bg-surface flex items-center justify-center overflow-hidden">
+                      <img
+                        src={categoryImages[post.category] || "/illustrations/blog-guide.png"}
+                        alt=""
+                        className="h-24 w-auto object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
                     <div className="p-6 flex flex-col h-full">
                       {/* Category + date */}
                       <div className="flex items-center justify-between mb-3">

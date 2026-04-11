@@ -64,6 +64,7 @@ export default function ForSuppliersPage() {
         primaryCTA={{ label: "Get Listed Free", href: "https://app.lcadesk.com/auth/signup?role=supplier" }}
         secondaryCTA={{ label: "Browse Opportunities", href: "/opportunities" }}
         geometricVariant="grid"
+        heroImage={{ src: "/illustrations/feature-filing.png", alt: "Filing and compliance workflows" }}
       />
 
       {/* How it connects */}

@@ -67,6 +67,7 @@ export default function ForContractorsPage() {
         primaryCTA={{ label: "Start 30-Day Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
         geometricVariant="topology"
+        heroImage={{ src: "/illustrations/cta-signup.png", alt: "Start your compliance journey" }}
       />
 
       {/* Who is this for */}
