@@ -57,9 +57,9 @@ export default function SecurityBadgesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={vp}
               transition={{ delay: i * 0.06 }}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-border/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-sm transition-shadow"
+              className="flex items-center gap-3 px-5 py-4 rounded-xl bg-white border border-border/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-sm transition-shadow h-[72px]"
             >
-              <div className="flex-shrink-0">
+              <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
                 <img src={badge.logo} alt={badge.label} className={`${badge.size} object-contain`} />
               </div>
               <div className="flex flex-col">
