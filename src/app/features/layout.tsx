@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Features",
+  title: "Platform",
   description:
     "Explore LCA Desk features — AI narrative drafting, compliance gap detection, filing calendar, audit-ready reports, and more for LCA compliance.",
   alternates: { canonical: "https://lcadesk.com/features" },

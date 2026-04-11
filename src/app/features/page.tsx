@@ -120,11 +120,10 @@ export default function FeaturesPage() {
     <main>
       {/* 1. Hero */}
       <HeroSection
-        eyebrow="Features"
+        eyebrow="Platform"
         headline="Everything you need for LCA compliance."
         sub="From guided data entry to AI narrative drafting — LCA Desk handles the complexity so you can focus on your business."
         geometricVariant="nodes"
-        heroImage={{ src: "/illustrations/feature-export.png", alt: "Compliance features overview" }}
       />
 
       {/* 2. AI Features Section */}
