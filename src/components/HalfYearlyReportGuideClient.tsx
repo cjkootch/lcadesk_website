@@ -56,7 +56,7 @@ export default function HalfYearlyReportGuideClient() {
         eyebrow="Compliance Guide"
         headline="LCA Half-Yearly Report Guide"
         sub="Everything you need to know about Guyana's mandatory half-yearly filing — deadlines, who must file, what's required, and the penalties for non-compliance."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "View Filing Calendar", href: "/lca-filing-calendar" }}
         geometricVariant="grid"
       />
@@ -206,7 +206,7 @@ export default function HalfYearlyReportGuideClient() {
               href="https://app.lcadesk.com/auth/signup?role=filer"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
             >
-              Start 30-Day Trial <ArrowRight size={16} />
+              Start Free Trial <ArrowRight size={16} />
             </Link>
           </motion.div>
         </div>
@@ -327,7 +327,7 @@ export default function HalfYearlyReportGuideClient() {
               href="https://app.lcadesk.com/auth/signup?role=filer"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-6 py-3 text-sm font-semibold text-white whitespace-nowrap hover:shadow-lg hover:scale-[1.02] transition-all"
             >
-              Start 30-Day Trial <ArrowRight size={14} />
+              Start Free Trial <ArrowRight size={14} />
             </Link>
           </motion.div>
         </div>
@@ -428,8 +428,8 @@ export default function HalfYearlyReportGuideClient() {
 
       <CTABanner
         headline="Stop guessing. Start filing with confidence."
-        body="LCA Desk walks you through every required field, auto-generates compliant reports, and flags gaps before you submit. 30-day trial — card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        body="LCA Desk walks you through every required field, auto-generates compliant reports, and flags gaps before you submit. 30-day free trial — no card required."
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </main>

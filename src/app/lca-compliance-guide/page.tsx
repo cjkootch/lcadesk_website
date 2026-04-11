@@ -102,8 +102,8 @@ export default function LCAComplianceGuidePage() {
 
       <CTABanner
         headline="Let LCA Desk handle the complexity."
-        body="Start your 30-day trial — full Professional access, card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        body="Start free today — no card required. 30 days of full Professional access."
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

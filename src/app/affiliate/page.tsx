@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { DollarSign, Link2, Share2, TrendingUp, Users, Globe, GraduationCap, Building2, Calculator } from "lucide-react";
+import { DollarSign, Link2, Share2, TrendingUp, Users, Globe, GraduationCap, Building2, Calculator, ArrowRight } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTABanner from "@/components/CTABanner";
@@ -19,7 +19,7 @@ const commissionTiers = [
 const steps = [
   { icon: Link2, title: "Apply & get your link", desc: "Sign up as an affiliate and get your unique referral URL in seconds." },
   { icon: Share2, title: "Share with your network", desc: "Use our marketing assets, email templates, or your own outreach to spread the word." },
-  { icon: DollarSign, title: "Earn monthly", desc: "We pay 20% recurring commission via PayPal on the 1st of every month." },
+  { icon: DollarSign, title: "Earn monthly", desc: "We pay 20% recurring commission via PayPal on the 1st of every month. Alternatively, any LCA Desk user can share their referral link — when the referred company files their first report, both parties get 14 extra trial days automatically." },
 ];
 
 const audiences = [
@@ -237,6 +237,20 @@ export default function AffiliatePage() {
           </div>
         </div>
       </section>
+
+      {/* User referral callout */}
+      <div className="py-12 bg-surface">
+        <div className="mt-0 rounded-xl border border-border bg-white p-6 max-w-2xl mx-auto text-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-2">Not applying as an affiliate?</p>
+          <h3 className="text-lg font-semibold text-text-primary mb-2">Every user has a referral link</h3>
+          <p className="text-sm text-text-secondary mb-4 max-w-md mx-auto">
+            Any LCA Desk account comes with a personal referral link. When someone signs up through your link and files their first report, you both get 14 extra days added to your trial — automatically, no application needed.
+          </p>
+          <a href="https://app.lcadesk.com/auth/signup?role=filer" className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
+            Sign up and get your link <ArrowRight size={14} />
+          </a>
+        </div>
+      </div>
 
       {/* Who Is This For */}
       <section className="py-20 bg-white">

@@ -99,7 +99,7 @@ export default function HomePageClient() {
             </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45, duration: 0.5 }}
               className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-text-muted">
-              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> 30-day trial, card collected</span>
+              <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> 30-day free trial, no card required</span>
               <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Full Professional access</span>
               <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Cancel anytime</span>
             </motion.div>
@@ -583,8 +583,8 @@ export default function HomePageClient() {
       {/* 15. CTA Banner */}
       <CTABanner
         headline="Your next LCA filing deadline is closer than you think."
-        body="H1 reports are due July 30. H2 reports are due January 30. Start your 30-day trial — full Professional access, card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        body="H1 reports are due July 30. H2 reports are due January 30. Start free — no card required, full Professional access for 30 days."
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

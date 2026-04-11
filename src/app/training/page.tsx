@@ -297,7 +297,7 @@ export default function TrainingPage() {
       <CTABanner
         headline="Start with LCA Fundamentals — free with your trial."
         body="Your 30-day trial includes full access to LCA Fundamentals. Train your team, earn badges, and file your first report with confidence."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </>

@@ -194,6 +194,12 @@ export default function NavBar() {
           >
             Log In
           </Link>
+          <a
+            href="https://app.lcadesk.com/try"
+            className="text-xs text-text-muted hover:text-accent transition-colors hidden sm:inline"
+          >
+            Live Demo
+          </a>
           <Link
             href="/demo"
             className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"

@@ -38,17 +38,24 @@ export default function HeroSection() {
             </Link>
             <a href="https://app.lcadesk.com/auth/signup?role=filer"
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-accent/30 text-accent px-8 py-4 text-sm font-semibold hover:bg-accent/5 hover:border-accent transition-all">
-              Start 30-Day Trial
+              Start Free Trial
             </a>
           </motion.div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }}
-            className="flex items-center gap-2 text-xs text-text-muted mb-4">
-            <Check size={13} className="text-accent" /> Full Professional access
+            className="flex items-center gap-2 text-xs text-text-muted mb-2">
+            <Check size={13} className="text-accent" /> 30-day free trial
             <span className="text-border">·</span>
-            Cancel anytime
+            No card required
             <span className="text-border">·</span>
-            No charge until day 31
+            Full Professional access
           </motion.div>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35, duration: 0.5 }}
+            className="text-xs text-text-muted mb-4">
+            Or{" "}
+            <a href="https://app.lcadesk.com/try" className="text-accent hover:underline font-medium">
+              explore a live demo without signing up &rarr;
+            </a>
+          </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45, duration: 0.5 }}
             className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-text-muted">
             <span className="flex items-center gap-1.5"><Check size={13} className="text-accent" /> Regulatory-grade workflows</span>

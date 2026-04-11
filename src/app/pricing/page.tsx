@@ -13,12 +13,12 @@ const pricingFAQs = [
     a: "Essentials ($199/month) covers 1 entity, 3 users, all 5 submission types, and includes a Compliance Health Score. Professional ($399/month) adds AI Narrative Drafting, Compliance Gap Detection, up to 5 entities, workforce + procurement dashboards, and a payment log.",
   },
   {
-    q: "Does the 30-day trial include AI features?",
-    a: "Yes. Full Professional access including AI Narrative Drafting and Compliance Gap Detection. A credit card is collected at signup but you won't be charged until the trial ends.",
+    q: "Does the free trial include AI features?",
+    a: "Yes. Your 30-day free trial includes full Professional access — AI Narrative Drafting, Compliance Gap Detection, unlimited reports, and everything else. No credit card required to start. Add a payment method before your trial ends to keep access.",
   },
   {
-    q: "What happens after the 30-day trial?",
-    a: "If you don't select a paid plan (Essentials or Professional), platform access is paused — you won't be able to create, edit, or export reports. Your data is saved for 90 days. Upgrade anytime to pick up where you left off.",
+    q: "What happens when my trial ends?",
+    a: "If you don't add a payment method before your trial ends, your account moves to read-only mode. Your data is saved for 90 days and exportable on request. Upgrade anytime to Essentials ($199/mo) or Professional ($399/mo) to restore full access.",
   },
   {
     q: "What happens when I cancel?",
@@ -49,7 +49,7 @@ const pricingJsonLd = {
         billingDuration: "P1M",
       },
       description:
-        "1 entity, 3 users, all 5 submission types, guided data entry, deadline alerts, Compliance Health Score, unlimited reports.",
+        "30-day free trial, no credit card required. 1 entity, 3 users, all 5 submission types, guided data entry, deadline alerts, Compliance Health Score, unlimited reports.",
       url: "https://app.lcadesk.com/auth/signup?role=filer",
     },
     {
@@ -64,7 +64,7 @@ const pricingJsonLd = {
         billingDuration: "P1M",
       },
       description:
-        "Up to 5 entities, 10 users, unlimited reports, AI Narrative Drafting, AI Compliance Gap Detection, Compliance Health Score, dashboards, payment log, audit trail.",
+        "30-day free trial, no credit card required. Up to 5 entities, 10 users, unlimited reports, AI Narrative Drafting, AI Compliance Gap Detection, Compliance Health Score, dashboards, payment log, audit trail.",
       url: "https://app.lcadesk.com/auth/signup?role=filer",
     },
     {
@@ -105,7 +105,7 @@ export default function PricingPage() {
       <HeroSection
         eyebrow="Pricing"
         headline="Simple, transparent pricing."
-        sub="30-day trial with card collected. Cancel anytime."
+        sub="30-day free trial. No card required. Cancel anytime."
         geometricVariant="grid"
         heroImage={{ src: "/illustrations/hero-pricing.png", alt: "LCA Desk pricing plans" }}
       />
@@ -190,8 +190,8 @@ export default function PricingPage() {
 
       <CTABanner
         headline="Ready to simplify LCA compliance?"
-        body="Start your 30-day trial today. Full Professional access, card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        body="Start free today — no card required. 30 days of full Professional access. Add a payment method anytime before your trial ends."
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </main>

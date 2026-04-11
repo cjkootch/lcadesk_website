@@ -37,7 +37,7 @@ const plans: Plan[] = [
       "1 year data history",
       "Email support (48hr)",
     ],
-    cta: { label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" },
+    cta: { label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" },
     monthlySubtext: "per month",
     annualSubtext: "$1,910/yr \u00b7 save $478",
   },
@@ -60,7 +60,7 @@ const plans: Plan[] = [
       "Unlimited data history",
       "Priority support (24hr)",
     ],
-    cta: { label: "Start 30-Day Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" },
+    cta: { label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" },
     monthlySubtext: "per month",
     annualSubtext: "$3,830/yr \u00b7 save $958",
   },
@@ -255,12 +255,12 @@ function ComparisonTable() {
             <div className="grid grid-cols-4 gap-4 mt-4 max-w-5xl">
               <div className="text-center">
                 <Link href="https://app.lcadesk.com/auth/signup?role=filer" className="text-xs font-semibold text-accent hover:underline">
-                  Start Trial
+                  Start Free
                 </Link>
               </div>
               <div className="text-center">
                 <Link href="https://app.lcadesk.com/auth/signup?role=filer" className="text-xs font-semibold text-accent hover:underline">
-                  Start Trial
+                  Start Free
                 </Link>
               </div>
               <div className="text-center">
@@ -335,7 +335,7 @@ export default function PricingToggle() {
           >
             {plan.highlighted && (
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] font-medium uppercase tracking-wider px-3 py-1 rounded-full whitespace-nowrap">
-                Most Popular
+                Your Trial Plan
               </span>
             )}
 
@@ -408,7 +408,7 @@ export default function PricingToggle() {
 
       {/* Footnote */}
       <p className="text-text-muted text-sm text-center mt-8">
-        30-day trial with card collected upfront. Cancel anytime. Data exportable on request.
+        30-day free trial, no card required. Add a payment method anytime before your trial ends. Cancel anytime.
       </p>
 
       {/* Feature comparison table */}

@@ -174,8 +174,8 @@ export default function ForContractorsPage() {
 
       <CTABanner
         headline="Your next filing deadline is closer than you think."
-        body="H1 reports are due July 30. H2 reports are due January 30. Start your 30-day trial — full Professional access, card collected at signup."
-        primaryCTA={{ label: "Start 30-Day Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
+        body="H1 reports are due July 30. H2 reports are due January 30. Start free — no card required, full Professional access for 30 days."
+        primaryCTA={{ label: "Start Free Trial", href: "https://app.lcadesk.com/auth/signup?role=filer" }}
         secondaryCTA={{ label: "Book a Demo", href: "/demo" }}
       />
     </main>

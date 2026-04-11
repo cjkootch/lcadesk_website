@@ -110,6 +110,17 @@ export default function DemoPage() {
               </a>{" "}
               to schedule directly
             </p>
+            <div className="mt-6 p-5 rounded-xl border border-accent/20 bg-accent/5">
+              <p className="text-sm font-semibold text-text-primary mb-1">
+                Want to explore right now?
+              </p>
+              <p className="text-xs text-text-muted mb-3">
+                Try a live pre-filled dashboard — no signup, no form. See a real compliance workflow in seconds.
+              </p>
+              <a href="https://app.lcadesk.com/try" className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline">
+                Open live demo <ArrowRight size={14} />
+              </a>
+            </div>
           </motion.div>
 
           {/* Right: Demo request form */}
@@ -131,13 +142,13 @@ export default function DemoPage() {
                 <p className="text-sm text-text-secondary">
                   Check your email — we&apos;ll send a calendar link within 24 hours to schedule your walkthrough.
                 </p>
-                <div className="pt-2 border-t border-border">
-                  <p className="text-xs text-text-muted mb-3">Want to explore on your own in the meantime?</p>
-                  <a
-                    href="https://app.lcadesk.com/auth/signup?role=filer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
-                  >
-                    Start your free trial <ArrowRight size={14} />
+                <div className="flex flex-col gap-2 pt-2 border-t border-border">
+                  <p className="text-xs text-text-muted mb-1">Explore on your own while you wait:</p>
+                  <a href="https://app.lcadesk.com/try" className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
+                    Open live demo — no signup <ArrowRight size={14} />
+                  </a>
+                  <a href="https://app.lcadesk.com/auth/signup?role=filer" className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-secondary hover:underline">
+                    Or start your 30-day free trial <ArrowRight size={14} />
                   </a>
                 </div>
               </div>
@@ -184,7 +195,7 @@ export default function DemoPage() {
                 <p className="text-xs text-text-muted text-center">
                   Or{" "}
                   <a href="https://app.lcadesk.com/auth/signup?role=filer" className="text-accent hover:underline">start a free trial</a>
-                  {" "}— full access for 30 days.
+                  {" "}— 30 days, no card required.
                 </p>
               </form>
             )}
