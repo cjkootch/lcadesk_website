@@ -255,24 +255,14 @@ ending.`}
 
       {/* 3. Features Grid */}
       <section className="mx-auto max-w-6xl px-6 py-24">
-        <div className="flex flex-col items-center mb-12">
-          <motion.img
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            src="/illustrations/feature-reporting.png"
-            alt="Compliance reporting and analytics"
-            className="w-24 h-24 object-contain mb-6 drop-shadow-lg mix-blend-multiply"
-          />
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center text-3xl font-bold text-text-primary"
-          >
-            Platform Features
-          </motion.h2>
-        </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12 text-center text-3xl font-bold text-text-primary"
+        >
+          Platform Features
+        </motion.h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {gridFeatures.map((f, i) => (
             <motion.div
