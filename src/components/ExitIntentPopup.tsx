@@ -58,7 +58,7 @@ export default function ExitIntentPopup() {
             <div className="text-center">
               <div className="mb-5">
                 <img
-                  src="/illustrations/cta-signup.png"
+                  src="/illustrations/start-cta.svg"
                   alt="Get started with LCA Desk"
                   className="w-full h-auto max-h-44 object-contain"
                 />
