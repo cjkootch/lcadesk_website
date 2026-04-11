@@ -353,6 +353,11 @@ export default function PricingToggle() {
                 {plan.aiBadge}
               </p>
             )}
+            {plan.name === "Professional" && (
+              <p className="text-xs text-text-muted mb-2">
+                Everything in your free trial — keep it after day 30
+              </p>
+            )}
 
             <div className="mb-1 mt-2">
               {plan.isService ? (

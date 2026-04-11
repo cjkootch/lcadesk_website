@@ -9,10 +9,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fixed dates representing when content was last meaningfully updated.
   // Update these when page content actually changes.
   const staticPages: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: "2026-04-09", changeFrequency: "weekly", priority: 1.0 },
-    { url: `${baseUrl}/pricing`, lastModified: "2026-03-15", changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/markets`, lastModified: "2026-03-15", changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/features`, lastModified: "2026-03-15", changeFrequency: "monthly", priority: 0.9 },
+    { url: baseUrl, lastModified: "2026-04-11", changeFrequency: "weekly", priority: 1.0 },
+    { url: `${baseUrl}/pricing`, lastModified: "2026-04-11", changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/markets`, lastModified: "2026-04-11", changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/features`, lastModified: "2026-04-11", changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/opportunities`, lastModified: "2026-04-01", changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/jobs`, lastModified: "2026-04-01", changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/security`, lastModified: "2026-02-01", changeFrequency: "monthly", priority: 0.8 },
