@@ -95,8 +95,8 @@ export default async function OpportunitiesPage() {
               Log In
             </Link>
           </div>
-          <div className="hidden lg:block mt-12">
-            <img src="/illustrations/hero-opportunities.png" alt="Oil and gas procurement opportunities board for Guyana local content" className="w-full max-w-2xl mx-auto rounded-2xl mix-blend-multiply" loading="eager" />
+          <div className="hidden lg:block">
+            <img src="/illustrations/hero-opportunities.png" alt="Oil and gas procurement opportunities board for Guyana local content" className="w-full rounded-2xl" loading="eager" />
           </div>
         </div>
       </section>
