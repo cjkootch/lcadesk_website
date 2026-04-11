@@ -90,10 +90,10 @@ export default function NavBar() {
           ))}
 
           {/* Jurisdictions dropdown */}
-          <div ref={jurRef} className="relative">
+          <div ref={jurRef} className="relative" onMouseLeave={() => setJurOpen(false)}>
             <button
               onClick={() => setJurOpen(!jurOpen)}
-              onMouseEnter={() => setJurOpen(true)}
+              onMouseEnter={() => { setJurOpen(true); setDirOpen(false); }}
               className="flex items-center gap-1 text-sm text-text-secondary hover:text-accent transition-colors font-medium"
             >
               Jurisdictions
@@ -107,7 +107,6 @@ export default function NavBar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.15 }}
-                  onMouseLeave={() => setJurOpen(false)}
                   className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-white rounded-xl border border-border shadow-xl p-2"
                 >
                   {jurisdictionLinks.map((l, i) => (
@@ -136,10 +135,10 @@ export default function NavBar() {
           </div>
 
           {/* Directory dropdown */}
-          <div ref={dirRef} className="relative">
+          <div ref={dirRef} className="relative" onMouseLeave={() => setDirOpen(false)}>
             <button
               onClick={() => setDirOpen(!dirOpen)}
-              onMouseEnter={() => setDirOpen(true)}
+              onMouseEnter={() => { setDirOpen(true); setJurOpen(false); }}
               className="flex items-center gap-1 text-sm text-text-secondary hover:text-accent transition-colors font-medium"
             >
               Directory
@@ -153,7 +152,6 @@ export default function NavBar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.15 }}
-                  onMouseLeave={() => setDirOpen(false)}
                   className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-xl border border-border shadow-xl p-2"
                 >
                   {directoryLinks.map((l) => (
