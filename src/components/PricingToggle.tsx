@@ -282,7 +282,7 @@ function ComparisonTable() {
 }
 
 export default function PricingToggle() {
-  const [annual, setAnnual] = useState(false);
+  const [annual, setAnnual] = useState(true);
 
   return (
     <div className="max-w-7xl mx-auto px-6">
