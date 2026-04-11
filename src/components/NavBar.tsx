@@ -195,18 +195,6 @@ export default function NavBar() {
             Log In
           </Link>
           <a
-            href="https://app.lcadesk.com/try"
-            className="text-sm text-text-secondary hover:text-accent transition-colors hidden sm:inline font-medium"
-          >
-            Live Demo
-          </a>
-          <Link
-            href="/demo"
-            className="text-sm text-text-secondary hover:text-accent transition-colors font-medium"
-          >
-            Book a Demo
-          </Link>
-          <a
             href="https://app.lcadesk.com/auth/signup?role=filer"
             className="rounded-lg bg-gradient-to-r from-accent to-teal px-5 py-2 text-sm font-semibold text-white hover:shadow-lg hover:shadow-accent/20 hover:scale-[1.02] transition-all"
           >
@@ -251,13 +239,6 @@ export default function NavBar() {
               >
                 Start Free Trial
               </a>
-              <Link
-                href="/demo"
-                onClick={() => setMobileOpen(false)}
-                className="rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-text-secondary text-center hover:border-accent hover:text-accent transition-all"
-              >
-                Book a Demo
-              </Link>
               <Link
                 href="https://app.lcadesk.com/auth/login"
                 onClick={() => setMobileOpen(false)}
