@@ -56,11 +56,11 @@ export default function ExitIntentPopup() {
             </button>
 
             <div className="text-center">
-              <div className="rounded-xl overflow-hidden border border-border mb-5 shadow-sm">
+              <div className="mb-5">
                 <img
-                  src="/illustrations/feature-dashboard.png"
-                  alt="LCA Desk compliance dashboard showing reports, analytics, and filing status"
-                  className="w-full h-auto"
+                  src="/illustrations/cta-signup.png"
+                  alt="Get started with LCA Desk"
+                  className="w-full h-auto max-h-44 object-contain"
                 />
               </div>
               <h2 className="font-display text-xl text-text-primary mb-2">
