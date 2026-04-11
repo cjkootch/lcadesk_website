@@ -15,7 +15,7 @@ const faqItems = [
 
 export default function FAQSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-surface">
       <div className="max-w-3xl mx-auto px-6">
         <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
           className="font-display text-3xl md:text-4xl text-text-primary text-center mb-12">
