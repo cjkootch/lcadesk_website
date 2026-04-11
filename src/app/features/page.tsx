@@ -130,24 +130,14 @@ export default function FeaturesPage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-emerald-deep to-emerald-deep/90 py-24">
         <GeometricBg variant="circuits" />
         <div className="relative z-10 mx-auto max-w-6xl px-6">
-          <div className="flex flex-col items-center mb-14">
-            <motion.img
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              src="/illustrations/feature-ai-analysis.png"
-              alt="AI-powered compliance analysis"
-              className="w-28 h-28 object-contain mb-6 drop-shadow-lg mix-blend-lighten"
-            />
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center text-3xl font-bold text-white md:text-4xl"
-            >
-              AI-Powered Compliance
-            </motion.h2>
-          </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-14 text-center text-3xl font-bold text-white md:text-4xl"
+          >
+            AI-Powered Compliance
+          </motion.h2>
 
           <div className="grid gap-8 md:grid-cols-2">
             {/* AI Narrative Drafting */}
