@@ -26,13 +26,8 @@ const securityBadges = [
   {
     label: "GDPR",
     sublabel: "Compliant",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7 text-blue-600">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 8v4l2 2" />
-        <path d="M3.5 12h1M19.5 12h1M12 3.5v1M12 19.5v1" />
-      </svg>
-    ),
+    logo: "/logos/gdpr.png",
+    size: "w-10 h-10",
   },
   {
     label: "Hosted on",
