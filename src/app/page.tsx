@@ -38,6 +38,7 @@ import MarketsSection from "@/components/home/MarketsSection";
 import PricingSection from "@/components/home/PricingSection";
 import FAQSection from "@/components/home/FAQSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
+import SecurityBadgesSection from "@/components/home/SecurityBadgesSection";
 import EmailCapture from "@/components/EmailCapture";
 
 export default function HomePage() {
@@ -61,6 +62,7 @@ export default function HomePage() {
       <PricingSection />
       <FAQSection />
       <SocialProofSection />
+      <SecurityBadgesSection />
       <section className="py-16 bg-white">
         <div className="max-w-xl mx-auto px-6">
           <EmailCapture
