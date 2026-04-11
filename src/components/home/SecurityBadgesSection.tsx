@@ -15,7 +15,7 @@ const securityBadges = [
     label: "Powered by",
     sublabel: "Stripe",
     logo: "/logos/stripe.png",
-    size: "w-14 h-14",
+    size: "w-16 h-16",
   },
   {
     label: "AES-256",
@@ -27,7 +27,7 @@ const securityBadges = [
     label: "GDPR",
     sublabel: "Compliant",
     logo: "/logos/gdpr.png",
-    size: "w-10 h-10",
+    size: "w-8 h-8",
   },
   {
     label: "Hosted on",
