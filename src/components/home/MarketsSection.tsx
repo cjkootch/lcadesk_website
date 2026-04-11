@@ -43,30 +43,34 @@ export default function MarketsSection() {
           </div>
           {/* Rows */}
           {jurisdictions.map((j, i) => {
-            const Row = j.slug ? Link : "div";
-            const rowProps = j.slug ? { href: `/markets/${j.slug}` } : {};
-            return (
-            <Row key={i} {...rowProps} className={`grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 px-6 py-4 ${i < jurisdictions.length - 1 ? "border-b border-border/50" : ""} ${i % 2 !== 0 ? "bg-gray-50/30" : ""} ${j.slug ? "hover:bg-accent/[0.03] cursor-pointer transition-colors" : ""}`}>
-              <div className="col-span-3 flex items-center gap-2.5">
-                <span className="text-xl">{j.flag}</span>
-                <span className={`font-semibold text-sm ${j.slug ? "text-text-primary group-hover:text-accent" : "text-text-primary"}`}>{j.country}</span>
-              </div>
-              <div className="col-span-3 text-text-secondary flex items-center">
-                <span className="md:hidden text-xs text-text-muted mr-2">Regime:</span>
-                <div>
-                  <p className="text-sm">{j.regime}</p>
-                  <p className="text-xs text-text-muted mt-0.5 hidden lg:block">{j.detail}</p>
+            const rowClass = `grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 px-6 py-4 ${i < jurisdictions.length - 1 ? "border-b border-border/50" : ""} ${i % 2 !== 0 ? "bg-gray-50/30" : ""} ${j.slug ? "hover:bg-accent/[0.03] cursor-pointer transition-colors" : ""}`;
+            const content = (
+              <>
+                <div className="col-span-3 flex items-center gap-2.5">
+                  <span className="text-xl">{j.flag}</span>
+                  <span className="font-semibold text-text-primary text-sm">{j.country}</span>
                 </div>
-              </div>
-              <div className="col-span-2 text-sm text-text-secondary flex items-center">
-                <span className="md:hidden text-xs text-text-muted mr-2">Cadence:</span>
-                {j.cadence}
-              </div>
-              <div className="col-span-2 text-xs text-text-muted flex items-center">{j.regulator}</div>
-              <div className="col-span-2 flex items-center md:justify-end">
-                <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full ${j.statusColor}`}>{j.status}</span>
-              </div>
-            </Row>
+                <div className="col-span-3 text-text-secondary flex items-center">
+                  <span className="md:hidden text-xs text-text-muted mr-2">Regime:</span>
+                  <div>
+                    <p className="text-sm">{j.regime}</p>
+                    <p className="text-xs text-text-muted mt-0.5 hidden lg:block">{j.detail}</p>
+                  </div>
+                </div>
+                <div className="col-span-2 text-sm text-text-secondary flex items-center">
+                  <span className="md:hidden text-xs text-text-muted mr-2">Cadence:</span>
+                  {j.cadence}
+                </div>
+                <div className="col-span-2 text-xs text-text-muted flex items-center">{j.regulator}</div>
+                <div className="col-span-2 flex items-center md:justify-end">
+                  <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full ${j.statusColor}`}>{j.status}</span>
+                </div>
+              </>
+            );
+            return j.slug ? (
+              <Link key={i} href={`/markets/${j.slug}`} className={rowClass}>{content}</Link>
+            ) : (
+              <div key={i} className={rowClass}>{content}</div>
             );
           })}
         </motion.div>
