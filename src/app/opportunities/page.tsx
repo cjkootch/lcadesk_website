@@ -64,36 +64,38 @@ export default async function OpportunitiesPage() {
       <section className="relative pt-32 pb-16 overflow-hidden bg-surface">
         <GeometricBg variant="grid" />
         <div className="absolute top-20 right-[10%] w-[400px] h-[400px] bg-accent/[0.05] rounded-full blur-[100px] pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-6 z-10">
-          <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
-            <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-accent text-xs font-semibold tracking-wide uppercase">Live &middot; Updated Weekly</span>
+        <div className="relative max-w-7xl mx-auto px-6 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
+              <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-accent text-xs font-semibold tracking-wide uppercase">Live &middot; Updated Weekly</span>
+              </div>
+              <Link href="/suppliers/dashboard" className="inline-flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent transition">
+                <Building2 size={14} /> My Profile
+              </Link>
             </div>
-            <Link href="/suppliers/dashboard" className="inline-flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-accent transition">
-              <Building2 size={14} /> My Profile
-            </Link>
-          </div>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
-            LCA Procurement{" "}
-            <span className="gradient-text-static">Opportunities</span>
-          </h1>
-          <p className="text-lg text-text-secondary max-w-2xl mb-8 leading-relaxed">
-            Active procurement notices from oil sector contractors required to give first consideration to Guyanese suppliers under the Local Content Act 2021.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              href="https://app.lcadesk.com/auth/signup?role=supplier"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
-            >
-              Register as a Supplier <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="https://app.lcadesk.com/auth/login"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
-            >
-              Log In
-            </Link>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] text-text-primary mb-5">
+              LCA Procurement{" "}
+              <span className="gradient-text-static">Opportunities</span>
+            </h1>
+            <p className="text-lg text-text-secondary max-w-2xl mb-8 leading-relaxed">
+              Active procurement notices from oil sector contractors required to give first consideration to Guyanese suppliers under the Local Content Act 2021.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="https://app.lcadesk.com/auth/signup?role=supplier"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all"
+              >
+                Register as a Supplier <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="https://app.lcadesk.com/auth/login"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-7 py-3.5 text-sm font-semibold hover:border-accent hover:text-accent transition-all"
+              >
+                Log In
+              </Link>
+            </div>
           </div>
           <div className="hidden lg:block">
             <img src="/illustrations/hero-opportunities.png" alt="Oil and gas procurement opportunities board for Guyana local content" className="w-full rounded-2xl" loading="eager" />
