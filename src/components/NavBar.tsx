@@ -102,12 +102,13 @@ export default function NavBar() {
 
             <AnimatePresence>
               {jurOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-64">
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-white rounded-xl border border-border shadow-xl p-2"
+                  className="bg-white rounded-xl border border-border shadow-xl p-2"
                 >
                   {jurisdictionLinks.map((l, i) => (
                     <Link
@@ -130,6 +131,7 @@ export default function NavBar() {
                     </Link>
                   ))}
                 </motion.div>
+                </div>
               )}
             </AnimatePresence>
           </div>
@@ -147,12 +149,13 @@ export default function NavBar() {
 
             <AnimatePresence>
               {dirOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-72">
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white rounded-xl border border-border shadow-xl p-2"
+                  className="bg-white rounded-xl border border-border shadow-xl p-2"
                 >
                   {directoryLinks.map((l) => (
                     <Link
@@ -171,6 +174,7 @@ export default function NavBar() {
                     </Link>
                   ))}
                 </motion.div>
+                </div>
               )}
             </AnimatePresence>
           </div>
