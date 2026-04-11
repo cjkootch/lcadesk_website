@@ -41,9 +41,10 @@ export default function ComparisonSection() {
             </div>
           ))}
         </motion.div>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="mt-8 text-center">
-          <a href="https://app.lcadesk.com/auth/signup?role=filer" className="text-sm font-semibold text-accent hover:underline">
-            Replace your spreadsheets — start a free trial &rarr;
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp} className="mt-10 text-center">
+          <p className="text-sm text-accent font-medium mb-4">Move from spreadsheets to Secretariat-ready reports in minutes.</p>
+          <a href="https://app.lcadesk.com/auth/signup?role=filer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all">
+            Ditch Spreadsheets — Start Free
           </a>
         </motion.div>
       </div>

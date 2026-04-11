@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lcadesk.com"),
@@ -200,6 +201,7 @@ export default function RootLayout({
         <NavBar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <ExitIntentPopup />
         <Analytics />
       </body>
     </html>

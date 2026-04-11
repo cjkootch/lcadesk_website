@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import GeometricBg from "@/components/GeometricBg";
 import FAQAccordion from "@/components/FAQAccordion";
+import CTABanner from "@/components/CTABanner";
 
 const vp = { once: true as const, margin: "-60px" as const };
 
@@ -184,6 +185,12 @@ export default function RegulatorsPageClient() {
         </div>
       </section>
 
+      <CTABanner
+        headline="Ready to pilot LCA Desk with your secretariat?"
+        body="A typical pilot covers one filing period, one filing type. Implementation takes 4–6 weeks. Schedule a scoping conversation with our team."
+        primaryCTA={{ label: "Schedule Scoping Call", href: "/demo" }}
+        secondaryCTA={{ label: "Contact Sales", href: "/contact" }}
+      />
     </>
   );
 }

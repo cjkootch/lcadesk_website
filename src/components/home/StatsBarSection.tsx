@@ -13,6 +13,7 @@ export default function StatsBarSection() {
           <StatCard value="5" label="Filing Types Supported" lightOnDark />
         </div>
         <div className="mt-10 text-center">
+          <p className="text-emerald-200/70 text-sm mb-4">H1 filing deadline: July 30. H2 filing deadline: January 30.</p>
           <a href="https://app.lcadesk.com/auth/signup?role=filer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-emerald-900 px-8 py-3 text-sm font-semibold hover:bg-emerald-50 hover:shadow-lg transition-all">
             Start Free Trial
           </a>
