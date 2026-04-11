@@ -9,22 +9,25 @@ const securityBadges = [
     label: "256-bit SSL",
     sublabel: "Encrypted",
     logo: "/logos/ssl.png",
+    size: "w-14 h-14",
   },
   {
     label: "Powered by",
     sublabel: "Stripe",
     logo: "/logos/stripe.png",
+    size: "w-14 h-14",
   },
   {
     label: "AES-256",
     sublabel: "Encryption at Rest",
     logo: "/logos/aes256.webp",
+    size: "w-9 h-9",
   },
   {
     label: "GDPR",
     sublabel: "Compliant",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-600">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7 text-blue-600">
         <circle cx="12" cy="12" r="10" />
         <path d="M12 8v4l2 2" />
         <path d="M3.5 12h1M19.5 12h1M12 3.5v1M12 19.5v1" />
@@ -35,6 +38,7 @@ const securityBadges = [
     label: "Hosted on",
     sublabel: "Vercel",
     logo: "/logos/vercel.svg",
+    size: "w-8 h-8",
   },
 ];
 
@@ -62,7 +66,7 @@ export default function SecurityBadgesSection() {
             >
               <div className="flex-shrink-0">
                 {"logo" in badge && badge.logo ? (
-                  <img src={badge.logo} alt={badge.label} className="w-14 h-14 object-contain" />
+                  <img src={badge.logo} alt={badge.label} className={`${badge.size} object-contain`} />
                 ) : (
                   "icon" in badge && badge.icon
                 )}
