@@ -101,6 +101,7 @@ export default function LCAActOverviewPage() {
         headline="Local Content Act 2021 \u2014 Complete Guide"
         sub="Everything you need to know about Guyana's Local Content Act: who must comply, what to file, how to calculate your LC rate, and how penalties work."
         geometricVariant="grid"
+        heroImage={{ src: "/illustrations/hero-lca-overview.png", alt: "Guyana Local Content Act 2021" }}
       />
 
       {/* Quick facts bar */}

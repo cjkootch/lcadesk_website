@@ -106,6 +106,7 @@ export default function PricingPage() {
         headline="Simple, transparent pricing."
         sub="30-day trial with card collected. Cancel anytime."
         geometricVariant="grid"
+        heroImage={{ src: "/illustrations/hero-pricing.png", alt: "LCA Desk pricing plans" }}
       />
 
       <PricingToggle />

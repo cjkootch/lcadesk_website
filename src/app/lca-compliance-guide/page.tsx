@@ -47,6 +47,7 @@ export default function LCAComplianceGuidePage() {
         headline="LCA Compliance Guide"
         sub="Step-by-step guide to preparing and submitting your Local Content Act filings."
         geometricVariant="grid"
+        heroImage={{ src: "/illustrations/hero-compliance.png", alt: "LCA compliance guide" }}
       />
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
