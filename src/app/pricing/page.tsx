@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import PricingToggle from "@/components/PricingToggle";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTABanner from "@/components/CTABanner";
+import TrustBadges from "@/components/TrustBadges";
 
 const pricingFAQs = [
   {
@@ -179,6 +180,12 @@ export default function PricingPage() {
           Frequently Asked Questions
         </h2>
         <FAQAccordion items={pricingFAQs} />
+      </section>
+
+      <section className="bg-white border-t border-border">
+        <div className="max-w-5xl mx-auto px-6">
+          <TrustBadges variant="compact" />
+        </div>
       </section>
 
       <CTABanner

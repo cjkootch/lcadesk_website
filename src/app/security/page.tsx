@@ -12,6 +12,7 @@ import {
 import HeroSection from "@/components/HeroSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTABanner from "@/components/CTABanner";
+import TrustBadges from "@/components/TrustBadges";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -115,6 +116,9 @@ export default function SecurityPage() {
           ))}
         </div>
       </section>
+
+      {/* Trust Badges */}
+      <TrustBadges />
 
       {/* 3. Security FAQs */}
       <section className="bg-surface py-24">
