@@ -23,12 +23,12 @@ export default function HowItWorksSection() {
           From Filing to Audit in One Platform
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {/* Connecting line */}
-          <div className="hidden lg:block absolute top-12 left-[15%] right-[15%] h-px bg-gradient-to-r from-accent/30 via-accent/50 to-accent/30" />
+          {/* Connecting line — behind icons */}
+          <div className="hidden lg:block absolute top-12 left-[15%] right-[15%] h-px bg-gradient-to-r from-accent/30 via-accent/50 to-accent/30 z-0" />
           {steps.map((s, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.1 }}
-              className="text-center relative">
-              <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-accent/10 to-teal/5 border border-accent/20 flex items-center justify-center mx-auto mb-6 relative z-10">
+              className="text-center relative z-10">
+              <div className="w-24 h-24 rounded-2xl border border-accent/20 flex items-center justify-center mx-auto mb-6 bg-white">
                 <s.icon size={32} className="text-accent" />
               </div>
               <span className="text-accent text-xs font-bold tracking-widest uppercase" style={{ fontFamily: "var(--font-tech)" }}>Step {s.step}</span>
