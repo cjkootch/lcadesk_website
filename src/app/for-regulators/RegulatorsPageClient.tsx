@@ -5,44 +5,53 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ArrowRight, Inbox, ClipboardCheck, Scale, FileCheck,
-  BarChart3, Settings, Shield, Users, History, Eye, Database,
+  BarChart3, Shield, Users, Database,
 } from "lucide-react";
 import GeometricBg from "@/components/GeometricBg";
 import FAQAccordion from "@/components/FAQAccordion";
-import CTABanner from "@/components/CTABanner";
 
 const vp = { once: true as const, margin: "-60px" as const };
 
 const capabilities = [
   {
     icon: Inbox,
-    title: "Filing Intake and Submission Workflow",
-    desc: "Receive structured filings through the platform instead of email. Every submission arrives with validated data, linked evidence, and attestation metadata. No more chasing missing attachments.",
+    title: "Filing Intake",
+    desc: "Receive structured filings through the platform instead of email. Every submission arrives validated with linked evidence.",
   },
   {
     icon: ClipboardCheck,
-    title: "Reviewer Console and Queue Management",
-    desc: "Assign submissions to reviewers. Track review status across companies and filing periods. Prioritize by deadline, validation score, or entity risk. Every reviewer action is logged.",
+    title: "Reviewer Console",
+    desc: "Assign submissions to reviewers. Track status across companies and filing periods. Prioritize by deadline or risk.",
   },
   {
     icon: Scale,
     title: "Rules-Based Validation",
-    desc: "The platform validates submissions against jurisdiction-specific rules before they reach your team. Completeness checks, threshold enforcement, and cross-field consistency are automated.",
+    desc: "Submissions are validated against jurisdiction-specific rules before they reach your team. Completeness and threshold checks are automated.",
   },
   {
     icon: FileCheck,
-    title: "Resubmission and Clarification Handling",
-    desc: "Request clarification or additional information through the platform. Filers resubmit with version tracking. The full clarification thread is preserved alongside the filing record.",
+    title: "Resubmission Handling",
+    desc: "Request clarification through the platform. Filers resubmit with version tracking. The full thread is preserved.",
   },
   {
     icon: Shield,
-    title: "Evidence and Audit Trail",
-    desc: "Every filing, review decision, resubmission, and approval is timestamped and immutable. When an audit is required, the complete record is already assembled.",
+    title: "Immutable Audit Trail",
+    desc: "Every filing, review decision, and approval is timestamped and tamper-proof. Complete audit records are always assembled.",
   },
   {
     icon: BarChart3,
     title: "Cross-Company Benchmarking",
-    desc: "See local content performance across your jurisdiction. Aggregate procurement spend, workforce composition, and training investment by sector, company type, or filing period.",
+    desc: "Aggregate procurement spend, workforce composition, and training investment by sector, company type, or filing period.",
+  },
+  {
+    icon: Users,
+    title: "Role-Based Access",
+    desc: "Scoped permissions for filers, reviewers, supervisors, and auditors. Each jurisdiction's data is logically isolated.",
+  },
+  {
+    icon: Database,
+    title: "Data Sovereignty",
+    desc: "Government data stays under government control. All records are exportable. No vendor lock-in on compliance data.",
   },
 ];
 
@@ -57,7 +66,10 @@ const faqItems = [
   { q: "Does LCA Desk replace our existing portal?", a: "LCA Desk can operate as your primary filing system or complement an existing registration portal. Many jurisdictions have supplier registration portals but lack structured filing and review workflows for recurring compliance reports. LCA Desk fills that gap." },
   { q: "How is the platform deployed for regulators?", a: "Regulator deployments are licensed implementations with dedicated onboarding. This includes jurisdiction pack configuration, reviewer console setup, workflow mapping, and training for your review team. The platform is hosted and maintained by LCA Desk." },
   { q: "What does a pilot look like?", a: "A typical pilot covers one filing type for one reporting period. We configure the jurisdiction pack, onboard a subset of filers, and run the full cycle: submission, validation, review, clarification, and approval. Success is measured by submission completeness rate, review cycle time, and reduction in manual follow-up." },
-  { q: "Who owns the data?", a: "Regulator data belongs to the regulator. Company submissions belong to the submitting entities. LCA Desk hosts and secures the data but does not claim ownership. Aggregated, de-identified datasets may be used for benchmarking with explicit permission." },
+  { q: "How long does implementation take?", a: "A pilot can be configured and launched within 4–6 weeks. Full deployment — covering all filing types, all entities, and reviewer training — typically takes 8–12 weeks depending on jurisdiction complexity." },
+  { q: "What does a typical contract look like?", a: "Regulator licenses are scoped by jurisdiction, filing types, and number of reviewers. Pricing is annual with dedicated support included. We provide detailed proposals after a scoping conversation — no generic pricing tiers for government deployments." },
+  { q: "What are the ongoing costs?", a: "Annual licensing covers platform access, hosting, support, and rule updates as regulations change. There are no per-filing or per-entity surcharges. Training for new staff is included." },
+  { q: "Who owns the data?", a: "Regulator data belongs to the regulator. Company submissions belong to the submitting entities. LCA Desk hosts and secures the data but does not claim ownership. All records are exportable at any time." },
   { q: "Can we configure our own validation rules?", a: "Yes. Each jurisdiction pack defines the specific validation rules, required fields, thresholds, and evidence requirements. These are configured during onboarding and can be updated as regulations change, without custom software development." },
 ];
 
@@ -124,7 +136,7 @@ export default function RegulatorsPageClient() {
             className="font-display text-3xl md:text-4xl text-text-primary text-center mb-14">
             What LCA Desk Does for Your Secretariat
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {capabilities.map((cap, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.06 }}
                 className="bg-card rounded-2xl border border-border p-6 card-lift">
@@ -136,55 +148,6 @@ export default function RegulatorsPageClient() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Reviewer console mockup */}
-      <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 30%, #047857 60%, #064E3B 100%)" }}>
-        <GeometricBg variant="circuits" />
-        <div className="relative max-w-5xl mx-auto px-6 z-10">
-          <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="font-display text-3xl md:text-4xl text-white text-center mb-4">
-            A Reviewer Console Built for Compliance Teams
-          </motion.h2>
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
-            className="text-emerald-100/60 text-center mb-12 max-w-2xl mx-auto">
-            Reviewers see a structured queue of submissions, not an inbox of emails. Every filing arrives validated, scored, and ready for review.
-          </motion.p>
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="bg-white/[0.07] backdrop-blur border border-white/10 rounded-2xl p-6 md:p-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              {[
-                { icon: Inbox, label: "Pending Review", value: "24" },
-                { icon: Eye, label: "Under Review", value: "8" },
-                { icon: History, label: "Needs Resubmission", value: "5" },
-                { icon: Shield, label: "Approved This Period", value: "41" },
-              ].map((stat, i) => (
-                <div key={i} className="bg-white/5 rounded-xl p-4 border border-white/10 text-center">
-                  <stat.icon size={16} className="text-emerald-300 mx-auto mb-2" />
-                  <p className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-tech)" }}>{stat.value}</p>
-                  <p className="text-[10px] text-emerald-200/60 mt-1">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-            <div className="space-y-2">
-              {[
-                { company: "Atlantic Marine Services Ltd", type: "H1 Half-Yearly Report", score: "94%", status: "Ready for Review", color: "text-emerald-400" },
-                { company: "Guyana Oilfield Supplies Inc", type: "H1 Half-Yearly Report", score: "71%", status: "Needs Information", color: "text-amber-400" },
-                { company: "Caribbean Drilling Corp", type: "Annual Plan 2026", score: "88%", status: "Under Review", color: "text-blue-400" },
-                { company: "South America Energy Services", type: "H1 Half-Yearly Report", score: "96%", status: "Ready for Review", color: "text-emerald-400" },
-              ].map((row, i) => (
-                <div key={i} className="flex items-center gap-4 bg-white/5 rounded-lg px-4 py-3 border border-white/5">
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-white font-medium truncate">{row.company}</p>
-                    <p className="text-[10px] text-emerald-200/50">{row.type}</p>
-                  </div>
-                  <span className={`text-xs font-semibold ${row.color}`}>{row.score}</span>
-                  <span className="text-[10px] text-emerald-200/60 hidden sm:block">{row.status}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -210,37 +173,6 @@ export default function RegulatorsPageClient() {
         </div>
       </section>
 
-      {/* Trust signals */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-12">
-            Built for Regulated Environments
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: Users, title: "Role-based access control", desc: "Scoped permissions for filers, reviewers, supervisors, and auditors." },
-              { icon: Shield, title: "Immutable audit records", desc: "Every action timestamped and preserved. Cannot be altered after the fact." },
-              { icon: Database, title: "Data isolation", desc: "Each jurisdiction's data is logically isolated. Government data stays under government control." },
-              { icon: History, title: "Version control", desc: "Every submission, resubmission, and amendment is versioned and traceable." },
-              { icon: Settings, title: "Configurable rules", desc: "Validation rules, thresholds, and filing requirements update without code changes." },
-              { icon: FileCheck, title: "Export and portability", desc: "Data and records are exportable. No vendor lock-in on compliance records." },
-            ].map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.05 }}
-                className="flex gap-4 p-4 rounded-xl bg-surface border border-border">
-                <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <item.icon size={16} className="text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-text-primary text-sm mb-1">{item.title}</h3>
-                  <p className="text-xs text-text-secondary leading-relaxed">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="py-20 bg-surface">
         <div className="max-w-3xl mx-auto px-6">
@@ -252,13 +184,6 @@ export default function RegulatorsPageClient() {
         </div>
       </section>
 
-      {/* CTA */}
-      <CTABanner
-        headline="Ready to digitize your local content compliance process?"
-        body="Start with a pilot scoped to one filing type and one reporting period. Measure the difference in submission completeness, review time, and audit readiness."
-        primaryCTA={{ label: "Request a Pilot Discussion", href: "/demo" }}
-        secondaryCTA={{ label: "Contact Us", href: "/contact" }}
-      />
     </>
   );
 }
