@@ -347,7 +347,7 @@ export default async function OpportunityDetailPage({ params }: Props) {
                     return (
                       <div className="flex items-start gap-2">
                         {sidebarLogo ? (
-                          <img src={sidebarLogo} alt="" width={13} height={13} className="w-[13px] h-[13px] rounded-sm object-contain mt-0.5" loading="lazy" />
+                          <img src={sidebarLogo} alt={`${opp.contractor_name} logo`} width={13} height={13} className="w-[13px] h-[13px] rounded-sm object-contain mt-0.5" loading="lazy" />
                         ) : (
                           <Building2 size={13} className="text-text-muted mt-0.5" />
                         )}

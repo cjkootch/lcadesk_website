@@ -89,7 +89,10 @@ export default function SocialProofSection() {
             ))}
           </div>
         </div>
-        <div className="mt-6 text-center">
+        <p className="mt-6 text-center text-[10px] text-slate-500 max-w-md mx-auto">
+          Results shown are representative examples and may vary. Individual outcomes depend on data quality, jurisdiction, and filing complexity.
+        </p>
+        <div className="mt-4 text-center">
           <a href="https://app.lcadesk.com/auth/signup?role=filer" className="text-sm font-semibold text-emerald-400 hover:underline">
             Join them — start your free trial &rarr;
           </a>

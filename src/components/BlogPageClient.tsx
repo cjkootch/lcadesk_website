@@ -160,7 +160,7 @@ export default function BlogPageClient({ posts, categories }: Props) {
                     <div className="h-36 bg-surface flex items-center justify-center overflow-hidden">
                       <Image
                         src={categoryImages[post.category] || "/illustrations/blog-guide.png"}
-                        alt=""
+                        alt={`${post.category} article illustration`}
                         width={200}
                         height={96}
                         quality={85}

@@ -25,7 +25,7 @@ function ContractorLogo({ name, size = 16 }: { name: string; size?: number }) {
   return (
     <img
       src={logoUrl}
-      alt=""
+      alt={`${name} logo`}
       width={size}
       height={size}
       className="rounded-sm object-contain shrink-0"
