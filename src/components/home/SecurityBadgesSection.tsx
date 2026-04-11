@@ -60,11 +60,7 @@ export default function SecurityBadgesSection() {
               className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-border/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-sm transition-shadow"
             >
               <div className="flex-shrink-0">
-                {"logo" in badge && badge.logo ? (
-                  <img src={badge.logo} alt={badge.label} className={`${badge.size} object-contain`} />
-                ) : (
-                  "icon" in badge && badge.icon
-                )}
+                <img src={badge.logo} alt={badge.label} className={`${badge.size} object-contain`} />
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-semibold text-text-primary leading-tight">{badge.label}</span>
