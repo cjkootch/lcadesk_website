@@ -11,6 +11,7 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
 
   useEffect(() => {
     if (!isInView) return;
+    let frameId: number;
     const duration = 1500;
     const start = performance.now();
     const tick = (now: number) => {
@@ -18,9 +19,10 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
       setDisplay(Math.round(eased * value));
-      if (progress < 1) requestAnimationFrame(tick);
+      if (progress < 1) frameId = requestAnimationFrame(tick);
     };
-    requestAnimationFrame(tick);
+    frameId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frameId);
   }, [isInView, value]);
 
   return <span ref={ref}>{display.toLocaleString()}{suffix}</span>;
