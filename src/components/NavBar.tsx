@@ -3,14 +3,24 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, Briefcase, Users, Building2, Package } from "lucide-react";
+import { Menu, X, ChevronDown, Briefcase, Users, Building2, Package, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const topLinks = [
   { href: "/features", label: "Platform" },
-  { href: "/markets", label: "Jurisdictions" },
   { href: "/for-regulators", label: "For Regulators" },
   { href: "/pricing", label: "Pricing" },
+];
+
+const jurisdictionLinks = [
+  { href: "/markets", label: "Overview", desc: "All jurisdictions and roadmap", icon: Globe },
+  { href: "/markets/guyana", label: "\u{1F1EC}\u{1F1FE} Guyana", desc: "Live — LCA v4.1 compliance" },
+  { href: "/markets/namibia", label: "\u{1F1F3}\u{1F1E6} Namibia", desc: "In development" },
+  { href: "/markets/mozambique", label: "\u{1F1F2}\u{1F1FF} Mozambique", desc: "In development" },
+  { href: "/markets/ghana", label: "\u{1F1EC}\u{1F1ED} Ghana", desc: "Roadmap" },
+  { href: "/markets/nigeria", label: "\u{1F1F3}\u{1F1EC} Nigeria", desc: "Enterprise roadmap" },
+  { href: "/markets/suriname", label: "\u{1F1F8}\u{1F1F7} Suriname", desc: "Early access" },
+  { href: "/markets/trinidad", label: "\u{1F1F9}\u{1F1F9} Trinidad & Tobago", desc: "Roadmap" },
 ];
 
 const directoryLinks = [
@@ -36,7 +46,9 @@ export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dirOpen, setDirOpen] = useState(false);
+  const [jurOpen, setJurOpen] = useState(false);
   const dirRef = useRef<HTMLDivElement>(null);
+  const jurRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -44,12 +56,11 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close dropdown on outside click
+  // Close dropdowns on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (dirRef.current && !dirRef.current.contains(e.target as Node)) {
-        setDirOpen(false);
-      }
+      if (dirRef.current && !dirRef.current.contains(e.target as Node)) setDirOpen(false);
+      if (jurRef.current && !jurRef.current.contains(e.target as Node)) setJurOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -77,6 +88,52 @@ export default function NavBar() {
               {l.label}
             </Link>
           ))}
+
+          {/* Jurisdictions dropdown */}
+          <div ref={jurRef} className="relative">
+            <button
+              onClick={() => setJurOpen(!jurOpen)}
+              onMouseEnter={() => setJurOpen(true)}
+              className="flex items-center gap-1 text-sm text-text-secondary hover:text-accent transition-colors font-medium"
+            >
+              Jurisdictions
+              <ChevronDown size={14} className={`transition-transform ${jurOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            <AnimatePresence>
+              {jurOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.15 }}
+                  onMouseLeave={() => setJurOpen(false)}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-white rounded-xl border border-border shadow-xl p-2"
+                >
+                  {jurisdictionLinks.map((l, i) => (
+                    <Link
+                      key={l.href}
+                      href={l.href}
+                      onClick={() => setJurOpen(false)}
+                      className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-accent/5 transition-colors group ${i === 0 ? "mb-1 border-b border-border/50 pb-2.5" : ""}`}
+                    >
+                      {l.icon ? (
+                        <div className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 transition-colors">
+                          <l.icon size={14} className="text-accent" />
+                        </div>
+                      ) : (
+                        <span className="w-7 text-center flex-shrink-0 text-sm">{l.label.slice(0, 4)}</span>
+                      )}
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-text-primary group-hover:text-accent transition-colors truncate">{l.icon ? l.label : l.label.slice(5)}</p>
+                        <p className="text-[11px] text-text-muted truncate">{l.desc}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Directory dropdown */}
           <div ref={dirRef} className="relative">
