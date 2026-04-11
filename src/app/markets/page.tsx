@@ -126,7 +126,7 @@ export default function MarketsPage() {
         headline="Configurable Compliance Infrastructure for Every Local Content Regime"
         sub="Each country runs on a jurisdiction pack that defines filing schemas, validation rules, deadlines, evidence requirements, and export formats. One platform. Jurisdiction-specific compliance."
         geometricVariant="waves"
-        heroImage={{ src: "/illustrations/hero-markets.png", alt: "Global jurisdiction coverage" }}
+        heroImage={{ src: "/illustrations/hero-markets.svg", alt: "Global jurisdiction coverage" }}
       />
 
       {/* Strategic approach */}
