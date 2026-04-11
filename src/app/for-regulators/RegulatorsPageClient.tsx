@@ -64,43 +64,42 @@ export default function RegulatorsPageClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-surface">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-surface pt-24 pb-16">
         <GeometricBg variant="topology" />
         <div className="absolute top-20 left-[10%] w-[500px] h-[500px] bg-accent/[0.07] rounded-full blur-[100px] pointer-events-none" />
-        <div className="relative max-w-4xl mx-auto px-6 z-10 text-center">
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}
-            className="text-accent text-sm font-semibold tracking-widest uppercase mb-4">For Regulators and Governments</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.5 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl text-text-primary mb-6 leading-tight">
-            Digitize Local Content Filing, Review, and Audit
-          </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-lg text-text-secondary max-w-2xl mx-auto mb-8 leading-relaxed">
-            Give your secretariat a regulatory-grade operating system. Structured filing intake, automated validation, reviewer case management, resubmission workflows, and audit-ready records. Replace email and spreadsheet chaos with traceable compliance infrastructure.
-          </motion.p>
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/demo"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all">
-              Request a Pilot Discussion <ArrowRight size={16} />
-            </Link>
-            <Link href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-border text-text-secondary px-8 py-4 text-sm font-semibold hover:border-accent hover:text-accent transition-all">
-              Contact Us
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+        <div className="absolute bottom-20 right-[5%] w-[400px] h-[400px] bg-teal/[0.06] rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Secretariat Dashboard Preview */}
-      <section className="py-16 bg-surface">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
+        <div className="relative mx-auto max-w-7xl px-6 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.2em] uppercase mb-6">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-accent">For Regulators and Governments</span>
+            </motion.p>
+            <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.5 }}
+              className="font-display text-4xl md:text-5xl lg:text-[3.5rem] text-text-primary mb-6 leading-[1.1]">
+              Digitize Local Content Filing, Review, and Audit
+            </motion.h1>
+            <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-lg text-text-secondary max-w-xl mb-8 leading-relaxed">
+              Give your secretariat a regulatory-grade operating system. Structured filing intake, automated validation, reviewer case management, resubmission workflows, and audit-ready records.
+            </motion.p>
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
+              className="flex flex-col sm:flex-row gap-3">
+              <Link href="/demo"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-teal px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-accent/25 hover:shadow-xl hover:scale-[1.02] transition-all">
+                Request a Pilot Discussion <ArrowRight size={16} />
+              </Link>
+              <Link href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-accent/30 text-accent px-8 py-4 text-sm font-semibold hover:bg-accent/5 hover:border-accent transition-all">
+                Contact Us
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Secretariat Dashboard */}
+          <motion.div initial={{ opacity: 0, y: 24, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
+            className="hidden lg:block">
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 via-teal/10 to-transparent rounded-3xl blur-2xl" />
               <div className="relative rounded-2xl border border-border bg-white shadow-2xl shadow-black/[0.08] overflow-hidden">
