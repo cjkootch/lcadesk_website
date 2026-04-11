@@ -6,13 +6,13 @@ import Link from "next/link";
 const vp = { once: true as const, margin: "-60px" as const };
 
 const jurisdictions = [
-  { flag: "\u{1F1EC}\u{1F1FE}", country: "Guyana", regime: "Half-yearly reporting, annual plans", cadence: "Semi-annual + annual", regulator: "Local Content Secretariat", detail: "PDF comparative analysis and Excel expenditure/employment workbook, per LCA v4.1 guidelines", status: "Live", statusColor: "bg-accent text-white" },
-  { flag: "\u{1F1F3}\u{1F1E6}", country: "Namibia", regime: "Annual performance, procurement, employment reporting", cadence: "Annual + quarterly", regulator: "Ministry of Mines and Energy", detail: "Procurement consolidation and employment/training data, per draft upstream LC policy", status: "In Development", statusColor: "bg-blue-100 text-blue-700" },
-  { flag: "\u{1F1F2}\u{1F1FF}", country: "Mozambique", regime: "REFC quarterly filing", cadence: "Quarterly", regulator: "INP (Instituto Nacional de Petroleo)", detail: "Employment, training, and national contracting filings per DM 55/2024", status: "In Development", statusColor: "bg-blue-100 text-blue-700" },
-  { flag: "\u{1F1EC}\u{1F1ED}", country: "Ghana", regime: "Annual plans, performance reports, procurement plans", cadence: "Annual + quarterly", regulator: "Petroleum Commission / Minerals Commission", detail: "Reports under LI 2204, plus Minerals Commission procurement plans under LI 2431", status: "Roadmap", statusColor: "bg-gray-100 text-text-muted" },
-  { flag: "\u{1F1F8}\u{1F1F7}", country: "Suriname", regime: "Policy-stage enablement", cadence: "To be defined", regulator: "Local Content Board", detail: "Early-stage regulatory framework support", status: "Early Access", statusColor: "bg-amber-100 text-amber-700" },
-  { flag: "\u{1F1FF}\u{1F1F2}", country: "Zambia", regime: "Mining local participation reporting", cadence: "Per SI No. 68/2025", regulator: "Ministry of Mines", detail: "Mining local content rules under Statutory Instrument No. 68 of 2025", status: "Roadmap", statusColor: "bg-gray-100 text-text-muted" },
-  { flag: "\u{1F1F3}\u{1F1EC}", country: "Nigeria", regime: "NCDMB statutory reports, procurement, R&D", cadence: "Quarterly + annual", regulator: "NCDMB", detail: "Procurement, employment, R&D, technology transfer, and marine services utilization", status: "Enterprise Roadmap", statusColor: "bg-gray-100 text-text-muted" },
+  { flag: "\u{1F1EC}\u{1F1FE}", country: "Guyana", slug: "guyana", regime: "Half-yearly reporting, annual plans", cadence: "Semi-annual + annual", regulator: "Local Content Secretariat", detail: "PDF comparative analysis and Excel expenditure/employment workbook, per LCA v4.1 guidelines", status: "Live", statusColor: "bg-accent text-white" },
+  { flag: "\u{1F1F3}\u{1F1E6}", country: "Namibia", slug: "namibia", regime: "Annual performance, procurement, employment reporting", cadence: "Annual + quarterly", regulator: "Ministry of Mines and Energy", detail: "Procurement consolidation and employment/training data, per draft upstream LC policy", status: "In Development", statusColor: "bg-blue-100 text-blue-700" },
+  { flag: "\u{1F1F2}\u{1F1FF}", country: "Mozambique", slug: "mozambique", regime: "REFC quarterly filing", cadence: "Quarterly", regulator: "INP (Instituto Nacional de Petroleo)", detail: "Employment, training, and national contracting filings per DM 55/2024", status: "In Development", statusColor: "bg-blue-100 text-blue-700" },
+  { flag: "\u{1F1EC}\u{1F1ED}", country: "Ghana", slug: "ghana", regime: "Annual plans, performance reports, procurement plans", cadence: "Annual + quarterly", regulator: "Petroleum Commission / Minerals Commission", detail: "Reports under LI 2204, plus Minerals Commission procurement plans under LI 2431", status: "Roadmap", statusColor: "bg-gray-100 text-text-muted" },
+  { flag: "\u{1F1F8}\u{1F1F7}", country: "Suriname", slug: "suriname", regime: "Policy-stage enablement", cadence: "To be defined", regulator: "Local Content Board", detail: "Early-stage regulatory framework support", status: "Early Access", statusColor: "bg-amber-100 text-amber-700" },
+  { flag: "\u{1F1FF}\u{1F1F2}", country: "Zambia", slug: null, regime: "Mining local participation reporting", cadence: "Per SI No. 68/2025", regulator: "Ministry of Mines", detail: "Mining local content rules under Statutory Instrument No. 68 of 2025", status: "Roadmap", statusColor: "bg-gray-100 text-text-muted" },
+  { flag: "\u{1F1F3}\u{1F1EC}", country: "Nigeria", slug: "nigeria", regime: "NCDMB statutory reports, procurement, R&D", cadence: "Quarterly + annual", regulator: "NCDMB", detail: "Procurement, employment, R&D, technology transfer, and marine services utilization", status: "Enterprise Roadmap", statusColor: "bg-gray-100 text-text-muted" },
 ];
 
 export default function MarketsSection() {
@@ -42,11 +42,14 @@ export default function MarketsSection() {
             <div className="col-span-2 text-xs font-semibold text-text-muted uppercase tracking-wider text-right">Status</div>
           </div>
           {/* Rows */}
-          {jurisdictions.map((j, i) => (
-            <div key={i} className={`grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 px-6 py-4 ${i < jurisdictions.length - 1 ? "border-b border-border/50" : ""} ${i % 2 !== 0 ? "bg-gray-50/30" : ""}`}>
+          {jurisdictions.map((j, i) => {
+            const Row = j.slug ? Link : "div";
+            const rowProps = j.slug ? { href: `/markets/${j.slug}` } : {};
+            return (
+            <Row key={i} {...rowProps} className={`grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 px-6 py-4 ${i < jurisdictions.length - 1 ? "border-b border-border/50" : ""} ${i % 2 !== 0 ? "bg-gray-50/30" : ""} ${j.slug ? "hover:bg-accent/[0.03] cursor-pointer transition-colors" : ""}`}>
               <div className="col-span-3 flex items-center gap-2.5">
                 <span className="text-xl">{j.flag}</span>
-                <span className="font-semibold text-text-primary text-sm">{j.country}</span>
+                <span className={`font-semibold text-sm ${j.slug ? "text-text-primary group-hover:text-accent" : "text-text-primary"}`}>{j.country}</span>
               </div>
               <div className="col-span-3 text-text-secondary flex items-center">
                 <span className="md:hidden text-xs text-text-muted mr-2">Regime:</span>
@@ -63,8 +66,9 @@ export default function MarketsSection() {
               <div className="col-span-2 flex items-center md:justify-end">
                 <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full ${j.statusColor}`}>{j.status}</span>
               </div>
-            </div>
-          ))}
+            </Row>
+            );
+          })}
         </motion.div>
 
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
