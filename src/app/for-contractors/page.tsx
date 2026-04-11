@@ -84,20 +84,20 @@ export default function ForContractorsPage() {
       </section>
 
       {/* Pain points */}
-      <section className="py-20 bg-surface">
-        <div className="max-w-5xl mx-auto px-6">
-          <p className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">The Problem</p>
-          <h2 className="font-display text-3xl md:text-4xl text-text-primary text-center mb-12">
+      <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)" }}>
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <p className="text-center text-red-400 text-sm font-semibold tracking-widest uppercase mb-4">The Problem</p>
+          <h2 className="font-display text-3xl md:text-4xl text-white text-center mb-12">
             LCA compliance shouldn&apos;t be this hard.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {painPoints.map((p, i) => (
-              <div key={i} className="bg-card rounded-2xl border border-border p-7">
-                <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-5">
-                  <p.icon size={22} className="text-red-500" />
+              <div key={i} className="bg-white/[0.07] backdrop-blur rounded-2xl border border-white/10 p-7">
+                <div className="w-12 h-12 rounded-xl bg-red-500/15 flex items-center justify-center mb-5">
+                  <p.icon size={22} className="text-red-400" />
                 </div>
-                <h3 className="font-semibold text-text-primary mb-2 text-lg">{p.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{p.desc}</p>
+                <h3 className="font-semibold text-white mb-2 text-lg">{p.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -131,20 +131,20 @@ export default function ForContractorsPage() {
       </section>
 
       {/* Features grid */}
-      <section className="py-20 bg-surface">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Platform Features</p>
-          <h2 className="font-display text-3xl md:text-4xl text-text-primary text-center mb-14">
+      <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 50%, #064E3B 100%)" }}>
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
+          <p className="text-center text-emerald-300 text-sm font-semibold tracking-widest uppercase mb-4">Platform Features</p>
+          <h2 className="font-display text-3xl md:text-4xl text-white text-center mb-14">
             Everything you need for LCA compliance
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {features.map((f, i) => (
-              <div key={i} className="bg-card rounded-2xl border border-border p-6 hover:border-accent/30 hover:shadow-sm transition-all">
-                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                  <f.icon size={20} className="text-accent" />
+              <div key={i} className="bg-white/[0.07] backdrop-blur rounded-2xl border border-white/10 p-6 hover:bg-white/10 transition-all">
+                <div className="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center mb-4">
+                  <f.icon size={20} className="text-emerald-400" />
                 </div>
-                <h3 className="font-semibold text-text-primary mb-2 text-sm">{f.title}</h3>
-                <p className="text-xs text-text-secondary leading-relaxed">{f.desc}</p>
+                <h3 className="font-semibold text-white mb-2 text-sm">{f.title}</h3>
+                <p className="text-xs text-emerald-100/60 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>

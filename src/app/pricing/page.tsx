@@ -113,7 +113,8 @@ export default function PricingPage() {
       <PricingToggle />
 
       {/* Supplier & Job Seeker Pricing */}
-      <section className="max-w-5xl mx-auto px-6 mt-20">
+      <section className="bg-surface py-20">
+        <div className="max-w-5xl mx-auto px-6">
         <p className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Not a Filer?</p>
         <h2 className="text-center font-bold text-3xl text-text-primary mb-4">Pricing for Suppliers &amp; Job Seekers</h2>
         <p className="text-center text-text-secondary text-sm mb-10 max-w-2xl mx-auto">
@@ -172,6 +173,7 @@ export default function PricingPage() {
               Find Petroleum Jobs
             </Link>
           </div>
+        </div>
         </div>
       </section>
 

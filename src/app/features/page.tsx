@@ -354,35 +354,37 @@ ending.`}
       </section>
 
       {/* 5. Security Highlights */}
-      <section className="mx-auto max-w-5xl px-6 py-24">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12 text-center text-3xl font-bold text-text-primary"
-        >
-          Built for Security
-        </motion.h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          {securityHighlights.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              custom={i}
-              className="rounded-xl border border-border bg-card p-6 text-center"
-            >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/15 to-teal/10 flex items-center justify-center mx-auto mb-4">
-                <item.icon size={22} className="text-accent" />
-              </div>
-              <h3 className="mb-1 text-lg font-semibold text-text-primary">
-                {item.title}
-              </h3>
-              <p className="text-sm text-text-secondary">{item.description}</p>
-            </motion.div>
-          ))}
+      <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)" }}>
+        <div className="mx-auto max-w-5xl px-6 relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center text-3xl font-bold text-white"
+          >
+            Built for Security
+          </motion.h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            {securityHighlights.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={i}
+                className="rounded-xl border border-white/10 bg-white/[0.07] backdrop-blur p-6 text-center"
+              >
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center mx-auto mb-4">
+                  <item.icon size={22} className="text-emerald-400" />
+                </div>
+                <h3 className="mb-1 text-lg font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-slate-400">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -129,23 +129,23 @@ export default function RegulatorsPageClient() {
       </section>
 
       {/* Capabilities */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)" }}>
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={vp}
-            className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">Platform Capabilities</motion.p>
+            className="text-center text-emerald-400 text-sm font-semibold tracking-widest uppercase mb-4">Platform Capabilities</motion.p>
           <motion.h2 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp}
-            className="font-display text-3xl md:text-4xl text-text-primary text-center mb-14">
+            className="font-display text-3xl md:text-4xl text-white text-center mb-14">
             What LCA Desk Does for Your Secretariat
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {capabilities.map((cap, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={vp} transition={{ delay: i * 0.06 }}
-                className="bg-card rounded-2xl border border-border p-6 card-lift">
-                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-                  <cap.icon size={20} className="text-accent" />
+                className="bg-white/[0.07] backdrop-blur rounded-2xl border border-white/10 p-6">
+                <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center mb-4">
+                  <cap.icon size={20} className="text-emerald-400" />
                 </div>
-                <h3 className="font-semibold text-text-primary mb-2 text-[15px]">{cap.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{cap.desc}</p>
+                <h3 className="font-semibold text-white mb-2 text-[15px]">{cap.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{cap.desc}</p>
               </motion.div>
             ))}
           </div>

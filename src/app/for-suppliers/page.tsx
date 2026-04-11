@@ -92,10 +92,10 @@ export default function ForSuppliersPage() {
       </section>
 
       {/* How it works for suppliers */}
-      <section className="py-20 bg-surface">
-        <div className="max-w-5xl mx-auto px-6">
-          <p className="text-center text-accent text-sm font-semibold tracking-widest uppercase mb-4">How It Works</p>
-          <h2 className="font-display text-3xl md:text-4xl text-text-primary text-center mb-14">
+      <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)" }}>
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <p className="text-center text-amber-400 text-sm font-semibold tracking-widest uppercase mb-4">How It Works</p>
+          <h2 className="font-display text-3xl md:text-4xl text-white text-center mb-14">
             Three steps to getting discovered
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -105,12 +105,12 @@ export default function ForSuppliersPage() {
               { step: "03", title: "Respond to opportunities", desc: "Browse procurement opportunities from contractors, express interest, and track your responses — all in one place.", icon: TrendingUp },
             ].map((s, i) => (
               <div key={i} className="text-center">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-50 border border-amber-200 flex items-center justify-center mx-auto mb-5">
-                  <s.icon size={28} className="text-amber-600" />
+                <div className="w-20 h-20 rounded-2xl bg-amber-500/15 border border-amber-500/20 flex items-center justify-center mx-auto mb-5">
+                  <s.icon size={28} className="text-amber-400" />
                 </div>
-                <span className="text-amber-600 text-xs font-bold tracking-widest uppercase" style={{ fontFamily: "var(--font-tech)" }}>Step {s.step}</span>
-                <h3 className="font-semibold text-text-primary text-lg mt-2 mb-2">{s.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed max-w-xs mx-auto">{s.desc}</p>
+                <span className="text-amber-400 text-xs font-bold tracking-widest uppercase" style={{ fontFamily: "var(--font-tech)" }}>Step {s.step}</span>
+                <h3 className="font-semibold text-white text-lg mt-2 mb-2">{s.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed max-w-xs mx-auto">{s.desc}</p>
               </div>
             ))}
           </div>
