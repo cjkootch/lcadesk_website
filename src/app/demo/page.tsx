@@ -117,7 +117,7 @@ export default function DemoPage() {
               <p className="text-xs text-text-muted mb-3">
                 Try a live pre-filled dashboard — no signup, no form. See a real compliance workflow in seconds.
               </p>
-              <a href="https://app.lcadesk.com/try" className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline">
+              <a href="https://app.lcadesk.com/demo/select-public" className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline">
                 Open live demo <ArrowRight size={14} />
               </a>
             </div>
@@ -144,7 +144,7 @@ export default function DemoPage() {
                 </p>
                 <div className="flex flex-col gap-2 pt-2 border-t border-border">
                   <p className="text-xs text-text-muted mb-1">Explore on your own while you wait:</p>
-                  <a href="https://app.lcadesk.com/try" className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
+                  <a href="https://app.lcadesk.com/demo/select-public" className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline">
                     Open live demo — no signup <ArrowRight size={14} />
                   </a>
                   <a href="https://app.lcadesk.com/auth/signup?role=filer" className="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text-secondary hover:underline">
