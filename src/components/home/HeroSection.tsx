@@ -54,7 +54,7 @@ export default function HeroSection() {
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35, duration: 0.5 }}
             className="text-xs text-text-muted mb-4">
             Or{" "}
-            <a href="https://app.lcadesk.com/try" className="text-accent hover:underline font-medium">
+            <a href="https://app.lcadesk.com/demo/select-public" className="text-accent hover:underline font-medium">
               explore a live demo without signing up &rarr;
             </a>
           </motion.p>
