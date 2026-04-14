@@ -177,8 +177,37 @@ export default function RootLayout({
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
             gtag('js', new Date());
             gtag('config', 'G-J4T660ZKK3');
+            gtag('event', 'conversion_event_purchase', {});
+
+            // Delayed navigation helper for conversion tracking
+            window.gtagSendEvent = function(url) {
+              var callback = function () {
+                if (typeof url === 'string') { window.location = url; }
+              };
+              gtag('event', 'conversion_event_purchase', {
+                'event_callback': callback,
+                'event_timeout': 2000,
+              });
+              return false;
+            };
+
+            // Fire conversion on any Start Free Trial click (signup link)
+            document.addEventListener('click', function(e) {
+              var el = e.target.closest && e.target.closest('a');
+              if (!el) return;
+              var href = el.getAttribute('href') || '';
+              if (href.indexOf('app.lcadesk.com/auth/signup') === -1) return;
+              if (el.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey) {
+                // Let the browser open new tab normally; still fire event without callback
+                gtag('event', 'conversion_event_purchase', {});
+                return;
+              }
+              e.preventDefault();
+              window.gtagSendEvent(href);
+            });
           `}
         </Script>
         <Script
