@@ -180,7 +180,6 @@ export default function RootLayout({
             window.gtag = gtag;
             gtag('js', new Date());
             gtag('config', 'G-J4T660ZKK3');
-            gtag('event', 'conversion_event_purchase', {});
 
             // Delayed navigation helper for conversion tracking
             window.gtagSendEvent = function(url) {
