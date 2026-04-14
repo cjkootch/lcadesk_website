@@ -214,6 +214,11 @@ export default function RootLayout({
           src="//js-na2.hs-scripts.com/245833475.js"
           strategy="afterInteractive"
         />
+        <Script
+          id="contentsquare"
+          src="https://t.contentsquare.net/uxa/5e4a32d1b4839.js"
+          strategy="afterInteractive"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
