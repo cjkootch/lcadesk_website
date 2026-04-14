@@ -181,27 +181,29 @@ export default function RootLayout({
             gtag('js', new Date());
             gtag('config', 'G-J4T660ZKK3');
 
-            // Delayed navigation helper for conversion tracking
+            // Delayed navigation helper — fires trial intent event, then navigates.
+            // The actual conversion_event_purchase fires from the app after signup completes.
             window.gtagSendEvent = function(url) {
               var callback = function () {
                 if (typeof url === 'string') { window.location = url; }
               };
-              gtag('event', 'conversion_event_purchase', {
+              gtag('event', 'begin_checkout', {
                 'event_callback': callback,
                 'event_timeout': 2000,
+                'source': 'marketing_site_cta',
               });
               return false;
             };
 
-            // Fire conversion on any Start Free Trial click (signup link)
+            // Fire trial-signup intent on any Start Free Trial click (signup link)
             document.addEventListener('click', function(e) {
               var el = e.target.closest && e.target.closest('a');
               if (!el) return;
               var href = el.getAttribute('href') || '';
               if (href.indexOf('app.lcadesk.com/auth/signup') === -1) return;
               if (el.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey) {
-                // Let the browser open new tab normally; still fire event without callback
-                gtag('event', 'conversion_event_purchase', {});
+                // New-tab/modifier click — fire without callback, let browser navigate
+                gtag('event', 'begin_checkout', { 'source': 'marketing_site_cta' });
                 return;
               }
               e.preventDefault();
