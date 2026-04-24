@@ -35,9 +35,9 @@
   --color-text-muted: var(--text-muted);
   --color-emerald-deep: var(--emerald-deep);
   --color-teal: var(--teal);
-  --font-display: 'Inter', sans-serif;
-  --font-sans: 'DM Sans', sans-serif;
-  --font-tech: 'Inter', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-tech: 'Montserrat', sans-serif;
 }
 
 html {
