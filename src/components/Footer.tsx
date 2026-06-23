@@ -21,6 +21,7 @@ const columns = [
       { label: "Company Directory", href: "/companies" },
       { label: "Supplier Directory", href: "/suppliers" },
       { label: "Verify LCS Certificate", href: "/verify" },
+      { label: "AI Resume Builder", href: "/resume-builder" },
     ],
   },
   {
@@ -53,6 +54,7 @@ const columns = [
       { label: "For Regulators", href: "/for-regulators" },
       { label: "For Contractors", href: "/for-contractors" },
       { label: "For Suppliers", href: "/for-suppliers" },
+      { label: "For Job Seekers", href: "/for-job-seekers" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
       { label: "Affiliate Program", href: "/affiliate" },
