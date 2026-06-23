@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function SignupPage() {
-  redirect("https://app.lcadesk.com/auth/signup");
+  redirect("https://app.lcadesk.com/auth/signup?role=filer");
 }
