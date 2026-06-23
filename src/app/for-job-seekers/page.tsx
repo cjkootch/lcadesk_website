@@ -27,7 +27,8 @@ const features = [
   {
     icon: FileText,
     title: "AI resume builder",
-    desc: "Build an industry-optimized resume that highlights the skills and certifications contractors are looking for.",
+    desc: "Build an industry-optimized resume in under 2 minutes. $15 one-time, lifetime access.",
+    link: "/resume-builder",
   },
   {
     icon: GraduationCap,
@@ -114,6 +115,11 @@ export default function ForJobSeekersPage() {
                 </div>
                 <h3 className="font-semibold text-text-primary mb-2 text-[15px]">{f.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{f.desc}</p>
+                {"link" in f && f.link && (
+                  <Link href={f.link as string} className="inline-flex items-center gap-1 text-xs font-semibold text-accent hover:underline mt-3">
+                    Learn more <ArrowRight size={12} />
+                  </Link>
+                )}
               </div>
             ))}
           </div>

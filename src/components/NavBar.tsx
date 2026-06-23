@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, Briefcase, Users, Building2, Package } from "lucide-react";
+import { Menu, X, ChevronDown, Briefcase, Users, Building2, Package, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const topLinks = [
@@ -18,6 +18,7 @@ const directoryLinks = [
   { href: "/opportunities", label: "Opportunities", desc: "Procurement and tenders", icon: Briefcase },
   { href: "/companies", label: "Companies", desc: "Sector company profiles", icon: Building2 },
   { href: "/suppliers", label: "Supplier Directory", desc: "Registered suppliers and services", icon: Package },
+  { href: "/resume-builder", label: "Resume Builder", desc: "AI-powered resumes for oil & gas", icon: FileText },
 ];
 
 const allMobileLinks = [
@@ -29,6 +30,7 @@ const allMobileLinks = [
   { href: "/opportunities", label: "Opportunities" },
   { href: "/companies", label: "Companies" },
   { href: "/suppliers", label: "Supplier Directory" },
+  { href: "/resume-builder", label: "Resume Builder" },
   { href: "/blog", label: "Blog" },
 ];
 
